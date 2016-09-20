@@ -3,7 +3,7 @@ numform
 
 
 [![Build
-Status](https://travis-ci.org/trinker/numform/svg?branch=master)](https://travis-ci.org/trinker/numform)
+Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
 [![Coverage
 Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](https://coveralls.io/r/trinker/numform/branch=master)
 <a href="https://img.shields.io/badge/Version-0.0.1-orange.svg"><img src="https://img.shields.io/badge/Version-0.0.1-orange.svg" alt="Version"/></a>
@@ -19,6 +19,12 @@ Table of Contents
 -   [[Installation](#installation)](#[installation](#installation))
 -   [[Contact](#contact)](#[contact](#contact))
 -   [[Demonstration](#demonstration)](#[demonstration](#demonstration))
+    -   [[Load Packages](#load-packages)](#[load-packages](#load-packages))
+    -   [[Numbers](#numbers)](#[numbers](#numbers))
+    -   [[Commas](#commas)](#[commas](#commas))
+    -   [[Percents](#percents)](#[percents](#percents))
+    -   [[Dollars](#dollars)](#[dollars](#dollars))
+    -   [[Modeling](#modeling)](#[modeling](#modeling))
 
 Installation
 ============
@@ -47,12 +53,61 @@ You are welcome to:
 Demonstration
 =============
 
+Load Packages
+-------------
+
+    if (!require("pacman")) install.packages("pacman")
+    pacman::p_load_gh("trinker/numform")
+    pacman::p_load(dplyr)
+
+Numbers
+-------
+
     f_num(c(0.0, 0, .2, -00.02, 1.122222, pi, "A"))
 
     ## Warning in f_num(c(0, 0, 0.2, -0.02, 1.122222, pi, "A")): NAs introduced by
     ## coercion
 
     ## [1] ".0"  ".0"  ".2"  "-.0" "1.1" "3.1" NA
+
+Commas
+------
+
+    f_comma(c(1234.12345, 1234567890, .000034034, 123000000000, -1234567))
+
+    ## [1] "1,234.123"       "1,234,567,890"   ".000034034"      "123,000,000,000"
+    ## [5] "-1,234,567"
+
+Percents
+--------
+
+    f_percent(c(30, 33.45, .1), 1)
+
+    ## [1] "30.0%" "33.5%" ".1%"
+
+    f_percent(c(0.0, 0, .2, -00.02, 1.122222, pi))
+
+    ## [1] ".0%"  ".0%"  ".2%"  "-.0%" "1.1%" "3.1%"
+
+    f_prop2percent(c(.30, 1, 1.01, .33, .222, .01))
+
+    ## [1] "30.0%"  "100.0%" "101.0%" "33.0%"  "22.2%"  "1.0%"
+
+Dollars
+-------
+
+    f_dollar(c(0, 30, 33.45, .1))
+
+    ## [1] "$0.00"  "$30.00" "$33.45" "$0.10"
+
+    f_dollar(c(0.0, 0, .2, -00.02, 1122222, pi)) %>% 
+        f_comma()
+
+    ## [1] "$0.00"         "$0.00"         "$0.20"         "$-.02"        
+    ## [5] "$1,122,222.00" "$3.14"
+
+Modeling
+--------
 
 We can see its use in actual model reporting as well:
 

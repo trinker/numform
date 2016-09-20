@@ -18,7 +18,7 @@ ver <- gsub(regex, "\\2", desc[loc])
 verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg"><img src="https://img.shields.io/badge/Version-%s-orange.svg" alt="Version"/></a></p>', ver, ver)
 ````
 
-[![Build Status](https://travis-ci.org/trinker/numform/svg?branch=master)](https://travis-ci.org/trinker/numform)
+[![Build Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
 [![Coverage Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](https://coveralls.io/r/trinker/numform/branch=master)
 `r verbadge`
 
@@ -45,10 +45,43 @@ You are welcome to:
 
 # Demonstration
 
+## Load Packages
+
+```{r}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load_gh("trinker/numform")
+pacman::p_load(dplyr)
+```
+
+## Numbers
+
 ```{r, warn=FALSE}
 f_num(c(0.0, 0, .2, -00.02, 1.122222, pi, "A"))
 ```
 
+## Commas
+
+```{r, warn=FALSE}
+f_comma(c(1234.12345, 1234567890, .000034034, 123000000000, -1234567))
+```
+
+## Percents
+
+```{r, warn=FALSE}
+f_percent(c(30, 33.45, .1), 1)
+f_percent(c(0.0, 0, .2, -00.02, 1.122222, pi))
+f_prop2percent(c(.30, 1, 1.01, .33, .222, .01))
+```
+
+## Dollars
+
+```{r, warn=FALSE}
+f_dollar(c(0, 30, 33.45, .1))
+f_dollar(c(0.0, 0, .2, -00.02, 1122222, pi)) %>% 
+    f_comma()
+```
+
+## Modeling
 
 We can see its use in actual model reporting as well:
 
