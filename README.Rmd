@@ -81,7 +81,7 @@ report <- function(mod, stat = NULL, digits = c(0, 2, 2)) {
     stat <- if (is.null(stat)) stat <- names(mod[["statistic"]])
     sprintf(
         "%s(%s) = %s, %s", 
-        stat,
+        gsub('X-squared', '&Chi;<sup>2</sup>', stat),
         paste(f_num(mod[["parameter"]], digits[1]), collapse = ", "),
         f_num(mod[["statistic"]], digits[2]),
         f_percent(mod[["p.value"]], digits = digits[3])
@@ -98,6 +98,7 @@ This enables in-text usage as well.  First set up the models in a code chunk:
 
 ```{r}
 mymod <- oneway.test(count ~ spray, InsectSprays)
+mymod2 <- chisq.test(matrix(c(12, 5, 7, 7), ncol = 2))
 ```
 
-And then use `r rinline("report(mymod)")` resulting in a report that looks like this: `r report(mymod)`
+And then use `r rinline("report(mymod)")` resulting in a report that looks like this: `r report(mymod)`.  For &Chi;<sup>2</sup> using proper HTML leads to `r report(mymod2)`.
