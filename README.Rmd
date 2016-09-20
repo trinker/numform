@@ -59,7 +59,7 @@ mod1 <- t.test(1:10, y = c(7:20))
 sprintf(
     "t = %s (%s)",
     f_num(mod1$statistic),
-    f_percent(mod1$p.value)
+    f_pval(mod1$p.value)
 )
 ```
 
@@ -69,7 +69,7 @@ mod2 <- t.test(1:10, y = c(7:20, 200))
 sprintf(
     "t = %s (%s)",
     f_num(mod2$statistic, 2),
-    f_percent(mod2$p.value, digits = 2)
+    f_pval(mod2$p.value, digits = 2)
 )
 ```
 

@@ -61,20 +61,20 @@ We can see its use in actual model reporting as well:
     sprintf(
         "t = %s (%s)",
         f_num(mod1$statistic),
-        f_percent(mod1$p.value)
+        f_pval(mod1$p.value)
     )
 
-    ## [1] "t = -5.4 (.0%)"
+    ## [1] "t = -5.4 (p < .05)"
 
     mod2 <- t.test(1:10, y = c(7:20, 200))
 
     sprintf(
         "t = %s (%s)",
         f_num(mod2$statistic, 2),
-        f_percent(mod2$p.value, digits = 2)
+        f_pval(mod2$p.value, digits = 2)
     )
 
-    ## [1] "t = -1.63 (.12%)"
+    ## [1] "t = -1.63 (p = .12)"
 
 We can build a function to report model statistics:
 
