@@ -19,7 +19,7 @@ verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg
 ````
 
 [![Build Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
-[![Coverage Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](https://coveralls.io/r/trinker/numform/branch=master)
+[![Coverage Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](https://coveralls.io/r/trinker/numform?branch=master) 
 `r verbadge`
 
 **numform** contains tools to assist in the formatting of numbers for publication.  Tools include the removal of leading zeros, standardization of number of digits, and a p-value formatter.
