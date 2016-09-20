@@ -86,22 +86,22 @@ We can build a function to report model statistics:
             gsub('X-squared', '&Chi;<sup>2</sup>', stat),
             paste(f_num(mod[["parameter"]], digits[1]), collapse = ", "),
             f_num(mod[["statistic"]], digits[2]),
-            f_percent(mod[["p.value"]], digits = digits[3])
+            f_pval(mod[["p.value"]], digits = digits[3])
         )
 
     }
 
     report(mod1)
 
-    ## [1] "t(22) = -5.43, .00%"
+    ## [1] "t(22) = -5.43, p < .05"
 
     report(oneway.test(count ~ spray, InsectSprays))
 
-    ## [1] "F(5, 30) = 36.07, .00%"
+    ## [1] "F(5, 30) = 36.07, p < .05"
 
     report(chisq.test(matrix(c(12, 5, 7, 7), ncol = 2)))
 
-    ## [1] "&Chi;<sup>2</sup>(1) = .64, .42%"
+    ## [1] "&Chi;<sup>2</sup>(1) = .64, p = .42"
 
 This enables in-text usage as well. First set up the models in a code
 chunk:
@@ -110,6 +110,6 @@ chunk:
     mymod2 <- chisq.test(matrix(c(12, 5, 7, 7), ncol = 2))
 
 And then use <code class="r">`` `r report(mymod)` ``</code> resulting in
-a report that looks like this: F(5, 30) = 36.07, .00%. For
+a report that looks like this: F(5, 30) = 36.07, p &lt; .05. For
 &Chi;<sup>2</sup> using proper HTML leads to &Chi;<sup>2</sup>(1) = .64,
-.42%.
+p = .42.

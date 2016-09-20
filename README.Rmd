@@ -84,7 +84,7 @@ report <- function(mod, stat = NULL, digits = c(0, 2, 2)) {
         gsub('X-squared', '&Chi;<sup>2</sup>', stat),
         paste(f_num(mod[["parameter"]], digits[1]), collapse = ", "),
         f_num(mod[["statistic"]], digits[2]),
-        f_percent(mod[["p.value"]], digits = digits[3])
+        f_pval(mod[["p.value"]], digits = digits[3])
     )
 
 }
