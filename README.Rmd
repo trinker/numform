@@ -1,0 +1,103 @@
+---
+title: "numform"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  md_document:
+    toc: true      
+---
+
+```{r, echo=FALSE}
+pacman::p_load(numform)
+rinline <- function(code) { 
+    sprintf('<code class="r">``` `r %s` ```</code>', code) 
+} 
+desc <- suppressWarnings(readLines("DESCRIPTION"))
+regex <- "(^Version:\\s+)(\\d+\\.\\d+\\.\\d+)"
+loc <- grep(regex, desc)
+ver <- gsub(regex, "\\2", desc[loc])
+verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg"><img src="https://img.shields.io/badge/Version-%s-orange.svg" alt="Version"/></a></p>', ver, ver)
+````
+
+[![Build Status](https://travis-ci.org/trinker/numform/svg?branch=master)](https://travis-ci.org/trinker/numform)
+[![Coverage Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](https://coveralls.io/r/trinker/numform/branch=master)
+`r verbadge`
+
+**numform** contains tools to assist in the formatting of numbers for publication.  Tools include the removal of leading zeros, standardization of number of digits, and a p-value formatter.
+
+# Installation
+
+To download the development version of **numform**:
+
+Download the [zip ball](https://github.com/trinker/numform/zipball/master) or [tar ball](https://github.com/trinker/numform/tarball/master), decompress and run `R CMD INSTALL` on it, or use the **pacman** package to install the development version:
+
+```r
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load_gh("trinker/numform")
+```
+
+# Contact
+
+You are welcome to:
+* submit suggestions and bug-reports at: <https://github.com/trinker/numform/issues>
+* send a pull request on: <https://github.com/trinker/numform>
+* compose a friendly e-mail to: <tyler.rinker@gmail.com>
+
+
+# Demonstration
+
+```{r, warn=FALSE}
+f_num(c(0.0, 0, .2, -00.02, 1.122222, pi, "A"))
+```
+
+
+We can see its use in actual model reporting as well:
+
+
+```{r}
+mod1 <- t.test(1:10, y = c(7:20))
+
+sprintf(
+    "t = %s (%s)",
+    f_num(mod1$statistic),
+    f_percent(mod1$p.value)
+)
+```
+
+```{r}
+mod2 <- t.test(1:10, y = c(7:20, 200))
+
+sprintf(
+    "t = %s (%s)",
+    f_num(mod2$statistic, 2),
+    f_percent(mod2$p.value, digits = 2)
+)
+```
+
+We can build a function to report model statistics:
+
+```{r}
+report <- function(mod, stat = NULL, digits = c(0, 2, 2)) {
+    
+    stat <- if (is.null(stat)) stat <- names(mod[["statistic"]])
+    sprintf(
+        "%s(%s) = %s, %s", 
+        stat,
+        paste(f_num(mod[["parameter"]], digits[1]), collapse = ", "),
+        f_num(mod[["statistic"]], digits[2]),
+        f_percent(mod[["p.value"]], digits = digits[3])
+    )
+
+}
+
+report(mod1)
+report(oneway.test(count ~ spray, InsectSprays))
+report(chisq.test(matrix(c(12, 5, 7, 7), ncol = 2)))
+```
+
+This enables in-text usage as well.  First set up the models in a code chunk:
+
+```{r}
+mymod <- oneway.test(count ~ spray, InsectSprays)
+```
+
+And then use `r rinline("report(mymod)")` resulting in a report that looks like this: `r report(mymod)`
