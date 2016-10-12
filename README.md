@@ -21,6 +21,7 @@ Table of Contents
 -   [[Demonstration](#demonstration)](#[demonstration](#demonstration))
     -   [[Load Packages](#load-packages)](#[load-packages](#load-packages))
     -   [[Numbers](#numbers)](#[numbers](#numbers))
+    -   [[Abbreviated Numbers](#abbreviated-numbers)](#[abbreviated-numbers](#abbreviated-numbers))
     -   [[Commas](#commas)](#[commas](#commas))
     -   [[Percents](#percents)](#[percents](#percents))
     -   [[Dollars](#dollars)](#[dollars](#dollars))
@@ -69,6 +70,45 @@ Numbers
     ## coercion
 
     ## [1] ".0"  ".0"  ".2"  "-.0" "1.1" "3.1" NA
+
+Abbreviated Numbers
+-------------------
+
+    f_thous(1234)
+
+    ## [1] "1K"
+
+    f_thous(12345)
+
+    ## [1] "12K"
+
+    f_thous(123456)
+
+    ## [1] "123K"
+
+    f_mills(1234567)
+
+    ## [1] "1M"
+
+    f_mills(12345678)
+
+    ## [1] "12M"
+
+    f_mills(123456789)
+
+    ## [1] "123M"
+
+    f_bills(1234567891)
+
+    ## [1] "1B"
+
+    f_bills(12345678912)
+
+    ## [1] "12B"
+
+    f_bills(123456789123)
+
+    ## [1] "123B"
 
 Commas
 ------

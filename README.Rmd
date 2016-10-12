@@ -59,6 +59,20 @@ pacman::p_load(dplyr)
 f_num(c(0.0, 0, .2, -00.02, 1.122222, pi, "A"))
 ```
 
+## Abbreviated Numbers
+
+```{r, warn=FALSE}
+f_thous(1234)
+f_thous(12345)
+f_thous(123456)
+f_mills(1234567)
+f_mills(12345678)
+f_mills(123456789)
+f_bills(1234567891)
+f_bills(12345678912)
+f_bills(123456789123)
+```
+
 ## Commas
 
 ```{r, warn=FALSE}
