@@ -27,6 +27,9 @@
 #' f_bills(123456789123, +1) # round to tenths
 #' f_bills(123456789123, +2) # round to hundreths
 #' \dontrun{
+#' if (!require("pacman")) install.packages("pacman")
+#' pacman::p_load(dplyr)
+#'
 #' f_bills(123456789123, -2) %>%
 #'     f_prefix("$")
 #' }
