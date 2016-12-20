@@ -5,10 +5,9 @@
 #' @param x A vector of elements to append with an affix.
 #' @param prefix A string to append to the front of elements.
 #' @param suffix A string to append to the back of elements.
-#' @return
+#' @return Returns a string of affix appended digits.
 #' @export
 #' @rdname f_affix
-#' @seealso
 #' @examples
 #' f_affix(1:5, "-", "%")
 #' f_affix(f_num(1:5, 2), "-", "%")

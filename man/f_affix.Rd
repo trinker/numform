@@ -19,6 +19,9 @@ f_suffix(x, suffix = "\%")
 
 \item{suffix}{A string to append to the back of elements.}
 }
+\value{
+Returns a string of affix appended digits.
+}
 \description{
 Convenience function to add affixes to strings (prefixes & suffixes).
 }
