@@ -24,5 +24,27 @@ nominal data where as  \code{f_number2month} is reserved for integers
 \examples{
 f_month(month.name)
 f_number2month(1:12)
+\dontrun{
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse)
+
+set.seed(10)
+dat <- data_frame(
+    month = sample(month.name, 1000, TRUE),
+    area =  sample(LETTERS[1:5], 1000, TRUE)
+) \%>\%
+    count(month, area) \%>\%
+    ungroup() \%>\%
+    mutate(month = factor(month, levels = month.name))
+
+ggplot(dat, aes(month, n)) +
+    geom_bar(stat = 'identity') +
+    facet_wrap(~ area)
+
+ggplot(dat, aes(month, n)) +
+    geom_bar(stat = 'identity') +
+    facet_wrap(~ area) +
+    scale_x_discrete(labels = f_month)
+}
 }
 
