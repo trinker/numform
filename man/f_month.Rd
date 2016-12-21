@@ -2,28 +2,36 @@
 % Please edit documentation in R/f_month.R
 \name{f_month}
 \alias{f_month}
-\alias{f_number2month}
+\alias{f_month.Date}
+\alias{f_month.default}
+\alias{f_month.numeric}
 \title{Format Months to One Letter Abbreviation}
 \usage{
-f_month(x)
+f_month(x, ...)
 
-f_number2month(x)
+\method{f_month}{default}(x, ...)
+
+\method{f_month}{numeric}(x, ...)
+
+\method{f_month}{Date}(x, ...)
 }
 \arguments{
-\item{x}{A vector of month names or integers 1-12.}
+\item{x}{A vector of month names, integers 1-12, or dates.}
 }
 \value{
 Returns a single letter month abbreviation atomic vector.
 }
 \description{
-Format long month name or integer formats to a single capital letter.  Useful
-for plot scales as a way to save space.  \code{f_month} is used for
-nominal data where as  \code{f_number2month} is reserved for integers
-1-12.
+Format long month name, integer, or date formats to a single capital letter.
+Useful for plot scales as a way to save space.
 }
 \examples{
 f_month(month.name)
-f_number2month(1:12)
+
+f_month(1:12)
+
+dates <- seq(as.Date("2000/1/1"), by = "month", length.out = 12)
+f_month(dates)
 \dontrun{
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse)
@@ -37,10 +45,12 @@ dat <- data_frame(
     ungroup() \%>\%
     mutate(month = factor(month, levels = month.name))
 
+## without date formatting
 ggplot(dat, aes(month, n)) +
     geom_bar(stat = 'identity') +
     facet_wrap(~ area)
 
+## with date formatting
 ggplot(dat, aes(month, n)) +
     geom_bar(stat = 'identity') +
     facet_wrap(~ area) +
