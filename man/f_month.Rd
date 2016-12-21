@@ -17,6 +17,8 @@ f_month(x, ...)
 }
 \arguments{
 \item{x}{A vector of month names, integers 1-12, or dates.}
+
+\item{\ldots}{ignored.}
 }
 \value{
 Returns a single letter month abbreviation atomic vector.

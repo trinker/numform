@@ -4,6 +4,7 @@
 #' Useful for plot scales as a way to save space.
 #'
 #' @param x A vector of month names, integers 1-12, or dates.
+#' @param \ldots ignored.
 #' @return Returns a single letter month abbreviation atomic vector.
 #' @export
 #' @rdname f_month
