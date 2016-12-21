@@ -10,6 +10,9 @@
 #' @param x_digits The number of digits to round the x vector.
 #' @param y_digits The number of digits to round the y vector.
 #' @param sep The separator between the first number and the leading parenthesis.
+#' @param x_prefix A constant to place before each value in the x vector.
+#' @param y_prefix A constant to place before each value in the y
+#' vector inside of the prenthesis.
 #' @param prop_fun The proportion function to convert the y y vector in
 #' \code{f_num_percent}.  Default is \code{f_prop2percent}.  \code{f_percent} is
 #' used for when the values are alrey percentages.
@@ -50,10 +53,10 @@
 #'         n_perc = f_num_percent(n, prop, 0)
 #'     )
 #' }
-f_parenthesis <- function(x, y, sep = "", prefix = "", parenthesis_prefix = "", ...){
+f_parenthesis <- function(x, y, sep = "", x_prefix = "", y_prefix = "", ...){
     paste(
-        paste0(prefix, x),
-        paste0("(", parenthesis_prefix, y, ")"),
+        paste0(x_prefix, x),
+        paste0("(", y_prefix, y, ")"),
         sep = sep
     )
 }

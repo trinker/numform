@@ -6,7 +6,7 @@
 \alias{f_parenthesis}
 \title{Parenthesis Formatting of Two Vectors}
 \usage{
-f_parenthesis(x, y, sep = "", prefix = "", parenthesis_prefix = "", ...)
+f_parenthesis(x, y, sep = "", x_prefix = "", y_prefix = "", ...)
 
 f_mean_sd(x, y, x_digits = 1, y_digits = x_digits, sep = "", ...)
 
@@ -21,6 +21,11 @@ f_num_percent(x, y, x_digits = 1, y_digits = x_digits, sep = "",
 \code{f_num_percent} the percent/proportion vector).}
 
 \item{sep}{The separator between the first number and the leading parenthesis.}
+
+\item{x_prefix}{A constant to place before each value in the x vector.}
+
+\item{y_prefix}{A constant to place before each value in the y
+vector inside of the prenthesis.}
 
 \item{x_digits}{The number of digits to round the x vector.}
 
