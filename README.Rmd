@@ -7,7 +7,7 @@ output:
 ---
 
 ```{r, echo=FALSE}
-pacman::p_load(numform)
+pacman::p_load(numform, xtable, wakefield)
 rinline <- function(code) { 
     sprintf('<code class="r">``` `r %s` ```</code>', code) 
 } 
@@ -41,6 +41,18 @@ You are welcome to:
 * submit suggestions and bug-reports at: <https://github.com/trinker/numform/issues>
 * send a pull request on: <https://github.com/trinker/numform>
 * compose a friendly e-mail to: <tyler.rinker@gmail.com>
+
+# Available Functions
+
+Below is a table of available **numform** functions.  Note that `f_` is read as "format" whereas `fv_` is read as "format vector".  The former formats individual values in the vector while the latter uses the vector to compute a calculation on each of the values and then formats them.
+
+
+```{r, results='asis', echo=FALSE, comment=NA, warning=FALSE, htmlcap="Available Formatting Functions"}
+wakefield:::variables_as_matrix(p_funs(numform)) %>%
+    xtable::xtable() %>%
+    print(type = 'html', include.colnames = FALSE, include.rownames = FALSE,
+        html.table.attributes = '')
+```
 
 
 # Demonstration

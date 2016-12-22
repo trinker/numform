@@ -18,6 +18,7 @@ Table of Contents
 
 -   [[Installation](#installation)](#[installation](#installation))
 -   [[Contact](#contact)](#[contact](#contact))
+-   [[Available Functions](#available-functions)](#[available-functions](#available-functions))
 -   [[Demonstration](#demonstration)](#[demonstration](#demonstration))
     -   [[Load Packages](#load-packages)](#[load-packages](#load-packages))
     -   [[Numbers](#numbers)](#[numbers](#numbers))
@@ -51,6 +52,100 @@ You are welcome to:
 * compose a friendly e-mail to: <tyler.rinker@gmail.com>
 
 
+Available Functions
+===================
+
+Below is a table of available **numform** functions. Note that `f_` is
+read as "format" whereas `fv_` is read as "format vector". The former
+formats individual values in the vector while the latter uses the vector
+to compute a calculation on each of the values and then formats them.
+
+<!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
+<!-- Thu Dec 22 10:40:32 2016 -->
+<table>
+<tr>
+<td>
+f_affix
+</td>
+<td>
+f_mills
+</td>
+<td>
+f_parenthesis
+</td>
+<td>
+f_sign
+</td>
+<td>
+fv_percent
+</td>
+</tr>
+<tr>
+<td>
+f_bills
+</td>
+<td>
+f_month
+</td>
+<td>
+f_percent
+</td>
+<td>
+f_suffix
+</td>
+<td>
+fv_percent_diff
+</td>
+</tr>
+<tr>
+<td>
+f_comma
+</td>
+<td>
+f_num
+</td>
+<td>
+f_prefix
+</td>
+<td>
+f_thous
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+f_dollar
+</td>
+<td>
+f_num_percent
+</td>
+<td>
+f_prop2percent
+</td>
+<td>
+f_weekday
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+f_mean_sd
+</td>
+<td>
+f_ordinal
+</td>
+<td>
+f_pval
+</td>
+<td>
+fv_num_percent
+</td>
+<td>
+</td>
+</tr>
+</table>
 Demonstration
 =============
 
