@@ -135,7 +135,7 @@ data_frame(
         thous = f_thous(revenue),
         thous_dollars = f_thous(revenue, prefix = '$'),
         abb_month = f_month(date),
-        abb_week = f_weekday(date, distinct = TRUE)
+        abb_week = factor(f_weekday(date, distinct = TRUE), levels = c('Su', 'M', 'T', 'W', 'Th', 'F', 'S'))
     ) %T>%
     print() %>%
     ggplot(aes(abb_week, revenue)) +

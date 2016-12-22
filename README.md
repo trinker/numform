@@ -63,7 +63,7 @@ formats individual values in the vector while the latter uses the vector
 to compute a calculation on each of the values and then formats them.
 
 <!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
-<!-- Thu Dec 22 11:37:07 2016 -->
+<!-- Thu Dec 22 11:39:56 2016 -->
 <table>
 <tr>
 <td>
@@ -261,7 +261,7 @@ Plotting
             thous = f_thous(revenue),
             thous_dollars = f_thous(revenue, prefix = '$'),
             abb_month = f_month(date),
-            abb_week = f_weekday(date, distinct = TRUE)
+            abb_week = factor(f_weekday(date, distinct = TRUE), levels = c('Su', 'M', 'T', 'W', 'Th', 'F', 'S'))
         ) %T>%
         print() %>%
         ggplot(aes(abb_week, revenue)) +
@@ -273,17 +273,17 @@ Plotting
     ## # A tibble: 10,000 × 8
     ##     revenue       date   site  dollar thous thous_dollars abb_month
     ##       <dbl>     <date>  <chr>   <chr> <chr>         <chr>     <chr>
-    ## 1  485137.9 1999-12-01 Site 5 $485000  485K         $485K         D
-    ## 2  557003.2 1999-12-13 Site 5 $557000  557K         $557K         D
-    ## 3  504327.6 1999-07-28 Site 5 $504000  504K         $504K         J
-    ## 4  499311.9 1999-12-06 Site 1 $499000  499K         $499K         D
-    ## 5  515171.6 1999-06-15 Site 4 $515000  515K         $515K         J
-    ## 6  591029.9 1999-07-31 Site 3 $591000  591K         $591K         J
-    ## 7  539718.0 1999-04-07 Site 3 $540000  540K         $540K         A
-    ## 8  430662.6 1999-01-10 Site 5 $431000  431K         $431K         J
-    ## 9  464238.4 1999-04-08 Site 5 $464000  464K         $464K         A
-    ## 10 465105.9 1999-01-05 Site 5 $465000  465K         $465K         J
-    ## # ... with 9,990 more rows, and 1 more variables: abb_week <chr>
+    ## 1  452330.0 1999-10-15 Site 1 $452000  452K         $452K         O
+    ## 2  593915.8 1999-08-15 Site 3 $594000  594K         $594K         A
+    ## 3  413368.6 1999-04-17 Site 1 $413000  413K         $413K         A
+    ## 4  530987.9 1999-09-24 Site 3 $531000  531K         $531K         S
+    ## 5  501330.1 1999-02-28 Site 4 $501000  501K         $501K         F
+    ## 6  481456.4 1999-05-23 Site 2 $481000  481K         $481K         M
+    ## 7  441079.1 1999-08-29 Site 4 $441000  441K         $441K         A
+    ## 8  549676.1 1999-01-11 Site 1 $550000  550K         $550K         J
+    ## 9  496630.2 1999-11-12 Site 4 $497000  497K         $497K         N
+    ## 10 393438.1 1999-09-17 Site 2 $393000  393K         $393K         S
+    ## # ... with 9,990 more rows, and 1 more variables: abb_week <fctr>
 
 ![](inst/figure/unnamed-chunk-10-1.png)
 
