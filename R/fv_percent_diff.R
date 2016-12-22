@@ -19,6 +19,8 @@
 #' )
 #'
 #' \dontrun{
+#' library(dplyr)
+#'
 #' CO2 %>%
 #'     group_by(Plant) %>%
 #'     mutate(

@@ -39,5 +39,13 @@ f_num(c(30, 33.45, .1), 2, p="$")
 ## Units
 f_num(c(30, 33.45, .1), 2, s=" in.<sup>2</sup>")
 f_num(c(30, 33.45, .1), 2, p="&Chi;<sup>2</sup>=")
+
+\dontrun{
+library(dplyr)
+is.int <- function(x) !all(x \%\% 1 == 0)
+
+mtcars \%>\%
+    mutate_if(.funs = f_num, is.int)
+}
 }
 
