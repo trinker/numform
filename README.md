@@ -26,6 +26,7 @@ Table of Contents
     -   [[Commas](#commas)](#[commas](#commas))
     -   [[Percents](#percents)](#[percents](#percents))
     -   [[Dollars](#dollars)](#[dollars](#dollars))
+    -   [[Plotting](#plotting)](#[plotting](#plotting))
     -   [[Modeling](#modeling)](#[modeling](#modeling))
 
 Installation
@@ -41,7 +42,8 @@ run `R CMD INSTALL` on it, or use the **pacman** package to install the
 development version:
 
     if (!require("pacman")) install.packages("pacman")
-    pacman::p_load_gh("trinker/numform")
+    pacman::p_load_current_gh("trinker/numform")
+    pacman::p_load(tidyverse)
 
 Contact
 =======
@@ -61,7 +63,7 @@ formats individual values in the vector while the latter uses the vector
 to compute a calculation on each of the values and then formats them.
 
 <!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
-<!-- Thu Dec 22 10:40:32 2016 -->
+<!-- Thu Dec 22 11:37:07 2016 -->
 <table>
 <tr>
 <td>
@@ -146,6 +148,9 @@ fv_num_percent
 </td>
 </tr>
 </table>
+<p class="caption">
+<b><em>Available Formatting Functions</em></b>
+</p>
 Demonstration
 =============
 
@@ -240,6 +245,47 @@ Dollars
 
     ## [1] "$0.00"         "$0.00"         "$0.20"         "$-.02"        
     ## [5] "$1,122,222.00" "$3.14"
+
+Plotting
+--------
+
+    library(tidyverse)
+
+    data_frame(
+        revenue = rnorm(10000, 500000, 50000),
+        date = sample(seq(as.Date('1999/01/01'), as.Date('2000/01/01'), by="day"), 10000, TRUE),
+        site = sample(paste("Site", 1:5), 10000, TRUE)
+    ) %>%
+        mutate(
+            dollar = f_dollar(revenue, digits = -3),
+            thous = f_thous(revenue),
+            thous_dollars = f_thous(revenue, prefix = '$'),
+            abb_month = f_month(date),
+            abb_week = f_weekday(date, distinct = TRUE)
+        ) %T>%
+        print() %>%
+        ggplot(aes(abb_week, revenue)) +
+            geom_jitter(width = .2, height = 0, alpha = .2) +
+            scale_y_continuous(label = function(x) x %>% f_thous(x, prefix = '$'))+
+            facet_wrap(~site) +
+            theme_bw()
+
+    ## # A tibble: 10,000 × 8
+    ##     revenue       date   site  dollar thous thous_dollars abb_month
+    ##       <dbl>     <date>  <chr>   <chr> <chr>         <chr>     <chr>
+    ## 1  485137.9 1999-12-01 Site 5 $485000  485K         $485K         D
+    ## 2  557003.2 1999-12-13 Site 5 $557000  557K         $557K         D
+    ## 3  504327.6 1999-07-28 Site 5 $504000  504K         $504K         J
+    ## 4  499311.9 1999-12-06 Site 1 $499000  499K         $499K         D
+    ## 5  515171.6 1999-06-15 Site 4 $515000  515K         $515K         J
+    ## 6  591029.9 1999-07-31 Site 3 $591000  591K         $591K         J
+    ## 7  539718.0 1999-04-07 Site 3 $540000  540K         $540K         A
+    ## 8  430662.6 1999-01-10 Site 5 $431000  431K         $431K         J
+    ## 9  464238.4 1999-04-08 Site 5 $464000  464K         $464K         A
+    ## 10 465105.9 1999-01-05 Site 5 $465000  465K         $465K         J
+    ## # ... with 9,990 more rows, and 1 more variables: abb_week <chr>
+
+![](inst/figure/unnamed-chunk-10-1.png)
 
 Modeling
 --------
