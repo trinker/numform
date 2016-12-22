@@ -6,11 +6,11 @@
 \alias{f_thous}
 \title{Abbreviate Numbers}
 \usage{
-f_bills(x, relative = 0, digits = -9)
+f_bills(x, relative = 0, digits = -9, prefix = "", ...)
 
-f_mills(x, relative = 0, digits = -6)
+f_mills(x, relative = 0, digits = -6, prefix = "", ...)
 
-f_thous(x, relative = 0, digits = -3)
+f_thous(x, relative = 0, digits = -3, prefix = "", ...)
 }
 \arguments{
 \item{x}{A vector of large numbers.}
@@ -21,6 +21,10 @@ For example \code{relative = -1} moves one to the left while
 
 \item{digits}{The number of digits to round to.  Actual \code{digits}
 calculated as \code{digits} +  \code{relative}.}
+
+\item{prefix}{A string to append to the front of elements.}
+
+\item{\ldots}{ignored.}
 }
 \value{
 Returns an abbreviated vector of numbers.
@@ -45,10 +49,26 @@ f_bills(123456789123, +1) # round to tenths
 f_bills(123456789123, +2) # round to hundreths
 \dontrun{
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(dplyr)
+pacman::p_load(tidyverse, magrittr)
 
 f_bills(123456789123, -2) \%>\%
     f_prefix("$")
+
+
+data_frame(
+    revenue = rnorm(100, 500000, 50000),
+    deals = sample(20:50, 100, TRUE)
+) \%>\%
+    mutate(
+        dollar = f_dollar(revenue, digits = -3),
+        thous = f_thous(revenue),
+        thous_dollars = f_thous(revenue, prefix = '$')
+    ) \%T>\%
+    print() \%>\%
+    ggplot(aes(deals, revenue)) +
+        geom_point() +
+        geom_smooth() +
+        scale_y_continuous(label = function(x) x \%>\% f_thous(x, prefix = '$') )
 }
 }
 

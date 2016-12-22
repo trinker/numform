@@ -6,11 +6,11 @@
 \alias{f_suffix}
 \title{Add String Affixes}
 \usage{
-f_affix(x, prefix = "", suffix = "")
+f_affix(x, prefix = "", suffix = "", ...)
 
-f_prefix(x, prefix = "$")
+f_prefix(x, prefix = "$", ...)
 
-f_suffix(x, suffix = "\%")
+f_suffix(x, suffix = "\%", ...)
 }
 \arguments{
 \item{x}{A vector of elements to append with an affix.}
@@ -18,6 +18,8 @@ f_suffix(x, suffix = "\%")
 \item{prefix}{A string to append to the front of elements.}
 
 \item{suffix}{A string to append to the back of elements.}
+
+\item{\ldots}{ignored.}
 }
 \value{
 Returns a string of affix appended digits.

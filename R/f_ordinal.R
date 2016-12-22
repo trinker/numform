@@ -3,11 +3,12 @@
 #' Add ordinal suffixes (-st, -nd, -rd, -th) to numbers.
 #'
 #' @param x A vector of numbers (or string equivalents).
+#' @param ignored.
 #' @return Returns a string vector with ordinal suffixes.
 #' @export
 #' @examples
 #' f_ordinal(1:10)
-f_ordinal <- function(x){
+f_ordinal <- function(x, ...){
 
     if (is.numeric(x) & any(x < 1)) warning("Values below 1 found.\nMay yield incorrect results")
 

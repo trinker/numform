@@ -5,6 +5,7 @@
 #' @param x A vector of elements to append with an affix.
 #' @param prefix A string to append to the front of elements.
 #' @param suffix A string to append to the back of elements.
+#' @param \ldots ignored.
 #' @return Returns a string of affix appended digits.
 #' @export
 #' @rdname f_affix
@@ -22,18 +23,18 @@
 #' f_bills(123456789123, -2) %>%
 #'     f_prefix("$")
 #' }
-f_affix <- function(x, prefix = "", suffix = ""){
+f_affix <- function(x, prefix = "", suffix = "", ...){
     paste0(prefix, x, suffix)
 }
 
 #' @export
 #' @rdname f_affix
-f_prefix <- function(x, prefix = "$"){
+f_prefix <- function(x, prefix = "$", ...){
     paste0(prefix, x)
 }
 
 #' @export
 #' @rdname f_affix
-f_suffix <- function(x, suffix = "%"){
+f_suffix <- function(x, suffix = "%", ...){
     paste0(x, suffix)
 }

@@ -8,6 +8,8 @@
 #' \code{relative = 1} moves one to the right.
 #' @param digits The number of digits to round to.  Actual \code{digits}
 #' calculated as \code{digits} +  \code{relative}.
+#' @param prefix A string to append to the front of elements.
+#' @param \ldots ignored.
 #' @return Returns an abbreviated vector of numbers.
 #' @export
 #' @rdname number_abbreviation
@@ -28,43 +30,59 @@
 #' f_bills(123456789123, +2) # round to hundreths
 #' \dontrun{
 #' if (!require("pacman")) install.packages("pacman")
-#' pacman::p_load(dplyr)
+#' pacman::p_load(tidyverse, magrittr)
 #'
 #' f_bills(123456789123, -2) %>%
 #'     f_prefix("$")
+#'
+#'
+#' data_frame(
+#'     revenue = rnorm(100, 500000, 50000),
+#'     deals = sample(20:50, 100, TRUE)
+#' ) %>%
+#'     mutate(
+#'         dollar = f_dollar(revenue, digits = -3),
+#'         thous = f_thous(revenue),
+#'         thous_dollars = f_thous(revenue, prefix = '$')
+#'     ) %T>%
+#'     print() %>%
+#'     ggplot(aes(deals, revenue)) +
+#'         geom_point() +
+#'         geom_smooth() +
+#'         scale_y_continuous(label = function(x) x %>% f_thous(x, prefix = '$') )
 #' }
-f_bills <- function(x, relative = 0, digits = -9) {
+f_bills <- function(x, relative = 0, digits = -9, prefix = "", ...) {
 
     digits <- digits + relative
     x <- gsub("^0.", ".", paste0(round(x, digits)/1000000000, "B"))
-    ifelse(x == '.', '0B', x)
+    paste0(prefix, ifelse(x == '.', '0B', x))
 
 }
 
 
 #' @export
 #' @rdname number_abbreviation
-f_mills <- function(x, relative = 0, digits = -6) {
+f_mills <- function(x, relative = 0, digits = -6, prefix = "", ...) {
 
     digits <- digits + relative
 
     x <- gsub("^0.", ".", paste0(round(x, digits)/1000000, "M"))
 
     digit_warn(x)
-    ifelse(x == '.', '0M', x)
+    paste0(prefix, ifelse(x == '.', '0M', x))
 
 }
 
 #' @export
 #' @rdname number_abbreviation
-f_thous <- function(x, relative = 0, digits = -3) {
+f_thous <- function(x, relative = 0, digits = -3, prefix = "", ...) {
 
     digits <- digits + relative
 
     x <- gsub("^0.", ".", paste0(round(x, digits)/1000, "K"))
 
     digit_warn(x)
-    ifelse(x == '.', '0K', x)
+    paste0(prefix, ifelse(x == '.', '0K', x))
 }
 
 

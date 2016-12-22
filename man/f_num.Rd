@@ -4,7 +4,7 @@
 \alias{f_num}
 \title{Format Digits}
 \usage{
-f_num(x, digits = getOption("numformdigits"), p, s)
+f_num(x, digits = getOption("numformdigits"), p, s, ...)
 }
 \arguments{
 \item{x}{A vector of numbers (or string equivalents).}

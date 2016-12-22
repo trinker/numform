@@ -4,7 +4,7 @@
 \alias{f_ordinal}
 \title{Add Ordinal Suffixes (-st, -nd, -rd, -th) to Numbers}
 \usage{
-f_ordinal(x)
+f_ordinal(x, ...)
 }
 \arguments{
 \item{x}{A vector of numbers (or string equivalents).}

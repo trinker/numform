@@ -9,6 +9,7 @@
 #' digits beyond the decimal point to include.
 #' @param p A string to paste at the begining of the output from \code{f_num}.
 #' @param s A string to paste at the end of the output from \code{f_num}.
+#' @param ignored.
 #' @return Returns a string of publication ready digits.
 #' @export
 #' @examples
@@ -34,7 +35,7 @@
 #' mtcars %>%
 #'     mutate_if(.funs = f_num, is.int)
 #' }
-f_num <- function(x, digits = getOption("numformdigits"), p, s) {
+f_num <- function(x, digits = getOption("numformdigits"), p, s, ...) {
 
     if (is.null(digits)) digits <- 1
 
