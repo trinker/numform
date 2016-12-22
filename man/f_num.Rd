@@ -16,6 +16,8 @@ digits beyond the decimal point to include.}
 \item{p}{A string to paste at the begining of the output from \code{f_num}.}
 
 \item{s}{A string to paste at the end of the output from \code{f_num}.}
+
+\item{\ldots}{ignored.}
 }
 \value{
 Returns a string of publication ready digits.

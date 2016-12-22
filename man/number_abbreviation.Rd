@@ -69,6 +69,24 @@ data_frame(
         geom_point() +
         geom_smooth() +
         scale_y_continuous(label = function(x) x \%>\% f_thous(x, prefix = '$') )
+
+data_frame(
+    revenue = rnorm(10000, 500000, 50000),
+    date = sample(seq(as.Date('1999/01/01'), as.Date('2000/01/01'), by="day"), 10000, TRUE),
+    site = sample(paste("Site", 1:5), 10000, TRUE)
+) \%>\%
+    mutate(
+        dollar = f_dollar(revenue, digits = -3),
+        thous = f_thous(revenue),
+        thous_dollars = f_thous(revenue, prefix = '$'),
+        abb_month = f_month(date),
+        abb_week = f_weekday(date, distinct = TRUE)
+    ) \%T>\%
+    print() \%>\%
+    ggplot(aes(abb_week, revenue)) +
+        geom_jitter(width = .2, height = 0, alpha = .2) +
+        scale_y_continuous(label = function(x) x \%>\% f_thous(x, prefix = '$'))+
+        facet_wrap(~site)
 }
 }
 

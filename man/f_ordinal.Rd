@@ -8,6 +8,8 @@ f_ordinal(x, ...)
 }
 \arguments{
 \item{x}{A vector of numbers (or string equivalents).}
+
+\item{\ldots}{ignored.}
 }
 \value{
 Returns a string vector with ordinal suffixes.

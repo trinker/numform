@@ -59,8 +59,8 @@ f_weekday <- function(x, distinct = FALSE, ...) {
 f_weekday.default <- function(x, distinct = FALSE, ...) {
     if (distinct){
         locs <- match(
-            short_weekdays_key,
-            gsub("(^.)(.)(.+)", "\\U\\1\\L\\2", as.character(x), perl = TRUE)
+            gsub("(^.)(.)(.+)", "\\U\\1\\L\\2", as.character(x), perl = TRUE),
+            short_weekdays_key
         )
         return(names(short_weekdays_key)[locs])
     }
@@ -84,13 +84,14 @@ f_weekday.numeric <- function(x, distinct = FALSE, ...) {
 f_weekday.Date <- function(x, distinct = FALSE, ...) {
     if (distinct){
         locs <- match(
-            short_weekdays_key,
-            gsub("(^.)(.)(.+)", "\\U\\1\\L\\2", weekdays(x), perl = TRUE)
+            gsub("(^.)(.)(.+)", "\\U\\1\\L\\2", weekdays(x), perl = TRUE),
+            short_weekdays_key
         )
         return(names(short_weekdays_key)[locs])
     }
     toupper(gsub("(^.)(.+)", "\\1", weekdays(x)))
 }
+
 
 #' @export
 #' @rdname f_weekday
@@ -98,8 +99,8 @@ f_weekday.Date <- function(x, distinct = FALSE, ...) {
 f_weekday.POSIXlt <- function(x, distinct = FALSE, ...) {
     if (distinct){
         locs <- match(
-            short_weekdays_key,
-            gsub("(^.)(.)(.+)", "\\U\\1\\L\\2", weekdays(x), perl = TRUE)
+            gsub("(^.)(.)(.+)", "\\U\\1\\L\\2", weekdays(x), perl = TRUE),
+            short_weekdays_key
         )
         return(names(short_weekdays_key)[locs])
     }

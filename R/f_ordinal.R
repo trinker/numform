@@ -3,7 +3,7 @@
 #' Add ordinal suffixes (-st, -nd, -rd, -th) to numbers.
 #'
 #' @param x A vector of numbers (or string equivalents).
-#' @param ignored.
+#' @param \ldots ignored.
 #' @return Returns a string vector with ordinal suffixes.
 #' @export
 #' @examples

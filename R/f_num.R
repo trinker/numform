@@ -9,7 +9,7 @@
 #' digits beyond the decimal point to include.
 #' @param p A string to paste at the begining of the output from \code{f_num}.
 #' @param s A string to paste at the end of the output from \code{f_num}.
-#' @param ignored.
+#' @param \ldots ignored.
 #' @return Returns a string of publication ready digits.
 #' @export
 #' @examples
