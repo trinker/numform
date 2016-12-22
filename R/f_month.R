@@ -64,5 +64,13 @@ f_month.numeric <- function(x, ...) {
 #' @rdname f_month
 #' @method f_month Date
 f_month.Date <- function(x, ...) {
-    toupper(gsub("(^.)(.+)", "\\1", as.character(format(x, "%b%"))))
+    toupper(gsub("(^.)(.+)", "\\1", as.character(format(x, "%b"))))
+}
+
+
+#' @export
+#' @rdname f_month
+#' @method f_month POSIXlt
+f_month.POSIXlt <- function(x, ...) {
+    toupper(gsub("(^.)(.+)", "\\1", as.character(format(x, "%b"))))
 }
