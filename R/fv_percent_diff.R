@@ -17,6 +17,16 @@
 #'     original = x,
 #'     perc_change = fv_percent_diff(x)
 #' )
+#'
+#' \dontrun{
+#' CO2 %>%
+#'     group_by(Plant) %>%
+#'     mutate(
+#'         `Percent` = fv_percent(conc),
+#'         `Percent Diff` = fv_percent_diff(conc)
+#'     ) %>%
+#'     print(n=Inf)
+#' }
 fv_percent_diff <- function(x, digits = getOption("numformdigits"), ...){
     f_prop2percent(c(0, (x[-1] - x[-length(x)])/x[-length(x)]), digits = digits, ...)
 }
