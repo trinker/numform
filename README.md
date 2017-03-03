@@ -266,7 +266,7 @@ Plotting
         print() %>%
         ggplot(aes(abb_week, revenue)) +
             geom_jitter(width = .2, height = 0, alpha = .2) +
-            scale_y_continuous(label = ff_thous(x, prefix = '$'))+
+            scale_y_continuous(label = ff_thous(prefix = '$'))+
             facet_wrap(~site) +
             theme_bw()
 
