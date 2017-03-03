@@ -9,6 +9,7 @@
 #' digits beyond the decimal point to include.
 #' @param p A string to paste at the begining of the output from \code{f_num}.
 #' @param s A string to paste at the end of the output from \code{f_num}.
+#' @param zero An option value to insert in for zero values.
 #' @param \ldots ignored.
 #' @return Returns a string of publication ready digits.
 #' @export
@@ -35,7 +36,7 @@
 #' mtcars %>%
 #'     mutate_if(.funs = f_num, is.int)
 #' }
-f_num <- function(x, digits = getOption("numformdigits"), p, s, ...) {
+f_num <- function(x, digits = getOption("numformdigits"), p, s, zero = NULL, ...) {
 
     if (is.null(digits)) digits <- 1
 
@@ -48,6 +49,7 @@ f_num <- function(x, digits = getOption("numformdigits"), p, s, ...) {
 
     if (digits > 0) x <- sprintf(paste0("%.", digits, "f"), x)
     out <- gsub("^0(?=\\.)|(?<=-)0", "", x, perl=TRUE)
+    if (!is.null(zero)) out <- gsub('^\\.?0+$', zero, out)
     out[out == "NA"] <- NA
     if (!missing(p)) out <- paste0(p, out)
     if (!missing(s)) out <- paste0(out, s)

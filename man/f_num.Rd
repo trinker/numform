@@ -4,7 +4,7 @@
 \alias{f_num}
 \title{Format Digits}
 \usage{
-f_num(x, digits = getOption("numformdigits"), p, s, ...)
+f_num(x, digits = getOption("numformdigits"), p, s, zero = NULL, ...)
 }
 \arguments{
 \item{x}{A vector of numbers (or string equivalents).}
@@ -16,6 +16,8 @@ digits beyond the decimal point to include.}
 \item{p}{A string to paste at the begining of the output from \code{f_num}.}
 
 \item{s}{A string to paste at the end of the output from \code{f_num}.}
+
+\item{zero}{An option value to insert in for zero values.}
 
 \item{\ldots}{ignored.}
 }
