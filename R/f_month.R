@@ -74,3 +74,8 @@ f_month.Date <- function(x, ...) {
 f_month.POSIXlt <- function(x, ...) {
     toupper(gsub("(^.)(.+)", "\\1", as.character(format(x, "%b"))))
 }
+
+
+
+
+

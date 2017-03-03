@@ -2,15 +2,24 @@
 % Please edit documentation in R/f_bills.R
 \name{f_bills}
 \alias{f_bills}
+\alias{ff_bills}
 \alias{f_mills}
+\alias{ff_mills}
 \alias{f_thous}
+\alias{ff_thous}
 \title{Abbreviate Numbers}
 \usage{
 f_bills(x, relative = 0, digits = -9, prefix = "", ...)
 
+ff_bills(...)
+
 f_mills(x, relative = 0, digits = -6, prefix = "", ...)
 
+ff_mills(...)
+
 f_thous(x, relative = 0, digits = -3, prefix = "", ...)
+
+ff_thous(...)
 }
 \arguments{
 \item{x}{A vector of large numbers.}
@@ -68,7 +77,7 @@ data_frame(
     ggplot(aes(deals, revenue)) +
         geom_point() +
         geom_smooth() +
-        scale_y_continuous(label = function(x) x \%>\% f_thous(x, prefix = '$') )
+        scale_y_continuous(label = ff_thous(prefix = '$') )
 
 data_frame(
     revenue = rnorm(10000, 500000, 50000),
@@ -80,13 +89,13 @@ data_frame(
         thous = f_thous(revenue),
         thous_dollars = f_thous(revenue, prefix = '$'),
         abb_month = f_month(date),
-        abb_week = factor(f_weekday(date, distinct = TRUE), levels = c('Su', 'M', 'T', 'W', 'Th', 'F', 'S'))
+        abb_week = factor(f_weekday(date, distinct = TRUE),
+        levels = c('Su', 'M', 'T', 'W', 'Th', 'F', 'S'))
     ) \%T>\%
     print() \%>\%
     ggplot(aes(abb_week, revenue)) +
         geom_jitter(width = .2, height = 0, alpha = .2) +
-        scale_y_continuous(label = function(x) x \%>\% f_thous(x, prefix = '$'))+
+        scale_y_continuous(label = ff_thous(prefix = '$'))+
         facet_wrap(~site)
 }
 }
-

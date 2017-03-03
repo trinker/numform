@@ -2,10 +2,13 @@
 % Please edit documentation in R/f_pval.R
 \name{f_pval}
 \alias{f_pval}
+\alias{ff_pval}
 \title{Format P-Values}
 \usage{
 f_pval(x, alpha = getOption("numformalpha"),
   digits = getOption("numformdigits"), ...)
+
+ff_pval(...)
 }
 \arguments{
 \item{x}{A p-value.}
@@ -40,4 +43,3 @@ f_pval(mod2$p.value)
 \seealso{
 \code{\link[numform]{f_num}}
 }
-

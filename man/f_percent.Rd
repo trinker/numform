@@ -2,12 +2,18 @@
 % Please edit documentation in R/f_percent.R
 \name{f_percent}
 \alias{f_percent}
+\alias{ff_percent}
 \alias{f_prop2percent}
+\alias{ff_prop2percent}
 \title{Format Percentages}
 \usage{
 f_percent(x, digits = getOption("numformdigits"), ...)
 
+ff_percent(...)
+
 f_prop2percent(x, digits = getOption("numformdigits"), ...)
+
+ff_prop2percent(...)
 }
 \arguments{
 \item{x}{A vector of proportions.}
@@ -33,8 +39,21 @@ f_percent(c(30, 33.45, .1))
 f_percent(c(30, 33.45, .1), 1)
 f_percent(c(0.0, 0, .2, -00.02, 1.122222, pi))
 f_prop2percent(c(.30, 1, 1.01, .33, .222, .01))
+
+\dontrun{
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(ggplot2, dplyr)
+
+mtcars \%>\%
+    count(cyl, gear) \%>\%
+    group_by(cyl) \%>\%
+    mutate(prop = n/sum(n)) \%>\%
+    ggplot(aes(gear, prop)) +
+        geom_bar(stat = 'identity') +
+        facet_wrap(~cyl, ncol = 1) +
+        scale_y_continuous(labels = ff_prop2percent(digits = 0))
+}
 }
 \seealso{
 \code{\link[numform]{f_num}}
 }
-

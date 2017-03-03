@@ -27,6 +27,12 @@ f_affix <- function(x, prefix = "", suffix = "", ...){
     paste0(prefix, x, suffix)
 }
 
+
+#' @export
+#' @include utils.R
+#' @rdname f_affix
+ff_affix <- functionize(f_affix)
+
 #' @export
 #' @rdname f_affix
 f_prefix <- function(x, prefix = "$", ...){
@@ -34,7 +40,20 @@ f_prefix <- function(x, prefix = "$", ...){
 }
 
 #' @export
+#' @include utils.R
+#' @rdname f_affix
+ff_prefix <- functionize(f_prefix)
+
+#' @export
 #' @rdname f_affix
 f_suffix <- function(x, suffix = "%", ...){
     paste0(x, suffix)
 }
+
+#' @export
+#' @include utils.R
+#' @rdname f_affix
+ff_suffix <- functionize(f_suffix)
+
+
+

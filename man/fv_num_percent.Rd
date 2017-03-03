@@ -2,10 +2,13 @@
 % Please edit documentation in R/fv_num_percent.R
 \name{fv_num_percent}
 \alias{fv_num_percent}
+\alias{ffv_num_percent}
 \title{Convert a Numeric Vector to Number and Parenthetical Percentages}
 \usage{
 fv_num_percent(x, x_digits = getOption("numformdigits"),
   y_digits = x_digits, sep = "", comma = TRUE, ...)
+
+ffv_num_percent(...)
 }
 \arguments{
 \item{x}{A numeric vector.}
@@ -21,13 +24,14 @@ fv_num_percent(x, x_digits = getOption("numformdigits"),
 \item{\ldots}{ignored.}
 }
 \value{
-Returns a vector of parenthesis combined strings using vector x followed by the value as a relative percent in parenthesis.
+Returns a vector of parenthesis combined strings using vector x
+followed by the value as a relative percent in parenthesis.
 }
 \description{
-Convert a vector of numbers into a vector of strings with the number followed by the relative percentage in parenthesis.
+Convert a vector of numbers into a vector of strings with the number
+followed by the relative percentage in parenthesis.
 }
 \examples{
 fv_num_percent(1:10)
 fv_num_percent(1:10, x_digits = 0, y_digits = 1, sep = " ")
 }
-

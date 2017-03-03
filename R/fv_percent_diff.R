@@ -8,6 +8,7 @@
 #' digits beyond the decimal point to include.
 #' @param \ldots Other arguments passed to \code{\link[numform]{f_prop2percent}}.
 #' @return Returns a string of publication ready relative percent differences.
+#' @rdname fv_percent_diff
 #' @export
 #' @examples
 #' set.seed(10)
@@ -28,7 +29,22 @@
 #'         `Percent Diff` = fv_percent_diff(conc)
 #'     ) %>%
 #'     print(n=Inf)
+#'
+#' CO2 %>%
+#'     group_by(Type, Treatment) %>%
+#'     mutate(
+#'         `Percent` = fv_percent(conc),
+#'         `Percent Diff` = fv_percent_diff(conc)
+#'     ) %>%
+#'     print(n=Inf)
 #' }
 fv_percent_diff <- function(x, digits = getOption("numformdigits"), ...){
     f_prop2percent(c(0, (x[-1] - x[-length(x)])/x[-length(x)]), digits = digits, ...)
 }
+
+#' @export
+#' @include utils.R
+#' @rdname fv_percent_diff
+ffv_percent_diff <- functionize(fv_percent_diff)
+
+

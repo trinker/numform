@@ -7,6 +7,7 @@
 #' @param \ldots Other arguments passed to \code{\link[base]{prettyNum}}.
 #' @return Returns a comma separted string of publication ready digits.
 #' @export
+#' @rdname f_comma
 #' @seealso \code{\link[base]{prettyNum}}
 #' @examples
 #' set.seed(4)
@@ -23,5 +24,11 @@ f_comma <- function(x, mark = ",", ...) {
             scientific = FALSE, ...)))
     # )
 }
+
+#' @export
+#' @include utils.R
+#' @rdname f_comma
+ff_comma <- functionize(f_comma)
+
 
 # thousands_regex <- "(\\d)(?:(?=\\d+(?=[^\\d.]))(?=(?:[0-9]{3})+\\b)|(?=\\d+(?=\\.))(?=(?:[0-9]{3})+(?=\\.)))"

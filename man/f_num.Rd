@@ -2,9 +2,12 @@
 % Please edit documentation in R/f_num.R
 \name{f_num}
 \alias{f_num}
+\alias{ff_num}
 \title{Format Digits}
 \usage{
 f_num(x, digits = getOption("numformdigits"), p, s, zero = NULL, ...)
+
+ff_num(...)
 }
 \arguments{
 \item{x}{A vector of numbers (or string equivalents).}
@@ -17,7 +20,7 @@ digits beyond the decimal point to include.}
 
 \item{s}{A string to paste at the end of the output from \code{f_num}.}
 
-\item{zero}{An option value to insert in for zero values.}
+\item{zero}{An value to insert in for zero values.}
 
 \item{\ldots}{ignored.}
 }
@@ -50,6 +53,11 @@ is.int <- function(x) !all(x \%\% 1 == 0)
 
 mtcars \%>\%
     mutate_if(.funs = f_num, is.int)
-}
-}
 
+df <- data.frame(x = -10:10, y = (-10:10)/10)
+
+ggplot(df, aes(x, y))+
+    geom_point() +
+    scale_y_continuous(labels = ff_num(zero = 0))
+}
+}

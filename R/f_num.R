@@ -9,10 +9,11 @@
 #' digits beyond the decimal point to include.
 #' @param p A string to paste at the begining of the output from \code{f_num}.
 #' @param s A string to paste at the end of the output from \code{f_num}.
-#' @param zero An option value to insert in for zero values.
+#' @param zero An value to insert in for zero values.
 #' @param \ldots ignored.
 #' @return Returns a string of publication ready digits.
 #' @export
+#' @rdname f_num
 #' @examples
 #' f_num(c(0.0, 0, .2, -00.02, 1.122222, pi))
 #' f_num(rnorm(10))
@@ -35,6 +36,12 @@
 #'
 #' mtcars %>%
 #'     mutate_if(.funs = f_num, is.int)
+#'
+#' df <- data.frame(x = -10:10, y = (-10:10)/10)
+#'
+#' ggplot(df, aes(x, y))+
+#'     geom_point() +
+#'     scale_y_continuous(labels = ff_num(zero = 0))
 #' }
 f_num <- function(x, digits = getOption("numformdigits"), p, s, zero = NULL, ...) {
 
@@ -55,4 +62,11 @@ f_num <- function(x, digits = getOption("numformdigits"), p, s, zero = NULL, ...
     if (!missing(s)) out <- paste0(out, s)
     out
 }
+
+
+#' @export
+#' @include utils.R
+#' @rdname f_num
+ff_num <- functionize(f_num)
+
 

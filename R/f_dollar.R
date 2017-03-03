@@ -27,3 +27,10 @@ f_dollar <- function(x, leading_zero = TRUE, digits = 2, ...) {
 
 }
 
+
+#' @export
+#' @include utils.R
+#' @rdname f_dollar
+ff_dollar<- functionize(f_dollar)
+
+

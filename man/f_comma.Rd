@@ -2,9 +2,12 @@
 % Please edit documentation in R/f_comma.R
 \name{f_comma}
 \alias{f_comma}
+\alias{ff_comma}
 \title{Comma Format Large Integers}
 \usage{
 f_comma(x, mark = ",", ...)
+
+ff_comma(...)
 }
 \arguments{
 \item{x}{A vector opc numbers (or string equivalents).}
@@ -27,4 +30,3 @@ f_comma(c(1234.12345, 1234567890, .000034034, 123000000000, -1234567))
 \seealso{
 \code{\link[base]{prettyNum}}
 }
-

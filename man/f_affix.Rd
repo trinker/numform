@@ -2,15 +2,24 @@
 % Please edit documentation in R/f_affix.R
 \name{f_affix}
 \alias{f_affix}
+\alias{ff_affix}
 \alias{f_prefix}
+\alias{ff_prefix}
 \alias{f_suffix}
+\alias{ff_suffix}
 \title{Add String Affixes}
 \usage{
 f_affix(x, prefix = "", suffix = "", ...)
 
+ff_affix(...)
+
 f_prefix(x, prefix = "$", ...)
 
+ff_prefix(...)
+
 f_suffix(x, suffix = "\%", ...)
+
+ff_suffix(...)
 }
 \arguments{
 \item{x}{A vector of elements to append with an affix.}
@@ -42,4 +51,3 @@ f_bills(123456789123, -2) \%>\%
     f_prefix("$")
 }
 }
-

@@ -49,7 +49,7 @@
 #'     ggplot(aes(deals, revenue)) +
 #'         geom_point() +
 #'         geom_smooth() +
-#'         scale_y_continuous(label = function(x) x %>% f_thous(x, prefix = '$') )
+#'         scale_y_continuous(label = ff_thous(prefix = '$') )
 #'
 #' data_frame(
 #'     revenue = rnorm(10000, 500000, 50000),
@@ -61,12 +61,13 @@
 #'         thous = f_thous(revenue),
 #'         thous_dollars = f_thous(revenue, prefix = '$'),
 #'         abb_month = f_month(date),
-#'         abb_week = factor(f_weekday(date, distinct = TRUE), levels = c('Su', 'M', 'T', 'W', 'Th', 'F', 'S'))
+#'         abb_week = factor(f_weekday(date, distinct = TRUE),
+#'         levels = c('Su', 'M', 'T', 'W', 'Th', 'F', 'S'))
 #'     ) %T>%
 #'     print() %>%
 #'     ggplot(aes(abb_week, revenue)) +
 #'         geom_jitter(width = .2, height = 0, alpha = .2) +
-#'         scale_y_continuous(label = function(x) x %>% f_thous(x, prefix = '$'))+
+#'         scale_y_continuous(label = ff_thous(prefix = '$'))+
 #'         facet_wrap(~site)
 #' }
 f_bills <- function(x, relative = 0, digits = -9, prefix = "", ...) {
@@ -76,6 +77,13 @@ f_bills <- function(x, relative = 0, digits = -9, prefix = "", ...) {
     paste0(prefix, ifelse(x == '.', '0B', x))
 
 }
+
+
+#' @export
+#' @include utils.R
+#' @rdname number_abbreviation
+ff_bills <- functionize(f_bills)
+
 
 
 #' @export
@@ -92,6 +100,13 @@ f_mills <- function(x, relative = 0, digits = -6, prefix = "", ...) {
 }
 
 #' @export
+#' @include utils.R
+#' @rdname number_abbreviation
+ff_mills <- functionize(f_mills)
+
+
+
+#' @export
 #' @rdname number_abbreviation
 f_thous <- function(x, relative = 0, digits = -3, prefix = "", ...) {
 
@@ -103,6 +118,10 @@ f_thous <- function(x, relative = 0, digits = -3, prefix = "", ...) {
     paste0(prefix, ifelse(x == '.', '0K', x))
 }
 
+#' @export
+#' @include utils.R
+#' @rdname number_abbreviation
+ff_thous <- functionize(f_thous)
 
 
 

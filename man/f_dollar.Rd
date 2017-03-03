@@ -2,9 +2,12 @@
 % Please edit documentation in R/f_dollar.R
 \name{f_dollar}
 \alias{f_dollar}
+\alias{ff_dollar}
 \title{Format Dollars}
 \usage{
 f_dollar(x, leading_zero = TRUE, digits = 2, ...)
+
+ff_dollar(...)
 }
 \arguments{
 \item{x}{A vector of values.}
@@ -35,4 +38,3 @@ f_dollar(c(0.0, 0, .2, -00.02, 1122222, pi)) \%>\% f_comma()
 \seealso{
 \code{\link[numform]{f_num}}
 }
-

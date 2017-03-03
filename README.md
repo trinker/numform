@@ -60,7 +60,7 @@ Available Functions
 Below is a table of available **numform** functions. Note that `f_` is
 read as "format" whereas `fv_` is read as "format vector". The former
 formats individual values in the vector while the latter uses the vector
-to compute a calculation on each of the values and then formats them.
+to compute a calculation on each of the values and then formats them.  Additionally, all **numform** non-methods functions have a functional return version that is prefixed with an additional `f`.  For example, `f_num` has `ff_num` which has the same arguments but returns a function instead.  This is useful for passing in to **ggplot2** `scale_x/y_type` functions (see [[Plotting](#plotting)](#[plotting](#plotting)) for usage).
 
 <!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
 <!-- Thu Dec 22 11:39:56 2016 -->
@@ -266,7 +266,7 @@ Plotting
         print() %>%
         ggplot(aes(abb_week, revenue)) +
             geom_jitter(width = .2, height = 0, alpha = .2) +
-            scale_y_continuous(label = function(x) x %>% f_thous(x, prefix = '$'))+
+            scale_y_continuous(label = ff_thous(x, prefix = '$'))+
             facet_wrap(~site) +
             theme_bw()
 

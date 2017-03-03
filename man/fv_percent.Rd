@@ -2,9 +2,12 @@
 % Please edit documentation in R/fv_percent.R
 \name{fv_percent}
 \alias{fv_percent}
+\alias{ffv_percent}
 \title{Convert a Numeric Vector to Percentages}
 \usage{
 fv_percent(x, digits = getOption("numformdigits"), ...)
+
+ffv_percent(...)
 }
 \arguments{
 \item{x}{A numeric vector.}
@@ -24,5 +27,22 @@ Converts a numeric vector into a vector of relative percentages.
 \examples{
 fv_percent(1:4)
 fv_percent(sample(1:100, 20))
-}
+\dontrun{
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse)
 
+mtcars \%>\%
+    count(cyl, gear) \%>\%
+    group_by(cyl) \%>\%
+    mutate(perc = fv_percent(n, digits = 0))
+
+mtcars \%>\%
+    count(cyl, gear) \%>\%
+    group_by(cyl) \%>\%
+    mutate(perc = fv_percent(n, digits = 0)) \%>\%
+    ggplot(aes(gear, n)) +
+        geom_bar(stat = 'identity') +
+        facet_wrap(~cyl, ncol = 1) +
+        geom_text(aes(y = n + 1, label = perc))
+}
+}

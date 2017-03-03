@@ -5,6 +5,7 @@
 #' @param x A vector of numbers (or string equivalents).
 #' @param \ldots ignored.
 #' @return Returns a string vector with ordinal suffixes.
+#' @rdname f_ordinal
 #' @export
 #' @examples
 #' f_ordinal(1:10)
@@ -23,3 +24,11 @@ f_ordinal <- function(x, ...){
 
     x
 }
+
+
+#' @export
+#' @include utils.R
+#' @rdname f_ordinal
+ff_ordinal <- functionize(f_ordinal)
+
+

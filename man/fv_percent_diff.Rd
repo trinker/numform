@@ -2,9 +2,12 @@
 % Please edit documentation in R/fv_percent_diff.R
 \name{fv_percent_diff}
 \alias{fv_percent_diff}
+\alias{ffv_percent_diff}
 \title{Percent Difference}
 \usage{
 fv_percent_diff(x, digits = getOption("numformdigits"), ...)
+
+ffv_percent_diff(...)
 }
 \arguments{
 \item{x}{A numeric vector.}
@@ -40,6 +43,13 @@ CO2 \%>\%
         `Percent Diff` = fv_percent_diff(conc)
     ) \%>\%
     print(n=Inf)
-}
-}
 
+CO2 \%>\%
+    group_by(Type, Treatment) \%>\%
+    mutate(
+        `Percent` = fv_percent(conc),
+        `Percent Diff` = fv_percent_diff(conc)
+    ) \%>\%
+    print(n=Inf)
+}
+}

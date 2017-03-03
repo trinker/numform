@@ -18,7 +18,7 @@
 #' used for when the values are alrey percentages.
 #' @param \ldots ignored.
 #' @return Returns a vector of parenthesis combined strings using vector x and y.
-#' @rdname f_paragraph
+#' @rdname f_parenthesis
 #' @export
 #' @examples
 #' f_parenthesis(
@@ -61,12 +61,18 @@ f_parenthesis <- function(x, y, sep = "", x_prefix = "", y_prefix = "", ...){
     )
 }
 
+#' @export
+#' @include utils.R
+#' @rdname f_parenthesis
+ff_parenthesis <- functionize(f_parenthesis)
+
+
 #' Parenthesis Formatting of Two Vectors
 #'
 #' \code{f_mean_sd} - Wrapper for \code{f_parenthesis} optimized for formatting
 #' vectors of means and standard deviations.
 #'
-#' @rdname f_paragraph
+#' @rdname f_parenthesis
 #' @export
 f_mean_sd <- function(x, y, x_digits = 1, y_digits = x_digits, sep = "", ...) {
     paste(
@@ -76,12 +82,18 @@ f_mean_sd <- function(x, y, x_digits = 1, y_digits = x_digits, sep = "", ...) {
     )
 }
 
+#' @export
+#' @include utils.R
+#' @rdname f_parenthesis
+ff_mean_sd <- functionize(f_mean_sd)
+
+
 #' Parenthesis Formatting of Two Vectors
 #'
 #' \code{f_num_percent}  - Wrapper for \code{f_parenthesis} optimized for formatting
 #' vectors of numbers and percentages deviations.
 #'
-#' @rdname f_paragraph
+#' @rdname f_parenthesis
 #' @export
 f_num_percent <- function(x, y, x_digits = 1, y_digits = x_digits, sep = "",
     prop_fun = numform::f_prop2percent, ...) {
@@ -91,4 +103,11 @@ f_num_percent <- function(x, y, x_digits = 1, y_digits = x_digits, sep = "",
         sep = sep
     )
 }
+
+
+#' @export
+#' @include utils.R
+#' @rdname f_parenthesis
+ff_num_percent <- functionize(f_num_percent)
+
 

@@ -2,9 +2,12 @@
 % Please edit documentation in R/f_ordinal.R
 \name{f_ordinal}
 \alias{f_ordinal}
+\alias{ff_ordinal}
 \title{Add Ordinal Suffixes (-st, -nd, -rd, -th) to Numbers}
 \usage{
 f_ordinal(x, ...)
+
+ff_ordinal(...)
 }
 \arguments{
 \item{x}{A vector of numbers (or string equivalents).}
@@ -20,4 +23,3 @@ Add ordinal suffixes (-st, -nd, -rd, -th) to numbers.
 \examples{
 f_ordinal(1:10)
 }
-

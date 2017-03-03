@@ -10,6 +10,7 @@
 #' digits beyond the decimal point to include.
 #' @param \ldots Other values passed to \code{\link[numform]{f_num}}.
 #' @return Returns a string of publication ready p-values.
+#' @rdname f_pval
 #' @export
 #' @seealso \code{\link[numform]{f_num}}
 #' @examples
@@ -52,3 +53,12 @@ f_pval <- function(x, alpha = getOption("numformalpha"),
     sprintf("p %s %s", op, comp)
 
 }
+
+
+#' @export
+#' @include utils.R
+#' @rdname f_pval
+ff_pval <- functionize(f_pval)
+
+
+

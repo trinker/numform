@@ -2,12 +2,17 @@
 % Please edit documentation in R/f_sign.R
 \name{f_sign}
 \alias{f_sign}
+\alias{ff_sign}
 \title{Format Numeric Signs}
 \usage{
-f_sign(x, ...)
+f_sign(x, zero = NULL, ...)
+
+ff_sign(...)
 }
 \arguments{
 \item{x}{A vector of values.}
+
+\item{zero}{An value to insert in for zero values.}
 
 \item{\ldots}{ignored.}
 }
@@ -20,8 +25,8 @@ Returns a string of signs.
 }
 \examples{
 f_sign(c(-10, 0, 10))
+f_sign(c(-10, 0, 10), 0)
 }
 \seealso{
 \code{\link[numform]{f_num}}
 }
-

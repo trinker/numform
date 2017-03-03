@@ -48,8 +48,10 @@
 #'     scale_x_discrete(labels = f_weekday)
 #' }
 f_weekday <- function(x, distinct = FALSE, ...) {
+    distinct
     UseMethod('f_weekday')
 }
+
 
 
 
