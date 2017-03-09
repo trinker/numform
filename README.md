@@ -2,14 +2,6 @@ numform
 ============
 
 
-    ## package 'wakefield' successfully unpacked and MD5 sums checked
-    ## 
-    ## The downloaded binary packages are in
-    ##  C:\Users\Tyler\AppData\Local\Temp\Rtmp63YR34\downloaded_packages
-
-    ## 
-    ## wakefield installed
-
 [![Build
 Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
 [![Coverage
