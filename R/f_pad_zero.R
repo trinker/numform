@@ -24,7 +24,8 @@ f_pad_zero <- function(x, width = NULL, pad.char = '0', ...){
     stopifnot(width >= maxd)
     zeros <- width - lens
 
-    x[!is_na] <- paste0(strrep(pad.char, zeros[!is.na(zeros)]), x[!is_na])
+    ## x[!is_na] <- paste0(strrep(pad.char, zeros[!is.na(zeros)]), x[!is_na])  #replace w/ this eventually
+    x[!is_na] <- paste0(unlist(lapply(zeros[!is.na(zeros)], function(x) paste(rep(pad.char, x), collapse = ""))), x[!is_na])
     x
 }
 
