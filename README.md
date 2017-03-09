@@ -2,6 +2,14 @@ numform
 ============
 
 
+    ## package 'wakefield' successfully unpacked and MD5 sums checked
+    ## 
+    ## The downloaded binary packages are in
+    ##  C:\Users\Tyler\AppData\Local\Temp\Rtmp63YR34\downloaded_packages
+
+    ## 
+    ## wakefield installed
+
 [![Build
 Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
 [![Coverage
@@ -60,10 +68,16 @@ Available Functions
 Below is a table of available **numform** functions. Note that `f_` is
 read as "format" whereas `fv_` is read as "format vector". The former
 formats individual values in the vector while the latter uses the vector
-to compute a calculation on each of the values and then formats them.  Additionally, all **numform** non-methods functions have a functional return version that is prefixed with an additional `f`.  For example, `f_num` has `ff_num` which has the same arguments but returns a function instead.  This is useful for passing in to **ggplot2** `scale_x/y_type` functions (see [[Plotting](#plotting)](#[plotting](#plotting)) for usage).
+to compute a calculation on each of the values and then formats them.
+Additionally, all **numform** non-methods functions have a functional
+return version that is prefixed with an additional `f`. For example,
+`f_num` has `ff_num` which has the same arguments but returns a function
+instead. This is useful for passing in to **ggplot2** `scale_x/y_type`
+functions (see [\[Plotting\](\#plotting)](#%5Bplotting%5D(#plotting))
+for usage).
 
-<!-- html table generated in R 3.3.2 by xtable 1.8-2 package -->
-<!-- Thu Dec 22 11:39:56 2016 -->
+<!-- html table generated in R 3.3.3 by xtable 1.8-2 package -->
+<!-- Thu Mar 09 08:44:18 2017 -->
 <table>
 <tr>
 <td>
@@ -71,6 +85,23 @@ f_affix
 </td>
 <td>
 f_mills
+</td>
+<td>
+f_pad_zero
+</td>
+<td>
+f_pval
+</td>
+<td>
+fv_num_percent
+</td>
+</tr>
+<tr>
+<td>
+f_bills
+</td>
+<td>
+f_month
 </td>
 <td>
 f_parenthesis
@@ -84,10 +115,10 @@ fv_percent
 </tr>
 <tr>
 <td>
-f_bills
+f_comma
 </td>
 <td>
-f_month
+f_num
 </td>
 <td>
 f_percent
@@ -101,10 +132,10 @@ fv_percent_diff
 </tr>
 <tr>
 <td>
-f_comma
+f_dollar
 </td>
 <td>
-f_num
+f_num_percent
 </td>
 <td>
 f_prefix
@@ -117,32 +148,16 @@ f_thous
 </tr>
 <tr>
 <td>
-f_dollar
-</td>
-<td>
-f_num_percent
-</td>
-<td>
-f_prop2percent
-</td>
-<td>
-f_weekday
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
 f_mean_sd
 </td>
 <td>
 f_ordinal
 </td>
 <td>
-f_pval
+f_prop2percent
 </td>
 <td>
-fv_num_percent
+f_weekday
 </td>
 <td>
 </td>
@@ -273,16 +288,16 @@ Plotting
     ## # A tibble: 10,000 × 8
     ##     revenue       date   site  dollar thous thous_dollars abb_month
     ##       <dbl>     <date>  <chr>   <chr> <chr>         <chr>     <chr>
-    ## 1  452330.0 1999-10-15 Site 1 $452000  452K         $452K         O
-    ## 2  593915.8 1999-08-15 Site 3 $594000  594K         $594K         A
-    ## 3  413368.6 1999-04-17 Site 1 $413000  413K         $413K         A
-    ## 4  530987.9 1999-09-24 Site 3 $531000  531K         $531K         S
-    ## 5  501330.1 1999-02-28 Site 4 $501000  501K         $501K         F
-    ## 6  481456.4 1999-05-23 Site 2 $481000  481K         $481K         M
-    ## 7  441079.1 1999-08-29 Site 4 $441000  441K         $441K         A
-    ## 8  549676.1 1999-01-11 Site 1 $550000  550K         $550K         J
-    ## 9  496630.2 1999-11-12 Site 4 $497000  497K         $497K         N
-    ## 10 393438.1 1999-09-17 Site 2 $393000  393K         $393K         S
+    ## 1  602995.9 1999-05-27 Site 3 $603000  603K         $603K         M
+    ## 2  523895.8 1999-05-03 Site 5 $524000  524K         $524K         M
+    ## 3  544790.6 1999-11-28 Site 3 $545000  545K         $545K         N
+    ## 4  454831.8 1999-01-19 Site 4 $455000  455K         $455K         J
+    ## 5  414863.4 1999-02-18 Site 5 $415000  415K         $415K         F
+    ## 6  489470.1 1999-06-06 Site 1 $489000  489K         $489K         J
+    ## 7  546370.9 1999-10-14 Site 5 $546000  546K         $546K         O
+    ## 8  478207.9 1999-09-10 Site 4 $478000  478K         $478K         S
+    ## 9  526746.9 1999-09-11 Site 2 $527000  527K         $527K         S
+    ## 10 575733.2 1999-03-29 Site 1 $576000  576K         $576K         M
     ## # ... with 9,990 more rows, and 1 more variables: abb_week <fctr>
 
 ![](inst/figure/unnamed-chunk-10-1.png)
@@ -347,5 +362,5 @@ chunk:
 
 And then use <code class="r">`` `r report(mymod)` ``</code> resulting in
 a report that looks like this: F(5, 30) = 36.07, p &lt; .05. For
-&Chi;<sup>2</sup> using proper HTML leads to &Chi;<sup>2</sup>(1) = .64,
-p = .42.
+Χ<sup>2</sup> using proper HTML leads to Χ<sup>2</sup>(1) = .64, p =
+.42.

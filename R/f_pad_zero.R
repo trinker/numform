@@ -13,7 +13,7 @@
 #' @examples
 #' f_pad_zero(c(NA, 1, 12))
 #' f_pad_zero(c(NA, 1, 100, 10, 1000))
-#' pad_zero(as.character(c(NA, 1, 100, 10, 1000)))
+#' f_pad_zero(as.character(c(NA, 1, 100, 10, 1000)))
 #' f_pad_zero(c(NA, 1, 100, 10, 1000, "B", "BB"))
 f_pad_zero <- function(x, width = NULL, pad.char = '0', ...){
 
