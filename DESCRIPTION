@@ -9,7 +9,7 @@ Description: Format numbers for publication; includes the removal of
         p-value formatter.
 Depends: R (>= 3.2.0)
 Suggests: testthat
-Date: 2017-03-03
+Date: 2017-03-08
 License: GPL-2
 LazyData: TRUE
 Roxygen: list(wrap = FALSE)
@@ -23,6 +23,7 @@ Collate:
     'f_month.R'
     'f_num.R'
     'f_ordinal.R'
+    'f_pad_zero.R'
     'f_parenthesis.R'
     'f_percent.R'
     'f_pval.R'
