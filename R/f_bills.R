@@ -109,7 +109,7 @@ f_mills <- function(x, relative = 0, digits = -6, prefix = "", ...) {
         x <- gsub("^0.", ".", paste0(round(x, digits)/1e+06, "M"))
     }
 
-    digit_warn(x, 'f_bills')
+    digit_warn(x, 'f_bills', 6)
     paste0(prefix, ifelse(x == '.', '0M', x))
 
 }
@@ -151,7 +151,7 @@ digit_check <- function(x, digits = 3){
 }
 
 digit_warn <- function(x, next_ver = "f_mills", digits = 3){
-    if (digit_check(x)) {
+    if (digit_check(x, digits)) {
         warning(paste0(
             "Detected one or more elements with a larger denomination.\n  Consider using `",
             next_ver,
