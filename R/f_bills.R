@@ -28,6 +28,10 @@
 #' f_bills(123456789123, -2) # round to hundreds
 #' f_bills(123456789123, +1) # round to tenths
 #' f_bills(123456789123, +2) # round to hundreths
+#'
+#' x <- c(3886902.8696, 4044584.0424, 6591893.2104)
+#' f_mills(x)
+#' f_mills(x, 1)
 #' \dontrun{
 #' if (!require("pacman")) install.packages("pacman")
 #' pacman::p_load(tidyverse, magrittr)
@@ -73,7 +77,14 @@
 f_bills <- function(x, relative = 0, digits = -9, prefix = "", ...) {
 
     digits <- digits + relative
-    x <- gsub("^0.", ".", paste0(round(x, digits)/1000000000, "B"))
+
+    if (relative > 0) {
+        x <- sprintf(paste0("%.", 9 + digits, "f"), round(x, digits)/1e+09)
+        x <- gsub("^0.", ".", paste0(x, "B"))
+    } else {
+        x <- gsub("^0.", ".", paste0(round(x, digits)/1e+09, "B"))
+    }
+
     paste0(prefix, ifelse(x == '.', '0B', x))
 
 }
@@ -85,16 +96,20 @@ f_bills <- function(x, relative = 0, digits = -9, prefix = "", ...) {
 ff_bills <- functionize(f_bills)
 
 
-
 #' @export
 #' @rdname number_abbreviation
 f_mills <- function(x, relative = 0, digits = -6, prefix = "", ...) {
 
     digits <- digits + relative
 
-    x <- gsub("^0.", ".", paste0(round(x, digits)/1000000, "M"))
+    if (relative > 0) {
+        x <- sprintf(paste0("%.", 6 + digits, "f"), round(x, digits)/1e+06)
+        x <- gsub("^0.", ".", paste0(x, "B"))
+    } else {
+        x <- gsub("^0.", ".", paste0(round(x, digits)/1e+06, "M"))
+    }
 
-    digit_warn(x)
+    digit_warn(x, 'f_bills')
     paste0(prefix, ifelse(x == '.', '0M', x))
 
 }
@@ -112,7 +127,12 @@ f_thous <- function(x, relative = 0, digits = -3, prefix = "", ...) {
 
     digits <- digits + relative
 
-    x <- gsub("^0.", ".", paste0(round(x, digits)/1000, "K"))
+    if (relative > 0) {
+        x <- sprintf(paste0("%.", 3 + digits, "f"), round(x, digits)/1000)
+        x <- gsub("^0.", ".", paste0(x, "B"))
+    } else {
+        x <- gsub("^0.", ".", paste0(round(x, digits)/1000, "K"))
+    }
 
     digit_warn(x)
     paste0(prefix, ifelse(x == '.', '0K', x))
@@ -130,7 +150,7 @@ digit_check <- function(x, digits = 3){
     any(nchar(gsub("(^\\d+)(\\.|[KBM])(.*$)", "\\1", x)) > digits)
 }
 
-digit_warn <- function(x, next_ver = "f_mill", digits = 3){
+digit_warn <- function(x, next_ver = "f_mills", digits = 3){
     if (digit_check(x)) {
         warning(paste0(
             "Detected one or more elements with a larger denomination.\n  Consider using `",
