@@ -104,7 +104,7 @@ f_mills <- function(x, relative = 0, digits = -6, prefix = "", ...) {
 
     if (relative > 0) {
         x <- sprintf(paste0("%.", 6 + digits, "f"), round(x, digits)/1e+06)
-        x <- gsub("^0.", ".", paste0(x, "B"))
+        x <- gsub("^0.", ".", paste0(x, "M"))
     } else {
         x <- gsub("^0.", ".", paste0(round(x, digits)/1e+06, "M"))
     }
@@ -129,7 +129,7 @@ f_thous <- function(x, relative = 0, digits = -3, prefix = "", ...) {
 
     if (relative > 0) {
         x <- sprintf(paste0("%.", 3 + digits, "f"), round(x, digits)/1000)
-        x <- gsub("^0.", ".", paste0(x, "B"))
+        x <- gsub("^0.", ".", paste0(x, "K"))
     } else {
         x <- gsub("^0.", ".", paste0(round(x, digits)/1000, "K"))
     }
