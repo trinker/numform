@@ -56,6 +56,10 @@ f_bills(123456789123, -1) # round to tens
 f_bills(123456789123, -2) # round to hundreds
 f_bills(123456789123, +1) # round to tenths
 f_bills(123456789123, +2) # round to hundreths
+
+x <- c(3886902.8696, 4044584.0424, 6591893.2104)
+f_mills(x)
+f_mills(x, 1)
 \dontrun{
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, magrittr)

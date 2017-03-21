@@ -14,8 +14,23 @@ License: GPL-2
 LazyData: TRUE
 Roxygen: list(wrap = FALSE)
 RoxygenNote: 6.0.1
-Collate: 'utils.R' 'f_affix.R' 'f_bills.R' 'f_comma.R' 'f_dollar.R'
-        'f_month.R' 'f_num.R' 'f_ordinal.R' 'f_pad_zero.R'
-        'f_parenthesis.R' 'f_percent.R' 'f_pval.R' 'f_sign.R'
-        'f_weekday.R' 'fv_num_percent.R' 'fv_percent.R'
-        'fv_percent_diff.R' 'numform-package.R'
+Collate: 
+    'utils.R'
+    'f_affix.R'
+    'f_bills.R'
+    'f_comma.R'
+    'f_dollar.R'
+    'f_month.R'
+    'f_num.R'
+    'f_ordinal.R'
+    'f_pad_zero.R'
+    'f_parenthesis.R'
+    'f_percent.R'
+    'f_pval.R'
+    'f_sign.R'
+    'f_weekday.R'
+    'fv_num_percent.R'
+    'fv_percent.R'
+    'fv_percent_diff.R'
+    'fv_runs.R'
+    'numform-package.R'
