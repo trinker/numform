@@ -120,6 +120,40 @@ f_dollar(c(0.0, 0, .2, -00.02, 1122222, pi)) %>%
     f_comma()
 ```
 
+## Tables
+
+```{r}
+pacman::p_load(dplyr, pander)
+
+set.seed(10)
+dat <- data_frame(
+    Team = rep(c("West Coast", "East Coast"), each = 4),
+    Year = rep(2012:2015, 2),
+    YearStart = round(rnorm(8, 2e6, 1e6) + sample(1:10/100, 8, TRUE), 2),
+    Won = round(rnorm(8, 4e5, 2e5) + sample(1:10/100, 8, TRUE), 2),
+    Lost = round(rnorm(8, 4.4e5, 2e5) + sample(1:10/100, 8, TRUE), 2),
+    WinLossRate = Won/Lost,
+    PropWon = Won/YearStart,
+    PropLost = Lost/YearStart
+)
+
+mills <- ff_mills(relative = 1, prefix = '$')
+percents <- ff_prop2percent(digits = 0)
+
+dat %>%
+    group_by(Team) %>%
+    mutate(ChangeWinLoss = fv_percent_diff(WinLossRate, 0)) %>%
+    ungroup() %>%
+    mutate_at(vars(YearStart:Lost), funs(mills)) %>%
+    mutate_at(vars(PropWon, PropLost), funs(percents)) %>%
+    mutate(
+        Team = fv_runs(Team),
+        WinLossRate = f_num(WinLossRate, 1, prefix = '$', pad.char = ' ')
+    ) %>%
+    pander::pander(split.tables = Inf, justify = c('left', rep('right', ncol(dat))))
+```
+
+
 ## Plotting
 
 ```r

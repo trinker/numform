@@ -2,6 +2,16 @@ numform
 ============
 
 
+    ## package 'wakefield' successfully unpacked and MD5 sums checked
+    ## 
+    ## The downloaded binary packages are in
+    ##  C:\Users\Tyler\AppData\Local\Temp\Rtmpesf41f\downloaded_packages
+
+    ## 
+    ## wakefield installed
+
+    ## Warning: package 'wakefield' was built under R version 3.3.3
+
 [![Build
 Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
 [![Coverage
@@ -26,6 +36,7 @@ Table of Contents
     -   [[Commas](#commas)](#[commas](#commas))
     -   [[Percents](#percents)](#[percents](#percents))
     -   [[Dollars](#dollars)](#[dollars](#dollars))
+    -   [[Tables](#tables)](#[tables](#tables))
     -   [[Plotting](#plotting)](#[plotting](#plotting))
     -   [[Modeling](#modeling)](#[modeling](#modeling))
 
@@ -65,11 +76,11 @@ Additionally, all **numform** non-methods functions have a functional
 return version that is prefixed with an additional `f`. For example,
 `f_num` has `ff_num` which has the same arguments but returns a function
 instead. This is useful for passing in to **ggplot2** `scale_x/y_type`
-functions (see [[Plotting](#plotting)](#[plotting](#plotting))
+functions (see [\[Plotting\](\#plotting)](#%5Bplotting%5D(#plotting))
 for usage).
 
-<!-- html table generated in R 3.3.3 by xtable 1.8-2 package -->
-<!-- Thu Mar 09 08:44:18 2017 -->
+<!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
+<!-- Tue Mar 21 21:36:29 2017 -->
 <table>
 <tr>
 <td>
@@ -136,6 +147,7 @@ f_prefix
 f_thous
 </td>
 <td>
+fv_runs
 </td>
 </tr>
 <tr>
@@ -176,7 +188,7 @@ Numbers
     ## Warning in f_num(c(0, 0, 0.2, -0.02, 1.122222, pi, "A")): NAs introduced by
     ## coercion
 
-    ## [1] ".0"  ".0"  ".2"  "-.0" "1.1" "3.1" NA
+    ## [1] ".0"  ".0"  ".2"  "-.0" "1.1" "3.1" "NA"
 
 Abbreviated Numbers
 -------------------
@@ -253,6 +265,155 @@ Dollars
     ## [1] "$0.00"         "$0.00"         "$0.20"         "$-.02"        
     ## [5] "$1,122,222.00" "$3.14"
 
+Tables
+------
+
+    pacman::p_load(dplyr, pander)
+
+    set.seed(10)
+    dat <- data_frame(
+        Team = rep(c("West Coast", "East Coast"), each = 4),
+        Year = rep(2012:2015, 2),
+        YearStart = round(rnorm(8, 2e6, 1e6) + sample(1:10/100, 8, TRUE), 2),
+        Won = round(rnorm(8, 4e5, 2e5) + sample(1:10/100, 8, TRUE), 2),
+        Lost = round(rnorm(8, 4.4e5, 2e5) + sample(1:10/100, 8, TRUE), 2),
+        WinLossRate = Won/Lost,
+        PropWon = Won/YearStart,
+        PropLost = Lost/YearStart
+    )
+
+    mills <- ff_mills(relative = 1, prefix = '$')
+    percents <- ff_prop2percent(digits = 0)
+
+    dat %>%
+        group_by(Team) %>%
+        mutate(ChangeWinLoss = fv_percent_diff(WinLossRate, 0)) %>%
+        ungroup() %>%
+        mutate_at(vars(YearStart:Lost), funs(mills)) %>%
+        mutate_at(vars(PropWon, PropLost), funs(percents)) %>%
+        mutate(
+            Team = fv_runs(Team),
+            WinLossRate = f_num(WinLossRate, 1, prefix = '$', pad.char = ' ')
+        ) %>%
+        pander::pander(split.tables = Inf, justify = c('left', rep('right', ncol(dat))))
+
+<table>
+<colgroup>
+<col width="11%" />
+<col width="7%" />
+<col width="12%" />
+<col width="6%" />
+<col width="7%" />
+<col width="15%" />
+<col width="10%" />
+<col width="11%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Team</th>
+<th align="right">Year</th>
+<th align="right">YearStart</th>
+<th align="right">Won</th>
+<th align="right">Lost</th>
+<th align="right">WinLossRate</th>
+<th align="right">PropWon</th>
+<th align="right">PropLost</th>
+<th align="right">ChangeWinLoss</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">West Coast</td>
+<td align="right">2012</td>
+<td align="right">$2.0M</td>
+<td align="right">$.4M</td>
+<td align="right">$.2M</td>
+<td align="right">$1.9</td>
+<td align="right">17%</td>
+<td align="right">9%</td>
+<td align="right">0%</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="right">2013</td>
+<td align="right">$1.8M</td>
+<td align="right">$.6M</td>
+<td align="right">$.4M</td>
+<td align="right">$1.6</td>
+<td align="right">33%</td>
+<td align="right">20%</td>
+<td align="right">-13%</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="right">2014</td>
+<td align="right">$ .6M</td>
+<td align="right">$.5M</td>
+<td align="right">$.3M</td>
+<td align="right">$1.8</td>
+<td align="right">87%</td>
+<td align="right">48%</td>
+<td align="right">11%</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="right">2015</td>
+<td align="right">$1.4M</td>
+<td align="right">$.4M</td>
+<td align="right">$.3M</td>
+<td align="right">$1.6</td>
+<td align="right">30%</td>
+<td align="right">19%</td>
+<td align="right">-13%</td>
+</tr>
+<tr class="odd">
+<td align="left">East Coast</td>
+<td align="right">2012</td>
+<td align="right">$2.3M</td>
+<td align="right">$.2M</td>
+<td align="right">$.4M</td>
+<td align="right">$ .5</td>
+<td align="right">9%</td>
+<td align="right">18%</td>
+<td align="right">0%</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="right">2013</td>
+<td align="right">$2.4M</td>
+<td align="right">$.4M</td>
+<td align="right">$.4M</td>
+<td align="right">$ .9</td>
+<td align="right">15%</td>
+<td align="right">16%</td>
+<td align="right">86%</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="right">2014</td>
+<td align="right">$ .8M</td>
+<td align="right">$.6M</td>
+<td align="right">$.1M</td>
+<td align="right">$8.4</td>
+<td align="right">74%</td>
+<td align="right">9%</td>
+<td align="right">811%</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="right">2015</td>
+<td align="right">$1.6M</td>
+<td align="right">$.5M</td>
+<td align="right">$.4M</td>
+<td align="right">$1.2</td>
+<td align="right">30%</td>
+<td align="right">26%</td>
+<td align="right">-86%</td>
+</tr>
+</tbody>
+</table>
+
 Plotting
 --------
 
@@ -280,19 +441,19 @@ Plotting
     ## # A tibble: 10,000 × 8
     ##     revenue       date   site  dollar thous thous_dollars abb_month
     ##       <dbl>     <date>  <chr>   <chr> <chr>         <chr>     <chr>
-    ## 1  602995.9 1999-05-27 Site 3 $603000  603K         $603K         M
-    ## 2  523895.8 1999-05-03 Site 5 $524000  524K         $524K         M
-    ## 3  544790.6 1999-11-28 Site 3 $545000  545K         $545K         N
-    ## 4  454831.8 1999-01-19 Site 4 $455000  455K         $455K         J
-    ## 5  414863.4 1999-02-18 Site 5 $415000  415K         $415K         F
-    ## 6  489470.1 1999-06-06 Site 1 $489000  489K         $489K         J
-    ## 7  546370.9 1999-10-14 Site 5 $546000  546K         $546K         O
-    ## 8  478207.9 1999-09-10 Site 4 $478000  478K         $478K         S
-    ## 9  526746.9 1999-09-11 Site 2 $527000  527K         $527K         S
-    ## 10 575733.2 1999-03-29 Site 1 $576000  576K         $576K         M
+    ## 1  518104.4 1999-06-09 Site 5 $518000  518K         $518K         J
+    ## 2  412045.7 1999-03-11 Site 4 $412000  412K         $412K         M
+    ## 3  483772.8 1999-03-27 Site 2 $484000  484K         $484K         M
+    ## 4  467421.9 1999-07-04 Site 4 $467000  467K         $467K         J
+    ## 5  554327.6 1999-12-30 Site 3 $554000  554K         $554K         D
+    ## 6  461872.8 1999-10-16 Site 1 $462000  462K         $462K         O
+    ## 7  458566.9 1999-02-11 Site 3 $459000  459K         $459K         F
+    ## 8  541723.7 1999-09-02 Site 1 $542000  542K         $542K         S
+    ## 9  451617.4 1999-04-16 Site 3 $452000  452K         $452K         A
+    ## 10 498559.2 1999-12-26 Site 2 $499000  499K         $499K         D
     ## # ... with 9,990 more rows, and 1 more variables: abb_week <fctr>
 
-![](inst/figure/unnamed-chunk-10-1.png)
+![](inst/figure/unnamed-chunk-11-1.png)
 
 Modeling
 --------
