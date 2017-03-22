@@ -160,6 +160,7 @@ f_weekday
 <p class="caption">
 <b><em>Available Formatting Functions</em></b>
 </p>
+
 Demonstration
 =============
 
