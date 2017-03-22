@@ -67,12 +67,11 @@ Additionally, all **numform** non-methods functions have a functional
 return version that is prefixed with an additional `f`. For example,
 `f_num` has `ff_num` which has the same arguments but returns a function
 instead. This is useful for passing in to **ggplot2** `scale_x/y_type`
-functions (see [\[Plotting\](\#plotting)](#%5Bplotting%5D(#plotting))
-for usage).
+functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
 
-<!-- Tue Mar 21 21:54:54 2017 -->
+<!-- Tue Mar 21 21:58:52 2017 -->
 
 <table>
 
