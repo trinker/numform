@@ -12,8 +12,8 @@ ff_pad_zero(...)
 \arguments{
 \item{x}{A vector of numbers (or string equivalents).}
 
-\item{width}{The width to make the stings.  Defaults to one more character
-than the maximum number of characters for all elements in \code{x}.}
+\item{width}{The width to make the stings.  Defaults to the maximum number of
+characters for all elements in \code{x}.}
 
 \item{pad.char}{A character to pad the string with.}
 
@@ -31,3 +31,4 @@ f_pad_zero(c(NA, 1, 100, 10, 1000))
 f_pad_zero(as.character(c(NA, 1, 100, 10, 1000)))
 f_pad_zero(c(NA, 1, 100, 10, 1000, "B", "BB"))
 }
+

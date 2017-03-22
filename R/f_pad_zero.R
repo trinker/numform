@@ -3,8 +3,8 @@
 #' Add leading zeros to numbers.
 #'
 #' @param x A vector of numbers (or string equivalents).
-#' @param width The width to make the stings.  Defaults to one more character
-#' than the maximum number of characters for all elements in \code{x}.
+#' @param width The width to make the stings.  Defaults to the maximum number of
+#' characters for all elements in \code{x}.
 #' @param pad.char A character to pad the string with.
 #' @param \ldots ignored.
 #' @return Returns a string of zero padded digits.
@@ -19,7 +19,7 @@ f_pad_zero <- function(x, width = NULL, pad.char = '0', ...){
 
     is_na <- is.na(x)
     lens <- nchar(x)
-    maxd <- max(lens, na.rm = TRUE) + 1
+    maxd <- max(lens, na.rm = TRUE)
     if (is.null(width)) width <- maxd
     stopifnot(width >= maxd)
     zeros <- width - lens

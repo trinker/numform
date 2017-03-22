@@ -2,10 +2,10 @@
 % Please edit documentation in R/f_affix.R
 \name{f_affix}
 \alias{f_affix}
-\alias{ff_affix}
 \alias{f_prefix}
-\alias{ff_prefix}
 \alias{f_suffix}
+\alias{ff_affix}
+\alias{ff_prefix}
 \alias{ff_suffix}
 \title{Add String Affixes}
 \usage{
@@ -51,3 +51,4 @@ f_bills(123456789123, -2) \%>\%
     f_prefix("$")
 }
 }
+

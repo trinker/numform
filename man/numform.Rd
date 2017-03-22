@@ -3,9 +3,10 @@
 \docType{package}
 \name{numform}
 \alias{numform}
-\alias{package-numform}
 \alias{numform-package}
+\alias{package-numform}
 \title{Tools to Format Numbers for Publication}
 \description{
 Format numbers for publication; includes the removal of leading zeros, standardization of number of digits, and a p-value formatter.
 }
+

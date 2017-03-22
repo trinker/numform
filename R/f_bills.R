@@ -29,9 +29,12 @@
 #' f_bills(123456789123, +1) # round to tenths
 #' f_bills(123456789123, +2) # round to hundreths
 #'
-#' x <- c(3886902.8696, 4044584.0424, 6591893.2104)
+#' x <- c(3886902.8696, 4044584.0424, 6591893.2104, 591893.2104)
 #' f_mills(x)
 #' f_mills(x, 1)
+#' f_mills(x, 1, prefix = '$')
+#' f_mills(x, 1, prefix = '$', pad.char = '0')
+#'
 #' \dontrun{
 #' if (!require("pacman")) install.packages("pacman")
 #' pacman::p_load(tidyverse, magrittr)
@@ -74,7 +77,9 @@
 #'         scale_y_continuous(label = ff_thous(prefix = '$'))+
 #'         facet_wrap(~site)
 #' }
-f_bills <- function(x, relative = 0, digits = -9, prefix = "", ...) {
+f_bills <- function(x, relative = 0, digits = -9, prefix = "", pad.char, ...) {
+
+    if (missing(pad.char)) pad.char <- ifelse(prefix == '', NA, ' ')
 
     digits <- digits + relative
 
@@ -85,7 +90,9 @@ f_bills <- function(x, relative = 0, digits = -9, prefix = "", ...) {
         x <- gsub("^0.", ".", paste0(round(x, digits)/1e+09, "B"))
     }
 
-    paste0(prefix, ifelse(x == '.', '0B', x))
+    x <- ifelse(x == '.', '0B', x)
+    if (!is.na(pad.char)) x <- f_pad_zero(x, width = max(nchar(x)), pad.char = pad.char)
+    paste0(prefix, x)
 
 }
 
@@ -98,7 +105,9 @@ ff_bills <- functionize(f_bills)
 
 #' @export
 #' @rdname number_abbreviation
-f_mills <- function(x, relative = 0, digits = -6, prefix = "", ...) {
+f_mills <- function(x, relative = 0, digits = -6, prefix = "", pad.char, ...) {
+
+    if (missing(pad.char)) pad.char <- ifelse(prefix == '', NA, ' ')
 
     digits <- digits + relative
 
@@ -110,9 +119,13 @@ f_mills <- function(x, relative = 0, digits = -6, prefix = "", ...) {
     }
 
     digit_warn(x, 'f_bills', 6)
-    paste0(prefix, ifelse(x == '.', '0M', x))
+
+    x <- ifelse(x == '.', '0M', x)
+    if (!is.na(pad.char)) x <- f_pad_zero(x, width = max(nchar(x)), pad.char = pad.char)
+    paste0(prefix, x)
 
 }
+
 
 #' @export
 #' @include utils.R
@@ -123,20 +136,28 @@ ff_mills <- functionize(f_mills)
 
 #' @export
 #' @rdname number_abbreviation
-f_thous <- function(x, relative = 0, digits = -3, prefix = "", ...) {
+f_thous <- function(x, relative = 0, digits = -3, prefix = "", pad.char, ...) {
+
+    if (missing(pad.char)) pad.char <- ifelse(prefix == '', NA, ' ')
 
     digits <- digits + relative
 
     if (relative > 0) {
-        x <- sprintf(paste0("%.", 3 + digits, "f"), round(x, digits)/1000)
+        x <- sprintf(paste0("%.", 3 + digits, "f"), round(x, digits)/1e+03)
         x <- gsub("^0.", ".", paste0(x, "K"))
     } else {
-        x <- gsub("^0.", ".", paste0(round(x, digits)/1000, "K"))
+        x <- gsub("^0.", ".", paste0(round(x, digits)/1e+03, "K"))
     }
 
-    digit_warn(x)
-    paste0(prefix, ifelse(x == '.', '0K', x))
+    digit_warn(x, 'f_mills', 3)
+
+    x <- ifelse(x == '.', '0k', x)
+    if (!is.na(pad.char)) x <- f_pad_zero(x, width = max(nchar(x)), pad.char = pad.char)
+    paste0(prefix, x)
+
 }
+
+
 
 #' @export
 #' @include utils.R

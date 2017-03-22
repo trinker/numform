@@ -2,22 +2,22 @@
 % Please edit documentation in R/f_bills.R
 \name{f_bills}
 \alias{f_bills}
-\alias{ff_bills}
 \alias{f_mills}
-\alias{ff_mills}
 \alias{f_thous}
+\alias{ff_bills}
+\alias{ff_mills}
 \alias{ff_thous}
 \title{Abbreviate Numbers}
 \usage{
-f_bills(x, relative = 0, digits = -9, prefix = "", ...)
+f_bills(x, relative = 0, digits = -9, prefix = "", pad.char, ...)
 
 ff_bills(...)
 
-f_mills(x, relative = 0, digits = -6, prefix = "", ...)
+f_mills(x, relative = 0, digits = -6, prefix = "", pad.char, ...)
 
 ff_mills(...)
 
-f_thous(x, relative = 0, digits = -3, prefix = "", ...)
+f_thous(x, relative = 0, digits = -3, prefix = "", pad.char, ...)
 
 ff_thous(...)
 }
@@ -57,9 +57,12 @@ f_bills(123456789123, -2) # round to hundreds
 f_bills(123456789123, +1) # round to tenths
 f_bills(123456789123, +2) # round to hundreths
 
-x <- c(3886902.8696, 4044584.0424, 6591893.2104)
+x <- c(3886902.8696, 4044584.0424, 6591893.2104, 591893.2104)
 f_mills(x)
 f_mills(x, 1)
+f_mills(x, 1, prefix = '$')
+f_mills(x, 1, prefix = '$', pad.char = '0')
+
 \dontrun{
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse, magrittr)
@@ -103,3 +106,4 @@ data_frame(
         facet_wrap(~site)
 }
 }
+

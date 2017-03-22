@@ -2,10 +2,10 @@
 % Please edit documentation in R/f_month.R
 \name{f_month}
 \alias{f_month}
-\alias{f_month.default}
-\alias{f_month.numeric}
 \alias{f_month.Date}
 \alias{f_month.POSIXlt}
+\alias{f_month.default}
+\alias{f_month.numeric}
 \title{Format Months to One Letter Abbreviation}
 \usage{
 f_month(x, ...)
@@ -62,3 +62,4 @@ ggplot(dat, aes(month, n)) +
     scale_x_discrete(labels = f_month)
 }
 }
+

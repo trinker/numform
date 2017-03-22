@@ -5,16 +5,18 @@ Authors@R: c(person("Tyler", "Rinker", email =
         "tyler.rinker@gmail.com", role = c("aut", "cre")))
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: Format numbers for publication; includes the removal of
-        leading zeros, standardization of number of digits, and a
-        p-value formatter.
-Depends: R (>= 3.2.0)
-Suggests: testthat
+    leading zeros, standardization of number of digits, and a
+    p-value formatter.
+Depends:
+    R (>= 3.2.0)
+Suggests:
+    testthat
 Date: 2017-03-09
 License: GPL-2
 LazyData: TRUE
 Roxygen: list(wrap = FALSE)
-RoxygenNote: 6.0.1
-Collate: 
+RoxygenNote: 5.0.1
+Collate:
     'utils.R'
     'f_affix.R'
     'f_bills.R'
