@@ -137,18 +137,19 @@ dat <- data_frame(
     PropLost = Lost/YearStart
 )
 
-mills <- ff_mills(relative = 1, prefix = '$')
+thous <- ff_thous(relative = -1, prefix = '$')
 percents <- ff_prop2percent(digits = 0)
 
 dat %>%
     group_by(Team) %>%
     mutate(ChangeWinLoss = fv_percent_diff(WinLossRate, 0)) %>%
     ungroup() %>%
-    mutate_at(vars(YearStart:Lost), funs(mills)) %>%
+    mutate_at(vars(Won:Lost), funs(thous)) %>%
     mutate_at(vars(PropWon, PropLost), funs(percents)) %>%
     mutate(
+        YearStart = f_mills(YearStart, 1, prefix = '$'),
         Team = fv_runs(Team),
-        WinLossRate = f_num(WinLossRate, 1, prefix = '$', pad.char = ' ')
+        WinLossRate = f_num(WinLossRate, 1)
     ) %>%
     pander::pander(split.tables = Inf, justify = c('left', rep('right', ncol(dat))))
 ```

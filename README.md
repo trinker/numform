@@ -71,7 +71,7 @@ functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
 
-<!-- Tue Mar 21 21:58:52 2017 -->
+<!-- Tue Mar 21 22:04:41 2017 -->
 
 <table>
 
@@ -338,18 +338,19 @@ Tables
         PropLost = Lost/YearStart
     )
 
-    mills <- ff_mills(relative = 1, prefix = '$')
+    thous <- ff_thous(relative = -1, prefix = '$')
     percents <- ff_prop2percent(digits = 0)
 
     dat %>%
         group_by(Team) %>%
         mutate(ChangeWinLoss = fv_percent_diff(WinLossRate, 0)) %>%
         ungroup() %>%
-        mutate_at(vars(YearStart:Lost), funs(mills)) %>%
+        mutate_at(vars(Won:Lost), funs(thous)) %>%
         mutate_at(vars(PropWon, PropLost), funs(percents)) %>%
         mutate(
+            YearStart = f_mills(YearStart, 1, prefix = '$'),
             Team = fv_runs(Team),
-            WinLossRate = f_num(WinLossRate, 1, prefix = '$', pad.char = ' ')
+            WinLossRate = f_num(WinLossRate, 1)
         ) %>%
         pander::pander(split.tables = Inf, justify = c('left', rep('right', ncol(dat))))
 
@@ -401,9 +402,9 @@ Tables
 <td align="left">West Coast</td>
 <td align="right">2012</td>
 <td align="right">$2.0M</td>
-<td align="right">$.4M</td>
-<td align="right">$.2M</td>
-<td align="right">$1.9</td>
+<td align="right">$350K</td>
+<td align="right">$190K</td>
+<td align="right">1.9</td>
 <td align="right">17%</td>
 <td align="right">9%</td>
 <td align="right">0%</td>
@@ -414,9 +415,9 @@ Tables
 <td align="left"></td>
 <td align="right">2013</td>
 <td align="right">$1.8M</td>
-<td align="right">$.6M</td>
-<td align="right">$.4M</td>
-<td align="right">$1.6</td>
+<td align="right">$600K</td>
+<td align="right">$370K</td>
+<td align="right">1.6</td>
 <td align="right">33%</td>
 <td align="right">20%</td>
 <td align="right">-13%</td>
@@ -427,9 +428,9 @@ Tables
 <td align="left"></td>
 <td align="right">2014</td>
 <td align="right">$ .6M</td>
-<td align="right">$.5M</td>
-<td align="right">$.3M</td>
-<td align="right">$1.8</td>
+<td align="right">$550K</td>
+<td align="right">$300K</td>
+<td align="right">1.8</td>
 <td align="right">87%</td>
 <td align="right">48%</td>
 <td align="right">11%</td>
@@ -440,9 +441,9 @@ Tables
 <td align="left"></td>
 <td align="right">2015</td>
 <td align="right">$1.4M</td>
-<td align="right">$.4M</td>
-<td align="right">$.3M</td>
-<td align="right">$1.6</td>
+<td align="right">$420K</td>
+<td align="right">$270K</td>
+<td align="right">1.6</td>
 <td align="right">30%</td>
 <td align="right">19%</td>
 <td align="right">-13%</td>
@@ -453,9 +454,9 @@ Tables
 <td align="left">East Coast</td>
 <td align="right">2012</td>
 <td align="right">$2.3M</td>
-<td align="right">$.2M</td>
-<td align="right">$.4M</td>
-<td align="right">$ .5</td>
+<td align="right">$210K</td>
+<td align="right">$420K</td>
+<td align="right">.5</td>
 <td align="right">9%</td>
 <td align="right">18%</td>
 <td align="right">0%</td>
@@ -466,9 +467,9 @@ Tables
 <td align="left"></td>
 <td align="right">2013</td>
 <td align="right">$2.4M</td>
-<td align="right">$.4M</td>
-<td align="right">$.4M</td>
-<td align="right">$ .9</td>
+<td align="right">$360K</td>
+<td align="right">$390K</td>
+<td align="right">.9</td>
 <td align="right">15%</td>
 <td align="right">16%</td>
 <td align="right">86%</td>
@@ -479,9 +480,9 @@ Tables
 <td align="left"></td>
 <td align="right">2014</td>
 <td align="right">$ .8M</td>
-<td align="right">$.6M</td>
-<td align="right">$.1M</td>
-<td align="right">$8.4</td>
+<td align="right">$590K</td>
+<td align="right">$ 70K</td>
+<td align="right">8.4</td>
 <td align="right">74%</td>
 <td align="right">9%</td>
 <td align="right">811%</td>
@@ -492,9 +493,9 @@ Tables
 <td align="left"></td>
 <td align="right">2015</td>
 <td align="right">$1.6M</td>
-<td align="right">$.5M</td>
-<td align="right">$.4M</td>
-<td align="right">$1.2</td>
+<td align="right">$500K</td>
+<td align="right">$420K</td>
+<td align="right">1.2</td>
 <td align="right">30%</td>
 <td align="right">26%</td>
 <td align="right">-86%</td>
