@@ -1,4 +1,4 @@
-numform
+numform   [![Follow](https://img.shields.io/twitter/follow/tylerrinker.svg?style=social)](https://twitter.com/intent/follow?screen_name=tylerrinker)
 ============
 
 
@@ -16,19 +16,19 @@ of number of digits, and a p-value formatter.
 Table of Contents
 ============
 
--   [[Installation](#installation)](#[installation](#installation))
--   [[Contact](#contact)](#[contact](#contact))
--   [[Available Functions](#available-functions)](#[available-functions](#available-functions))
--   [[Demonstration](#demonstration)](#[demonstration](#demonstration))
-    -   [[Load Packages](#load-packages)](#[load-packages](#load-packages))
-    -   [[Numbers](#numbers)](#[numbers](#numbers))
-    -   [[Abbreviated Numbers](#abbreviated-numbers)](#[abbreviated-numbers](#abbreviated-numbers))
-    -   [[Commas](#commas)](#[commas](#commas))
-    -   [[Percents](#percents)](#[percents](#percents))
-    -   [[Dollars](#dollars)](#[dollars](#dollars))
-    -   [[Tables](#tables)](#[tables](#tables))
-    -   [[Plotting](#plotting)](#[plotting](#plotting))
-    -   [[Modeling](#modeling)](#[modeling](#modeling))
+-   [Installation](#installation)
+-   [Contact](#contact)
+-   [Available Functions](#available-functions)
+-   [Demonstration](#demonstration)
+    -   [Load Packages](#load-packages)
+    -   [Numbers](#numbers)
+    -   [Abbreviated Numbers](#abbreviated-numbers)
+    -   [Commas](#commas)
+    -   [Percents](#percents)
+    -   [Dollars](#dollars)
+    -   [Tables](#tables)
+    -   [Plotting](#plotting)
+    -   [Modeling](#modeling)
 
 Installation
 ============
@@ -49,10 +49,10 @@ development version:
 Contact
 =======
 
-You are welcome to: 
-* submit suggestions and bug-reports at: <https://github.com/trinker/numform/issues> 
-* send a pull request on: <https://github.com/trinker/numform> 
-* compose a friendly e-mail to: <tyler.rinker@gmail.com>
+You are welcome to:    
+- submit suggestions and bug-reports at: <https://github.com/trinker/numform/issues>    
+- send a pull request on: <https://github.com/trinker/numform/>    
+- compose a friendly e-mail to: <tyler.rinker@gmail.com>    
 
 
 Available Functions
@@ -70,7 +70,7 @@ functions (see [\[Plotting\](\#plotting)](#%5Bplotting%5D(#plotting))
 for usage).
 
 <!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
-<!-- Tue Mar 21 21:44:57 2017 -->
+<!-- Tue Mar 21 21:50:02 2017 -->
 <table>
 <tr>
 <td>
