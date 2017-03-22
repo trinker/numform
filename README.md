@@ -70,7 +70,7 @@ functions (see [\[Plotting\](\#plotting)](#%5Bplotting%5D(#plotting))
 for usage).
 
 <!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
-<!-- Tue Mar 21 21:39:03 2017 -->
+<!-- Tue Mar 21 21:44:57 2017 -->
 <table>
 <tr>
 <td>
@@ -178,7 +178,7 @@ Numbers
     ## Warning in f_num(c(0, 0, 0.2, -0.02, 1.122222, pi, "A")): NAs introduced by
     ## coercion
 
-    ## [1] ".0"  ".0"  ".2"  "-.0" "1.1" "3.1" "NA"
+    ## [1] ".0"  ".0"  ".2"  "-.0" "1.1" "3.1" NA
 
 Abbreviated Numbers
 -------------------
