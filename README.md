@@ -8,6 +8,7 @@ Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis
 Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](https://coveralls.io/r/trinker/numform?branch=master)
 <a href="https://img.shields.io/badge/Version-0.0.1-orange.svg"><img src="https://img.shields.io/badge/Version-0.0.1-orange.svg" alt="Version"/></a>
 </p>
+
 **numform** contains tools to assist in the formatting of numbers for
 publication. Tools include the removal of leading zeros, standardization
 of number of digits, and a p-value formatter.
@@ -70,94 +71,159 @@ functions (see [\[Plotting\](\#plotting)](#%5Bplotting%5D(#plotting))
 for usage).
 
 <!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
-<!-- Tue Mar 21 21:50:02 2017 -->
+
+<!-- Tue Mar 21 21:54:54 2017 -->
+
 <table>
+
 <tr>
+
 <td>
+
 f_affix
 </td>
+
 <td>
+
 f_mills
 </td>
+
 <td>
+
 f_pad_zero
 </td>
+
 <td>
+
 f_pval
 </td>
+
 <td>
+
 fv_num_percent
 </td>
+
 </tr>
+
 <tr>
+
 <td>
+
 f_bills
 </td>
+
 <td>
+
 f_month
 </td>
+
 <td>
+
 f_parenthesis
 </td>
+
 <td>
+
 f_sign
 </td>
+
 <td>
+
 fv_percent
 </td>
+
 </tr>
+
 <tr>
+
 <td>
+
 f_comma
 </td>
+
 <td>
+
 f_num
 </td>
+
 <td>
+
 f_percent
 </td>
+
 <td>
+
 f_suffix
 </td>
+
 <td>
+
 fv_percent_diff
 </td>
+
 </tr>
+
 <tr>
+
 <td>
+
 f_dollar
 </td>
+
 <td>
+
 f_num_percent
 </td>
+
 <td>
+
 f_prefix
 </td>
+
 <td>
+
 f_thous
 </td>
+
 <td>
+
 fv_runs
 </td>
+
 </tr>
+
 <tr>
+
 <td>
+
 f_mean_sd
 </td>
+
 <td>
+
 f_ordinal
 </td>
+
 <td>
+
 f_prop2percent
 </td>
+
 <td>
+
 f_weekday
 </td>
+
 <td>
+
 </td>
+
 </tr>
+
 </table>
+
 <p class="caption">
+
 <b><em>Available Formatting Functions</em></b>
 </p>
 
@@ -289,19 +355,33 @@ Tables
         pander::pander(split.tables = Inf, justify = c('left', rep('right', ncol(dat))))
 
 <table>
+
 <colgroup>
+
 <col width="11%" />
+
 <col width="7%" />
+
 <col width="12%" />
+
 <col width="6%" />
+
 <col width="7%" />
+
 <col width="15%" />
+
 <col width="10%" />
+
 <col width="11%" />
+
 <col width="16%" />
+
 </colgroup>
+
 <thead>
+
 <tr class="header">
+
 <th align="left">Team</th>
 <th align="right">Year</th>
 <th align="right">YearStart</th>
@@ -312,9 +392,13 @@ Tables
 <th align="right">PropLost</th>
 <th align="right">ChangeWinLoss</th>
 </tr>
+
 </thead>
+
 <tbody>
+
 <tr class="odd">
+
 <td align="left">West Coast</td>
 <td align="right">2012</td>
 <td align="right">$2.0M</td>
@@ -325,7 +409,9 @@ Tables
 <td align="right">9%</td>
 <td align="right">0%</td>
 </tr>
+
 <tr class="even">
+
 <td align="left"></td>
 <td align="right">2013</td>
 <td align="right">$1.8M</td>
@@ -336,7 +422,9 @@ Tables
 <td align="right">20%</td>
 <td align="right">-13%</td>
 </tr>
+
 <tr class="odd">
+
 <td align="left"></td>
 <td align="right">2014</td>
 <td align="right">$ .6M</td>
@@ -347,7 +435,9 @@ Tables
 <td align="right">48%</td>
 <td align="right">11%</td>
 </tr>
+
 <tr class="even">
+
 <td align="left"></td>
 <td align="right">2015</td>
 <td align="right">$1.4M</td>
@@ -358,7 +448,9 @@ Tables
 <td align="right">19%</td>
 <td align="right">-13%</td>
 </tr>
+
 <tr class="odd">
+
 <td align="left">East Coast</td>
 <td align="right">2012</td>
 <td align="right">$2.3M</td>
@@ -369,7 +461,9 @@ Tables
 <td align="right">18%</td>
 <td align="right">0%</td>
 </tr>
+
 <tr class="even">
+
 <td align="left"></td>
 <td align="right">2013</td>
 <td align="right">$2.4M</td>
@@ -380,7 +474,9 @@ Tables
 <td align="right">16%</td>
 <td align="right">86%</td>
 </tr>
+
 <tr class="odd">
+
 <td align="left"></td>
 <td align="right">2014</td>
 <td align="right">$ .8M</td>
@@ -391,7 +487,9 @@ Tables
 <td align="right">9%</td>
 <td align="right">811%</td>
 </tr>
+
 <tr class="even">
+
 <td align="left"></td>
 <td align="right">2015</td>
 <td align="right">$1.6M</td>
@@ -402,8 +500,11 @@ Tables
 <td align="right">26%</td>
 <td align="right">-86%</td>
 </tr>
+
 </tbody>
+
 </table>
+
 
 Plotting
 --------
