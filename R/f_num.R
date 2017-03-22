@@ -45,7 +45,7 @@
 #'     geom_point() +
 #'     scale_y_continuous(labels = ff_num(zero = 0))
 #' }
-f_num <- function(x, digits = getOption("numformdigits"), p, s, pad.char ='', zero = NULL, ...) {
+f_num <- function(x, digits = getOption("numformdigits"), p, s, pad.char = NA, zero = NULL, ...) {
 
     ldots <- list(...)
     if (length(ldots) > 0) {
