@@ -2,16 +2,6 @@ numform
 ============
 
 
-    ## package 'wakefield' successfully unpacked and MD5 sums checked
-    ## 
-    ## The downloaded binary packages are in
-    ##  C:\Users\Tyler\AppData\Local\Temp\Rtmpesf41f\downloaded_packages
-
-    ## 
-    ## wakefield installed
-
-    ## Warning: package 'wakefield' was built under R version 3.3.3
-
 [![Build
 Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
 [![Coverage
@@ -80,7 +70,7 @@ functions (see [\[Plotting\](\#plotting)](#%5Bplotting%5D(#plotting))
 for usage).
 
 <!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
-<!-- Tue Mar 21 21:36:29 2017 -->
+<!-- Tue Mar 21 21:39:03 2017 -->
 <table>
 <tr>
 <td>

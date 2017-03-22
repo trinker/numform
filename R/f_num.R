@@ -47,8 +47,6 @@
 #' }
 f_num <- function(x, digits = getOption("numformdigits"), p, s, pad.char ='', zero = NULL, ...) {
 
-    na_locs <- which(is.na(x))
-
     ldots <- list(...)
     if (length(ldots) > 0) {
         if (!is.null(ldots[['prefix']]) & missing(p)) p <- ldots[['prefix']]
@@ -64,6 +62,7 @@ f_num <- function(x, digits = getOption("numformdigits"), p, s, pad.char ='', ze
     }
 
     x <- round(as.numeric(x), digits)
+    na_locs <- which(is.na(x))
 
     if (digits > 0) x <- sprintf(paste0("%.", digits, "f"), x)
     out <- gsub("^0(?=\\.)|(?<=-)0", "", x, perl=TRUE)
