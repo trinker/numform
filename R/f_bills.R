@@ -9,6 +9,8 @@
 #' @param digits The number of digits to round to.  Actual \code{digits}
 #' calculated as \code{digits} +  \code{relative}.
 #' @param prefix A string to append to the front of elements.
+#' @param pad.char A character to use for leading padding if lengths of output
+#' are unequal.  Use \code{NA} to forgo padding.
 #' @param \ldots ignored.
 #' @return Returns an abbreviated vector of numbers.
 #' @export

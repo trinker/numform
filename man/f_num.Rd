@@ -5,7 +5,8 @@
 \alias{ff_num}
 \title{Format Digits}
 \usage{
-f_num(x, digits = getOption("numformdigits"), p, s, zero = NULL, ...)
+f_num(x, digits = getOption("numformdigits"), p, s, pad.char = "",
+  zero = NULL, ...)
 
 ff_num(...)
 }
@@ -19,6 +20,9 @@ digits beyond the decimal point to include.}
 \item{p}{A string to paste at the begining of the output from \code{f_num}.}
 
 \item{s}{A string to paste at the end of the output from \code{f_num}.}
+
+\item{pad.char}{A character to use for leading padding if lengths of output
+are unequal.}
 
 \item{zero}{An value to insert in for zero values.}
 

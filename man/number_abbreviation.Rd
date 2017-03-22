@@ -33,6 +33,9 @@ calculated as \code{digits} +  \code{relative}.}
 
 \item{prefix}{A string to append to the front of elements.}
 
+\item{pad.char}{A character to use for leading padding if lengths of output
+are unequal.  Use \code{NA} to forgo padding.}
+
 \item{\ldots}{ignored.}
 }
 \value{
