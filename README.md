@@ -71,7 +71,7 @@ functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
 
-<!-- Wed Mar 22 20:42:33 2017 -->
+<!-- Wed Mar 22 20:45:20 2017 -->
 
 <table>
 
@@ -522,7 +522,7 @@ Plotting
             thous = f_thous(revenue),
             thous_dollars = f_thous(revenue, prefix = '$'),
             abb_month = f_month(date),
-            abb_week = factor(f_weekday(date, distinct = TRUE), levels = c('Su', 'M', 'T', 'W', 'Th', 'F', 'S'))
+            abb_week = as_factor(f_weekday(date, distinct = TRUE))
         ) %T>%
         print() %>%
         ggplot(aes(abb_week, revenue)) +
