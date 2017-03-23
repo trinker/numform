@@ -71,9 +71,38 @@ functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
 
-<!-- Tue Mar 21 22:04:41 2017 -->
+<!-- Wed Mar 22 20:42:33 2017 -->
 
 <table>
+
+<tr>
+
+<td>
+
+as_factor
+</td>
+
+<td>
+
+f_mean_sd
+</td>
+
+<td>
+
+f_ordinal
+</td>
+
+<td>
+
+f_prop2percent
+</td>
+
+<td>
+
+f_weekday
+</td>
+
+</tr>
 
 <tr>
 
@@ -187,34 +216,6 @@ f_thous
 <td>
 
 fv_runs
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-f_mean_sd
-</td>
-
-<td>
-
-f_ordinal
-</td>
-
-<td>
-
-f_prop2percent
-</td>
-
-<td>
-
-f_weekday
-</td>
-
-<td>
-
 </td>
 
 </tr>

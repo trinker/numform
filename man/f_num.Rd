@@ -5,7 +5,7 @@
 \alias{ff_num}
 \title{Format Digits}
 \usage{
-f_num(x, digits = getOption("numformdigits"), p, s, pad.char = "",
+f_num(x, digits = getOption("numformdigits"), p, s, pad.char = NA,
   zero = NULL, ...)
 
 ff_num(...)

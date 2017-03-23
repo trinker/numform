@@ -15,6 +15,7 @@ LazyData: TRUE
 Roxygen: list(wrap = FALSE)
 RoxygenNote: 5.0.1
 Collate:
+    'as_factor.R'
     'utils.R'
     'f_affix.R'
     'f_bills.R'
