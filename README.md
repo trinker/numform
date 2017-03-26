@@ -71,7 +71,7 @@ functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.3.3 by xtable 1.8-2 package -->
 
-<!-- Sun Mar 26 17:24:56 2017 -->
+<!-- Sun Mar 26 18:28:06 2017 -->
 
 <table>
 
@@ -419,10 +419,10 @@ Tables
         group_by(Team) %>%
         mutate(ChangeWinLoss = fv_percent_diff(WinLossRate, 0)) %>%
         ungroup() %>%
-        mutate_at(vars(Won:Lost), .funs = ff_thous(relative = -1, prefix = '$')) %>%
+        mutate_at(vars(Won:Lost), .funs = ff_denom(relative = -1, prefix = '$')) %>%
         mutate_at(vars(PropWon, PropLost), .funs = ff_prop2percent(digits = 0)) %>%
         mutate(
-            YearStart = f_mills(YearStart, 1, prefix = '$'),
+            YearStart = f_denom(YearStart, 1, prefix = '$'),
             Team = fv_runs(Team),
             WinLossRate = f_num(WinLossRate, 1)
         ) %>%
@@ -592,8 +592,8 @@ Plotting
     ) %>%
         mutate(
             dollar = f_dollar(revenue, digits = -3),
-            thous = f_thous(revenue),
-            thous_dollars = f_thous(revenue, prefix = '$'),
+            thous = f_denom(revenue),
+            thous_dollars = f_denom(revenue, prefix = '$'),
             abb_month = f_month(date),
             abb_week = as_factor(f_weekday(date, distinct = TRUE))
         ) %T>%
@@ -619,7 +619,7 @@ Plotting
     ## 10 498559.2 1999-12-26 Site 2 $499000  499K         $499K         D
     ## # ... with 9,990 more rows, and 1 more variables: abb_week <fctr>
 
-![](inst/figure/unnamed-chunk-30-1.png)
+![](inst/figure/unnamed-chunk-13-1.png)
 
 Modeling
 --------

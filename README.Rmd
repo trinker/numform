@@ -165,10 +165,10 @@ dat %>%
     group_by(Team) %>%
     mutate(ChangeWinLoss = fv_percent_diff(WinLossRate, 0)) %>%
     ungroup() %>%
-    mutate_at(vars(Won:Lost), .funs = ff_thous(relative = -1, prefix = '$')) %>%
+    mutate_at(vars(Won:Lost), .funs = ff_denom(relative = -1, prefix = '$')) %>%
     mutate_at(vars(PropWon, PropLost), .funs = ff_prop2percent(digits = 0)) %>%
     mutate(
-        YearStart = f_mills(YearStart, 1, prefix = '$'),
+        YearStart = f_denom(YearStart, 1, prefix = '$'),
         Team = fv_runs(Team),
         WinLossRate = f_num(WinLossRate, 1)
     ) %>%
@@ -190,8 +190,8 @@ data_frame(
 ) %>%
     mutate(
         dollar = f_dollar(revenue, digits = -3),
-        thous = f_thous(revenue),
-        thous_dollars = f_thous(revenue, prefix = '$'),
+        thous = f_denom(revenue),
+        thous_dollars = f_denom(revenue, prefix = '$'),
         abb_month = f_month(date),
         abb_week = as_factor(f_weekday(date, distinct = TRUE))
     ) %T>%
