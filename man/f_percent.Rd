@@ -2,8 +2,8 @@
 % Please edit documentation in R/f_percent.R
 \name{f_percent}
 \alias{f_percent}
-\alias{f_prop2percent}
 \alias{ff_percent}
+\alias{f_prop2percent}
 \alias{ff_prop2percent}
 \title{Format Percentages}
 \usage{
@@ -57,4 +57,3 @@ mtcars \%>\%
 \seealso{
 \code{\link[numform]{f_num}}
 }
-

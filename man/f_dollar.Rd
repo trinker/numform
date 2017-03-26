@@ -38,4 +38,3 @@ f_dollar(c(0.0, 0, .2, -00.02, 1122222, pi)) \%>\% f_comma()
 \seealso{
 \code{\link[numform]{f_num}}
 }
-

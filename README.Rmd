@@ -100,6 +100,20 @@ f_bills(12345678912)
 f_bills(123456789123)
 ```
 
+...or auto-detect:
+
+```{r}
+f_denom(1234)
+f_denom(12345)
+f_denom(123456)
+f_denom(1234567)
+f_denom(12345678)
+f_denom(123456789)
+f_denom(1234567891)
+f_denom(12345678912)
+f_denom(123456789123)
+```
+
 ## Commas
 
 ```{r, warn=FALSE}
@@ -122,6 +136,13 @@ f_dollar(c(0.0, 0, .2, -00.02, 1122222, pi)) %>%
     f_comma()
 ```
 
+Sometimes one wants to lop off digits of money in order to see the important digits, the real story.  The `f_denom` family of functions can do job.
+
+```{r, warn=FALSE}
+f_denom(c(12345267, 98765433, 658493021), prefix = '$')
+f_denom(c(12345267, 98765433, 658493021), relative = 1, prefix = '$')
+```
+
 ## Tables
 
 ```{r}
@@ -139,15 +160,13 @@ dat <- data_frame(
     PropLost = Lost/YearStart
 )
 
-thous <- ff_thous(relative = -1, prefix = '$')
-percents <- ff_prop2percent(digits = 0)
 
 dat %>%
     group_by(Team) %>%
     mutate(ChangeWinLoss = fv_percent_diff(WinLossRate, 0)) %>%
     ungroup() %>%
-    mutate_at(vars(Won:Lost), funs(thous)) %>%
-    mutate_at(vars(PropWon, PropLost), funs(percents)) %>%
+    mutate_at(vars(Won:Lost), .funs = ff_thous(relative = -1, prefix = '$')) %>%
+    mutate_at(vars(PropWon, PropLost), .funs = ff_prop2percent(digits = 0)) %>%
     mutate(
         YearStart = f_mills(YearStart, 1, prefix = '$'),
         Team = fv_runs(Team),

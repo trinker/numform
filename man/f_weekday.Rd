@@ -2,10 +2,10 @@
 % Please edit documentation in R/f_weekday.R
 \name{f_weekday}
 \alias{f_weekday}
-\alias{f_weekday.Date}
-\alias{f_weekday.POSIXlt}
 \alias{f_weekday.default}
 \alias{f_weekday.numeric}
+\alias{f_weekday.Date}
+\alias{f_weekday.POSIXlt}
 \title{Format Months to One Letter Abbreviation}
 \usage{
 f_weekday(x, distinct = FALSE, ...)
@@ -71,4 +71,3 @@ ggplot(dat, aes(day, n)) +
     scale_x_discrete(labels = f_weekday)
 }
 }
-

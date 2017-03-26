@@ -43,4 +43,3 @@ f_pval(mod2$p.value)
 \seealso{
 \code{\link[numform]{f_num}}
 }
-

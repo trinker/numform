@@ -30,4 +30,3 @@ f_sign(c(-10, 0, 10), 0)
 \seealso{
 \code{\link[numform]{f_num}}
 }
-

@@ -69,4 +69,3 @@ data_frame(
         theme_bw()
 }
 }
-

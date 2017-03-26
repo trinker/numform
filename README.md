@@ -69,9 +69,9 @@ return version that is prefixed with an additional `f`. For example,
 instead. This is useful for passing in to **ggplot2** `scale_x/y_type`
 functions (see [Plotting](#plotting) for usage).
 
-<!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
+<!-- html table generated in R 3.3.3 by xtable 1.8-2 package -->
 
-<!-- Wed Mar 22 20:45:20 2017 -->
+<!-- Sun Mar 26 17:24:56 2017 -->
 
 <table>
 
@@ -89,17 +89,17 @@ f_mean_sd
 
 <td>
 
-f_ordinal
+f_pad_zero
 </td>
 
 <td>
 
-f_prop2percent
+f_sign
 </td>
 
 <td>
 
-f_weekday
+fv_percent_diff
 </td>
 
 </tr>
@@ -118,17 +118,17 @@ f_mills
 
 <td>
 
-f_pad_zero
+f_parenthesis
 </td>
 
 <td>
 
-f_pval
+f_suffix
 </td>
 
 <td>
 
-fv_num_percent
+fv_runs
 </td>
 
 </tr>
@@ -147,17 +147,16 @@ f_month
 
 <td>
 
-f_parenthesis
+f_percent
 </td>
 
 <td>
 
-f_sign
+f_thous
 </td>
 
 <td>
 
-fv_percent
 </td>
 
 </tr>
@@ -176,17 +175,44 @@ f_num
 
 <td>
 
-f_percent
+f_prefix
 </td>
 
 <td>
 
-f_suffix
+f_weekday
 </td>
 
 <td>
 
-fv_percent_diff
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+f_denom
+</td>
+
+<td>
+
+f_num_percent
+</td>
+
+<td>
+
+f_prop2percent
+</td>
+
+<td>
+
+fv_num_percent
+</td>
+
+<td>
+
 </td>
 
 </tr>
@@ -200,22 +226,21 @@ f_dollar
 
 <td>
 
-f_num_percent
+f_ordinal
 </td>
 
 <td>
 
-f_prefix
+f_pval
 </td>
 
 <td>
 
-f_thous
+fv_percent
 </td>
 
 <td>
 
-fv_runs
 </td>
 
 </tr>
@@ -286,6 +311,44 @@ Abbreviated Numbers
 
     ## [1] "123B"
 
+...or auto-detect:
+
+    f_denom(1234)
+
+    ## [1] "1K"
+
+    f_denom(12345)
+
+    ## [1] "12K"
+
+    f_denom(123456)
+
+    ## [1] "123K"
+
+    f_denom(1234567)
+
+    ## [1] "1M"
+
+    f_denom(12345678)
+
+    ## [1] "12M"
+
+    f_denom(123456789)
+
+    ## [1] "123M"
+
+    f_denom(1234567891)
+
+    ## [1] "1B"
+
+    f_denom(12345678912)
+
+    ## [1] "12B"
+
+    f_denom(123456789123)
+
+    ## [1] "123B"
+
 Commas
 ------
 
@@ -322,6 +385,18 @@ Dollars
     ## [1] "$0.00"         "$0.00"         "$0.20"         "$-.02"        
     ## [5] "$1,122,222.00" "$3.14"
 
+Sometimes one wants to lop off digits of money in order to see the
+important digits, the real story. The `f_denom` family of functions can
+do job.
+
+    f_denom(c(12345267, 98765433, 658493021), prefix = '$')
+
+    ## [1] "$ 12M" "$ 99M" "$658M"
+
+    f_denom(c(12345267, 98765433, 658493021), relative = 1, prefix = '$')
+
+    ## [1] "$ 12.3M" "$ 98.8M" "$658.5M"
+
 Tables
 ------
 
@@ -339,15 +414,13 @@ Tables
         PropLost = Lost/YearStart
     )
 
-    thous <- ff_thous(relative = -1, prefix = '$')
-    percents <- ff_prop2percent(digits = 0)
 
     dat %>%
         group_by(Team) %>%
         mutate(ChangeWinLoss = fv_percent_diff(WinLossRate, 0)) %>%
         ungroup() %>%
-        mutate_at(vars(Won:Lost), funs(thous)) %>%
-        mutate_at(vars(PropWon, PropLost), funs(percents)) %>%
+        mutate_at(vars(Won:Lost), .funs = ff_thous(relative = -1, prefix = '$')) %>%
+        mutate_at(vars(PropWon, PropLost), .funs = ff_prop2percent(digits = 0)) %>%
         mutate(
             YearStart = f_mills(YearStart, 1, prefix = '$'),
             Team = fv_runs(Team),
@@ -546,7 +619,7 @@ Plotting
     ## 10 498559.2 1999-12-26 Site 2 $499000  499K         $499K         D
     ## # ... with 9,990 more rows, and 1 more variables: abb_week <fctr>
 
-![](inst/figure/unnamed-chunk-11-1.png)
+![](inst/figure/unnamed-chunk-30-1.png)
 
 Modeling
 --------

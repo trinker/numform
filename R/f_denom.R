@@ -1,6 +1,8 @@
 #' Abbreviate Numbers
 #'
-#' Use the K (thousands), M (millions), and B (billions) with abbreviated numbers.
+#' Use the denomination abbreviations K (thousands), M (millions), and
+#' B (billions) with abbreviated numbers.\cr\code{f_denom} - Auto-detect the
+#' maximum denomination and attempt to use it.
 #'
 #' @param x A vector of large numbers.
 #' @param relative A factor relative to the current \code{digits} being rounded.
@@ -14,8 +16,16 @@
 #' @param \ldots ignored.
 #' @return Returns an abbreviated vector of numbers.
 #' @export
-#' @rdname number_abbreviation
+#' @rdname f_denom
 #' @examples
+## f_denom(c(12345, 12563, 191919), prefix = '$')
+## f_denom(c(12345, 12563, 191919), prefix = '$', pad.char = '')
+## f_denom(c(1234365, 122123563, 12913919), prefix = '$')
+## f_denom(c(12343676215, 122126763563, 1291673919), prefix = '$')
+## f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), prefix = '$')
+## f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), relative = 1, prefix = '$')
+## f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), relative = 9, prefix = '$')
+#'
 #' f_thous(1234)
 #' f_thous(12345)
 #' f_thous(123456)
@@ -79,11 +89,42 @@
 #'         scale_y_continuous(label = ff_thous(prefix = '$'))+
 #'         facet_wrap(~site)
 #' }
-f_bills <- function(x, relative = 0, digits = -9, prefix = "", pad.char, ...) {
+f_denom <- function(x, relative = 0, prefix = "", pad.char = ifelse(prefix == "", NA, " "), ...) {
 
-    if (missing(pad.char)) pad.char <- ifelse(prefix == '', NA, ' ')
+    #if (missing(pad.char)) pad.char <- ifelse(prefix == "", NA, " ")
+
+    md <- max(nchar(round(x, 0)), na.rm = TRUE)
+    digs <- ifelse(md <= 6, 'thous', ifelse(md <= 9, 'mills', ifelse(md <= 12, 'bills', NA)))
+    if (is.na(digs)) stop("Element(s) in `x` are greater than 12 digits.")
+
+    fun <- switch(digs,
+        thous = {ff_thous(relative = relative, prefix =prefix, pad.char = pad.char)},
+        mills = {ff_mills(relative = relative, prefix =prefix, pad.char = pad.char)},
+        bills = {ff_bills(relative = relative, prefix =prefix, pad.char = pad.char)}
+    )
+
+    fun(x)
+
+}
+
+#' @export
+#' @include utils.R
+#' @rdname f_denom
+ff_denom <- functionize(f_denom)
+
+
+#' @description \code{f_bills} - Force the abbreviation to the billions
+#' denomination (B).
+#' @export
+#' @include utils.R
+#' @rdname f_denom
+f_bills <- function(x, relative = 0, digits = -9, prefix = "",
+    pad.char = ifelse(prefix == '', NA, ' '), ...) {
+
+    #if (missing(pad.char)) pad.char <- ifelse(prefix == '', NA, ' ')
 
     digits <- digits + relative
+    nas <- is.na(x)
 
     if (relative > 0) {
         x <- sprintf(paste0("%.", 9 + digits, "f"), round(x, digits)/1e+09)
@@ -94,24 +135,28 @@ f_bills <- function(x, relative = 0, digits = -9, prefix = "", pad.char, ...) {
 
     x <- ifelse(x == '.', '0B', x)
     if (!is.na(pad.char)) x <- f_pad_zero(x, width = max(nchar(x)), pad.char = pad.char)
-    paste0(prefix, x)
-
+    out <- paste0(prefix, x)
+    out[nas] <- NA
+    out
 }
 
 
 #' @export
 #' @include utils.R
-#' @rdname number_abbreviation
+#' @rdname f_denom
 ff_bills <- functionize(f_bills)
 
-
+#' @description \code{f_mills} - Force the abbreviation to the millions
+#' denomination (B).
 #' @export
-#' @rdname number_abbreviation
-f_mills <- function(x, relative = 0, digits = -6, prefix = "", pad.char, ...) {
+#' @rdname f_denom
+f_mills <- function(x, relative = 0, digits = -6, prefix = "",
+    pad.char = ifelse(prefix == '', NA, ' '), ...) {
 
-    if (missing(pad.char)) pad.char <- ifelse(prefix == '', NA, ' ')
+    #if (missing(pad.char)) pad.char <- ifelse(prefix == '', NA, ' ')
 
     digits <- digits + relative
+    nas <- is.na(x)
 
     if (relative > 0) {
         x <- sprintf(paste0("%.", 6 + digits, "f"), round(x, digits)/1e+06)
@@ -124,25 +169,29 @@ f_mills <- function(x, relative = 0, digits = -6, prefix = "", pad.char, ...) {
 
     x <- ifelse(x == '.', '0M', x)
     if (!is.na(pad.char)) x <- f_pad_zero(x, width = max(nchar(x)), pad.char = pad.char)
-    paste0(prefix, x)
-
+    out <- paste0(prefix, x)
+    out[nas] <- NA
+    out
 }
 
 
 #' @export
 #' @include utils.R
-#' @rdname number_abbreviation
+#' @rdname f_denom
 ff_mills <- functionize(f_mills)
 
 
-
+#' @description \code{f_thous} - Force the abbreviation to the thousands
+#' denomination (B).
 #' @export
-#' @rdname number_abbreviation
-f_thous <- function(x, relative = 0, digits = -3, prefix = "", pad.char, ...) {
+#' @rdname f_denom
+f_thous <- function(x, relative = 0, digits = -3, prefix = "",
+    pad.char = ifelse(prefix == '', NA, ' '), ...) {
 
-    if (missing(pad.char)) pad.char <- ifelse(prefix == '', NA, ' ')
+    #if (missing(pad.char)) pad.char <- ifelse(prefix == '', NA, ' ')
 
     digits <- digits + relative
+    nas <- is.na(x)
 
     if (relative > 0) {
         x <- sprintf(paste0("%.", 3 + digits, "f"), round(x, digits)/1e+03)
@@ -155,15 +204,16 @@ f_thous <- function(x, relative = 0, digits = -3, prefix = "", pad.char, ...) {
 
     x <- ifelse(x == '.', '0k', x)
     if (!is.na(pad.char)) x <- f_pad_zero(x, width = max(nchar(x)), pad.char = pad.char)
-    paste0(prefix, x)
-
+    out <- paste0(prefix, x)
+    out[nas] <- NA
+    out
 }
 
 
 
 #' @export
 #' @include utils.R
-#' @rdname number_abbreviation
+#' @rdname f_denom
 ff_thous <- functionize(f_thous)
 
 

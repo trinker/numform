@@ -23,4 +23,3 @@ Add ordinal suffixes (-st, -nd, -rd, -th) to numbers.
 \examples{
 f_ordinal(1:10)
 }
-

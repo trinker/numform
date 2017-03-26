@@ -37,4 +37,3 @@ data.frame(
     mutate(state2 = fv_runs(state))
 }
 }
-
