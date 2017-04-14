@@ -9,6 +9,7 @@ Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](htt
 <a href="https://img.shields.io/badge/Version-0.0.1-orange.svg"><img src="https://img.shields.io/badge/Version-0.0.1-orange.svg" alt="Version"/></a>
 </p>
 
+
 **numform** contains tools to assist in the formatting of numbers for
 publication. Tools include the removal of leading zeros, standardization
 of number of digits, and a p-value formatter.
@@ -71,7 +72,7 @@ functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.3.3 by xtable 1.8-2 package -->
 
-<!-- Sun Mar 26 18:28:06 2017 -->
+<!-- Fri Apr 14 08:49:42 2017 -->
 
 <table>
 
@@ -251,6 +252,7 @@ fv_percent
 
 <b><em>Available Formatting Functions</em></b>
 </p>
+
 
 Demonstration
 =============
@@ -600,7 +602,7 @@ Plotting
         print() %>%
         ggplot(aes(abb_week, revenue)) +
             geom_jitter(width = .2, height = 0, alpha = .2) +
-            scale_y_continuous(label = ff_thous(prefix = '$'))+
+            scale_y_continuous(label = ff_denom(prefix = '$'))+
             facet_wrap(~site) +
             theme_bw()
 
@@ -619,7 +621,7 @@ Plotting
     ## 10 498559.2 1999-12-26 Site 2 $499000  499K         $499K         D
     ## # ... with 9,990 more rows, and 1 more variables: abb_week <fctr>
 
-![](inst/figure/unnamed-chunk-13-1.png)
+![](tools/figure/unnamed-chunk-13-1.png)
 
 Modeling
 --------
