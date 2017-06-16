@@ -5,7 +5,7 @@
 \alias{ff_comma}
 \title{Comma Format Large Integers}
 \usage{
-f_comma(x, mark = ",", ...)
+f_comma(x, mark = ",", prefix = "", ...)
 
 ff_comma(...)
 }
@@ -13,6 +13,8 @@ ff_comma(...)
 \item{x}{A vector opc numbers (or string equivalents).}
 
 \item{mark}{The character to include every n places.}
+
+\item{prefix}{A string to append to the front of elements.}
 
 \item{\ldots}{Other arguments passed to \code{\link[base]{prettyNum}}.}
 }
