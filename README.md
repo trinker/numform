@@ -1,4 +1,4 @@
-numform   [![Follow](https://img.shields.io/twitter/follow/tylerrinker.svg?style=social)](https://twitter.com/intent/follow?screen_name=tylerrinker)
+numform   
 ============
 
 
@@ -6,7 +6,7 @@ numform   [![Follow](https://img.shields.io/twitter/follow/tylerrinker.svg?style
 Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
 [![Coverage
 Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](https://coveralls.io/r/trinker/numform?branch=master)
-<a href="https://img.shields.io/badge/Version-0.0.1-orange.svg"><img src="https://img.shields.io/badge/Version-0.0.1-orange.svg" alt="Version"/></a>
+<a href="https://img.shields.io/badge/Version-0.0.2-orange.svg"><img src="https://img.shields.io/badge/Version-0.0.2-orange.svg" alt="Version"/></a>
 </p>
 
 
@@ -70,9 +70,9 @@ return version that is prefixed with an additional `f`. For example,
 instead. This is useful for passing in to **ggplot2** `scale_x/y_type`
 functions (see [Plotting](#plotting) for usage).
 
-<!-- html table generated in R 3.3.3 by xtable 1.8-2 package -->
+<!-- html table generated in R 3.4.0 by xtable 1.8-2 package -->
 
-<!-- Fri Apr 14 08:49:42 2017 -->
+<!-- Fri Jul 28 18:40:31 2017 -->
 
 <table>
 

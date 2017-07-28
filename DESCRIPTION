@@ -1,12 +1,15 @@
 Package: numform
 Title: Tools to Format Numbers for Publication
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: c(person("Tyler", "Rinker", email =
         "tyler.rinker@gmail.com", role = c("aut", "cre")))
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: Format numbers for publication; includes the removal of
         leading zeros, standardization of number of digits, and a
-        p-value formatter.
+        p-value formatter.  These tools combine the functionality of several 
+        'base' functions such as paste, format, and paste into specific
+        functions that are named in a way that is consistent with usage, making
+        them easy to remember and use.
 Depends: R (>= 3.2.0)
 Suggests: testthat
 Date: 2017-07-28
