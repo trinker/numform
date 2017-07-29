@@ -6,9 +6,6 @@ numform
 Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
 [![Coverage
 Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](https://coveralls.io/r/trinker/numform?branch=master)
-<a href="https://img.shields.io/badge/Version-0.0.2-orange.svg"><img src="https://img.shields.io/badge/Version-0.0.2-orange.svg" alt="Version"/></a>
-</p>
-
 
 **numform** contains tools to assist in the formatting of numbers for
 publication. Tools include the removal of leading zeros, standardization
@@ -72,7 +69,7 @@ functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.4.0 by xtable 1.8-2 package -->
 
-<!-- Fri Jul 28 18:40:31 2017 -->
+<!-- Fri Jul 28 18:43:34 2017 -->
 
 <table>
 

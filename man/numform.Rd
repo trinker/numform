@@ -7,5 +7,9 @@
 \alias{numform-package}
 \title{Tools to Format Numbers for Publication}
 \description{
-Format numbers for publication; includes the removal of leading zeros, standardization of number of digits, and a p-value formatter.
+Format numbers for publication; includes the removal of leading zeros,
+standardization of number of digits, and a p-value formatter.  These tools
+combine the functionality of several 'base' functions such as \code{paste},
+\code{format}, and \code{sprintf} into specific functions that are named in
+a way that is consistent with usage, making them easy to remember and use.
 }
