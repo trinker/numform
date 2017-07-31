@@ -9,7 +9,11 @@ Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](htt
 
 **numform** contains tools to assist in the formatting of numbers for
 publication. Tools include the removal of leading zeros, standardization
-of number of digits, and a p-value formatter.
+of number of digits, addition of affixes, and a p-value formatter. These
+tools combine the functionality of several 'base' functions such as
+`paste()`, `format()`, and `sprintf()` into specific use case functions
+that are named in a way that is consistent with usage, making their
+names easy to remember and easy to deploy.
 
 Installation
 ============
@@ -67,8 +71,15 @@ return version that is prefixed with an additional `f`. For example,
 instead. This is useful for passing in to **ggplot2** `scale_x/y_type`
 functions (see [Plotting](#plotting) for usage).
 
+<<<<<<< HEAD
 <!-- html table generated in R 3.5.0 by xtable 1.8-2 package -->
 <!-- Fri Jul 28 14:23:14 2017 -->
+=======
+<!-- html table generated in R 3.4.0 by xtable 1.8-2 package -->
+
+<!-- Sat Jul 29 08:10:44 2017 -->
+
+>>>>>>> 29014295363f18cc650c163a409a960752278c84
 <table>
 <tr>
 <td>

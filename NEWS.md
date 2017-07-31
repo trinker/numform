@@ -6,7 +6,7 @@ Versioning
 
 Releases will be numbered with the following semantic versioning format:
 
-<major>.<minor>.<patch>
+&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;
 
 And constructed with the following guidelines:
 
@@ -20,15 +20,15 @@ And constructed with the following guidelines:
 numform 0.0.5 -
 ----------------------------------------------------------------
 
-BUG FIXES
+**BUG FIXES**
 
-NEW FEATURES
+**NEW FEATURES**
 
-MINOR FEATURES
+**MINOR FEATURES**
 
 IMPROVEMENTS
 
-CHANGES
+**CHANGES**
 
 numform 0.0.1 - 0.0.4
 ----------------------------------------------------------------
