@@ -15,7 +15,8 @@ desc <- suppressWarnings(readLines("DESCRIPTION"))
 regex <- "(^Version:\\s+)(\\d+\\.\\d+\\.\\d+)"
 loc <- grep(regex, desc)
 ver <- gsub(regex, "\\2", desc[loc])
-verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg"><img src="https://img.shields.io/badge/Version-%s-orange.svg" alt="Version"/></a></p>', ver, ver)
+# verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg"><img src="https://img.shields.io/badge/Version-%s-orange.svg" alt="Version"/></a></p>', ver, ver)
+verbadge <- ''
 ````
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -172,6 +173,7 @@ dat %>%
         Team = fv_runs(Team),
         WinLossRate = f_num(WinLossRate, 1)
     ) %>%
+    as.data.frame() %>%    
     pander::pander(split.tables = Inf, justify = c('left', rep('right', ncol(dat))))
 ```
 
