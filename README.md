@@ -71,15 +71,8 @@ return version that is prefixed with an additional `f`. For example,
 instead. This is useful for passing in to **ggplot2** `scale_x/y_type`
 functions (see [Plotting](#plotting) for usage).
 
-<<<<<<< HEAD
 <!-- html table generated in R 3.5.0 by xtable 1.8-2 package -->
-<!-- Fri Jul 28 14:23:14 2017 -->
-=======
-<!-- html table generated in R 3.4.0 by xtable 1.8-2 package -->
-
-<!-- Sat Jul 29 08:10:44 2017 -->
-
->>>>>>> 29014295363f18cc650c163a409a960752278c84
+<!-- Mon Jul 31 08:21:05 2017 -->
 <table>
 <tr>
 <td>
