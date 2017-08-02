@@ -165,8 +165,8 @@ dat <- data_frame(
 dat %>%
     group_by(Team) %>%
     mutate(
-        ChangeWinLoss = fv_percent_diff(WinLossRate, 0),
-        WinLossDiff = f_sign(Won - Lost, '<b>+</b>', '<b>&ndash;</b>')
+        `%&Delta;WinLoss` = fv_percent_diff(WinLossRate, 0),
+        `&Delta;WinLoss` = f_sign(Won - Lost, '<b>+</b>', '<b>&ndash;</b>')
         
     ) %>%
     ungroup() %>%

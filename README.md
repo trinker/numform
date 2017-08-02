@@ -72,7 +72,7 @@ instead. This is useful for passing in to **ggplot2** `scale_x/y_type`
 functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.4.0 by xtable 1.8-2 package -->
-<!-- Wed Aug 02 10:42:49 2017 -->
+<!-- Wed Aug 02 10:48:34 2017 -->
 <table>
 <tr>
 <td>
@@ -344,8 +344,8 @@ Tables
     dat %>%
         group_by(Team) %>%
         mutate(
-            ChangeWinLoss = fv_percent_diff(WinLossRate, 0),
-            WinLossDiff = f_sign(Won - Lost, '<b>+</b>', '<b>&ndash;</b>')
+            `%&Delta;WinLoss` = fv_percent_diff(WinLossRate, 0),
+            `&Delta;WinLoss` = f_sign(Won - Lost, '<b>+</b>', '<b>&ndash;</b>')
             
         ) %>%
         ungroup() %>%
@@ -361,16 +361,16 @@ Tables
 
 <table>
 <colgroup>
-<col width="10%" />
+<col width="9%" />
 <col width="6%" />
 <col width="10%" />
 <col width="5%" />
 <col width="6%" />
 <col width="12%" />
+<col width="8%" />
 <col width="9%" />
-<col width="10%" />
-<col width="14%" />
-<col width="14%" />
+<col width="15%" />
+<col width="15%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -382,8 +382,8 @@ Tables
 <th align="right">WinLossRate</th>
 <th align="right">PropWon</th>
 <th align="right">PropLost</th>
-<th align="right">ChangeWinLoss</th>
-<th align="center">WinLossDiff</th>
+<th align="right">%ΔWinLoss</th>
+<th align="center">ΔWinLoss</th>
 </tr>
 </thead>
 <tbody>
