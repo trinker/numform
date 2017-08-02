@@ -71,8 +71,8 @@ return version that is prefixed with an additional `f`. For example,
 instead. This is useful for passing in to **ggplot2** `scale_x/y_type`
 functions (see [Plotting](#plotting) for usage).
 
-<!-- html table generated in R 3.5.0 by xtable 1.8-2 package -->
-<!-- Mon Jul 31 08:21:05 2017 -->
+<!-- html table generated in R 3.4.0 by xtable 1.8-2 package -->
+<!-- Wed Aug 02 10:42:49 2017 -->
 <table>
 <tr>
 <td>
@@ -343,7 +343,11 @@ Tables
 
     dat %>%
         group_by(Team) %>%
-        mutate(ChangeWinLoss = fv_percent_diff(WinLossRate, 0)) %>%
+        mutate(
+            ChangeWinLoss = fv_percent_diff(WinLossRate, 0),
+            WinLossDiff = f_sign(Won - Lost, '<b>+</b>', '<b>&ndash;</b>')
+            
+        ) %>%
         ungroup() %>%
         mutate_at(vars(Won:Lost), .funs = ff_denom(relative = -1, prefix = '$')) %>%
         mutate_at(vars(PropWon, PropLost), .funs = ff_prop2percent(digits = 0)) %>%
@@ -353,19 +357,20 @@ Tables
             WinLossRate = f_num(WinLossRate, 1)
         ) %>%
         as.data.frame() %>%    
-        pander::pander(split.tables = Inf, justify = c('left', rep('right', ncol(dat))))
+        pander::pander(split.tables = Inf, justify = c('left', rep('right', ncol(dat)), 'center'))
 
 <table>
 <colgroup>
-<col width="11%" />
-<col width="7%" />
-<col width="12%" />
-<col width="6%" />
-<col width="7%" />
-<col width="15%" />
 <col width="10%" />
-<col width="11%" />
-<col width="16%" />
+<col width="6%" />
+<col width="10%" />
+<col width="5%" />
+<col width="6%" />
+<col width="12%" />
+<col width="9%" />
+<col width="10%" />
+<col width="14%" />
+<col width="14%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -378,6 +383,7 @@ Tables
 <th align="right">PropWon</th>
 <th align="right">PropLost</th>
 <th align="right">ChangeWinLoss</th>
+<th align="center">WinLossDiff</th>
 </tr>
 </thead>
 <tbody>
@@ -391,6 +397,7 @@ Tables
 <td align="right">17%</td>
 <td align="right">9%</td>
 <td align="right">0%</td>
+<td align="center"><b>+</b></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -402,6 +409,7 @@ Tables
 <td align="right">33%</td>
 <td align="right">20%</td>
 <td align="right">-13%</td>
+<td align="center"><b>+</b></td>
 </tr>
 <tr class="odd">
 <td align="left"></td>
@@ -413,6 +421,7 @@ Tables
 <td align="right">87%</td>
 <td align="right">48%</td>
 <td align="right">11%</td>
+<td align="center"><b>+</b></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -424,6 +433,7 @@ Tables
 <td align="right">30%</td>
 <td align="right">19%</td>
 <td align="right">-13%</td>
+<td align="center"><b>+</b></td>
 </tr>
 <tr class="odd">
 <td align="left">East Coast</td>
@@ -435,6 +445,7 @@ Tables
 <td align="right">9%</td>
 <td align="right">18%</td>
 <td align="right">0%</td>
+<td align="center"><b>–</b></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -446,6 +457,7 @@ Tables
 <td align="right">15%</td>
 <td align="right">16%</td>
 <td align="right">86%</td>
+<td align="center"><b>–</b></td>
 </tr>
 <tr class="odd">
 <td align="left"></td>
@@ -457,6 +469,7 @@ Tables
 <td align="right">74%</td>
 <td align="right">9%</td>
 <td align="right">811%</td>
+<td align="center"><b>+</b></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -468,6 +481,7 @@ Tables
 <td align="right">30%</td>
 <td align="right">26%</td>
 <td align="right">-86%</td>
+<td align="center"><b>+</b></td>
 </tr>
 </tbody>
 </table>

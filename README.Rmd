@@ -164,7 +164,11 @@ dat <- data_frame(
 
 dat %>%
     group_by(Team) %>%
-    mutate(ChangeWinLoss = fv_percent_diff(WinLossRate, 0)) %>%
+    mutate(
+        ChangeWinLoss = fv_percent_diff(WinLossRate, 0),
+        WinLossDiff = f_sign(Won - Lost, '<b>+</b>', '<b>&ndash;</b>')
+        
+    ) %>%
     ungroup() %>%
     mutate_at(vars(Won:Lost), .funs = ff_denom(relative = -1, prefix = '$')) %>%
     mutate_at(vars(PropWon, PropLost), .funs = ff_prop2percent(digits = 0)) %>%
@@ -174,7 +178,7 @@ dat %>%
         WinLossRate = f_num(WinLossRate, 1)
     ) %>%
     as.data.frame() %>%    
-    pander::pander(split.tables = Inf, justify = c('left', rep('right', ncol(dat))))
+    pander::pander(split.tables = Inf, justify = c('left', rep('right', ncol(dat)), 'center'))
 ```
 
 

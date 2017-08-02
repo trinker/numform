@@ -17,7 +17,7 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-numform 0.0.5 -
+numform 0.0.6 -
 ----------------------------------------------------------------
 
 **BUG FIXES**
@@ -26,11 +26,15 @@ numform 0.0.5 -
 
 **MINOR FEATURES**
 
-IMPROVEMENTS
+* `f_sign` picks up `negative` and `positive` assignments allowing for more
+  control in format (previously +/- were assigned).  This enables the ability to
+  give other characters tailored for document formats such as html, LaTeX, etc.
+
+**IMPROVEMENTS**
 
 **CHANGES**
 
-numform 0.0.1 - 0.0.4
+numform 0.0.1 - 0.0.5
 ----------------------------------------------------------------
 
 Format numbers for publication; includes the removal of leading zeros,
