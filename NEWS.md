@@ -24,6 +24,9 @@ numform 0.0.6 -
 
 **NEW FEATURES**
 
+* `f_affirm` and `f_logical` added to convert logical and dummy values into
+  yes/No or True/False strings respectively.
+
 **MINOR FEATURES**
 
 * `f_sign` picks up `negative` and `positive` assignments allowing for more

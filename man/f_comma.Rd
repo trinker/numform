@@ -10,7 +10,7 @@ f_comma(x, mark = ",", prefix = "", ...)
 ff_comma(...)
 }
 \arguments{
-\item{x}{A vector opc numbers (or string equivalents).}
+\item{x}{A vector of numbers (or string equivalents).}
 
 \item{mark}{The character to include every n places.}
 

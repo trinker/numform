@@ -72,11 +72,45 @@ instead. This is useful for passing in to **ggplot2** `scale_x/y_type`
 functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.4.0 by xtable 1.8-2 package -->
-<!-- Wed Aug 02 10:48:34 2017 -->
+<!-- Thu Aug 10 16:17:51 2017 -->
 <table>
 <tr>
 <td>
 as_factor
+</td>
+<td>
+f_dollar
+</td>
+<td>
+f_num_percent
+</td>
+<td>
+f_prop2percent
+</td>
+<td>
+fv_num_percent
+</td>
+</tr>
+<tr>
+<td>
+f_affirm
+</td>
+<td>
+f_logical
+</td>
+<td>
+f_ordinal
+</td>
+<td>
+f_pval
+</td>
+<td>
+fv_percent
+</td>
+</tr>
+<tr>
+<td>
+f_affix
 </td>
 <td>
 f_mean_sd
@@ -93,7 +127,7 @@ fv_percent_diff
 </tr>
 <tr>
 <td>
-f_affix
+f_bills
 </td>
 <td>
 f_mills
@@ -110,7 +144,7 @@ fv_runs
 </tr>
 <tr>
 <td>
-f_bills
+f_comma
 </td>
 <td>
 f_month
@@ -126,7 +160,7 @@ f_thous
 </tr>
 <tr>
 <td>
-f_comma
+f_denom
 </td>
 <td>
 f_num
@@ -136,38 +170,6 @@ f_prefix
 </td>
 <td>
 f_weekday
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-f_denom
-</td>
-<td>
-f_num_percent
-</td>
-<td>
-f_prop2percent
-</td>
-<td>
-fv_num_percent
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-f_dollar
-</td>
-<td>
-f_ordinal
-</td>
-<td>
-f_pval
-</td>
-<td>
-fv_percent
 </td>
 <td>
 </td>
@@ -358,6 +360,8 @@ Tables
         ) %>%
         as.data.frame() %>%    
         pander::pander(split.tables = Inf, justify = c('left', rep('right', ncol(dat)), 'center'))
+
+    ## Warning: package 'bindrcpp' was built under R version 3.4.1
 
 <table>
 <colgroup>
