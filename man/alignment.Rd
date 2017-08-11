@@ -5,7 +5,7 @@
 \title{Detect Column Alignment}
 \usage{
 alignment(x, left = "left", right = ifelse(left == "l", "r", "right"),
-  sep = NULL, ...)
+  additional.numeric = "^(<b>(&ndash;|\\\\+)</b>)$", sep = NULL, ...)
 }
 \arguments{
 \item{x}{A \code{data.frame}.}
@@ -14,6 +14,9 @@ alignment(x, left = "left", right = ifelse(left == "l", "r", "right"),
 
 \item{right}{A value to print for right aligned columns.  If \code{left = "l"}
 \code{right} will default to \code{"r"} otherwise defaults to \code{"right"}.}
+
+\item{additional.numeric}{An additional regex to consider as numeric.  To turn
+off this feature use \code{additional.numeric = NULL}.}
 
 \item{sep}{A string to collapse the vector on.}
 

@@ -10,6 +10,8 @@
 #' @param left A value to print for left aligned columns.
 #' @param right A value to print for right aligned columns.  If \code{left = "l"}
 #' \code{right} will default to \code{"r"} otherwise defaults to \code{"right"}.
+#' @param additional.numeric An additional regex to consider as numeric.  To turn
+#' off this feature use \code{additional.numeric = NULL}.
 #' @param sep A string to collapse the vector on.
 #' @param \ldots ignored.
 #' @return Returns a vector of lefts and rights or a string (if \code{sep} is not
@@ -71,11 +73,12 @@
 #'     xtable(align = c('', alignment(CO, 'l|', 'r|'))) %>%
 #'     print(include.rownames = FALSE)
 #' }
-alignment <- function(x, left = 'left', right = ifelse(left == 'l', 'r', 'right'), sep = NULL, ...){
+alignment <- function(x, left = 'left', right = ifelse(left == 'l', 'r', 'right'),
+    additional.numeric = '^(<b>(&ndash;|\\+)</b>)$', sep = NULL, ...){
 
     stopifnot(is.data.frame(x))
 
-    out <- ifelse(right_align(x), right, left)
+    out <- ifelse(right_align(x, additional.numeric =  additional.numeric), right, left)
 
     if (!is.null(sep)) out <- paste(out, collapse = sep)
 
@@ -83,14 +86,15 @@ alignment <- function(x, left = 'left', right = ifelse(left == 'l', 'r', 'right'
 }
 
 
-right_align <- function(df){
+right_align <- function(df, additional.numeric = NULL){
     unname(unlist(lapply(df, function(x){
         x <- as.character(x)
-        grepl('^(((\\$)?[0-9.,+-]+( ?%|[KMB])?)|([0-9/:.-T ]{5,}))$', rm_na(x)[1])
+        if (!is.null(additional.numeric)) numregex <- paste(paste0('(', unlist(c(additional.numeric, additional.numeric)), ')'), collapse = "|")
+        grepl(numregex, rm_na(x)[1])
     })))
 }
 
 
-
+numregex <- '(^(((\\$)?[0-9.,+-]+( ?%|[KMB])?)|([0-9/:.-T ]{5,}))$)'
 
 
