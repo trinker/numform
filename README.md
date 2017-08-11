@@ -73,7 +73,7 @@ functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.4.1 by xtable 1.8-2 package -->
 
-<!-- Thu Aug 10 23:18:49 2017 -->
+<!-- Thu Aug 10 23:22:33 2017 -->
 
 <table>
 
@@ -469,14 +469,14 @@ alignment.
 <tr class="header">
 
 <th align="left">Team</th>
-<th align="left">Year</th>
-<th align="left">YearStart</th>
-<th align="left">Won</th>
-<th align="left">Lost</th>
-<th align="left">WinLossRate</th>
-<th align="left">PropWon</th>
-<th align="left">PropLost</th>
-<th align="left">%ΔWinLoss</th>
+<th align="right">Year</th>
+<th align="right">YearStart</th>
+<th align="right">Won</th>
+<th align="right">Lost</th>
+<th align="right">WinLossRate</th>
+<th align="right">PropWon</th>
+<th align="right">PropLost</th>
+<th align="right">%ΔWinLoss</th>
 <th align="right">ΔWinLoss</th>
 </tr>
 
@@ -487,112 +487,112 @@ alignment.
 <tr class="odd">
 
 <td align="left">West Coast</td>
-<td align="left">2012</td>
-<td align="left">$2.0M</td>
-<td align="left">$350K</td>
-<td align="left">$190K</td>
-<td align="left">1.9</td>
-<td align="left">17%</td>
-<td align="left">9%</td>
-<td align="left">0%</td>
+<td align="right">2012</td>
+<td align="right">$2.0M</td>
+<td align="right">$350K</td>
+<td align="right">$190K</td>
+<td align="right">1.9</td>
+<td align="right">17%</td>
+<td align="right">9%</td>
+<td align="right">0%</td>
 <td align="right"><b>+</b></td>
 </tr>
 
 <tr class="even">
 
 <td align="left"></td>
-<td align="left">2013</td>
-<td align="left">$1.8M</td>
-<td align="left">$600K</td>
-<td align="left">$370K</td>
-<td align="left">1.6</td>
-<td align="left">33%</td>
-<td align="left">20%</td>
-<td align="left">-13%</td>
+<td align="right">2013</td>
+<td align="right">$1.8M</td>
+<td align="right">$600K</td>
+<td align="right">$370K</td>
+<td align="right">1.6</td>
+<td align="right">33%</td>
+<td align="right">20%</td>
+<td align="right">-13%</td>
 <td align="right"><b>+</b></td>
 </tr>
 
 <tr class="odd">
 
 <td align="left"></td>
-<td align="left">2014</td>
-<td align="left">$ .6M</td>
-<td align="left">$550K</td>
-<td align="left">$300K</td>
-<td align="left">1.8</td>
-<td align="left">87%</td>
-<td align="left">48%</td>
-<td align="left">11%</td>
+<td align="right">2014</td>
+<td align="right">$ .6M</td>
+<td align="right">$550K</td>
+<td align="right">$300K</td>
+<td align="right">1.8</td>
+<td align="right">87%</td>
+<td align="right">48%</td>
+<td align="right">11%</td>
 <td align="right"><b>+</b></td>
 </tr>
 
 <tr class="even">
 
 <td align="left"></td>
-<td align="left">2015</td>
-<td align="left">$1.4M</td>
-<td align="left">$420K</td>
-<td align="left">$270K</td>
-<td align="left">1.6</td>
-<td align="left">30%</td>
-<td align="left">19%</td>
-<td align="left">-13%</td>
+<td align="right">2015</td>
+<td align="right">$1.4M</td>
+<td align="right">$420K</td>
+<td align="right">$270K</td>
+<td align="right">1.6</td>
+<td align="right">30%</td>
+<td align="right">19%</td>
+<td align="right">-13%</td>
 <td align="right"><b>+</b></td>
 </tr>
 
 <tr class="odd">
 
 <td align="left">East Coast</td>
-<td align="left">2012</td>
-<td align="left">$2.3M</td>
-<td align="left">$210K</td>
-<td align="left">$420K</td>
-<td align="left">.5</td>
-<td align="left">9%</td>
-<td align="left">18%</td>
-<td align="left">0%</td>
+<td align="right">2012</td>
+<td align="right">$2.3M</td>
+<td align="right">$210K</td>
+<td align="right">$420K</td>
+<td align="right">.5</td>
+<td align="right">9%</td>
+<td align="right">18%</td>
+<td align="right">0%</td>
 <td align="right"><b>–</b></td>
 </tr>
 
 <tr class="even">
 
 <td align="left"></td>
-<td align="left">2013</td>
-<td align="left">$2.4M</td>
-<td align="left">$360K</td>
-<td align="left">$390K</td>
-<td align="left">.9</td>
-<td align="left">15%</td>
-<td align="left">16%</td>
-<td align="left">86%</td>
+<td align="right">2013</td>
+<td align="right">$2.4M</td>
+<td align="right">$360K</td>
+<td align="right">$390K</td>
+<td align="right">.9</td>
+<td align="right">15%</td>
+<td align="right">16%</td>
+<td align="right">86%</td>
 <td align="right"><b>–</b></td>
 </tr>
 
 <tr class="odd">
 
 <td align="left"></td>
-<td align="left">2014</td>
-<td align="left">$ .8M</td>
-<td align="left">$590K</td>
-<td align="left">$ 70K</td>
-<td align="left">8.4</td>
-<td align="left">74%</td>
-<td align="left">9%</td>
-<td align="left">811%</td>
+<td align="right">2014</td>
+<td align="right">$ .8M</td>
+<td align="right">$590K</td>
+<td align="right">$ 70K</td>
+<td align="right">8.4</td>
+<td align="right">74%</td>
+<td align="right">9%</td>
+<td align="right">811%</td>
 <td align="right"><b>+</b></td>
 </tr>
 
 <tr class="even">
 
 <td align="left"></td>
-<td align="left">2015</td>
-<td align="left">$1.6M</td>
-<td align="left">$500K</td>
-<td align="left">$420K</td>
-<td align="left">1.2</td>
-<td align="left">30%</td>
-<td align="left">26%</td>
-<td align="left">-86%</td>
+<td align="right">2015</td>
+<td align="right">$1.6M</td>
+<td align="right">$500K</td>
+<td align="right">$420K</td>
+<td align="right">1.2</td>
+<td align="right">30%</td>
+<td align="right">26%</td>
+<td align="right">-86%</td>
 <td align="right"><b>+</b></td>
 </tr>
 

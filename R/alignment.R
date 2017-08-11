@@ -89,12 +89,13 @@ alignment <- function(x, left = 'left', right = ifelse(left == 'l', 'r', 'right'
 right_align <- function(df, additional.numeric = NULL){
     unname(unlist(lapply(df, function(x){
         x <- as.character(x)
-        if (!is.null(additional.numeric)) numregex <- paste(paste0('(', unlist(c(additional.numeric, additional.numeric)), ')'), collapse = "|")
+        if (!is.null(additional.numeric)) numregex <- paste(paste0('(', unlist(c(numregex, additional.numeric, additional.numeric)), ')'), collapse = "|")
+
         grepl(numregex, rm_na(x)[1])
     })))
 }
 
 
-numregex <- '(^(((\\$)?[0-9.,+-]+( ?%|[KMB])?)|([0-9/:.-T ]{5,}))$)'
+numregex <- '^(((\\$)?[0-9.,+-]+( ?%|[KMB])?)|([0-9/:.-T ]{5,}))$'
 
 
