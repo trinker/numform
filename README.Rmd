@@ -146,6 +146,8 @@ f_denom(c(12345267, 98765433, 658493021), relative = 1, prefix = '$')
 
 ## Tables
 
+Notice the use of the `alignment` function to detect the column alignment.
+
 ```{r}
 pacman::p_load(dplyr, pander)
 
@@ -173,7 +175,7 @@ dat %>%
         Team = fv_runs(Team),
         WinLossRate = f_num(WinLossRate, 1)
     ) %>%
-    pander::pander(split.tables = Inf, justify = c('left', rep('right', ncol(dat))))
+    pander::pander(split.tables = Inf, justify = alignment(.))
 ```
 
 

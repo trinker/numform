@@ -20,3 +20,9 @@ functionize <- function(FUN, ...){
         hijack(FUN, ...)
     }
 }
+
+## remove NA elements
+rm_na <- function(x) {
+    x[!is.na(x)]
+}
+
