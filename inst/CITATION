@@ -2,15 +2,13 @@ citHeader("To cite numform in publications, please use:")
 
 
 citEntry(entry = "manual",
-    title = "{numform: A publication style number formatter",
+    title = "{numform}: A publication style number formatter",
     author = "Tyler W. Rinker",
-    organization = "University at Buffalo/SUNY",
-    address = "Buffalo, New York",
-    note = "version 0.1.0",
+    note = "version 0.1.1",
     year = "2015",
     url = "http://github.com/trinker/numform",
     textVersion  = paste("Rinker, T. W. (2015).",
         "numform A publication style number formatte",
-        "version 0.1.0. University at Buffalo. Buffalo, New York.",
+        "version 0.1.1.",
         "http://github.com/trinker/numform")
 )

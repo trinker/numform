@@ -15,7 +15,7 @@ desc <- suppressWarnings(readLines("DESCRIPTION"))
 regex <- "(^Version:\\s+)(\\d+\\.\\d+\\.\\d+)"
 loc <- grep(regex, desc)
 ver <- gsub(regex, "\\2", desc[loc])
-verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg"><img src="https://img.shields.io/badge/Version-%s-orange.svg" alt="Version"/></a></p>', ver, ver)
+# verbadge <- sprintf('<a href="https://img.shields.io/badge/Version-%s-orange.svg"><img src="https://img.shields.io/badge/Version-%s-orange.svg" alt="Version"/></a></p>', ver, ver)
 verbadge <- ''
 ````
 
@@ -28,7 +28,7 @@ knit_hooks$set(htmlcap = function(before, options, envir) {
     }
     })
 knitr::opts_knit$set(self.contained = TRUE, cache = FALSE)
-knitr::opts_chunk$set(fig.path = "tools/figure/")
+knitr::opts_chunk$set(fig.path = "tools/figure/", warning = FALSE)
 ```
 
 [![Build Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
@@ -166,7 +166,11 @@ dat <- data_frame(
 
 dat %>%
     group_by(Team) %>%
-    mutate(ChangeWinLoss = fv_percent_diff(WinLossRate, 0)) %>%
+    mutate(
+        `%&Delta;WinLoss` = fv_percent_diff(WinLossRate, 0),
+        `&Delta;WinLoss` = f_sign(Won - Lost, '<b>+</b>', '<b>&ndash;</b>')
+        
+    ) %>%
     ungroup() %>%
     mutate_at(vars(Won:Lost), .funs = ff_denom(relative = -1, prefix = '$')) %>%
     mutate_at(vars(PropWon, PropLost), .funs = ff_prop2percent(digits = 0)) %>%

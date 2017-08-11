@@ -19,6 +19,10 @@ alignment(x, left = "left", right = ifelse(left == "l", "r", "right"),
 
 \item{\ldots}{ignored.}
 }
+\value{
+Returns a vector of lefts and rights or a string (if \code{sep} is not
+\code{NULL}.
+}
 \description{
 Many of the specialized functions in numform can change the type of the data
 from numeric to character causing the table formatting functions in various

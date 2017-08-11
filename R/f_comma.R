@@ -2,7 +2,7 @@
 #'
 #' Add commas to larger integers.
 #'
-#' @param x A vector opc numbers (or string equivalents).
+#' @param x A vector of numbers (or string equivalents).
 #' @param mark The character to include every n places.
 #' @param prefix A string to append to the front of elements.
 #' @param \ldots Other arguments passed to \code{\link[base]{prettyNum}}.

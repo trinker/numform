@@ -13,7 +13,7 @@
 #' @param sep A string to collapse the vector on.
 #' @param \ldots ignored.
 #' @return Returns a vector of lefts and rights or a string (if \code{sep} is not
-#' \code{NULL).
+#' \code{NULL}.
 #' @export
 #' @examples
 #' CO <- CO2

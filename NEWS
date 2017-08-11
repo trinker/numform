@@ -17,20 +17,31 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-numform 0.0.5 -
+numform 0.0.6 -
 ----------------------------------------------------------------
 
 BUG FIXES
 
 NEW FEATURES
 
+* `f_affirm` and `f_logical` added to convert logical and dummy values into
+  yes/No or True/False strings respectively.
+
+* alignment` added to easily align columns in table formatting functions from
+  add-on R packages which may be confused by **numform**'s conversion of numeric
+  to character class, though right table alignment should be maintained.
+
 MINOR FEATURES
+
+* `f_sign` picks up `negative` and `positive` assignments allowing for more
+  control in format (previously +/- were assigned).  This enables the ability to
+  give other characters tailored for document formats such as html, LaTeX, etc.
 
 IMPROVEMENTS
 
 CHANGES
 
-numform 0.0.1 - 0.0.4
+numform 0.0.1 - 0.0.5
 ----------------------------------------------------------------
 
 Format numbers for publication; includes the removal of leading zeros,

@@ -5,14 +5,18 @@
 \alias{ff_sign}
 \title{Format Numeric Signs}
 \usage{
-f_sign(x, zero = NULL, ...)
+f_sign(x, positive = "+", negative = "-", zero = "", ...)
 
 ff_sign(...)
 }
 \arguments{
 \item{x}{A vector of values.}
 
-\item{zero}{An value to insert in for zero values.}
+\item{positive}{A string/value to insert in for positive values.}
+
+\item{negative}{A string/value to insert in for negative values.}
+
+\item{zero}{A string/value to insert in for zero values.}
 
 \item{\ldots}{ignored.}
 }
@@ -25,7 +29,9 @@ Returns a string of signs.
 }
 \examples{
 f_sign(c(-10, 0, 10))
-f_sign(c(-10, 0, 10), 0)
+f_sign(c(-10, 0, 10), zero = 0)
+## web based
+f_sign(c(-10, 0, 10), '<b>+</b>', '<b>&ndash;</b>')
 }
 \seealso{
 \code{\link[numform]{f_num}}
