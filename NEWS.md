@@ -31,6 +31,9 @@ numform 0.0.6 -
   add-on R packages which may be confused by **numform**'s conversion of numeric
   to character class, though right table alignment should be maintained.
 
+* `f_date` and `f_12_hour` added to convert dates and times into common in-text
+  form.
+
 **MINOR FEATURES**
 
 * `f_sign` picks up `negative` and `positive` assignments allowing for more

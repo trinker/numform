@@ -73,7 +73,7 @@ functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.4.1 by xtable 1.8-2 package -->
 
-<!-- Thu Aug 10 23:22:33 2017 -->
+<!-- Fri Aug 11 21:55:45 2017 -->
 
 <table>
 
@@ -86,7 +86,7 @@ alignment
 
 <td>
 
-f_denom
+f_date
 </td>
 
 <td>
@@ -96,12 +96,12 @@ f_num
 
 <td>
 
-f_prefix
+f_prop2percent
 </td>
 
 <td>
 
-f_weekday
+fv_percent
 </td>
 
 </tr>
@@ -115,7 +115,7 @@ as_factor
 
 <td>
 
-f_dollar
+f_denom
 </td>
 
 <td>
@@ -125,12 +125,41 @@ f_num_percent
 
 <td>
 
-f_prop2percent
+f_pval
 </td>
 
 <td>
 
-fv_num_percent
+fv_percent_diff
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+f_12_hour
+</td>
+
+<td>
+
+f_dollar
+</td>
+
+<td>
+
+f_ordinal
+</td>
+
+<td>
+
+f_sign
+</td>
+
+<td>
+
+fv_runs
 </td>
 
 </tr>
@@ -149,17 +178,16 @@ f_logical
 
 <td>
 
-f_ordinal
+f_pad_zero
 </td>
 
 <td>
 
-f_pval
+f_suffix
 </td>
 
 <td>
 
-fv_percent
 </td>
 
 </tr>
@@ -178,17 +206,16 @@ f_mean_sd
 
 <td>
 
-f_pad_zero
+f_parenthesis
 </td>
 
 <td>
 
-f_sign
+f_thous
 </td>
 
 <td>
 
-fv_percent_diff
 </td>
 
 </tr>
@@ -207,17 +234,16 @@ f_mills
 
 <td>
 
-f_parenthesis
+f_percent
 </td>
 
 <td>
 
-f_suffix
+f_weekday
 </td>
 
 <td>
 
-fv_runs
 </td>
 
 </tr>
@@ -236,12 +262,12 @@ f_month
 
 <td>
 
-f_percent
+f_prefix
 </td>
 
 <td>
 
-f_thous
+fv_num_percent
 </td>
 
 <td>
