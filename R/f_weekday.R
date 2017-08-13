@@ -1,6 +1,6 @@
 #' Format Weekdays to One Letter Abbreviation
 #'
-#' Format long weedayhweeday name, integer, or date formats to a single capital letter.
+#' Format long weekday name, integer, or date formats to a single capital letter.
 #' Useful for plot scales as a way to save space.
 #'
 #' @param x A vector of weekday names, integers 1-12, or dates.
