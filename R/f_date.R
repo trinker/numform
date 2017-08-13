@@ -15,7 +15,7 @@
 #' set.seed(10)
 #' dates <- as.Date(sample(1:10000, 12), origin = '1970-01-01')
 #' paste(f_date(range(dates)), collapse = ' to ')
-f_date <- function(x, format = '%B %d, %Y', ...){
+f_date <- function(x = Sys.Date(), format = '%B %d, %Y', ...){
 
     format(as.Date(x, ...), format = format)
 
