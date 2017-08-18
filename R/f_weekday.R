@@ -48,7 +48,6 @@
 #'     scale_x_discrete(labels = f_weekday)
 #' }
 f_weekday <- function(x, distinct = FALSE, ...) {
-    distinct
     UseMethod('f_weekday')
 }
 
@@ -58,7 +57,7 @@ f_weekday <- function(x, distinct = FALSE, ...) {
 #' @export
 #' @rdname f_weekday
 #' @method f_weekday default
-f_weekday.default <- function(x, distinct = FALSE, ...) {
+f_weekday.default <- function(x, distinct, ...) {
     if (distinct){
         locs <- match(
             gsub("(^.)(.)(.+)", "\\U\\1\\L\\2", as.character(x), perl = TRUE),
@@ -72,7 +71,7 @@ f_weekday.default <- function(x, distinct = FALSE, ...) {
 #' @export
 #' @rdname f_weekday
 #' @method f_weekday numeric
-f_weekday.numeric <- function(x, distinct = FALSE, ...) {
+f_weekday.numeric <- function(x, distinct, ...) {
     if (distinct) return(names(short_weekdays_key)[x])
     c("S", "M", "T", "W", "T", "F", "S")[x]
 }
@@ -83,7 +82,7 @@ f_weekday.numeric <- function(x, distinct = FALSE, ...) {
 #' @export
 #' @rdname f_weekday
 #' @method f_weekday Date
-f_weekday.Date <- function(x, distinct = FALSE, ...) {
+f_weekday.Date <- function(x, distinct, ...) {
     if (distinct){
         locs <- match(
             gsub("(^.)(.)(.+)", "\\U\\1\\L\\2", weekdays(x), perl = TRUE),
@@ -98,7 +97,7 @@ f_weekday.Date <- function(x, distinct = FALSE, ...) {
 #' @export
 #' @rdname f_weekday
 #' @method f_weekday POSIXlt
-f_weekday.POSIXlt <- function(x, distinct = FALSE, ...) {
+f_weekday.POSIXlt <- function(x, distinct, ...) {
     if (distinct){
         locs <- match(
             gsub("(^.)(.)(.+)", "\\U\\1\\L\\2", weekdays(x), perl = TRUE),
@@ -113,7 +112,8 @@ short_weekdays_key <- structure(c("Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"), .Na
 "M", "T", "W", "Th", "F", "S"))
 
 
-#' @export
-#' @include utils.R
-#' @rdname f_weekday
-ff_weekday <- functionize(f_weekday)
+
+
+
+
+

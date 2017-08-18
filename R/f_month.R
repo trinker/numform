@@ -78,7 +78,4 @@ f_month.POSIXlt <- function(x, ...) {
 
 
 
-#' @export
-#' @include utils.R
-#' @rdname f_month
-ff_month <- functionize(f_month)
+

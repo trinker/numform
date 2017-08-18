@@ -60,10 +60,7 @@ f_12_hour.numeric <- function(x, format = '%I:%M %p', pad.char = '', ...){
 
 }
 
-#' @export
-#' @include utils.R
-#' @rdname f_12_hour
-ff_12_hour <- functionize(f_12_hour)
+
 
 
 

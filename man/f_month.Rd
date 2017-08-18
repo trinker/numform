@@ -6,7 +6,6 @@
 \alias{f_month.numeric}
 \alias{f_month.Date}
 \alias{f_month.POSIXlt}
-\alias{ff_month}
 \title{Format Months to One Letter Abbreviation}
 \usage{
 f_month(x, ...)
@@ -18,8 +17,6 @@ f_month(x, ...)
 \method{f_month}{Date}(x, ...)
 
 \method{f_month}{POSIXlt}(x, ...)
-
-ff_month(...)
 }
 \arguments{
 \item{x}{A vector of month names, integers 1-12, or dates.}

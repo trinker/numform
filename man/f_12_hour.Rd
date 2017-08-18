@@ -5,7 +5,6 @@
 \alias{f_12_hour.default}
 \alias{f_12_hour.integer}
 \alias{f_12_hour.numeric}
-\alias{ff_12_hour}
 \title{Format 12 Hour Times}
 \usage{
 f_12_hour(x = Sys.time(), format = "\%I:\%M \%p", pad.char = "", ...)
@@ -15,8 +14,6 @@ f_12_hour(x = Sys.time(), format = "\%I:\%M \%p", pad.char = "", ...)
 \method{f_12_hour}{integer}(x, format = "\%I:\%M \%p", pad.char = "", ...)
 
 \method{f_12_hour}{numeric}(x, format = "\%I:\%M \%p", pad.char = "", ...)
-
-ff_12_hour(...)
 }
 \arguments{
 \item{x}{A vector of coercable times.}
