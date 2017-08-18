@@ -2,6 +2,7 @@
 
 S3method(f_12_hour,default)
 S3method(f_12_hour,integer)
+S3method(f_12_hour,numeric)
 S3method(f_month,Date)
 S3method(f_month,POSIXlt)
 S3method(f_month,default)

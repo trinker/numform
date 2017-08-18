@@ -29,7 +29,7 @@ f_12_hour <- function(x = Sys.time(), format = '%I:%M %p', pad.char = '', ...){
 #' @method f_12_hour default
 f_12_hour.default <- function(x, format = '%I:%M %p', pad.char = '', ...){
 
-    out <- format(as.POSIXct(x, ...), format = format)
+    out <- format(as.POSIXct(x, ..., origin = "1960-01-01"), format = format)
     gsub('^0', pad.char, out)
 
 }
