@@ -48,6 +48,17 @@ f_12_hour.integer <- function(x, format = '%I:%M %p', pad.char = '', ...){
 }
 
 
+#' @export
+#' @rdname f_12_hour
+#' @method f_12_hour numeric
+f_12_hour.numeric <- function(x, format = '%I:%M %p', pad.char = '', ...){
+
+    x <- as.integer(x)
+    out <- format(as.POSIXct(paste0("2017-08-18 ", ifelse(nchar(x) == 1, '0', ''), x, ":00:00"), origin = "1960-01-01"), format=format)
+
+    gsub('^0', pad.char, out)
+
+}
 
 #' @export
 #' @include utils.R
