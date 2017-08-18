@@ -5,7 +5,7 @@
 \alias{ff_date}
 \title{Format Dates}
 \usage{
-f_date(x, format = "\%B \%d, \%Y", ...)
+f_date(x = Sys.Date(), format = "\%B \%d, \%Y", ...)
 
 ff_date(...)
 }

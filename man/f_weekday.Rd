@@ -6,7 +6,7 @@
 \alias{f_weekday.numeric}
 \alias{f_weekday.Date}
 \alias{f_weekday.POSIXlt}
-\title{Format Months to One Letter Abbreviation}
+\title{Format Weekdays to One Letter Abbreviation}
 \usage{
 f_weekday(x, distinct = FALSE, ...)
 
@@ -19,7 +19,7 @@ f_weekday(x, distinct = FALSE, ...)
 \method{f_weekday}{POSIXlt}(x, distinct = FALSE, ...)
 }
 \arguments{
-\item{x}{A vector of month names, integers 1-12, or dates.}
+\item{x}{A vector of weekday names, integers 1-12, or dates.}
 
 \item{distinct}{logical.  If \code{TRUE} Sunday will be presented as \code{Su}
 and Thursday as \code{Th}.}
@@ -30,7 +30,7 @@ and Thursday as \code{Th}.}
 Returns a single letter month abbreviation atomic vector.
 }
 \description{
-Format long month name, integer, or date formats to a single capital letter.
+Format long weekday name, integer, or date formats to a single capital letter.
 Useful for plot scales as a way to save space.
 }
 \examples{

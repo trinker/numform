@@ -40,7 +40,7 @@ numform 0.0.6 -
   control in format (previously +/- were assigned).  This enables the ability to
   give other characters tailored for document formats such as html, LaTeX, etc.
 
-IMPROVEMENTS
+**IMPROVEMENTS**
 
 **CHANGES**
 

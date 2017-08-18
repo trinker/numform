@@ -2,10 +2,16 @@
 % Please edit documentation in R/f_12_hour.R
 \name{f_12_hour}
 \alias{f_12_hour}
+\alias{f_12_hour.default}
+\alias{f_12_hour.integer}
 \alias{ff_12_hour}
 \title{Format 12 Hour Times}
 \usage{
-f_12_hour(x, format = "\%I:\%M \%p", pad.char = "", ...)
+f_12_hour(x = Sys.time(), format = "\%I:\%M \%p", pad.char = "", ...)
+
+\method{f_12_hour}{default}(x, format = "\%I:\%M \%p", pad.char = "", ...)
+
+\method{f_12_hour}{integer}(x, format = "\%I:\%M \%p", pad.char = "", ...)
 
 ff_12_hour(...)
 }
@@ -30,6 +36,7 @@ f_12_hour(Sys.time())
 f_12_hour(Sys.time(), pad.char ='0')
 f_12_hour(Sys.time(), pad.char =' ')
 f_12_hour(Sys.time(), '\%I:\%M:\%S \%p')
+f_12_hour(0:24, '\%I \%p')
 set.seed(10)
 times <- as.POSIXct(sample(seq_len(1e4), 12), origin = '1970-01-01')
 paste(f_12_hour(range(times)), collapse = ' to ')
