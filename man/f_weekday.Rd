@@ -6,6 +6,7 @@
 \alias{f_weekday.numeric}
 \alias{f_weekday.Date}
 \alias{f_weekday.POSIXlt}
+\alias{ff_weekday}
 \title{Format Weekdays to One Letter Abbreviation}
 \usage{
 f_weekday(x, distinct = FALSE, ...)
@@ -17,6 +18,8 @@ f_weekday(x, distinct = FALSE, ...)
 \method{f_weekday}{Date}(x, distinct = FALSE, ...)
 
 \method{f_weekday}{POSIXlt}(x, distinct = FALSE, ...)
+
+ff_weekday(...)
 }
 \arguments{
 \item{x}{A vector of weekday names, integers 1-12, or dates.}

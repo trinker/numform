@@ -111,3 +111,9 @@ f_weekday.POSIXlt <- function(x, distinct = FALSE, ...) {
 
 short_weekdays_key <- structure(c("Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"), .Names = c("Su",
 "M", "T", "W", "Th", "F", "S"))
+
+
+#' @export
+#' @include utils.R
+#' @rdname f_weekday
+ff_weekday <- functionize(f_weekday)
