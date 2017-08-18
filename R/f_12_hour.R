@@ -41,7 +41,7 @@ f_12_hour.default <- function(x, format = '%I:%M %p', pad.char = '', ...){
 f_12_hour.integer <- function(x, format = '%I:%M %p', pad.char = '', ...){
 
 
-    out <- format(as.POSIXct(paste0("2017-08-18 ", ifelse(nchar(x) == 1, '0', ''), x, ":00:00")), format=format)
+    out <- format(as.POSIXct(paste0("2017-08-18 ", ifelse(nchar(x) == 1, '0', ''), x, ":00:00"), origin = "1960-01-01"), format=format)
 
     gsub('^0', pad.char, out)
 
