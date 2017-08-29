@@ -10,13 +10,13 @@
 \usage{
 f_weekday(x, distinct = FALSE, ...)
 
-\method{f_weekday}{default}(x, distinct, ...)
+\method{f_weekday}{default}(x, distinct = FALSE, ...)
 
-\method{f_weekday}{numeric}(x, distinct, ...)
+\method{f_weekday}{numeric}(x, distinct = FALSE, ...)
 
-\method{f_weekday}{Date}(x, distinct, ...)
+\method{f_weekday}{Date}(x, distinct = FALSE, ...)
 
-\method{f_weekday}{POSIXlt}(x, distinct, ...)
+\method{f_weekday}{POSIXlt}(x, distinct = FALSE, ...)
 }
 \arguments{
 \item{x}{A vector of weekday names, integers 1-12, or dates.}

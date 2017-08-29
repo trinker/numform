@@ -40,6 +40,10 @@ MINOR FEATURES
   control in format (previously +/- were assigned).  This enables the ability to
   give other characters tailored for document formats such as html, LaTeX, etc.
 
+* `f_prop2percent` and `f_percent` pick up a logical `less_than_replace`
+  argument that replaces values lower than this with a less than sign and the
+  cut point specified by the `digits` argument.
+
 IMPROVEMENTS
 
 CHANGES
