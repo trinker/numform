@@ -7,13 +7,13 @@ Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis
 [![Coverage
 Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](https://coveralls.io/r/trinker/numform?branch=master)
 
-**numform** contains tools to assist in the formatting of numbers for
-publication. Tools include the removal of leading zeros, standardization
-of number of digits, addition of affixes, and a p-value formatter. These
-tools combine the functionality of several 'base' functions such as
-`paste()`, `format()`, and `sprintf()` into specific use case functions
-that are named in a way that is consistent with usage, making their
-names easy to remember and easy to deploy.
+**numform** contains tools to assist in the formatting of numbers and
+plots for publication. Tools include the removal of leading zeros,
+standardization of number of digits, addition of affixes, and a p-value
+formatter. These tools combine the functionality of several 'base'
+functions such as `paste()`, `format()`, and `sprintf()` into specific
+use case functions that are named in a way that is consistent with
+usage, making their names easy to remember and easy to deploy.
 
 Installation
 ============
@@ -72,7 +72,7 @@ instead. This is useful for passing in to **ggplot2** `scale_x/y_type`
 functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.4.0 by xtable 1.8-2 package -->
-<!-- Wed Aug 30 13:30:22 2017 -->
+<!-- Wed Aug 30 13:34:14 2017 -->
 <table>
 <tr>
 <td>
@@ -545,7 +545,7 @@ Plotting
     ## 10 498559.2 1999-12-26 Site 2 $499000  499K         $499K         D
     ## # ... with 9,990 more rows, and 1 more variables: abb_week <fctr>
 
-![](tools/figure/unnamed-chunk-23-1.png)
+![](tools/figure/unnamed-chunk-13-1.png)
 
     library(tidyverse); library(gridExtra)
 
@@ -619,7 +619,7 @@ Plotting
 
     )
 
-![](tools/figure/unnamed-chunk-24-1.png)
+![](tools/figure/unnamed-chunk-14-1.png)
 
 Modeling
 --------
