@@ -7,7 +7,7 @@ output:
 ---
 
 ```{r, echo=FALSE}
-pacman::p_load(numform, xtable, wakefield, ggplot2, knitr)
+pacman::p_load(numform, xtable, wakefield, ggplot2, knitr, gridExtra)
 rinline <- function(code) { 
     sprintf('<code class="r">``` `r %s` ```</code>', code) 
 } 
@@ -46,7 +46,7 @@ Download the [zip ball](https://github.com/trinker/numform/zipball/master) or [t
 ```r
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load_current_gh("trinker/numform")
-pacman::p_load(tidyverse)
+pacman::p_load(tidyverse, gridExtra)
 ```
 
 # Contact
@@ -179,6 +179,7 @@ dat %>%
         Team = fv_runs(Team),
         WinLossRate = f_num(WinLossRate, 1)
     ) %>%
+    data.frame(stringsAsFactors = FALSE) %>%
     pander::pander(split.tables = Inf, justify = alignment(.))
 ```
 
@@ -208,6 +209,85 @@ data_frame(
         scale_y_continuous(label = ff_denom(prefix = '$'))+
         facet_wrap(~site) +
         theme_bw()
+```
+
+
+```r
+library(tidyverse); library(gridExtra)
+```
+
+
+```{r, fig.width = 9}
+set.seed(10)
+dat <- data_frame(
+    level = c("not_involved", "somewhat_involved_single_group",
+        "somewhat_involved_multiple_groups", "very_involved_one_group",
+        "very_involved_multiple_groups"
+    ),
+    n = sample(1:10, length(level))
+) %>%
+    mutate(
+        level = factor(level, levels = unique(level)),
+        `%` = n/sum(n)
+    )
+
+gridExtra::grid.arrange(
+
+    gridExtra::arrangeGrob(
+
+        dat %>%
+            ggplot(aes(level, `%`)) +
+                geom_col() +
+                labs(title = 'Very Sad', y = NULL) +
+                theme(
+                    axis.text = element_text(size = 7),
+                    title = element_text(size = 9)
+                ),
+
+       dat %>%
+            ggplot(aes(level, `%`)) +
+                geom_col() +
+                scale_x_discrete(labels = function(x) f_replace(x, '_', '\n')) +
+                scale_y_continuous(labels = ff_prop2percent(digits = 0))  +
+                labs(title = 'Underscore Split (Readable)', y = NULL) +
+                theme(
+                    axis.text = element_text(size = 7),
+                    title = element_text(size = 9)
+                ),
+
+
+        ncol = 2
+
+    ),
+    gridExtra::arrangeGrob(
+
+       dat %>%
+            ggplot(aes(level, `%`)) +
+                geom_col() +
+                scale_x_discrete(labels = function(x) f_title(f_replace(x))) +
+                scale_y_continuous(labels = ff_prop2percent(digits = 0))  +
+                labs(title = 'Underscore Replaced & Title (Capitalized Sadness)', y = NULL) +
+                theme(
+                    axis.text = element_text(size = 7),
+                    title = element_text(size = 9)
+                ),
+
+        dat %>%
+            ggplot(aes(level, `%`)) +
+                geom_col() +
+                scale_x_discrete(labels = function(x) f_wrap(f_title(f_replace(x)))) +
+                scale_y_continuous(labels = ff_prop2percent(digits = 0))  +
+                labs(title = 'Underscore Replaced, Title, & Wrapped (Happy)', y = NULL) +
+                theme(
+                    axis.text = element_text(size = 7),
+                    title = element_text(size = 9)
+                ),
+
+        ncol = 2
+
+    ), ncol = 1
+
+)
 ```
 
 

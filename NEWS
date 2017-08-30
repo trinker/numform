@@ -34,6 +34,13 @@ NEW FEATURES
 * `f_date` and `f_12_hour` added to convert dates and times into common in-text
   form.
 
+* `f_replace` added as a ggplot2 scale `gsub` convenience function.
+
+* `f_title` added as a ggplot2 scale `tools::toTitleCase` convenience function.
+
+* `f_title` added as a ggplot2 scale `strwrap` + `paste(collapse =TRUE)`
+  convenience function.
+
 MINOR FEATURES
 
 * `f_sign` picks up `negative` and `positive` assignments allowing for more
