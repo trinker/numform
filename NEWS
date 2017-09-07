@@ -41,6 +41,11 @@ NEW FEATURES
 * `f_title` added as a ggplot2 scale `strwrap` + `paste(collapse =TRUE)`
   convenience function.
 
+* `f_state` added for converting state names to their abbreviated form for plots.
+
+* constants added for weekdays, months, and month abbreviations in order to make
+  factor conversion of levels easier.  See `?constant_months` for more.
+
 MINOR FEATURES
 
 * `f_sign` picks up `negative` and `positive` assignments allowing for more
@@ -54,6 +59,8 @@ MINOR FEATURES
 IMPROVEMENTS
 
 CHANGES
+
+* `f_denom` nor returns `x` if the `max` < 1K.
 
 numform 0.0.1 - 0.0.5
 ----------------------------------------------------------------

@@ -2,7 +2,8 @@
 #'
 #' Use the denomination abbreviations K (thousands), M (millions), and
 #' B (billions) with abbreviated numbers.\cr\code{f_denom} - Auto-detect the
-#' maximum denomination and attempt to use it.
+#' maximum denomination and attempt to use it (if max(x) is < 1K then x is
+#' returned).
 #'
 #' @param x A vector of large numbers.
 #' @param relative A factor relative to the current \code{digits} being rounded.
@@ -96,6 +97,8 @@ f_denom <- function(x, relative = 0, prefix = "", pad.char = ifelse(prefix == ""
     md <- max(nchar(round(x, 0)), na.rm = TRUE)
     digs <- ifelse(md <= 6, 'thous', ifelse(md <= 9, 'mills', ifelse(md <= 12, 'bills', NA)))
     if (is.na(digs)) stop("Element(s) in `x` are greater than 12 digits.")
+
+    if (max(x,na.rm =TRUE) < 1e3) return(x)
 
     fun <- switch(digs,
         thous = {ff_thous(relative = relative, prefix =prefix, pad.char = pad.char)},

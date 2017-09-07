@@ -54,7 +54,8 @@ Returns an abbreviated vector of numbers.
 \description{
 Use the denomination abbreviations K (thousands), M (millions), and
 B (billions) with abbreviated numbers.\cr\code{f_denom} - Auto-detect the
-maximum denomination and attempt to use it.
+maximum denomination and attempt to use it (if max(x) is < 1K then x is
+returned).
 
 \code{f_bills} - Force the abbreviation to the billions
 denomination (B).

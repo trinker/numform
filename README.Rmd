@@ -22,6 +22,7 @@ verbadge <- ''
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(dplyr)
 library(pacman)
+options(scipen=999)
 knit_hooks$set(htmlcap = function(before, options, envir) {
   if(!before) {
     paste('<p class="caption"><b><em>',options$htmlcap,"</em></b></p>",sep="")
@@ -290,6 +291,35 @@ gridExtra::grid.arrange(
 )
 ```
 
+
+
+```{r, fig.width = 9}
+set.seed(10)
+dat <- data_frame(
+    state = sample(state.name, 10),
+    value = sample(10:20, 10) ^ (7),
+    cols = sample(colors()[1:150], 10)
+) %>%
+    arrange(desc(value)) %>%
+    mutate(state = factor(state, levels = unique(state)))
+
+dat %>%
+    ggplot(aes(state, value, fill = cols)) +
+        geom_col() +
+        scale_x_discrete(labels = f_state) +
+        scale_fill_identity() +
+        scale_y_continuous(labels = ff_denom(prefix = '$'), expand = c(0, 0), 
+            limits = c(0, max(dat$value) * 1.05)
+        ) +
+        theme_minimal() +
+        theme(
+            panel.grid.major.x = element_blank()   
+        ) +
+        labs(x = 'State', y = 'Cash Flow', 
+            title = "Look at How Professional I Look",
+            subtitle = 'For that extra professional look.'
+        )
+```
 
 ## Modeling
 

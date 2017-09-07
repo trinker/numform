@@ -1,16 +1,18 @@
 Package: numform
 Title: Tools to Format Numbers for Publication
-Version: 0.2.0
-Authors@R: c(person("Tyler", "Rinker", email = "tyler.rinker@gmail.com", role = c("aut", "cre")))
+Version: 0.2.1
+Authors@R: c(person("Tyler", "Rinker", email = "tyler.rinker@gmail.com", role = c("aut",
+          "cre")))
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
-Description: Format numbers and plots for publication; includes the removal of leading zeros, standardization of
-            number of digits, addition of affixes, and a p-value formatter. These tools combine the
-            functionality of several 'base' functions such as paste(), format(), and sprintf() into
-            specific use case functions that are named in a way that is consistent with usage, making their
-            names easy to remember and easy to deploy.
+Description: Format numbers and plots for publication; includes the removal of leading zeros,
+          standardization of number of digits, addition of affixes, and a p-value formatter.
+          These tools combine the functionality of several 'base' functions such as paste(),
+          format(), and sprintf() into specific use case functions that are named in a way
+          that is consistent with usage, making their names easy to remember and easy to
+          deploy.
 Depends: R (>= 3.2.0)
 Suggests: testthat
-Date: 2017-08-30
+Date: 2017-09-06
 License: GPL-2
 LazyData: TRUE
 Roxygen: list(wrap = FALSE)
@@ -18,6 +20,7 @@ RoxygenNote: 6.0.1
 Collate: 
     'alignment.R'
     'as_factor.R'
+    'constants.R'
     'f_12_hour.R'
     'utils.R'
     'f_affirm.R'
@@ -36,6 +39,7 @@ Collate:
     'f_pval.R'
     'f_replace.R'
     'f_sign.R'
+    'f_state.R'
     'f_title.R'
     'f_weekday.R'
     'f_wrap.R'
