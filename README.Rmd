@@ -293,7 +293,7 @@ gridExtra::grid.arrange(
 
 
 
-```{r, fig.width = 9}
+```{r, fig.width = 6}
 set.seed(10)
 dat <- data_frame(
     state = sample(state.name, 10),
@@ -313,11 +313,12 @@ dat %>%
         ) +
         theme_minimal() +
         theme(
-            panel.grid.major.x = element_blank()   
+            panel.grid.major.x = element_blank(),
+            axis.title.y = element_text(angle = 0)
         ) +
-        labs(x = 'State', y = 'Cash Flow', 
+        labs(x = 'State', y = 'Cash\nFlow', 
             title = "Look at How Professional I Look",
-            subtitle = 'For that extra professional look.'
+            subtitle = 'Subtitles: For that extra professional look.'
         )
 ```
 
