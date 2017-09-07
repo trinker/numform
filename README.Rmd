@@ -317,7 +317,7 @@ dat %>%
             axis.title.y = element_text(angle = 0)
         ) +
         labs(x = 'State', y = 'Cash\nFlow', 
-            title = "Look at How Professional I Look",
+            title = f_title("look at how professional i look"),
             subtitle = 'Subtitles: For that extra professional look.'
         )
 ```

@@ -90,7 +90,7 @@
 f_title <- function (x, ...) {
 
     nas <- is.na(x)
-    out <- gsub('(^.)', '\\U\\1', tools::toTitleCase(x), perl = TRUE)
+    out <- gsub('\\bi\\b', 'I', gsub('(^.)', '\\U\\1', tools::toTitleCase(x), perl = TRUE))
 
     out[nas] <- NA
     out

@@ -73,7 +73,7 @@ functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.4.1 by xtable 1.8-2 package -->
 
-<!-- Wed Sep 06 21:26:07 2017 -->
+<!-- Wed Sep 06 21:35:12 2017 -->
 
 <table>
 
@@ -797,7 +797,7 @@ Plotting
                 axis.title.y = element_text(angle = 0)
             ) +
             labs(x = 'State', y = 'Cash\nFlow', 
-                title = "Look at How Professional I Look",
+                title = f_title("look at how professional i look"),
                 subtitle = 'Subtitles: For that extra professional look.'
             )
 
