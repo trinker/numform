@@ -73,7 +73,7 @@ functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.4.1 by xtable 1.8-2 package -->
 
-<!-- Wed Sep 06 21:35:12 2017 -->
+<!-- Thu Sep 07 22:58:12 2017 -->
 
 <table>
 
@@ -82,6 +82,35 @@ functions (see [Plotting](#plotting) for usage).
 <td>
 
 alignment
+</td>
+
+<td>
+
+f_affix
+</td>
+
+<td>
+
+f_mills
+</td>
+
+<td>
+
+f_prefix
+</td>
+
+<td>
+
+f_title
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+as_factor
 </td>
 
 <td>
@@ -110,7 +139,7 @@ f_weekday
 
 <td>
 
-as_factor
+constant_months
 </td>
 
 <td>
@@ -139,7 +168,7 @@ f_wrap
 
 <td>
 
-constant_months
+constant_months_abbreviation
 </td>
 
 <td>
@@ -159,7 +188,7 @@ f_replace
 
 <td>
 
-fv_num_percent
+f_year
 </td>
 
 </tr>
@@ -168,7 +197,7 @@ fv_num_percent
 
 <td>
 
-constant_months_abbreviation
+constant_weekdays
 </td>
 
 <td>
@@ -188,7 +217,7 @@ f_sign
 
 <td>
 
-fv_percent
+fv_num_percent
 </td>
 
 </tr>
@@ -197,7 +226,7 @@ fv_percent
 
 <td>
 
-constant_weekdays
+f_12_hour
 </td>
 
 <td>
@@ -217,7 +246,7 @@ f_state
 
 <td>
 
-fv_percent_diff
+fv_percent
 </td>
 
 </tr>
@@ -226,7 +255,7 @@ fv_percent_diff
 
 <td>
 
-f_12_hour
+f_abbreviation
 </td>
 
 <td>
@@ -246,7 +275,7 @@ f_suffix
 
 <td>
 
-fv_runs
+fv_percent_diff
 </td>
 
 </tr>
@@ -275,34 +304,7 @@ f_thous
 
 <td>
 
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-f_affix
-</td>
-
-<td>
-
-f_mills
-</td>
-
-<td>
-
-f_prefix
-</td>
-
-<td>
-
-f_title
-</td>
-
-<td>
-
+fv_runs
 </td>
 
 </tr>

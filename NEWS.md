@@ -34,14 +34,20 @@ numform 0.0.6 -
 * `f_date` and `f_12_hour` added to convert dates and times into common in-text
   form.
 
-* `f_replace` added as a ggplot2 scale `gsub` convenience function.
+* `f_replace` added as a ggplot2 scale `gsub` convenience function.  Defaults
+  to replace '_' with ' '.
 
 * `f_title` added as a ggplot2 scale `tools::toTitleCase` convenience function.
 
-* `f_title` added as a ggplot2 scale `strwrap` + `paste(collapse =TRUE)`
+* `f_wrap` added as a ggplot2 scale `strwrap` + `paste(collapse =TRUE)`
   convenience function.
 
 * `f_state` added for converting state names to their abbreviated form for plots.
+
+* `f_year` added as a ggplot2 scale to convert to 2 digit year form convenience
+  function.
+
+* `f_abbreviation` added for converting string names to their abbreviated form.
 
 * constants added for weekdays, months, and month abbreviations in order to make
   factor conversion of levels easier.  See `?constant_months` for more.

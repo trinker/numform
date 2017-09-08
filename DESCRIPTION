@@ -12,7 +12,7 @@ Description: Format numbers and plots for publication; includes the removal of l
           deploy.
 Depends: R (>= 3.2.0)
 Suggests: testthat
-Date: 2017-09-06
+Date: 2017-09-07
 License: GPL-2
 LazyData: TRUE
 Roxygen: list(wrap = FALSE)
@@ -23,6 +23,7 @@ Collate:
     'constants.R'
     'f_12_hour.R'
     'utils.R'
+    'f_abbreviation.R'
     'f_affirm.R'
     'f_affix.R'
     'f_comma.R'
@@ -43,6 +44,7 @@ Collate:
     'f_title.R'
     'f_weekday.R'
     'f_wrap.R'
+    'f_year.R'
     'fv_num_percent.R'
     'fv_percent.R'
     'fv_percent_diff.R'
