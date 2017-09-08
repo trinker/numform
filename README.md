@@ -73,7 +73,7 @@ functions (see [Plotting](#plotting) for usage).
 
 <!-- html table generated in R 3.4.1 by xtable 1.8-2 package -->
 
-<!-- Thu Sep 07 22:58:12 2017 -->
+<!-- Thu Sep 07 23:12:34 2017 -->
 
 <table>
 

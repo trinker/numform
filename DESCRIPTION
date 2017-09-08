@@ -1,6 +1,6 @@
 Package: numform
 Title: Tools to Format Numbers for Publication
-Version: 0.2.1
+Version: 0.3.0
 Authors@R: c(person("Tyler", "Rinker", email = "tyler.rinker@gmail.com", role = c("aut",
           "cre")))
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>

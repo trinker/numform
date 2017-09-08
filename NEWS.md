@@ -17,10 +17,8 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-numform 0.0.6 -
+numform 0.0.6 - 0.3.0
 ----------------------------------------------------------------
-
-**BUG FIXES**
 
 **NEW FEATURES**
 
@@ -62,11 +60,11 @@ numform 0.0.6 -
   argument that replaces values lower than this with a less than sign and the
   cut point specified by the `digits` argument.
 
-IMPROVEMENTS
-
 **CHANGES**
 
-* `f_denom` nor returns `x` if the `max` &lt; 1K.
+* `f_denom` now returns `x` if the `max` &lt; 1K.
+
+
 
 numform 0.0.1 - 0.0.5
 ----------------------------------------------------------------
