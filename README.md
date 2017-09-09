@@ -5,7 +5,7 @@ numform
 [![Build
 Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
 [![Coverage
-Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](https://coveralls.io/r/trinker/numform?branch=master)   
+Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](https://coveralls.io/r/trinker/numform?branch=master)
 [![](http://cranlogs.r-pkg.org/badges/numform)](https://cran.r-project.org/package=numform)    
 
 **numform** contains tools to assist in the formatting of numbers and
