@@ -42,7 +42,8 @@ library(tidyverse)
 
 dat <- data_frame(
     year = 1998:2016,
-    year2 = unlist(as.POSIXct(sample(seq_len(1e4), 12), origin = '1970-01-01') + (365 * 24 * 3600 * seq_len(19))),
+    year2 = as.POSIXct(sample(seq_len(1e4), 12), origin = '1970-01-01') +
+        (365 * 24 * 3600 * seq_len(19)),
     val = sample(1:20, length(year), TRUE)
 ) \%>\%
     mutate(prop = val/sum(val))

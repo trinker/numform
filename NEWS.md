@@ -27,6 +27,11 @@ numform 0.3.1 -
 
 **NEW FEATURES**
 
+* `f_year`, `f_12_hour`, `f_month`, and `f_weekday` (methods based functions)
+  did not previously have closure, function retuning, forms (i.e., `ff_` form)
+  making them inconstent in usage.  These functions all have a closure, function
+  retuning, form.
+
 **MINOR FEATURES**
 
 IMPROVEMENTS
