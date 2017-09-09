@@ -180,7 +180,7 @@ dat %>%
         Team = fv_runs(Team),
         WinLossRate = f_num(WinLossRate, 1)
     ) %>%
-    data.frame(stringsAsFactors = FALSE) %>%
+    data.frame(stringsAsFactors = FALSE, check.names = FALSE) %>%
     pander::pander(split.tables = Inf, justify = alignment(.))
 ```
 

@@ -17,6 +17,25 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
+numform 0.3.1 -
+----------------------------------------------------------------
+
+**BUG FIXES**
+
+* `f_12_hour` did not format correctly if the vector contained missing (`NA`)
+  values; see <a href="https://github.com/trinker/numform/issues/12">issue #12</a>.
+
+**NEW FEATURES**
+
+**MINOR FEATURES**
+
+**IMPROVEMENTS**
+
+**CHANGES**
+
+
+
+
 numform 0.0.6 - 0.3.0
 ----------------------------------------------------------------
 

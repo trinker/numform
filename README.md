@@ -495,7 +495,7 @@ alignment.
             Team = fv_runs(Team),
             WinLossRate = f_num(WinLossRate, 1)
         ) %>%
-        data.frame(stringsAsFactors = FALSE) %>%
+        data.frame(stringsAsFactors = FALSE, check.names = FALSE) %>%
         pander::pander(split.tables = Inf, justify = alignment(.))
 
 <table>
@@ -536,8 +536,8 @@ alignment.
 <th align="right">WinLossRate</th>
 <th align="right">PropWon</th>
 <th align="right">PropLost</th>
-<th align="right">X..Delta.WinLoss</th>
-<th align="right">X.Delta.WinLoss</th>
+<th align="right">&Delta;WinLoss</th>
+<th align="right">&Delta;WinLoss</th>
 </tr>
 
 </thead>
