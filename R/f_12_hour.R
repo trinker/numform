@@ -19,6 +19,20 @@
 #' set.seed(10)
 #' times <- as.POSIXct(sample(seq_len(1e4), 12), origin = '1970-01-01')
 #' paste(f_12_hour(range(times)), collapse = ' to ')
+#' \dontrun{
+#' library(tidyverse)
+#'
+#' set.seed(10)
+#' data_frame(
+#'     time = as.POSIXct(sample(seq_len(1e4), 12), origin = '1970-01-01'),
+#'     val = sample(1:20, length(time), TRUE)
+#' ) %>%
+#'     mutate(prop = val/sum(val)) %>%
+#'     ggplot(aes(time, prop)) +
+#'         geom_line() +
+#'         scale_x_time(labels = ff_12_hour(format = '%I %p')) +
+#'         scale_y_continuous(labels = ff_prop2percent(digits = 0))
+#' }
 f_12_hour <- function(x = Sys.time(), format = '%I:%M %p', pad.char = '', ...){
     UseMethod('f_12_hour')
 }
@@ -75,8 +89,21 @@ f_12_hour.numeric <- function(x, format = '%I:%M %p', pad.char = '', ...){
 
 }
 
+#' @export
+#' @rdname f_12_hour
+#' @method f_12_hour hms
+f_12_hour.hms <- function(x, format = '%I:%M %p', pad.char = '', ...){
+
+    f_12_hour.default(as.POSIXct(x), format = '%I:%M %p', pad.char = '', ...)
+
+}
 
 
+#' @export
+#' @rdname f_12_hour
+ff_12_hour <- function(format = '%I:%M %p', pad.char = '', ...) {
+    function(x) {f_12_hour(x, format = format, pad.char = pad.char)}
+}
 
 
 

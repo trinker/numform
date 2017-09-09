@@ -5,7 +5,9 @@
 \alias{f_weekday.default}
 \alias{f_weekday.numeric}
 \alias{f_weekday.Date}
-\alias{f_weekday.POSIXlt}
+\alias{f_weekday.POSIXt}
+\alias{f_weekday.hms}
+\alias{ff_weekday}
 \title{Format Weekdays to One Letter Abbreviation}
 \usage{
 f_weekday(x, distinct = FALSE, ...)
@@ -16,7 +18,11 @@ f_weekday(x, distinct = FALSE, ...)
 
 \method{f_weekday}{Date}(x, distinct = FALSE, ...)
 
-\method{f_weekday}{POSIXlt}(x, distinct = FALSE, ...)
+\method{f_weekday}{POSIXt}(x, distinct = FALSE, ...)
+
+\method{f_weekday}{hms}(x, distinct = FALSE, ...)
+
+ff_weekday(distinct = FALSE, ...)
 }
 \arguments{
 \item{x}{A vector of weekday names, integers 1-12, or dates.}
@@ -69,5 +75,11 @@ ggplot(dat, aes(day, n)) +
     geom_bar(stat = 'identity') +
     facet_wrap(~area) +
     scale_x_discrete(labels = f_weekday)
+
+## with date formatting
+ggplot(dat, aes(day, n)) +
+    geom_bar(stat = 'identity') +
+    facet_wrap(~area) +
+    scale_x_discrete(labels = ff_weekday(distinct = TRUE))
 }
 }

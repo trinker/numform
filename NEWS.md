@@ -29,7 +29,7 @@ numform 0.3.1 -
 
 **MINOR FEATURES**
 
-**IMPROVEMENTS**
+IMPROVEMENTS
 
 **CHANGES**
 

@@ -65,15 +65,16 @@ Below is a table of available **numform** functions. Note that `f_` is
 read as "format" whereas `fv_` is read as "format vector". The former
 formats individual values in the vector while the latter uses the vector
 to compute a calculation on each of the values and then formats them.
-Additionally, all **numform** non-methods functions have a functional
-return version that is prefixed with an additional `f`. For example,
-`f_num` has `ff_num` which has the same arguments but returns a function
-instead. This is useful for passing in to **ggplot2** `scale_x/y_type`
-functions (see [Plotting](#plotting) for usage).
+Additionally, all **numform** `f_` functions have a closure, function
+retuning, version that is prefixed with an additional `f` (read "format
+function"). For example, `f_num` has `ff_num` which has the same
+arguments but returns a function instead. This is useful for passing in
+to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
+usage).
 
 <!-- html table generated in R 3.4.1 by xtable 1.8-2 package -->
 
-<!-- Thu Sep 07 23:12:34 2017 -->
+<!-- Fri Sep 08 23:04:34 2017 -->
 
 <table>
 
@@ -506,7 +507,7 @@ alignment.
 
 <col width="5%" />
 
-<col width="9%" />
+<col width="10%" />
 
 <col width="6%" />
 
@@ -536,8 +537,8 @@ alignment.
 <th align="right">WinLossRate</th>
 <th align="right">PropWon</th>
 <th align="right">PropLost</th>
-<th align="right">&Delta;WinLoss</th>
-<th align="right">&Delta;WinLoss</th>
+<th align="right">%ΔWinLoss</th>
+<th align="right">ΔWinLoss</th>
 </tr>
 
 </thead>

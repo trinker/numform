@@ -5,6 +5,8 @@
 \alias{f_12_hour.default}
 \alias{f_12_hour.integer}
 \alias{f_12_hour.numeric}
+\alias{f_12_hour.hms}
+\alias{ff_12_hour}
 \title{Format 12 Hour Times}
 \usage{
 f_12_hour(x = Sys.time(), format = "\%I:\%M \%p", pad.char = "", ...)
@@ -14,6 +16,10 @@ f_12_hour(x = Sys.time(), format = "\%I:\%M \%p", pad.char = "", ...)
 \method{f_12_hour}{integer}(x, format = "\%I:\%M \%p", pad.char = "", ...)
 
 \method{f_12_hour}{numeric}(x, format = "\%I:\%M \%p", pad.char = "", ...)
+
+\method{f_12_hour}{hms}(x, format = "\%I:\%M \%p", pad.char = "", ...)
+
+ff_12_hour(format = "\%I:\%M \%p", pad.char = "", ...)
 }
 \arguments{
 \item{x}{A vector of coercable times.}
@@ -40,4 +46,18 @@ f_12_hour(c(NA, 0:24), '\%I \%p')
 set.seed(10)
 times <- as.POSIXct(sample(seq_len(1e4), 12), origin = '1970-01-01')
 paste(f_12_hour(range(times)), collapse = ' to ')
+\dontrun{
+library(tidyverse)
+
+set.seed(10)
+data_frame(
+    time = as.POSIXct(sample(seq_len(1e4), 12), origin = '1970-01-01'),
+    val = sample(1:20, length(time), TRUE)
+) \%>\%
+    mutate(prop = val/sum(val)) \%>\%
+    ggplot(aes(time, prop)) +
+        geom_line() +
+        scale_x_time(labels = ff_12_hour(format = '\%I \%p')) +
+        scale_y_continuous(labels = ff_prop2percent(digits = 0))
+}
 }

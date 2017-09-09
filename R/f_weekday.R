@@ -46,6 +46,12 @@
 #'     geom_bar(stat = 'identity') +
 #'     facet_wrap(~area) +
 #'     scale_x_discrete(labels = f_weekday)
+#'
+#' ## with date formatting
+#' ggplot(dat, aes(day, n)) +
+#'     geom_bar(stat = 'identity') +
+#'     facet_wrap(~area) +
+#'     scale_x_discrete(labels = ff_weekday(distinct = TRUE))
 #' }
 f_weekday <- function(x, distinct = FALSE, ...) {
     UseMethod('f_weekday')
@@ -96,8 +102,8 @@ f_weekday.Date <- function(x, distinct = FALSE, ...) {
 
 #' @export
 #' @rdname f_weekday
-#' @method f_weekday POSIXlt
-f_weekday.POSIXlt <- function(x, distinct = FALSE, ...) {
+#' @method f_weekday POSIXt
+f_weekday.POSIXt <- function(x, distinct = FALSE, ...) {
     if (distinct){
         locs <- match(
             gsub("(^.)(.)(.+)", "\\U\\1\\L\\2", weekdays(x), perl = TRUE),
@@ -107,6 +113,22 @@ f_weekday.POSIXlt <- function(x, distinct = FALSE, ...) {
     }
     toupper(gsub("(^.)(.+)", "\\1", weekdays(x)))
 }
+
+#' @export
+#' @rdname f_weekday
+#' @method f_weekday hms
+f_weekday.hms <- function(x, distinct = FALSE, ...) {
+    f_weekday.POSIXt(as.POSIXct(x))
+}
+
+
+#' @export
+#' @rdname f_weekday
+ff_weekday <- function(distinct = FALSE, ...) {
+    function(x) {f_weekday(x, distinct = distinct)}
+}
+
+
 
 short_weekdays_key <- structure(c("Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"), .Names = c("Su",
 "M", "T", "W", "Th", "F", "S"))

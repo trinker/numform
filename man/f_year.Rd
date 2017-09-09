@@ -4,7 +4,9 @@
 \alias{f_year}
 \alias{f_year.numeric}
 \alias{f_year.Date}
-\alias{f_year.POSIXlt}
+\alias{f_year.POSIXt}
+\alias{f_year.hms}
+\alias{ff_year}
 \title{Format Years}
 \usage{
 f_year(x, digits = 2, ...)
@@ -13,7 +15,11 @@ f_year(x, digits = 2, ...)
 
 \method{f_year}{Date}(x, digits = 2, ...)
 
-\method{f_year}{POSIXlt}(x, digits = 2, ...)
+\method{f_year}{POSIXt}(x, digits = 2, ...)
+
+\method{f_year}{hms}(x, digits = 2, ...)
+
+ff_year(digits = 2, ...)
 }
 \arguments{
 \item{x}{A vector of 4 digits integers, dates, or POSIXlt.}
@@ -31,4 +37,26 @@ Format 4 digit integer, date, or POSIXlt formats to 2 or 4 digit years.
 \examples{
 f_year(as.Date(paste0(1998:2016, '-12-12')))
 f_year(c(NA, 1998:2016, 21345))
+\dontrun{
+library(tidyverse)
+
+dat <- data_frame(
+    year = 1998:2016,
+    year2 = unlist(as.POSIXct(sample(seq_len(1e4), 12), origin = '1970-01-01') + (365 * 24 * 3600 * seq_len(19))),
+    val = sample(1:20, length(year), TRUE)
+) \%>\%
+    mutate(prop = val/sum(val))
+
+dat \%>\%
+    ggplot(aes(year, prop)) +
+        geom_line() +
+        scale_x_continuous(labels = ff_year(digits = 2), breaks = 1998:2016) +
+        scale_y_continuous(labels = ff_prop2percent(digits = 0))
+
+dat \%>\%
+    ggplot(aes(year2, prop)) +
+        geom_line() +
+        scale_x_time(labels = ff_year(digits = 2), breaks = dat$year2) +
+        scale_y_continuous(labels = ff_prop2percent(digits = 0))
+}
 }
