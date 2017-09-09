@@ -34,6 +34,7 @@ knitr::opts_chunk$set(fig.path = "tools/figure/", warning = FALSE)
 
 [![Build Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
 [![Coverage Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](https://coveralls.io/r/trinker/numform?branch=master) 
+[![](http://cranlogs.r-pkg.org/badges/textshape)](https://cran.r-project.org/package=textshape)  
 `r verbadge`
 
 **numform** contains tools to assist in the formatting of numbers and plots for publication.  Tools include the removal of leading zeros, standardization of number of digits, addition of affixes, and a p-value formatter.  These tools combine the functionality of several 'base' functions such as `paste()`, `format()`, and `sprintf()` into specific use case functions that are named in a way that is consistent with usage, making their names easy to remember and easy to deploy.
