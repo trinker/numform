@@ -32,9 +32,11 @@ numform 0.3.1 -
   making them inconstent in usage.  These functions all have a closure, function
   retuning, form.
 
+* `f_quarter` added for working with business quarters.
+
 **MINOR FEATURES**
 
-IMPROVEMENTS
+**IMPROVEMENTS**
 
 **CHANGES**
 

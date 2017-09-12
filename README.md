@@ -6,7 +6,7 @@ numform
 Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
 [![Coverage
 Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](https://coveralls.io/r/trinker/numform?branch=master)
-[![](http://cranlogs.r-pkg.org/badges/numform)](https://cran.r-project.org/package=numform)    
+[![](http://cranlogs.r-pkg.org/badges/numform)](https://cran.r-project.org/package=numform)
 
 **numform** contains tools to assist in the formatting of numbers and
 plots for publication. Tools include the removal of leading zeros,
@@ -15,6 +15,21 @@ formatter. These tools combine the functionality of several 'base'
 functions such as `paste()`, `format()`, and `sprintf()` into specific
 use case functions that are named in a way that is consistent with
 usage, making their names easy to remember and easy to deploy.
+
+Installation
+============
+
+To download the development version of **numform**:
+
+Download the [zip
+ball](https://github.com/trinker/numform/zipball/master) or [tar
+ball](https://github.com/trinker/numform/tarball/master), decompress and
+run `R CMD INSTALL` on it, or use the **pacman** package to install the
+development version:
+
+    if (!require("pacman")) install.packages("pacman")
+    pacman::p_load_current_gh("trinker/numform")
+    pacman::p_load(tidyverse, gridExtra)
 
 
 Table of Contents
@@ -34,24 +49,9 @@ Table of Contents
     -   [Plotting](#plotting)
     -   [Modeling](#modeling)
 
-Installation
+Contact
 ============
 
-
-To download the development version of **numform**:
-
-Download the [zip
-ball](https://github.com/trinker/numform/zipball/master) or [tar
-ball](https://github.com/trinker/numform/tarball/master), decompress and
-run `R CMD INSTALL` on it, or use the **pacman** package to install the
-development version:
-
-    if (!require("pacman")) install.packages("pacman")
-    pacman::p_load_current_gh("trinker/numform")
-    pacman::p_load(tidyverse, gridExtra)
-
-Contact
-=======
 
 You are welcome to:    
 - submit suggestions and bug-reports at: <https://github.com/trinker/numform/issues>    
@@ -73,248 +73,161 @@ arguments but returns a function instead. This is useful for passing in
 to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
 usage).
 
-<!-- html table generated in R 3.4.1 by xtable 1.8-2 package -->
-
-<!-- Fri Sep 08 23:04:34 2017 -->
-
+<!-- html table generated in R 3.4.0 by xtable 1.8-2 package -->
+<!-- Tue Sep 12 08:32:46 2017 -->
 <table>
-
 <tr>
-
 <td>
-
 alignment
 </td>
-
 <td>
-
 f_affix
 </td>
-
 <td>
-
-f_mills
-</td>
-
-<td>
-
-f_prefix
-</td>
-
-<td>
-
-f_title
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-as_factor
-</td>
-
-<td>
-
-f_bills
-</td>
-
-<td>
-
 f_month
 </td>
-
 <td>
-
-f_prop2percent
-</td>
-
-<td>
-
-f_weekday
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-constant_months
-</td>
-
-<td>
-
-f_comma
-</td>
-
-<td>
-
-f_num
-</td>
-
-<td>
-
 f_pval
 </td>
-
 <td>
-
 f_wrap
 </td>
-
 </tr>
-
 <tr>
-
 <td>
-
-constant_months_abbreviation
+as_factor
 </td>
-
 <td>
-
-f_date
+f_bills
 </td>
-
 <td>
-
-f_num_percent
+f_num
 </td>
-
 <td>
-
-f_replace
+f_quarter
 </td>
-
 <td>
-
 f_year
 </td>
-
 </tr>
-
 <tr>
-
 <td>
-
-constant_weekdays
+constant_months
 </td>
-
 <td>
-
-f_denom
+f_comma
 </td>
-
 <td>
-
-f_ordinal
+f_num_percent
 </td>
-
 <td>
-
-f_sign
+f_replace
 </td>
-
 <td>
-
 fv_num_percent
 </td>
-
 </tr>
-
 <tr>
-
 <td>
-
-f_12_hour
+constant_months_abbreviation
 </td>
-
 <td>
-
-f_dollar
+f_date
 </td>
-
 <td>
-
-f_pad_zero
+f_ordinal
 </td>
-
 <td>
-
-f_state
+f_sign
 </td>
-
 <td>
-
 fv_percent
 </td>
-
 </tr>
-
 <tr>
-
 <td>
-
-f_abbreviation
+constant_quarters
 </td>
-
 <td>
-
-f_logical
+f_denom
 </td>
-
 <td>
-
-f_parenthesis
+f_pad_zero
 </td>
-
 <td>
-
-f_suffix
+f_state
 </td>
-
 <td>
-
 fv_percent_diff
 </td>
-
 </tr>
-
 <tr>
-
 <td>
-
-f_affirm
+constant_weekdays
 </td>
-
 <td>
-
-f_mean_sd
+f_dollar
 </td>
-
 <td>
-
-f_percent
+f_parenthesis
 </td>
-
 <td>
-
-f_thous
+f_suffix
 </td>
-
 <td>
-
 fv_runs
 </td>
-
 </tr>
-
+<tr>
+<td>
+f_12_hour
+</td>
+<td>
+f_logical
+</td>
+<td>
+f_percent
+</td>
+<td>
+f_thous
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+f_abbreviation
+</td>
+<td>
+f_mean_sd
+</td>
+<td>
+f_prefix
+</td>
+<td>
+f_title
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+f_affirm
+</td>
+<td>
+f_mills
+</td>
+<td>
+f_prop2percent
+</td>
+<td>
+f_weekday
+</td>
+<td>
+</td>
+</tr>
 </table>
-
 <p class="caption">
-
 <b><em>Available Formatting Functions</em></b>
 </p>
 
@@ -501,35 +414,20 @@ alignment.
         pander::pander(split.tables = Inf, justify = alignment(.))
 
 <table>
-
 <colgroup>
-
-<col width="10%" />
-
-<col width="5%" />
-
-<col width="10%" />
-
-<col width="6%" />
-
-<col width="6%" />
-
-<col width="11%" />
-
-<col width="8%" />
-
 <col width="9%" />
-
+<col width="6%" />
+<col width="10%" />
+<col width="5%" />
+<col width="6%" />
+<col width="12%" />
+<col width="8%" />
+<col width="9%" />
 <col width="15%" />
-
 <col width="15%" />
-
 </colgroup>
-
 <thead>
-
 <tr class="header">
-
 <th align="left">Team</th>
 <th align="right">Year</th>
 <th align="right">YearStart</th>
@@ -541,13 +439,9 @@ alignment.
 <th align="right">%ΔWinLoss</th>
 <th align="right">ΔWinLoss</th>
 </tr>
-
 </thead>
-
 <tbody>
-
 <tr class="odd">
-
 <td align="left">West Coast</td>
 <td align="right">2012</td>
 <td align="right">$2.0M</td>
@@ -559,9 +453,7 @@ alignment.
 <td align="right">0%</td>
 <td align="right"><b>+</b></td>
 </tr>
-
 <tr class="even">
-
 <td align="left"></td>
 <td align="right">2013</td>
 <td align="right">$1.8M</td>
@@ -573,9 +465,7 @@ alignment.
 <td align="right">-13%</td>
 <td align="right"><b>+</b></td>
 </tr>
-
 <tr class="odd">
-
 <td align="left"></td>
 <td align="right">2014</td>
 <td align="right">$ .6M</td>
@@ -587,9 +477,7 @@ alignment.
 <td align="right">11%</td>
 <td align="right"><b>+</b></td>
 </tr>
-
 <tr class="even">
-
 <td align="left"></td>
 <td align="right">2015</td>
 <td align="right">$1.4M</td>
@@ -601,9 +489,7 @@ alignment.
 <td align="right">-13%</td>
 <td align="right"><b>+</b></td>
 </tr>
-
 <tr class="odd">
-
 <td align="left">East Coast</td>
 <td align="right">2012</td>
 <td align="right">$2.3M</td>
@@ -615,9 +501,7 @@ alignment.
 <td align="right">0%</td>
 <td align="right"><b>–</b></td>
 </tr>
-
 <tr class="even">
-
 <td align="left"></td>
 <td align="right">2013</td>
 <td align="right">$2.4M</td>
@@ -629,9 +513,7 @@ alignment.
 <td align="right">86%</td>
 <td align="right"><b>–</b></td>
 </tr>
-
 <tr class="odd">
-
 <td align="left"></td>
 <td align="right">2014</td>
 <td align="right">$ .8M</td>
@@ -643,9 +525,7 @@ alignment.
 <td align="right">811%</td>
 <td align="right"><b>+</b></td>
 </tr>
-
 <tr class="even">
-
 <td align="left"></td>
 <td align="right">2015</td>
 <td align="right">$1.6M</td>
@@ -657,11 +537,8 @@ alignment.
 <td align="right">-86%</td>
 <td align="right"><b>+</b></td>
 </tr>
-
 </tbody>
-
 </table>
-
 
 Plotting
 --------

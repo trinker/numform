@@ -26,7 +26,7 @@
 #' ) %>%
 #'     count(month, area) %>%
 #'     ungroup() %>%
-#'     mutate(month = factor(month, levels = month.name))
+#'     mutate(month = factor(month, levels = constant_months))
 #'
 #' ## without date formatting
 #' ggplot(dat, aes(month, n)) +

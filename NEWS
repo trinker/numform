@@ -32,6 +32,8 @@ NEW FEATURES
   making them inconstent in usage.  These functions all have a closure, function
   retuning, form.
 
+* `f_quarter` added for working with business quarters.
+
 MINOR FEATURES
 
 IMPROVEMENTS
