@@ -36,6 +36,10 @@ numform 0.3.1 -
 
 **MINOR FEATURES**
 
+* `f_wrap` picks up an `equal.lines` argument to add additional lines to make
+  each element have the same number of new line characters.  This is useful for
+  legend spacing.
+
 **IMPROVEMENTS**
 
 **CHANGES**

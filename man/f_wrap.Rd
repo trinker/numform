@@ -5,7 +5,8 @@
 \alias{ff_wrap}
 \title{Wrap Strings}
 \usage{
-f_wrap(x, width = 15, exdent = 0, indent = 0, ...)
+f_wrap(x, width = 15, sep = "\\n", exdent = 0, indent = 0,
+  equal.lines = FALSE, ...)
 
 ff_wrap(...)
 }
@@ -15,11 +16,17 @@ ff_wrap(...)
 \item{width}{A positive integer giving the target column for wrapping lines
 in the output.}
 
+\item{sep}{A new line separator (defaults to \code{"\\n"}.}
+
 \item{exdent}{A non-negative integer specifying the indentation of subsequent
 lines in paragraphs.}
 
 \item{indent}{A non-negative integer giving the indentation of the first line
 in a paragraph.}
+
+\item{equal.lines}{logical.  If \code{TRUE} the number of lines for each
+element will be made the same by appending additional '\\n' to those below
+the max number of lines.  This is useful for legend spacing.}
 
 \item{\ldots}{Other arguments passed to \code{\link[base]{strwrap}}.}
 }
