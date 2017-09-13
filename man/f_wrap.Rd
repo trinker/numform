@@ -40,6 +40,8 @@ characters.
 \examples{
 cat(f_wrap('really long label names are the pits'))
 cat(f_wrap('really long label names are the pits', width = 20, exdent = 2))
+f_wrap(c('really long label names are the pits and make us sad',
+    'not nearly so long'), equal.lines = TRUE)
 
 \dontrun{
 library(tidyverse); library(gridExtra)

@@ -23,6 +23,8 @@
 #' @examples
 #' cat(f_wrap('really long label names are the pits'))
 #' cat(f_wrap('really long label names are the pits', width = 20, exdent = 2))
+#' f_wrap(c('really long label names are the pits and make us sad',
+#'     'not nearly so long'), equal.lines = TRUE)
 #'
 #' \dontrun{
 #' library(tidyverse); library(gridExtra)
@@ -73,11 +75,11 @@ f_wrap <- function (x, width = 15, sep = '\n', exdent = 0, indent = 0,
         ml <- max(lens)
         out <- unlist(Map(function(i, x) paste(c(paste(x, collapse = sep), rep(sep, ml - i)), collapse = ''), lens, out))
     } else {
-        out <- lapply(x, function(y) {
+        out <- unlist(lapply(x, function(y) {
 
-                unlist(paste(strwrap(y, width = width, exdent = exdent, indent = indent, ...), collapse = sep))
+                paste(strwrap(y, width = width, exdent = exdent, indent = indent, ...), collapse = sep)
 
-        })
+        }))
     }
 
     out[nas] <- NA
