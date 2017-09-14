@@ -55,7 +55,7 @@ data_frame(
     site = sample(paste("Site", 1:5), 10000, TRUE)
 ) \%>\%
     mutate(
-        dollar = f_dollar(revenue, digits = -3),
+        dollar = f_comma(f_dollar(revenue, digits = -3)),
         thous = f_thous(revenue),
         thous_dollars = f_thous(revenue, prefix = '$'),
         abb_month = f_month(date),

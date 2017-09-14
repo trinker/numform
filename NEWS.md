@@ -40,7 +40,7 @@ numform 0.3.1 -
   each element have the same number of new line characters.  This is useful for
   legend spacing.
 
-**IMPROVEMENTS**
+IMPROVEMENTS
 
 **CHANGES**
 
