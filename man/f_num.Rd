@@ -24,7 +24,7 @@ digits beyond the decimal point to include.}
 \item{pad.char}{A character to use for leading padding if lengths of output
 are unequal.}
 
-\item{zero}{An value to insert in for zero values.}
+\item{zero}{A value to insert in for zero values.}
 
 \item{\ldots}{ignored.}
 }
