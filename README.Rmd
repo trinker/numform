@@ -7,7 +7,7 @@ output:
 ---
 
 ```{r, echo=FALSE}
-pacman::p_load(numform, xtable, wakefield, ggplot2, knitr, gridExtra)
+pacman::p_load(numform, xtable, wakefield, ggplot2, knitr, gridExtra, viridis)
 rinline <- function(code) { 
     sprintf('<code class="r">``` `r %s` ```</code>', code) 
 } 
@@ -190,9 +190,11 @@ dat %>%
 
 ```r
 library(tidyverse)
+library(viridis)
 ```
 
 ```{r}
+set.seed(10)
 data_frame(
     revenue = rnorm(10000, 500000, 50000),
     date = sample(seq(as.Date('1999/01/01'), as.Date('2000/01/01'), by="day"), 10000, TRUE),
@@ -204,13 +206,38 @@ data_frame(
         thous_dollars = f_denom(revenue, prefix = '$'),
         abb_month = f_month(date),
         abb_week = as_factor(f_weekday(date, distinct = TRUE))
-    ) %T>%
+    ) %>%
+    group_by(site, abb_week) %>%
+    mutate(revenue = {if(sample(0:1, 1) == 0) `-` else `+`}(revenue, sample(1e2:1e5, 1))) %>%
+    ungroup() %T>%
     print() %>%
     ggplot(aes(abb_week, revenue)) +
-        geom_jitter(width = .2, height = 0, alpha = .2) +
+        geom_jitter(width = .2, height = 0, alpha = .2, aes(color = revenue)) +
         scale_y_continuous(label = ff_denom(prefix = '$'))+
         facet_wrap(~site) +
-        theme_bw()
+        theme_bw() +
+        scale_color_viridis() +
+        theme(
+            strip.text.x = element_text(hjust = 0, color = 'grey45'),
+            strip.background = element_rect(fill = NA, color = NA),
+            panel.border = element_rect(fill = NA, color = 'grey75'),
+            panel.grid = element_line(linetype = 'dotted'),
+            axis.ticks = element_line(color = 'grey55'),
+            axis.text = element_text(color = 'grey55'),
+            axis.title.x = element_text(color = 'grey55', margin = margin(t = 10)),            
+            axis.title.y = element_text(color = 'grey55', angle = 0, margin = margin(r = 10)),
+            legend.position = 'none'
+        ) +
+        labs(
+            x = 'Day of Week',
+            y = 'Revenue',
+            title = 'Site Revenue by Day of Week',
+            subtitle = f_wrap(c(
+                'This faceted dot plot shows the distribution of revenues within sites',
+                'across days of the week.  Notice the consistently increasing revenues for',
+                'Site 2 across the week.'
+            ), width = 85, collapse = TRUE)
+        )
 ```
 
 

@@ -14,7 +14,9 @@
 #' @param equal.lines logical.  If \code{TRUE} the number of lines for each
 #' element will be made the same by appending additional '\\n' to those below
 #' the max number of lines.  This is useful for legend spacing.
-
+#' @param collapse logical. If \code{TRUE} then \code{x} is collapsed via
+#' \code{paste(x, collapse = ' ')} before processing.  This is useful for
+#' muti-line text wraping of longer subtitles.
 #' @param \ldots Other arguments passed to \code{\link[base]{strwrap}}.
 #' @return Returns a string vector with wrapped new line characters.
 #' @rdname f_wrap
@@ -60,7 +62,7 @@
 #'
 #' }
 f_wrap <- function (x, width = 15, sep = '\n', exdent = 0, indent = 0,
-    equal.lines = FALSE, ...) {
+    equal.lines = FALSE, collapse = FALSE, ...) {
 
     nas <- is.na(x)
 
@@ -75,11 +77,13 @@ f_wrap <- function (x, width = 15, sep = '\n', exdent = 0, indent = 0,
         ml <- max(lens)
         out <- unlist(Map(function(i, x) paste(c(paste(x, collapse = sep), rep(sep, ml - i)), collapse = ''), lens, out))
     } else {
-        out <- unlist(lapply(x, function(y) {
 
+        if (isTRUE(collapse)) x <- paste(x, collapse = " ")
+        out <- unlist(lapply(x, function(y) {
                 paste(strwrap(y, width = width, exdent = exdent, indent = indent, ...), collapse = sep)
 
         }))
+        if (isTRUE(collapse)) return(out)
     }
 
     out[nas] <- NA

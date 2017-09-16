@@ -40,6 +40,10 @@ numform 0.3.1 -
   each element have the same number of new line characters.  This is useful for
   legend spacing.
 
+* `f_wrap` picks up a `collapse` argument to `paste` + `collapse` a vector before
+  processing.  This is useful wrapping subtitles or other longer text blocks.
+
+
 IMPROVEMENTS
 
 **CHANGES**

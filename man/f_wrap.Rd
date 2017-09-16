@@ -6,7 +6,7 @@
 \title{Wrap Strings}
 \usage{
 f_wrap(x, width = 15, sep = "\\n", exdent = 0, indent = 0,
-  equal.lines = FALSE, ...)
+  equal.lines = FALSE, collapse = FALSE, ...)
 
 ff_wrap(...)
 }
@@ -27,6 +27,10 @@ in a paragraph.}
 \item{equal.lines}{logical.  If \code{TRUE} the number of lines for each
 element will be made the same by appending additional '\\n' to those below
 the max number of lines.  This is useful for legend spacing.}
+
+\item{collapse}{logical. If \code{TRUE} then \code{x} is collapsed via
+\code{paste(x, collapse = ' ')} before processing.  This is useful for
+muti-line text wraping of longer subtitles.}
 
 \item{\ldots}{Other arguments passed to \code{\link[base]{strwrap}}.}
 }
