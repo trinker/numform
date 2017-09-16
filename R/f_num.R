@@ -11,7 +11,7 @@
 #' @param s A string to paste at the end of the output from \code{f_num}.
 #' @param pad.char A character to use for leading padding if lengths of output
 #' are unequal.
-#' @param zero An value to insert in for zero values.
+#' @param zero A value to insert in for zero values.
 #' @param \ldots ignored.
 #' @return Returns a string of publication ready digits.
 #' @export
