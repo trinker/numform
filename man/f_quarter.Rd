@@ -10,19 +10,20 @@
 \alias{ff_quarter}
 \title{Format Quarters}
 \usage{
-f_quarter(x, prefix = "Q", space = "", ...)
+f_quarter(x, prefix = "Q", space = "", max = 12, ...)
 
-\method{f_quarter}{default}(x, prefix = "Q", space = "", ...)
+\method{f_quarter}{default}(x, prefix = "Q", space = "", max = 12, ...)
 
-\method{f_quarter}{numeric}(x, prefix = "Q", space = "", ...)
+\method{f_quarter}{numeric}(x, prefix = "Q", space = "",
+  max = ifelse(all(x \%in\% c(1:4, NA)), 4, 12), ...)
 
-\method{f_quarter}{Date}(x, prefix = "Q", space = "", ...)
+\method{f_quarter}{Date}(x, prefix = "Q", space = "", max = 12, ...)
 
-\method{f_quarter}{POSIXt}(x, prefix = "Q", space = "", ...)
+\method{f_quarter}{POSIXt}(x, prefix = "Q", space = "", max = 12, ...)
 
-\method{f_quarter}{hms}(x, prefix = "Q", space = "", ...)
+\method{f_quarter}{hms}(x, prefix = "Q", space = "", max = 12, ...)
 
-ff_quarter(prefix = "Q", space = "", ...)
+ff_quarter(prefix = "Q", space = "", max = 12, ...)
 }
 \arguments{
 \item{x}{A vector of month names, integers 1-12, or dates.}
@@ -30,6 +31,9 @@ ff_quarter(prefix = "Q", space = "", ...)
 \item{prefix}{A quarter prefix (defaults to \code{'Q'}).}
 
 \item{space}{A string to place between `Q` and quarter number.}
+
+\item{max}{A maximum in the \code{x} vector, if \code{x} is \code{numeric},
+corresponding to months (12) or quarters (4).}
 
 \item{\ldots}{ignored.}
 }

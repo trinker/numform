@@ -6,6 +6,8 @@
 #' @param x A vector of month names, integers 1-12, or dates.
 #' @param prefix A quarter prefix (defaults to \code{'Q'}).
 #' @param space A string to place between `Q` and quarter number.
+#' @param max A maximum in the \code{x} vector, if \code{x} is \code{numeric},
+#' corresponding to months (12) or quarters (4).
 #' @param \ldots ignored.
 #' @return Returns a quarter formatted atomic vector.
 #' @export
@@ -33,7 +35,7 @@
 #'     geom_bar(stat = 'identity') +
 #'     facet_wrap(~ area)
 #' }
-f_quarter <- function(x, prefix = 'Q', space = '', ...) {
+f_quarter <- function(x, prefix = 'Q', space = '', max = 12, ...) {
     UseMethod('f_quarter')
 }
 
@@ -42,7 +44,7 @@ f_quarter <- function(x, prefix = 'Q', space = '', ...) {
 #' @export
 #' @rdname f_quarter
 #' @method f_quarter default
-f_quarter.default <- function(x, prefix = 'Q', space = '', ...) {
+f_quarter.default <- function(x, prefix = 'Q', space = '', max = 12, ...) {
     out <- switch(check_month_type(x),
         month = {names(mnthqrt)[match(x, mnthqrt)]},
         month_abbreviated = {names(mnthqrt2)[match(x, mnthqrt2)]},
@@ -58,13 +60,20 @@ f_quarter.default <- function(x, prefix = 'Q', space = '', ...) {
 #' @export
 #' @rdname f_quarter
 #' @method f_quarter numeric
-f_quarter.numeric <- function(x, prefix = 'Q', space = '', ...) {
-    if (any(x > 12) | any(x < 1) | any(x %% 1 != 0)) {
+f_quarter.numeric <- function(x, prefix = 'Q', space = '',
+    max = ifelse(all(x %in% c(1:4, NA)), 4, 12), ...) {
+
+    if (!max %in% c(4, 12)) stop('`max` must be either 4 or 12')
+    if (any(x > max) | any(x < 1) | any(x %% 1 != 0)) {
         x <- as.integer(x)
-        x[x > 12 | x < 1] <- NA
-        warning('`x` has been coerced to integer and values > 12 OR < 1 replaced with `NA`.')
+        x[x > max | x < 1] <- NA
+        warning(sprintf('`x` has been coerced to integer and values > %s OR < 1 replaced with `NA`.', max))
     }
-    out <- names(mnthqrt3)[match(x, mnthqrt3)]
+    if (max == 12){
+        out <- names(mnthqrt3)[match(x, mnthqrt3)]
+    } else {
+        out <- x
+    }
     nas <- is.na(out)
     out <- paste0(prefix, space = space, out)
     out[nas] <- NA
@@ -75,7 +84,7 @@ f_quarter.numeric <- function(x, prefix = 'Q', space = '', ...) {
 #' @export
 #' @rdname f_quarter
 #' @method f_quarter Date
-f_quarter.Date <- function(x, prefix = 'Q', space = '', ...) {
+f_quarter.Date <- function(x, prefix = 'Q', space = '', max = 12, ...) {
     f_quarter(as.character(format(x, "%b")), prefix = prefix)
 }
 
@@ -83,7 +92,7 @@ f_quarter.Date <- function(x, prefix = 'Q', space = '', ...) {
 #' @export
 #' @rdname f_quarter
 #' @method f_quarter POSIXt
-f_quarter.POSIXt <- function(x, prefix = 'Q', space = '', ...) {
+f_quarter.POSIXt <- function(x, prefix = 'Q', space = '', max = 12, ...) {
      f_quarter(as.character(format(x, "%b")), prefix = prefix)
 }
 
@@ -92,7 +101,7 @@ f_quarter.POSIXt <- function(x, prefix = 'Q', space = '', ...) {
 #' @export
 #' @rdname f_quarter
 #' @method f_quarter hms
-f_quarter.hms <- function(x, prefix = 'Q', space = '', ...) {
+f_quarter.hms <- function(x, prefix = 'Q', space = '', max = 12, ...) {
     f_quarter.POSIXt(as.POSIXct(x), prefix = prefix)
 }
 
@@ -100,8 +109,8 @@ f_quarter.hms <- function(x, prefix = 'Q', space = '', ...) {
 
 #' @export
 #' @rdname f_quarter
-ff_quarter <- function(prefix = 'Q', space = '', ...) {
-    function(x) {f_quarter(x, prefix = prefix, space = space)}
+ff_quarter <- function(prefix = 'Q', space = '', max = 12, ...) {
+    function(x) {f_quarter(x, prefix = prefix, space = space, max = max)}
 }
 
 

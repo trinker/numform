@@ -75,7 +75,7 @@ usage).
 
 <!-- html table generated in R 3.4.1 by xtable 1.8-2 package -->
 
-<!-- Fri Sep 15 22:05:07 2017 -->
+<!-- Sun Sep 17 21:55:32 2017 -->
 
 <table>
 
@@ -692,8 +692,7 @@ alignment.
 Plotting
 --------
 
-    library(tidyverse)
-    library(viridis)
+    library(tidyverse); library(viridis)
 
     set.seed(10)
     data_frame(
@@ -702,7 +701,7 @@ Plotting
         site = sample(paste("Site", 1:5), 10000, TRUE)
     ) %>%
         mutate(
-            dollar = f_dollar(revenue, digits = -3),
+            dollar = f_comma(f_dollar(revenue, digits = -3)),
             thous = f_denom(revenue),
             thous_dollars = f_denom(revenue, prefix = '$'),
             abb_month = f_month(date),
@@ -741,21 +740,79 @@ Plotting
             )
 
     ## # A tibble: 10,000 x 8
-    ##     revenue       date   site  dollar thous thous_dollars abb_month
-    ##       <dbl>     <date>  <chr>   <chr> <chr>         <chr>     <chr>
-    ##  1 449648.3 1999-11-29 Site 1 $501000  501K         $501K         N
-    ##  2 560514.4 1999-07-07 Site 4 $491000  491K         $491K         J
-    ##  3 438891.5 1999-08-06 Site 2 $431000  431K         $431K         A
-    ##  4 528542.6 1999-05-04 Site 3 $470000  470K         $470K         M
-    ##  5 462758.3 1999-07-08 Site 4 $515000  515K         $515K         J
-    ##  6 553878.7 1999-07-22 Site 2 $519000  519K         $519K         J
-    ##  7 473985.2 1999-05-20 Site 2 $440000  440K         $440K         M
-    ##  8 533825.2 1999-05-28 Site 5 $482000  482K         $482K         M
-    ##  9 426124.4 1999-01-15 Site 2 $419000  419K         $419K         J
-    ## 10 406613.1 1999-08-19 Site 3 $487000  487K         $487K         A
+    ##     revenue       date   site   dollar thous thous_dollars abb_month
+    ##       <dbl>     <date>  <chr>    <chr> <chr>         <chr>     <chr>
+    ##  1 449648.3 1999-11-29 Site 1 $501,000  501K         $501K         N
+    ##  2 560514.4 1999-07-07 Site 4 $491,000  491K         $491K         J
+    ##  3 438891.5 1999-08-06 Site 2 $431,000  431K         $431K         A
+    ##  4 528542.6 1999-05-04 Site 3 $470,000  470K         $470K         M
+    ##  5 462758.3 1999-07-08 Site 4 $515,000  515K         $515K         J
+    ##  6 553878.7 1999-07-22 Site 2 $519,000  519K         $519K         J
+    ##  7 473985.2 1999-05-20 Site 2 $440,000  440K         $440K         M
+    ##  8 533825.2 1999-05-28 Site 5 $482,000  482K         $482K         M
+    ##  9 426124.4 1999-01-15 Site 2 $419,000  419K         $419K         J
+    ## 10 406613.1 1999-08-19 Site 3 $487,000  487K         $487K         A
     ## # ... with 9,990 more rows, and 1 more variables: abb_week <fctr>
 
 ![](tools/figure/unnamed-chunk-13-1.png)
+
+    library(tidyverse); library(viridis)
+
+    set.seed(10)
+    dat <- data_frame(
+        revenue = rnorm(144, 500000, 10000),
+        date = seq(as.Date('2005/01/01'), as.Date('2016/12/01'), by="month")
+    ) %>%
+        mutate(
+            quarter = f_quarter(date),
+            year = f_year(date, 4)
+        ) %>%
+        group_by(year, quarter) %>%
+        summarize(revenue = sum(revenue)) %>%
+        ungroup() %>%
+        mutate(quarter = as.integer(gsub('Q', '', quarter)))
+
+    year_average <- dat %>%
+        group_by(year) %>%
+        summarize(revenue = mean(revenue)) %>%
+        mutate(x1 = .8, x2 = 4.2)
+
+    dat %>%
+        ggplot(aes(quarter, revenue, group = year)) +
+            geom_segment(
+                linetype = 'dashed', 
+                data = year_average, color = 'grey70', size = 1,
+                aes(x = x1, y = revenue, xend = x2, yend = revenue)
+            ) +
+            geom_line(size = .85, color = '#009ACD') +
+            geom_point(size = 1.5, color = '#009ACD') +
+            facet_wrap(~year, nrow = 2)  +
+            scale_y_continuous(label = ff_denom(relative = 2)) +
+            scale_x_continuous(breaks = 1:4, label = f_quarter) +
+            theme_bw() +
+            theme(
+                strip.text.x = element_text(hjust = 0, color = 'grey45'),
+                strip.background = element_rect(fill = NA, color = NA),
+                panel.border = element_rect(fill = NA, color = 'grey75'),
+                panel.grid.minor = element_blank(),
+                panel.grid.major = element_line(linetype = 'dotted'),
+                axis.ticks = element_line(color = 'grey55'),
+                axis.text = element_text(color = 'grey55'),
+                axis.title.x = element_text(color = 'grey55', margin = margin(t = 10)),            
+                axis.title.y = element_text(color = 'grey55', angle = 0, margin = margin(r = 10)),
+                legend.position = 'none'
+            ) +
+            labs(
+                x = 'Quarter',
+                y = 'Revenue ($)',
+                title = 'Quarterly Revenue Across Years',
+                subtitle = f_wrap(c(
+                    'This faceted line plot shows the change in quarterly revenue across', 
+                    'years.'
+                ), width = 85, collapse = TRUE)
+            )
+
+![](tools/figure/unnamed-chunk-14-1.png)
 
     library(tidyverse); library(gridExtra)
 
@@ -829,7 +886,7 @@ Plotting
 
     )
 
-![](tools/figure/unnamed-chunk-14-1.png)
+![](tools/figure/unnamed-chunk-15-1.png)
 
     set.seed(10)
     dat <- data_frame(
@@ -858,7 +915,7 @@ Plotting
                 subtitle = 'Subtitles: For that extra professional look.'
             )
 
-![](tools/figure/unnamed-chunk-15-1.png)
+![](tools/figure/unnamed-chunk-16-1.png)
 
 Modeling
 --------

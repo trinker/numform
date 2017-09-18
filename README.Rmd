@@ -189,8 +189,7 @@ dat %>%
 ## Plotting
 
 ```r
-library(tidyverse)
-library(viridis)
+library(tidyverse); library(viridis)
 ```
 
 ```{r}
@@ -201,7 +200,7 @@ data_frame(
     site = sample(paste("Site", 1:5), 10000, TRUE)
 ) %>%
     mutate(
-        dollar = f_dollar(revenue, digits = -3),
+        dollar = f_comma(f_dollar(revenue, digits = -3)),
         thous = f_denom(revenue),
         thous_dollars = f_denom(revenue, prefix = '$'),
         abb_month = f_month(date),
@@ -238,6 +237,69 @@ data_frame(
                 'Site 2 across the week.'
             ), width = 85, collapse = TRUE)
         )
+```
+
+
+
+```r
+library(tidyverse); library(viridis)
+```
+
+```{r}
+set.seed(10)
+dat <- data_frame(
+    revenue = rnorm(144, 500000, 10000),
+    date = seq(as.Date('2005/01/01'), as.Date('2016/12/01'), by="month")
+) %>%
+    mutate(
+        quarter = f_quarter(date),
+        year = f_year(date, 4)
+    ) %>%
+    group_by(year, quarter) %>%
+    summarize(revenue = sum(revenue)) %>%
+    ungroup() %>%
+    mutate(quarter = as.integer(gsub('Q', '', quarter)))
+
+year_average <- dat %>%
+    group_by(year) %>%
+    summarize(revenue = mean(revenue)) %>%
+    mutate(x1 = .8, x2 = 4.2)
+
+dat %>%
+    ggplot(aes(quarter, revenue, group = year)) +
+        geom_segment(
+            linetype = 'dashed', 
+            data = year_average, color = 'grey70', size = 1,
+            aes(x = x1, y = revenue, xend = x2, yend = revenue)
+        ) +
+        geom_line(size = .85, color = '#009ACD') +
+        geom_point(size = 1.5, color = '#009ACD') +
+        facet_wrap(~year, nrow = 2)  +
+        scale_y_continuous(label = ff_denom(relative = 2)) +
+        scale_x_continuous(breaks = 1:4, label = f_quarter) +
+        theme_bw() +
+        theme(
+            strip.text.x = element_text(hjust = 0, color = 'grey45'),
+            strip.background = element_rect(fill = NA, color = NA),
+            panel.border = element_rect(fill = NA, color = 'grey75'),
+            panel.grid.minor = element_blank(),
+            panel.grid.major = element_line(linetype = 'dotted'),
+            axis.ticks = element_line(color = 'grey55'),
+            axis.text = element_text(color = 'grey55'),
+            axis.title.x = element_text(color = 'grey55', margin = margin(t = 10)),            
+            axis.title.y = element_text(color = 'grey55', angle = 0, margin = margin(r = 10)),
+            legend.position = 'none'
+        ) +
+        labs(
+            x = 'Quarter',
+            y = 'Revenue ($)',
+            title = 'Quarterly Revenue Across Years',
+            subtitle = f_wrap(c(
+                'This faceted line plot shows the change in quarterly revenue across', 
+                'years.'
+            ), width = 85, collapse = TRUE)
+        )
+        
 ```
 
 
