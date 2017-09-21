@@ -34,6 +34,9 @@ numform 0.3.1 -
 
 * `f_quarter` added for working with business quarters.
 
+* `f_degree` and friends (`f_latitude`, `f_longitude`, `f_fahrenheit`, &
+  `f_celcius`) added for working with degrees in scales and tables.
+
 **MINOR FEATURES**
 
 * `f_wrap` picks up an `equal.lines` argument to add additional lines to make
@@ -44,7 +47,7 @@ numform 0.3.1 -
   processing.  This is useful wrapping subtitles or other longer text blocks.
 
 
-IMPROVEMENTS
+**IMPROVEMENTS**
 
 **CHANGES**
 

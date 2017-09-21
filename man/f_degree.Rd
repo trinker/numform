@@ -89,11 +89,30 @@ Returns number string(s) with degree symbols.
 \description{
 Format numbers into degree format for strings, text, titles, and scales.
 }
+\note{
+Note that this function differs a bit from other \code{f_} functions
+in that in needs a \code{type}.  This is because other \code{f_} functions
+return a plain text representation that is generalizable across usages (titles,
+tables, axis, geom_text, etc).  This function has notation that requires
+special parsing by various usages hence requiring the \code{type} argument.
+}
 \examples{
+## used for ggplot2 axis.text & legend scale
+f_celcius(37, type = 'scale')
+
+## used for ggplot2 geom_text
+f_celcius(37, type = 'text')
+
+## used for ggplot2 titles
+f_celcius(prefix = "My Title",  type = 'title')
+
+## used for table and string formatting
+f_celcius(37, type = 'string')
+f_celcius(37, type = 'string', symbol = '\\\\textdegree')  # LaTeX
 
 \dontrun{
-library(tidyverse)
-library(map)
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse, maps, viridis, mapproj)
 
 states <- map_data("state")
 arrests <- USArrests
@@ -111,16 +130,16 @@ ggplot(choro, aes(long, lat)) +
 ggplot(choro, aes(long, lat)) +
     geom_polygon(aes(group = group, fill = assault)) +
     coord_map("albers",  at0 = 45.5, lat1 = 29.5) +
-    scale_y_continuous(labels = function(x) {f_degree(x, measure = 'latitude', suffix = FALSE)}) +
-    scale_x_continuous(labels = function(x) {f_degree(x, measure = 'longitude', suffix = FALSE)})
+    scale_y_continuous(labels = ff_latitude(suffix = FALSE)) +
+    scale_x_continuous(labels = ff_longitude(suffix = FALSE))
 
 
 world <- map_data(map="world")
 
 ggplot(world, aes(map_id = region, x = long, y = lat)) +
     geom_map(map = world, aes(map_id = region), fill = "grey40", colour = "grey70", size = 0.25) +
-    scale_y_continuous(labels = function(x) {f_degree(x, measure = 'latitude')}) +
-    scale_x_continuous(labels = function(x) {f_degree(x, measure = 'longitude')})
+    scale_y_continuous(labels = f_latitude) +
+    scale_x_continuous(labels = f_longitude)
 
 
 data_frame(
@@ -129,7 +148,7 @@ data_frame(
 ) \%>\%
     mutate(
         C = (F - 32) * (5/9),
-        Event = f_replace(f_title(Event)),
+        Event = f_title(Event),
         Event = factor(Event, levels = unique(Event))
     ) \%>\%
     ggplot(aes(Event, F, fill = F)) +
@@ -155,10 +174,13 @@ data_frame(
 
 
 data_frame(
-    object = c('freezing water', 'room temp', 'body temp', 'boiling water', 'sun surface', 'lighting'),
-    F = c(32, 70, 98.6, 212, 9941, 50000)
+    Event = c('freezing water', 'room temp', 'body temp', 'steak\\'s done', 'hamburger\\'s done', 'boiling water', 'sun surface', 'lighting'),
+    F = c(32, 70, 98.6, 145, 160, 212, 9941, 50000)
 ) \%>\%
-    mutate(C = (F - 32) * (5/9)) \%>\%
+    mutate(
+        Event = f_title(Event),
+        C = (F - 32) * (5/9)
+    ) \%>\%
     mutate(
         F = f_degree(F, measure = 'F', type = 'string'),
         C = f_degree(C, measure = 'C', type = 'string', zero = '0.0')
