@@ -96,6 +96,6 @@ right_align <- function(df, additional.numeric = NULL){
 }
 
 
-numregex <- '^(((\\$)?[0-9.,+-]+( ?%|[KMB])?)|([0-9/:.-T ]{5,}))$'
+numregex <- '^((((\\$)?[0-9.,+-]+( ?%|[KMB])?)|([0-9/:.-T ]{5,}))|(-?[0-9.]+(&deg;)?[WESNFC]?))$'
 
 
