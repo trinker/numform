@@ -46,6 +46,9 @@ numform 0.3.1 -
 * `f_wrap` picks up a `collapse` argument to `paste` + `collapse` a vector before
   processing.  This is useful wrapping subtitles or other longer text blocks.
 
+* `f_title` picks up an `upper` and `lower` argument to allow the user to supply
+  a vector of regexes to force to be upper/lower regardless of title case.
+
 
 **IMPROVEMENTS**
 

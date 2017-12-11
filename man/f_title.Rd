@@ -5,12 +5,20 @@
 \alias{ff_title}
 \title{Convert First Letter of Words to Title Case}
 \usage{
-f_title(x, ...)
+f_title(x, upper = NULL, lower = NULL, ...)
 
 ff_title(...)
 }
 \arguments{
 \item{x}{A vector of text strings.}
+
+\item{upper}{A vector of regular expression to convert to upper case that
+would otherwise be lower cased (this should be targetted at the initial output,
+not the input).}
+
+\item{lower}{A vector of regular expression to convert to lower case that
+would otherwise be upper cased (this should be targetted at the initial output,
+not the input).}
 
 \item{\ldots}{ignored.}
 }
@@ -22,7 +30,11 @@ A wrapper for \code{\link[tools]{toTitleCase}} converting text to title case.
 }
 \examples{
 f_title('i love this title')
-f_title(f_title('Cool_Variable'))
+f_title(f_replace('Cool_Variable'))
+
+f_title(c('select', 'group by', 'My ascii'))
+f_title(c('select', 'group by', 'My ascii'), upper = c('Ascii'))
+f_title(c('select', 'group by', 'My ascii'), upper = c('Ascii', 'b(?=y\\\\b)'))
 
 \dontrun{
 library(tidyverse)

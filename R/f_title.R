@@ -3,6 +3,12 @@
 #' A wrapper for \code{\link[tools]{toTitleCase}} converting text to title case.
 #'
 #' @param x A vector of text strings.
+#' @param upper A vector of regular expression to convert to upper case that
+#' would otherwise be lower cased (this should be targetted at the initial output,
+#' not the input).
+#' @param lower A vector of regular expression to convert to lower case that
+#' would otherwise be upper cased (this should be targetted at the initial output,
+#' not the input).
 #' @param \ldots ignored.
 #' @return Returns a string vector with characters replaced.
 #' @rdname f_title
@@ -10,7 +16,11 @@
 #' @seealso \code{\link[tools]{toTitleCase}}
 #' @examples
 #' f_title('i love this title')
-#' f_title(f_title('Cool_Variable'))
+#' f_title(f_replace('Cool_Variable'))
+#'
+#' f_title(c('select', 'group by', 'My ascii'))
+#' f_title(c('select', 'group by', 'My ascii'), upper = c('Ascii'))
+#' f_title(c('select', 'group by', 'My ascii'), upper = c('Ascii', 'b(?=y\\b)'))
 #'
 #' \dontrun{
 #' library(tidyverse)
@@ -87,10 +97,18 @@
 #' )
 #'
 #' }
-f_title <- function (x, ...) {
+f_title <- function (x, upper = NULL, lower = NULL, ...) {
 
     nas <- is.na(x)
     out <- gsub('\\bi\\b', 'I', gsub('(^.)', '\\U\\1', tools::toTitleCase(x), perl = TRUE))
+
+    if (!is.null(upper)) {
+       out <- gsub(paste0('(', paste(upper, collapse = '|'), ')'), '\\U\\1', out, perl = TRUE)
+    }
+
+    if (!is.null(lower)) {
+       out <- gsub(paste0('(', paste(lower, collapse = '|'), ')'), '\\U\\1', out, perl = TRUE)
+    }
 
     out[nas] <- NA
     out
