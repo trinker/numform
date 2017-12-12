@@ -2,7 +2,7 @@
 #'
 #' Format times to the typical 12 hour '%I:%M %p' in-text format.
 #'
-#' @param x A vector of coercable times.
+#' @param x A vector of coercible times.
 #' @param format A character string specifying the time output format.
 #' @param pad.char A character to use for leading padding if lengths of output
 #' are unequal.

@@ -16,7 +16,7 @@
 #' the max number of lines.  This is useful for legend spacing.
 #' @param collapse logical. If \code{TRUE} then \code{x} is collapsed via
 #' \code{paste(x, collapse = ' ')} before processing.  This is useful for
-#' muti-line text wraping of longer subtitles.
+#' muti-line text wrapping of longer subtitles.
 #' @param \ldots Other arguments passed to \code{\link[base]{strwrap}}.
 #' @return Returns a string vector with wrapped new line characters.
 #' @rdname f_wrap

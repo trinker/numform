@@ -34,7 +34,7 @@ ff_num_percent(...)
 \item{x_prefix}{A constant to place before each value in the x vector.}
 
 \item{y_prefix}{A constant to place before each value in the y
-vector inside of the prenthesis.}
+vector inside of the parenthesis.}
 
 \item{x_digits}{The number of digits to round the x vector.}
 
@@ -42,7 +42,7 @@ vector inside of the prenthesis.}
 
 \item{prop_fun}{The proportion function to convert the y y vector in
 \code{f_num_percent}.  Default is \code{f_prop2percent}.  \code{f_percent} is
-used for when the values are alrey percentages.}
+used for when the values are already percentages.}
 
 \item{\ldots}{ignored.}
 }

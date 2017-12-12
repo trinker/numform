@@ -6,7 +6,7 @@
 #' @param mark The character to include every n places.
 #' @param prefix A string to append to the front of elements.
 #' @param \ldots Other arguments passed to \code{\link[base]{prettyNum}}.
-#' @return Returns a comma separted string of publication ready digits.
+#' @return Returns a comma separated string of publication ready digits.
 #' @export
 #' @rdname f_comma
 #' @seealso \code{\link[base]{prettyNum}}

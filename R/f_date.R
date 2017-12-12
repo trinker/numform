@@ -2,7 +2,7 @@
 #'
 #' Format dates to the typical '%B %d, %Y in-text format.
 #'
-#' @param x A vector of coercable dates.
+#' @param x A vector of coercible dates.
 #' @param format A character string specifying the date output format.
 #' @param \ldots Other arguments passed to \code{\link[base]{as.Date}}.
 #' @return Returns a string of publication ready dates.

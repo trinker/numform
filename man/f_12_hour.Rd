@@ -22,7 +22,7 @@ f_12_hour(x = Sys.time(), format = "\%I:\%M \%p", pad.char = "", ...)
 ff_12_hour(format = "\%I:\%M \%p", pad.char = "", ...)
 }
 \arguments{
-\item{x}{A vector of coercable times.}
+\item{x}{A vector of coercible times.}
 
 \item{format}{A character string specifying the time output format.}
 

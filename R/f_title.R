@@ -4,10 +4,10 @@
 #'
 #' @param x A vector of text strings.
 #' @param upper A vector of regular expression to convert to upper case that
-#' would otherwise be lower cased (this should be targetted at the initial output,
+#' would otherwise be lower cased (this should be targeted at the initial output,
 #' not the input).
 #' @param lower A vector of regular expression to convert to lower case that
-#' would otherwise be upper cased (this should be targetted at the initial output,
+#' would otherwise be upper cased (this should be targeted at the initial output,
 #' not the input).
 #' @param \ldots ignored.
 #' @return Returns a string vector with characters replaced.

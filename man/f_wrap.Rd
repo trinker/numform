@@ -30,7 +30,7 @@ the max number of lines.  This is useful for legend spacing.}
 
 \item{collapse}{logical. If \code{TRUE} then \code{x} is collapsed via
 \code{paste(x, collapse = ' ')} before processing.  This is useful for
-muti-line text wraping of longer subtitles.}
+muti-line text wrapping of longer subtitles.}
 
 \item{\ldots}{Other arguments passed to \code{\link[base]{strwrap}}.}
 }

@@ -19,7 +19,7 @@ ffv_num_percent(...)
 
 \item{sep}{The separator between the first number and the leading parenthesis.}
 
-\item{comma}{logiccal.  If \code{TRUE} the leading number is comma separated.}
+\item{comma}{logical.  If \code{TRUE} the leading number is comma separated.}
 
 \item{\ldots}{ignored.}
 }

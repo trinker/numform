@@ -10,7 +10,7 @@ as_factor(x, shift = 0, ...)
 \item{x}{A vector of weekdays or months.}
 
 \item{shift}{Shift the levels to the right or left.  Useful for setting the
-week begining to something besides Sunday.  Use -1 to set to Monday instead.}
+week beginning to something besides Sunday.  Use -1 to set to Monday instead.}
 
 \item{\ldots}{ignored.}
 }

@@ -12,10 +12,10 @@
 #' @param sep The separator between the first number and the leading parenthesis.
 #' @param x_prefix A constant to place before each value in the x vector.
 #' @param y_prefix A constant to place before each value in the y
-#' vector inside of the prenthesis.
+#' vector inside of the parenthesis.
 #' @param prop_fun The proportion function to convert the y y vector in
 #' \code{f_num_percent}.  Default is \code{f_prop2percent}.  \code{f_percent} is
-#' used for when the values are alrey percentages.
+#' used for when the values are already percentages.
 #' @param \ldots ignored.
 #' @return Returns a vector of parenthesis combined strings using vector x and y.
 #' @rdname f_parenthesis

@@ -7,7 +7,7 @@
 #' @param x_digits The number of digits to round the x vector.
 #' @param y_digits The number of digits to round the y vector.
 #' @param sep The separator between the first number and the leading parenthesis.
-#' @param comma logiccal.  If \code{TRUE} the leading number is comma separated.
+#' @param comma logical.  If \code{TRUE} the leading number is comma separated.
 #' @param \ldots ignored.
 #' @rdname fv_num_percent
 #' @return Returns a vector of parenthesis combined strings using vector x

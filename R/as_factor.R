@@ -5,7 +5,7 @@
 #'
 #' @param x A vector of weekdays or months.
 #' @param shift Shift the levels to the right or left.  Useful for setting the
-#' week begining to something besides Sunday.  Use -1 to set to Monday instead.
+#' week beginning to something besides Sunday.  Use -1 to set to Monday instead.
 #' @param \ldots ignored.
 #' @return Returns a factor vector with levels set.
 #' @export

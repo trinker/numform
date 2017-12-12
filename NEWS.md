@@ -17,7 +17,8 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-numform 0.3.1 -
+
+numform 0.3.1 - 0.3.3
 ----------------------------------------------------------------
 
 **BUG FIXES**
@@ -29,8 +30,8 @@ numform 0.3.1 -
 
 * `f_year`, `f_12_hour`, `f_month`, and `f_weekday` (methods based functions)
   did not previously have closure, function retuning, forms (i.e., `ff_` form)
-  making them inconstent in usage.  These functions all have a closure, function
-  retuning, form.
+  making them inconsistent in usage.  These functions all have a closure, function
+  returning, form.
 
 * `f_quarter` added for working with business quarters.
 
@@ -48,11 +49,6 @@ numform 0.3.1 -
 
 * `f_title` picks up an `upper` and `lower` argument to allow the user to supply
   a vector of regexes to force to be upper/lower regardless of title case.
-
-
-**IMPROVEMENTS**
-
-**CHANGES**
 
 
 

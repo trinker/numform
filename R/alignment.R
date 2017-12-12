@@ -2,7 +2,7 @@
 #'
 #' Many of the specialized functions in numform can change the type of the data
 #' from numeric to character causing the table formatting functions in various
-#' add-on packages to improperly align the elements.  This function pases the
+#' add-on packages to improperly align the elements.  This function passes the
 #' columns with a regular expression to detect alignment regardless of column
 #' class.
 #'

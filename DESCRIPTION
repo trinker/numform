@@ -5,12 +5,12 @@ Authors@R: c(person("Tyler", "Rinker", email = "tyler.rinker@gmail.com", role = 
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: Format numbers and plots for publication; includes the removal of leading zeros,
            standardization of number of digits, addition of affixes, and a p-value formatter. These
-           tools combine the functionality of several 'base' functions such as paste(), format(), and
-           sprintf() into specific use case functions that are named in a way that is consistent with
-           usage, making their names easy to remember and easy to deploy.
+           tools combine the functionality of several 'base' functions such as 'paste()', 'format()',
+           and 'sprintf()' into specific use case functions that are named in a way that is
+           consistent with usage, making their names easy to remember and easy to deploy.
 Depends: R (>= 3.2.0)
 Suggests: testthat
-Date: 2017-12-11
+Date: 2017-12-12
 License: GPL-2
 LazyData: TRUE
 Roxygen: list(wrap = FALSE)

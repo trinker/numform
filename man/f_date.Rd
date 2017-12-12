@@ -10,7 +10,7 @@ f_date(x = Sys.Date(), format = "\%B \%d, \%Y", ...)
 ff_date(...)
 }
 \arguments{
-\item{x}{A vector of coercable dates.}
+\item{x}{A vector of coercible dates.}
 
 \item{format}{A character string specifying the date output format.}
 

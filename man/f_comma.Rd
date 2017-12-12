@@ -19,7 +19,7 @@ ff_comma(...)
 \item{\ldots}{Other arguments passed to \code{\link[base]{prettyNum}}.}
 }
 \value{
-Returns a comma separted string of publication ready digits.
+Returns a comma separated string of publication ready digits.
 }
 \description{
 Add commas to larger integers.

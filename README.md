@@ -73,8 +73,8 @@ arguments but returns a function instead. This is useful for passing in
 to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
 usage).
 
-<!-- html table generated in R 3.4.0 by xtable 1.8-2 package -->
-<!-- Thu Sep 21 10:11:21 2017 -->
+<!-- html table generated in R 3.4.2 by xtable 1.8-2 package -->
+<!-- Tue Dec 12 11:05:41 2017 -->
 <table>
 <tr>
 <td>
@@ -432,12 +432,12 @@ alignment.
 
 <table>
 <colgroup>
-<col width="9%" />
-<col width="6%" />
 <col width="10%" />
 <col width="5%" />
+<col width="10%" />
 <col width="6%" />
-<col width="12%" />
+<col width="6%" />
+<col width="11%" />
 <col width="8%" />
 <col width="9%" />
 <col width="15%" />
@@ -574,11 +574,11 @@ alignment.
         data.frame(stringsAsFactors = FALSE, check.names = FALSE) %>%
         pander::pander(split.tables = Inf, justify = alignment(.))
 
-<table style="width:62%;">
+<table style="width:71%;">
 <colgroup>
-<col width="23%" />
-<col width="19%" />
-<col width="19%" />
+<col width="26%" />
+<col width="22%" />
+<col width="22%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -696,7 +696,7 @@ Plotting
     ## 10 406613.1 1999-08-19 Site 3 $487,000  487K         $487K         A
     ## # ... with 9,990 more rows, and 1 more variables: abb_week <fctr>
 
-![](tools/figure/unnamed-chunk-21-1.png)
+![](tools/figure/unnamed-chunk-14-1.png)
 
     library(tidyverse); library(viridis)
 
@@ -754,7 +754,7 @@ Plotting
                 ), width = 85, collapse = TRUE)
             )
 
-![](tools/figure/unnamed-chunk-22-1.png)
+![](tools/figure/unnamed-chunk-15-1.png)
 
     library(tidyverse); library(gridExtra)
 
@@ -828,7 +828,7 @@ Plotting
 
     )
 
-![](tools/figure/unnamed-chunk-23-1.png)
+![](tools/figure/unnamed-chunk-16-1.png)
 
     set.seed(10)
     dat <- data_frame(
@@ -857,7 +857,7 @@ Plotting
                 subtitle = 'Subtitles: For that extra professional look.'
             )
 
-![](tools/figure/unnamed-chunk-24-1.png)
+![](tools/figure/unnamed-chunk-17-1.png)
 
     library(tidyverse); library(viridis)
 
@@ -891,7 +891,7 @@ Plotting
                 panel.grid.major.x = element_blank()
             )
 
-![](tools/figure/unnamed-chunk-25-1.png)
+![](tools/figure/unnamed-chunk-18-1.png)
 
     library(tidyverse); library(maps)
 
@@ -902,7 +902,7 @@ Plotting
         scale_y_continuous(labels = f_latitude) +
         scale_x_continuous(labels = f_longitude)
 
-![](tools/figure/unnamed-chunk-26-1.png)
+![](tools/figure/unnamed-chunk-19-1.png)
 
 Modeling
 --------

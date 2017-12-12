@@ -7,7 +7,7 @@
 #' @param digits The number of digits to use.  Defaults to 1.  Can be set
 #' globally via: \code{options(numformdigits = n)} where n is the number of
 #' digits beyond the decimal point to include.
-#' @param p A string to paste at the begining of the output from \code{f_num}.
+#' @param p A string to paste at the beginning of the output from \code{f_num}.
 #' @param s A string to paste at the end of the output from \code{f_num}.
 #' @param pad.char A character to use for leading padding if lengths of output
 #' are unequal.
