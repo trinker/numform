@@ -80,13 +80,15 @@
 #' world <- map_data(map="world")
 #'
 #' ggplot(world, aes(map_id = region, x = long, y = lat)) +
-#'     geom_map(map = world, aes(map_id = region), fill = "grey40", colour = "grey70", size = 0.25) +
+#'     geom_map(map = world, aes(map_id = region), fill = "grey40",
+#'         colour = "grey70", size = 0.25) +
 #'     scale_y_continuous(labels = f_latitude) +
 #'     scale_x_continuous(labels = f_longitude)
 #'
 #'
 #' data_frame(
-#'     Event = c('freezing water', 'room temp', 'body temp', 'steak\'s done', 'hamburger\'s done', 'boiling water'),
+#'     Event = c('freezing water', 'room temp', 'body temp', 'steak\'s done',
+#'         'hamburger\'s done', 'boiling water'),
 #'     F = c(32, 70, 98.6, 145, 160, 212)
 #' ) %>%
 #'     mutate(
@@ -96,10 +98,12 @@
 #'     ) %>%
 #'     ggplot(aes(Event, F, fill = F)) +
 #'         geom_col() +
-#'         geom_text(aes(y = F + 4, label = f_fahrenheit(F, digits = 1, type = 'text')), parse = TRUE, color = 'grey60') +
+#'         geom_text(aes(y = F + 4, label = f_fahrenheit(F, digits = 1, type = 'text')),
+#'             parse = TRUE, color = 'grey60') +
 #'         scale_y_continuous(
 #'             labels = f_fahrenheit, limits = c(0, 220), expand = c(0, 0),
-#'             sec.axis = sec_axis(trans = ~(. - 32) * (5/9), labels = f_celcius, name = f_celcius(prefix = 'Temperature ', type = 'title'))
+#'             sec.axis = sec_axis(trans = ~(. - 32) * (5/9), labels = f_celcius,
+#'             name = f_celcius(prefix = 'Temperature ', type = 'title'))
 #'         ) +
 #'         scale_x_discrete(labels = ff_replace(pattern = ' ', replacement = '\n')) +
 #'         scale_fill_viridis(option =  "magma", labels = f_fahrenheit, name = NULL) +
@@ -117,7 +121,8 @@
 #'
 #'
 #' data_frame(
-#'     Event = c('freezing water', 'room temp', 'body temp', 'steak\'s done', 'hamburger\'s done', 'boiling water', 'sun surface', 'lighting'),
+#'     Event = c('freezing water', 'room temp', 'body temp', 'steak\'s done',
+#'         'hamburger\'s done', 'boiling water', 'sun surface', 'lighting'),
 #'     F = c(32, 70, 98.6, 145, 160, 212, 9941, 50000)
 #' ) %>%
 #'     mutate(
@@ -293,20 +298,20 @@ f_degree.text <- function(x,
 
     switch(measure,
         fahrenheit = {
-            out <- unlist(lapply(x, function(y) text = paste0(a(y, ...), "^o", suf)))
+            out <- unlist(lapply(x, function(y) {paste0(a(y, ...), "^o", suf)}))
         },
         celcius = {
-            out <- unlist(lapply(x, function(y) text = paste0(a(y, ...), "^o", suf)))
+            out <- unlist(lapply(x, function(y) {paste0(a(y, ...), "^o", suf)}))
         },
         longitude = {
             out <- unlist(lapply(x, function(y) {
-                ifelse(y < 0, text = paste0(a(y, ...), "^o", suf[1]), ifelse(y > 0, text = paste0(a(y, ...), "^o", suf[2]), text = paste0(a(y, ...), "^o")))
+                ifelse(y < 0, paste0(a(y, ...), "^o", suf[1]), ifelse(y > 0, paste0(a(y, ...), "^o", suf[2]), paste0(a(y, ...), "^o")))
             }))
         },
 
         latitude = {
             out <- unlist(lapply(x, function(y) {
-                ifelse(y < 0, text = paste0(a(y, ...), "^o", suf[1]), ifelse(y > 0, text = paste0(a(y, ...), "^o", suf[2]), text = paste0(a(y, ...), "^o")))
+                ifelse(y < 0, paste0(a(y, ...), "^o", suf[1]), ifelse(y > 0, paste0(a(y, ...), "^o", suf[2]), paste0(a(y, ...), "^o")))
             }))
         }
     )
