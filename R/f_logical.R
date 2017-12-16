@@ -48,3 +48,16 @@ f_logical <- function(x, true = 'True', false = 'False', ...) {
 ff_logical <- functionize(f_logical)
 
 
+#' @export
+#' @rdname f_logical
+f_response <- function(x, yes = 'Yes', no = 'No', ...) {
+
+    ifelse(as.logical(x), yes, no)
+
+}
+
+#' @export
+#' @include utils.R
+#' @rdname f_logical
+ff_response <- functionize(f_response)
+

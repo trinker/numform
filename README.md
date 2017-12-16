@@ -74,7 +74,7 @@ to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
 usage).
 
 <!-- html table generated in R 3.4.2 by xtable 1.8-2 package -->
-<!-- Tue Dec 12 11:05:41 2017 -->
+<!-- Fri Dec 15 22:57:04 2017 -->
 <table>
 <tr>
 <td>
@@ -90,7 +90,7 @@ f_longitude
 f_prefix
 </td>
 <td>
-f_weekday
+f_title
 </td>
 </tr>
 <tr>
@@ -107,7 +107,7 @@ f_mean_sd
 f_prop2percent
 </td>
 <td>
-f_wrap
+f_weekday
 </td>
 </tr>
 <tr>
@@ -124,7 +124,7 @@ f_mills
 f_pval
 </td>
 <td>
-f_year
+f_wrap
 </td>
 </tr>
 <tr>
@@ -141,7 +141,7 @@ f_month
 f_quarter
 </td>
 <td>
-fv_num_percent
+f_year
 </td>
 </tr>
 <tr>
@@ -158,7 +158,7 @@ f_num
 f_replace
 </td>
 <td>
-fv_percent
+fv_num_percent
 </td>
 </tr>
 <tr>
@@ -172,10 +172,10 @@ f_denom
 f_num_percent
 </td>
 <td>
-f_sign
+f_response
 </td>
 <td>
-fv_percent_diff
+fv_percent
 </td>
 </tr>
 <tr>
@@ -189,10 +189,10 @@ f_dollar
 f_ordinal
 </td>
 <td>
-f_state
+f_sign
 </td>
 <td>
-fv_runs
+fv_percent_diff
 </td>
 </tr>
 <tr>
@@ -206,9 +206,10 @@ f_fahrenheit
 f_pad_zero
 </td>
 <td>
-f_suffix
+f_state
 </td>
 <td>
+fv_runs
 </td>
 </tr>
 <tr>
@@ -222,7 +223,7 @@ f_latitude
 f_parenthesis
 </td>
 <td>
-f_thous
+f_suffix
 </td>
 <td>
 </td>
@@ -238,7 +239,7 @@ f_logical
 f_percent
 </td>
 <td>
-f_title
+f_thous
 </td>
 <td>
 </td>

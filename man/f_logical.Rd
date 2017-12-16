@@ -3,11 +3,17 @@
 \name{f_logical}
 \alias{f_logical}
 \alias{ff_logical}
+\alias{f_response}
+\alias{ff_response}
 \title{True/False Convert Logical/Dummy Code}
 \usage{
 f_logical(x, true = "True", false = "False", ...)
 
 ff_logical(...)
+
+f_response(x, yes = "Yes", no = "No", ...)
+
+ff_response(...)
 }
 \arguments{
 \item{x}{A vector of logical or dummy integers.  This vector will be coerced

@@ -79,7 +79,8 @@ fact_check <- list(
     weekday_2letter = c("Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"),
     weekday_3_letter = c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"),
     weekday_long = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"),
-    quarter = paste0('Q', 1:14)
+    quarter = paste0('Q', 1:14),
+    response = c("Yes", "No")
 )
 
 check_type <- function(x){
