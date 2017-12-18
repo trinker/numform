@@ -50,6 +50,8 @@ ff_logical <- functionize(f_logical)
 
 #' @export
 #' @rdname f_logical
+#' @param yes A value for \code{TRUE} elements.
+#' @param no A value for  \code{FALSE} elements.
 f_response <- function(x, yes = 'Yes', no = 'No', ...) {
 
     ifelse(as.logical(x), yes, no)

@@ -23,6 +23,10 @@ to logical.}
 
 \item{false}{A value for  \code{FALSE} elements.}
 
+\item{yes}{A value for \code{TRUE} elements.}
+
+\item{no}{A value for  \code{FALSE} elements.}
+
 \item{\ldots}{ignored.}
 }
 \value{
