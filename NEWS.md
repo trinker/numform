@@ -25,6 +25,8 @@ numform 0.4.1 -
 
 **NEW FEATURES**
 
+* `highlight_cells` added as a quick and dirty way to add cell font highlighting.
+
 **MINOR FEATURES**
 
 * `f_denom` family of functions picks up a `less.than.replace` argument to
