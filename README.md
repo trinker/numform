@@ -74,7 +74,7 @@ to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
 usage).
 
 <!-- html table generated in R 3.4.2 by xtable 1.8-2 package -->
-<!-- Fri Dec 15 22:57:04 2017 -->
+<!-- Tue Dec 19 08:51:04 2017 -->
 <table>
 <tr>
 <td>
@@ -455,7 +455,7 @@ alignment.
 <th align="right">PropWon</th>
 <th align="right">PropLost</th>
 <th align="right">%ΔWinLoss</th>
-<th align="right">ΔWinLoss</th>
+<th align="left">ΔWinLoss</th>
 </tr>
 </thead>
 <tbody>
@@ -469,7 +469,7 @@ alignment.
 <td align="right">17%</td>
 <td align="right">9%</td>
 <td align="right">0%</td>
-<td align="right"><b>+</b></td>
+<td align="left"><b>+</b></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -481,7 +481,7 @@ alignment.
 <td align="right">33%</td>
 <td align="right">20%</td>
 <td align="right">-13%</td>
-<td align="right"><b>+</b></td>
+<td align="left"><b>+</b></td>
 </tr>
 <tr class="odd">
 <td align="left"></td>
@@ -493,7 +493,7 @@ alignment.
 <td align="right">87%</td>
 <td align="right">48%</td>
 <td align="right">11%</td>
-<td align="right"><b>+</b></td>
+<td align="left"><b>+</b></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -505,7 +505,7 @@ alignment.
 <td align="right">30%</td>
 <td align="right">19%</td>
 <td align="right">-13%</td>
-<td align="right"><b>+</b></td>
+<td align="left"><b>+</b></td>
 </tr>
 <tr class="odd">
 <td align="left">East Coast</td>
@@ -517,7 +517,7 @@ alignment.
 <td align="right">9%</td>
 <td align="right">18%</td>
 <td align="right">0%</td>
-<td align="right"><b>–</b></td>
+<td align="left"><b>–</b></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -529,7 +529,7 @@ alignment.
 <td align="right">15%</td>
 <td align="right">16%</td>
 <td align="right">86%</td>
-<td align="right"><b>–</b></td>
+<td align="left"><b>–</b></td>
 </tr>
 <tr class="odd">
 <td align="left"></td>
@@ -541,7 +541,7 @@ alignment.
 <td align="right">74%</td>
 <td align="right">9%</td>
 <td align="right">811%</td>
-<td align="right"><b>+</b></td>
+<td align="left"><b>+</b></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -553,7 +553,7 @@ alignment.
 <td align="right">30%</td>
 <td align="right">26%</td>
 <td align="right">-86%</td>
-<td align="right"><b>+</b></td>
+<td align="left"><b>+</b></td>
 </tr>
 </tbody>
 </table>

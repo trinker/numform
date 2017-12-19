@@ -9,7 +9,7 @@ Description: Format numbers and plots for publication; includes the removal of l
              named in a way that is consistent with usage, making their names easy to remember and easy to deploy.
 Depends: R (>= 3.2.0)
 Suggests: testthat
-Date: 2017-12-18
+Date: 2017-12-19
 License: GPL-2
 LazyData: TRUE
 Roxygen: list(wrap = FALSE)

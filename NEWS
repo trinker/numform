@@ -27,9 +27,22 @@ NEW FEATURES
 
 MINOR FEATURES
 
+* `f_denom` family of functions picks up a `less.than.replace` argument to
+  replace values that say zero with a less than signg folowed by a one and then
+  the denomination.  For example, in `c(2, 1234)` the digit 2 becomes "<1K".
+
+* `f_denom` picks up a `mix.denom` argument to allow for the mixing of
+  denominations.  This is useful for tables with a total row that is a
+  denomination higher than the rest of the column.
+
+
 IMPROVEMENTS
 
 CHANGES
+
+* The argument `less_than_replace` in `f_prop2percent` & `f_percent` has been
+  replaced with `less.than.replace` to make dot case consistent for arguments
+  across the package.
 
 
 

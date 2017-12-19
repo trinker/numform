@@ -12,22 +12,22 @@
 \title{Abbreviate Numbers}
 \usage{
 f_denom(x, relative = 0, prefix = "", pad.char = ifelse(prefix == "", NA,
-  " "), ...)
+  " "), less.than.replace = FALSE, mix.denom = FALSE, ...)
 
 ff_denom(...)
 
 f_bills(x, relative = 0, digits = -9, prefix = "",
-  pad.char = ifelse(prefix == "", NA, " "), ...)
+  pad.char = ifelse(prefix == "", NA, " "), less.than.replace = FALSE, ...)
 
 ff_bills(...)
 
 f_mills(x, relative = 0, digits = -6, prefix = "",
-  pad.char = ifelse(prefix == "", NA, " "), ...)
+  pad.char = ifelse(prefix == "", NA, " "), less.than.replace = FALSE, ...)
 
 ff_mills(...)
 
 f_thous(x, relative = 0, digits = -3, prefix = "",
-  pad.char = ifelse(prefix == "", NA, " "), ...)
+  pad.char = ifelse(prefix == "", NA, " "), less.than.replace = FALSE, ...)
 
 ff_thous(...)
 }
@@ -42,6 +42,16 @@ For example \code{relative = -1} moves one to the left while
 
 \item{pad.char}{A character to use for leading padding if lengths of output
 are unequal.  Use \code{NA} to forgo padding.}
+
+\item{less.than.replace}{logical.  If \code{TRUE} values lower than lowest
+place value will be replaced with a less than sign followed by the
+\code{integer} representation of the place value.  For example, if \code{"$0K"}
+then replacement will be \code{"<1K"}.}
+
+\item{mix.denom}{logical.  If \code{TRUE} then denominations can be mixed.
+Typically this is not a good idea for the sake of comparison.  It is most
+useful when there is a total row which is a sum of the column and this value's
+denomination exceeds the denomination of the rest of the column.}
 
 \item{digits}{The number of digits to round to.  Actual \code{digits}
 calculated as \code{digits} +  \code{relative}.}
@@ -130,5 +140,27 @@ data_frame(
         geom_jitter(width = .2, height = 0, alpha = .2) +
         scale_y_continuous(label = ff_thous(prefix = '$'))+
         facet_wrap(~site)
+
+set.seed(10)
+data_frame(
+    w = paste(constant_months, rep(2016:2017, each = 12))[1:20] ,
+    x = rnorm(20, 200000, 75000)
+) \%>\%
+    {
+        a <- .
+        rbind(
+            a,
+            a \%>\%
+                mutate(w = 'Total') \%>\%
+                group_by(w) \%>\%
+                summarize(x = sum(x))
+        )
+    } \%>\%
+    mutate(
+        y = f_denom(x, prefix = '$'),
+        z = f_denom(x, mix.denom = TRUE, prefix = '$')
+    )  \%>\%
+    data.frame(stringsAsFactors = FALSE, check.names = FALSE) \%>\%
+    pander::pander(split.tables = Inf, justify = alignment(.))
 }
 }
