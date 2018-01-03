@@ -27,15 +27,16 @@
 #' @export
 #' @rdname f_denom
 #' @examples
-## f_denom(c(12345, 12563, 191919), prefix = '$')
-## f_denom(c(12345, 12563, 191919), prefix = '$', pad.char = '')
-## f_denom(c(1234365, 122123563, 12913919), prefix = '$')
-## f_denom(c(12343676215, 122126763563, 1291673919), prefix = '$')
-## f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), prefix = '$')
-## f_denom(c(NA, 2, 123436, 122126763, 1291673919), prefix = '$', mix.denom = TRUE)
-## f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), prefix = '$', pad.char = '')
-## f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), relative = 1, prefix = '$')
-## f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), relative = 9, prefix = '$')
+#' f_denom(c(12345, 12563, 191919), prefix = '$')
+#' f_denom(c(12345, 12563, 191919), prefix = '$', pad.char = '')
+#' f_denom(c(1234365, 122123563, 12913919), prefix = '$')
+#' f_denom(c(12343676215, 122126763563, 1291673919), prefix = '$')
+#' f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), prefix = '$')
+#' f_denom(c(NA, 2, 123436, 122126763, 1291673919), prefix = '$', mix.denom = TRUE)
+#' f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), prefix = '$', pad.char = '')
+#' f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), relative = 1, prefix = '$')
+#' f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), relative = 9, prefix = '$')
+#' f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), less.than.replace = TRUE)
 #'
 #' f_thous(1234)
 #' f_thous(12345)
@@ -126,27 +127,35 @@ f_denom <- function(x, relative = 0, prefix = "", pad.char = ifelse(prefix == ""
     less.than.replace = FALSE, mix.denom = FALSE, ...) {
 
     #if (missing(pad.char)) pad.char <- ifelse(prefix == "", NA, " ")
+    neglocs <- x < 0
 
     if (mix.denom) {
 
         nas <- is.na(x)
         ## recurse the function on individual elements
         out <- unlist(lapply(x, f_denom))
-        out <- gsub('(^[^0-9]*\\s*)(\\d+[MBK])', '\\2', out)
-        chars <- nchar(out)
-        m <- max(chars, na.rm = TRUE)
-        out <- paste0(
-            prefix,
-            sapply(chars, function(x) {
-                if (is.na(x)) return(NA)
-                paste(rep(pad.char, m - x), collapse = '')
-            }),
-            out
-        )
+
+        out <- gsub('(^[^0-9-]*\\s*)(\\d+[MBK])', '\\2', out)
+        if (!is.na(pad.char)){
+            chars <- nchar(out)
+            m <- max(chars, na.rm = TRUE)
+            out <- paste0(
+                prefix,
+                sapply(chars, function(x) {
+                    if (is.na(x)) return(NA)
+                    paste(rep(pad.char, m - x), collapse = '')
+                }),
+                out
+            )
+        }
         out[nas] <- NA
 
         if (isTRUE(less.than.replace)){
-            out <- gsub('(^[^0-9]*\\s*)(\\d+)($)', '<\\11K', out)
+            neglocs <- grepl('(^[^0-9]*\\s*)(\\d+)($)', out) & neglocs
+
+            out <- gsub('(^[^0-9]*\\s*)(\\d+)($)', '\\1<1K', out)
+
+            out[neglocs] <- gsub('(^[^0-9]*\\s*)(<)(-\\d+[KBM])', '\\1>\\3', out[neglocs])
         }
         return(out)
     }
@@ -157,12 +166,12 @@ f_denom <- function(x, relative = 0, prefix = "", pad.char = ifelse(prefix == ""
     digs <- ifelse(md <= 6, 'thous', ifelse(md <= 9, 'mills', ifelse(md <= 12, 'bills', NA)))
     if (is.na(digs)) stop("Element(s) in `x` are greater than 12 digits.")
 
-    if (max(x, na.rm = TRUE) < 1e3) return(x)
+    if (max(abs(x), na.rm = TRUE) < 1e3) return(x)
 
     fun <- switch(digs,
-        thous = {ff_thous(relative = relative, prefix =prefix, pad.char = pad.char, less.than.replace = less.than.replace)},
-        mills = {ff_mills(relative = relative, prefix =prefix, pad.char = pad.char, less.than.replace = less.than.replace)},
-        bills = {ff_bills(relative = relative, prefix =prefix, pad.char = pad.char, less.than.replace = less.than.replace)}
+        thous = {ff_thous(relative = relative, prefix = prefix, pad.char = pad.char, less.than.replace = less.than.replace)},
+        mills = {ff_mills(relative = relative, prefix = prefix, pad.char = pad.char, less.than.replace = less.than.replace)},
+        bills = {ff_bills(relative = relative, prefix = prefix, pad.char = pad.char, less.than.replace = less.than.replace)}
     )
 
     fun(x)
@@ -184,7 +193,7 @@ f_bills <- function(x, relative = 0, digits = -9, prefix = "",
     pad.char = ifelse(prefix == '', NA, ' '), less.than.replace = FALSE, ...) {
 
     #if (missing(pad.char)) pad.char <- ifelse(prefix == '', NA, ' ')
-
+    neglocs <- x < 0
     digits <- digits + relative
     nas <- is.na(x)
 
@@ -200,7 +209,27 @@ f_bills <- function(x, relative = 0, digits = -9, prefix = "",
     out <- paste0(prefix, x)
 
     if (isTRUE(less.than.replace)){
-        gsub('(^[^0-9]*\\s*)(0.?0*)([KBM])', '<\\11\\3', out)
+        neglocs <- neglocs & grepl('(^[^0-9]*\\s*)(0.?0*)([KBM])', out)
+
+        out <- gsub('(^[^0-9]*\\s*)(0.?0*)([KBM])', '\\1<1\\3', out)
+        out[neglocs] <- gsub('(^[^0-9]*\\s*)(<)(\\d+[KBM])', '\\1>-\\3', out[neglocs])
+
+        mc <- max(nchar(out[!grepl('(>|<)', out)]))
+        repls <- out[grepl('(>|<)', out) & nchar(out) > mc]
+
+        if (length(repls) > 0) {
+            repls <- strsplit(sub('\\s+', 'splitherenumform', repls), 'splitherenumform')
+            out[grepl('(>|<)', out) & nchar(out) > mc] <- unlist(lapply(repls, function(x){
+                tms <- mc - nchar(paste(x, collapse =''))
+                if (tms > 0){
+                    spc <- paste(rep(' ', ), collapse = '')
+                } else {
+                    spc <- ''
+                }
+                paste0(x[1], spc, x[2])
+            }))
+        }
+
     }
 
     out[nas] <- NA
@@ -221,7 +250,7 @@ f_mills <- function(x, relative = 0, digits = -6, prefix = "",
     pad.char = ifelse(prefix == '', NA, ' '), less.than.replace = FALSE, ...) {
 
     #if (missing(pad.char)) pad.char <- ifelse(prefix == '', NA, ' ')
-
+    neglocs <- x < 0
     digits <- digits + relative
     nas <- is.na(x)
 
@@ -239,7 +268,27 @@ f_mills <- function(x, relative = 0, digits = -6, prefix = "",
     out <- paste0(prefix, x)
 
     if (isTRUE(less.than.replace)){
-        gsub('(^[^0-9]*\\s*)(0.?0*)([KBM])', '<\\11\\3', out)
+        neglocs <- neglocs & grepl('(^[^0-9]*\\s*)(0.?0*)([KBM])', out)
+
+        out <- gsub('(^[^0-9]*\\s*)(0.?0*)([KBM])', '\\1<1\\3', out)
+        out[neglocs] <- gsub('(^[^0-9]*\\s*)(<)(\\d+[KBM])', '\\1>-\\3', out[neglocs])
+
+        mc <- max(nchar(out[!grepl('(>|<)', out)]))
+        repls <- out[grepl('(>|<)', out) & nchar(out) > mc]
+
+        if (length(repls) > 0) {
+            repls <- strsplit(sub('\\s+', 'splitherenumform', repls), 'splitherenumform')
+            out[grepl('(>|<)', out) & nchar(out) > mc] <- unlist(lapply(repls, function(x){
+                tms <- mc - nchar(paste(x, collapse =''))
+                if (tms > 0){
+                    spc <- paste(rep(' ', ), collapse = '')
+                } else {
+                    spc <- ''
+                }
+                paste0(x[1], spc, x[2])
+            }))
+        }
+
     }
 
     out[nas] <- NA
@@ -261,7 +310,7 @@ f_thous <- function(x, relative = 0, digits = -3, prefix = "",
     pad.char = ifelse(prefix == '', NA, ' '), less.than.replace = FALSE, ...) {
 
     #if (missing(pad.char)) pad.char <- ifelse(prefix == '', NA, ' ')
-
+    neglocs <- x < 0
     digits <- digits + relative
     nas <- is.na(x)
 
@@ -280,7 +329,27 @@ f_thous <- function(x, relative = 0, digits = -3, prefix = "",
     out <- paste0(prefix, x)
 
     if (isTRUE(less.than.replace)){
-        gsub('(^[^0-9]*\\s*)(0.?0*)([KBM])', '<\\11\\3', out)
+        neglocs <- neglocs & grepl('(^[^0-9]*\\s*)(0.?0*)([KBM])', out)
+
+        out <- gsub('(^[^0-9]*\\s*)(0.?0*)([KBM])', '\\1<1\\3', out)
+        out[neglocs] <- gsub('(^[^0-9]*\\s*)(<)(\\d+[KBM])', '\\1>-\\3', out[neglocs])
+
+        mc <- max(nchar(out[!grepl('(>|<)', out)]))
+        repls <- out[grepl('(>|<)', out) & nchar(out) > mc]
+
+        if (length(repls) > 0) {
+            repls <- strsplit(sub('\\s+', 'splitherenumform', repls), 'splitherenumform')
+            out[grepl('(>|<)', out) & nchar(out) > mc] <- unlist(lapply(repls, function(x){
+                tms <- mc - nchar(paste(x, collapse =''))
+                if (tms > 0){
+                    spc <- paste(rep(' ', ), collapse = '')
+                } else {
+                    spc <- ''
+                }
+                paste0(x[1], spc, x[2])
+            }))
+        }
+
     }
 
     out[nas] <- NA

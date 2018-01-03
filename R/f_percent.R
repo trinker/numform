@@ -48,7 +48,8 @@ f_percent <- function(x, digits = getOption("numformdigits"), less.than.replace 
     if (isTRUE(less.than.replace)){
         if (is.null(digits)) digits <- 1
         repl <- replace_less_than(digits, percent = TRUE)
-        out[x < repl[['prop_cut']]] <- repl[['replacement']]
+        out[x < repl[['prop_cut']][1] & x >= 0] <- repl[['replacement']][1]
+        out[x > repl[['prop_cut']][2] & x < 0] <- repl[['replacement']][2]
     }
 
     out
@@ -74,7 +75,8 @@ f_prop2percent <- function(x, digits = getOption("numformdigits"), less.than.rep
     if (isTRUE(less.than.replace)){
         if (is.null(digits)) digits <- 1
         repl <- replace_less_than(digits, percent = FALSE)
-        out[x < repl[['prop_cut']]] <- repl[['replacement']]
+        out[x < repl[['prop_cut']][1] & x >= 0] <- repl[['replacement']][1]
+        out[x > repl[['prop_cut']][2] & x < 0] <- repl[['replacement']][2]
     }
 
     out
@@ -88,10 +90,15 @@ f_prop2percent <- function(x, digits = getOption("numformdigits"), less.than.rep
 ff_prop2percent <- functionize(f_prop2percent)
 
 
-replace_less_than <- function(digits = 0, prefix = "<", percent = FALSE, ...){
+replace_less_than <- function(digits = 0, prefix = c("<", ">-"), percent = FALSE, ...){
 
     if(percent) div <- 1 else div <- 1e2
     cut <- 1/(10^digits)
-    list(prop_cut = (cut)/div, replacement = f_percent(cut, digits = digits, prefix = prefix))
+    list(prop_cut = c((cut)/div, -(cut)/div), replacement = f_percent(cut, digits = digits, prefix = prefix))
 
 }
+
+
+
+
+

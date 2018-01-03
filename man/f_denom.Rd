@@ -77,6 +77,16 @@ denomination (B).
 denomination (B).
 }
 \examples{
+f_denom(c(12345, 12563, 191919), prefix = '$')
+f_denom(c(12345, 12563, 191919), prefix = '$', pad.char = '')
+f_denom(c(1234365, 122123563, 12913919), prefix = '$')
+f_denom(c(12343676215, 122126763563, 1291673919), prefix = '$')
+f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), prefix = '$')
+f_denom(c(NA, 2, 123436, 122126763, 1291673919), prefix = '$', mix.denom = TRUE)
+f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), prefix = '$', pad.char = '')
+f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), relative = 1, prefix = '$')
+f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), relative = 9, prefix = '$')
+f_denom(c(NA, 2, 12343676215, 122126763563, 1291673919), less.than.replace = TRUE)
 
 f_thous(1234)
 f_thous(12345)

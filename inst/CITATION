@@ -4,11 +4,11 @@ citHeader("To cite numform in publications, please use:")
 citEntry(entry = "manual",
     title = "{numform}: A publication style number and plot formatter",
     author = "Tyler W. Rinker",
-    note = "version 0.4.1",
-    year = "2017",
+    note = "version 0.4.2",
+    year = "2018",
     url = "http://github.com/trinker/numform",
-    textVersion  = paste("Rinker, T. W. (2017).",
-        "numform A publication style number and plot formatter",
-        "version 0.4.1.",
+    textVersion  = paste("Rinker, T. W. (2018).",
+        "numform: A publication style number and plot formatter",
+        "version 0.4.2.",
         "http://github.com/trinker/numform")
 )

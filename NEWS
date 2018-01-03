@@ -23,6 +23,9 @@ numform 0.4.1 -
 
 BUG FIXES
 
+* Functions that enable the argument `less.than.replace = TRUE` would result in
+  the wrong solution if the input value was negative.  This has been corrected.
+
 NEW FEATURES
 
 * `highlight_cells` added as a quick and dirty way to add cell font highlighting.

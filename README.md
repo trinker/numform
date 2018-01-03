@@ -74,7 +74,7 @@ to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
 usage).
 
 <!-- html table generated in R 3.4.2 by xtable 1.8-2 package -->
-<!-- Tue Dec 19 08:51:04 2017 -->
+<!-- Wed Jan 03 10:06:35 2018 -->
 <table>
 <tr>
 <td>
@@ -226,6 +226,7 @@ f_parenthesis
 f_suffix
 </td>
 <td>
+highlight_cells
 </td>
 </tr>
 <tr>
@@ -455,7 +456,7 @@ alignment.
 <th align="right">PropWon</th>
 <th align="right">PropLost</th>
 <th align="right">%ΔWinLoss</th>
-<th align="left">ΔWinLoss</th>
+<th align="right">ΔWinLoss</th>
 </tr>
 </thead>
 <tbody>
@@ -469,7 +470,7 @@ alignment.
 <td align="right">17%</td>
 <td align="right">9%</td>
 <td align="right">0%</td>
-<td align="left"><b>+</b></td>
+<td align="right"><b>+</b></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -481,7 +482,7 @@ alignment.
 <td align="right">33%</td>
 <td align="right">20%</td>
 <td align="right">-13%</td>
-<td align="left"><b>+</b></td>
+<td align="right"><b>+</b></td>
 </tr>
 <tr class="odd">
 <td align="left"></td>
@@ -493,7 +494,7 @@ alignment.
 <td align="right">87%</td>
 <td align="right">48%</td>
 <td align="right">11%</td>
-<td align="left"><b>+</b></td>
+<td align="right"><b>+</b></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -505,7 +506,7 @@ alignment.
 <td align="right">30%</td>
 <td align="right">19%</td>
 <td align="right">-13%</td>
-<td align="left"><b>+</b></td>
+<td align="right"><b>+</b></td>
 </tr>
 <tr class="odd">
 <td align="left">East Coast</td>
@@ -517,7 +518,7 @@ alignment.
 <td align="right">9%</td>
 <td align="right">18%</td>
 <td align="right">0%</td>
-<td align="left"><b>–</b></td>
+<td align="right"><b>–</b></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -529,7 +530,7 @@ alignment.
 <td align="right">15%</td>
 <td align="right">16%</td>
 <td align="right">86%</td>
-<td align="left"><b>–</b></td>
+<td align="right"><b>–</b></td>
 </tr>
 <tr class="odd">
 <td align="left"></td>
@@ -541,7 +542,7 @@ alignment.
 <td align="right">74%</td>
 <td align="right">9%</td>
 <td align="right">811%</td>
-<td align="left"><b>+</b></td>
+<td align="right"><b>+</b></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -553,7 +554,7 @@ alignment.
 <td align="right">30%</td>
 <td align="right">26%</td>
 <td align="right">-86%</td>
-<td align="left"><b>+</b></td>
+<td align="right"><b>+</b></td>
 </tr>
 </tbody>
 </table>
@@ -683,19 +684,19 @@ Plotting
             )
 
     ## # A tibble: 10,000 x 8
-    ##     revenue       date   site   dollar thous thous_dollars abb_month
-    ##       <dbl>     <date>  <chr>    <chr> <chr>         <chr>     <chr>
-    ##  1 449648.3 1999-11-29 Site 1 $501,000  501K         $501K         N
-    ##  2 560514.4 1999-07-07 Site 4 $491,000  491K         $491K         J
-    ##  3 438891.5 1999-08-06 Site 2 $431,000  431K         $431K         A
-    ##  4 528542.6 1999-05-04 Site 3 $470,000  470K         $470K         M
-    ##  5 462758.3 1999-07-08 Site 4 $515,000  515K         $515K         J
-    ##  6 553878.7 1999-07-22 Site 2 $519,000  519K         $519K         J
-    ##  7 473985.2 1999-05-20 Site 2 $440,000  440K         $440K         M
-    ##  8 533825.2 1999-05-28 Site 5 $482,000  482K         $482K         M
-    ##  9 426124.4 1999-01-15 Site 2 $419,000  419K         $419K         J
-    ## 10 406613.1 1999-08-19 Site 3 $487,000  487K         $487K         A
-    ## # ... with 9,990 more rows, and 1 more variables: abb_week <fctr>
+    ##    revenue date       site   dollar   thous thous_dollars abb_month abb_w~
+    ##      <dbl> <date>     <chr>  <chr>    <chr> <chr>         <chr>     <fctr>
+    ##  1  449648 1999-11-29 Site 1 $501,000 501K  $501K         N         M     
+    ##  2  560514 1999-07-07 Site 4 $491,000 491K  $491K         J         W     
+    ##  3  438891 1999-08-06 Site 2 $431,000 431K  $431K         A         F     
+    ##  4  528543 1999-05-04 Site 3 $470,000 470K  $470K         M         T     
+    ##  5  462758 1999-07-08 Site 4 $515,000 515K  $515K         J         Th    
+    ##  6  553879 1999-07-22 Site 2 $519,000 519K  $519K         J         Th    
+    ##  7  473985 1999-05-20 Site 2 $440,000 440K  $440K         M         Th    
+    ##  8  533825 1999-05-28 Site 5 $482,000 482K  $482K         M         F     
+    ##  9  426124 1999-01-15 Site 2 $419,000 419K  $419K         J         F     
+    ## 10  406613 1999-08-19 Site 3 $487,000 487K  $487K         A         Th    
+    ## # ... with 9,990 more rows
 
 ![](tools/figure/unnamed-chunk-14-1.png)
 
