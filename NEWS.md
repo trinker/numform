@@ -30,6 +30,9 @@ numform 0.4.1 -
 
 * `highlight_cells` added as a quick and dirty way to add cell font highlighting.
 
+* The `collapse` and `glue` functions from the **glue** package are reexported
+  for easy string manipulation.
+
 **MINOR FEATURES**
 
 * `f_denom` family of functions picks up a `less.than.replace` argument to
