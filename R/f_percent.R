@@ -1,6 +1,6 @@
 #' Format Percentages
 #'
-#' \code{f_percent} - A wraf_percenter for \code{\link[numform]{f_num}} that formats
+#' \code{f_percent} - A wrapper for \code{\link[numform]{f_num}} that formats
 #' percent values as labeled percentages.
 #'
 #' @param x A vector of proportions.
@@ -90,7 +90,11 @@ f_prop2percent <- function(x, digits = getOption("numformdigits"), less.than.rep
 #' @rdname f_percent
 ff_prop2percent <- functionize(f_prop2percent)
 
-
+#' Format Percentages
+#'
+#' \code{f_pp} - A wrapper for \code{\link[numform]{f_prop2percent}} that requires
+#' less typing and has \code{digits} set to \code{0} by default.
+#'
 #' @export
 #' @include utils.R
 #' @rdname f_percent

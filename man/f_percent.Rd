@@ -43,11 +43,14 @@ be \code{"<.01\%"}.}
 Returns a string of publication ready digits.
 }
 \description{
-\code{f_percent} - A wraf_percenter for \code{\link[numform]{f_num}} that formats
+\code{f_percent} - A wrapper for \code{\link[numform]{f_num}} that formats
 percent values as labeled percentages.
 
 \code{f_prop2percent} - A wrapper for \code{\link[numform]{f_num}} that formats
 proportions as labeled percentages.
+
+\code{f_pp} - A wrapper for \code{\link[numform]{f_prop2percent}} that requires
+less typing and has \code{digits} set to \code{0} by default.
 }
 \examples{
 f_percent(c(30, 33.45, .1))
