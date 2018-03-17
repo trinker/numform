@@ -26,12 +26,18 @@ numform 0.4.1 -
 * Functions that enable the argument `less.than.replace = TRUE` would result in
   the wrong solution if the input value was negative.  This has been corrected.
 
+* `f_quarter` didn't respect the `space` or `max` arguments for some methods.
+
 **NEW FEATURES**
 
 * `highlight_cells` added as a quick and dirty way to add cell font highlighting.
 
 * The `collapse` and `glue` functions from the **glue** package are reexported
   for easy string manipulation.
+
+* `f_bin` (aka `f_interval`) added for truning `"[3,5)"` form ffrom `cut` into
+  a more human readable for.  There are several different forms of `f_bin` so
+  use `?f_bin` to see them all.
 
 **MINOR FEATURES**
 
@@ -44,7 +50,7 @@ numform 0.4.1 -
   denomination higher than the rest of the column.
 
 
-**IMPROVEMENTS**
+IMPROVEMENTS
 
 **CHANGES**
 

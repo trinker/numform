@@ -85,7 +85,7 @@ f_quarter.numeric <- function(x, prefix = 'Q', space = '',
 #' @rdname f_quarter
 #' @method f_quarter Date
 f_quarter.Date <- function(x, prefix = 'Q', space = '', max = 12, ...) {
-    f_quarter(as.character(format(x, "%b")), prefix = prefix)
+    f_quarter(as.character(format(x, "%b")), prefix = prefix, space = space, max = max, ...)
 }
 
 
@@ -93,7 +93,7 @@ f_quarter.Date <- function(x, prefix = 'Q', space = '', max = 12, ...) {
 #' @rdname f_quarter
 #' @method f_quarter POSIXt
 f_quarter.POSIXt <- function(x, prefix = 'Q', space = '', max = 12, ...) {
-     f_quarter(as.character(format(x, "%b")), prefix = prefix)
+     f_quarter(as.character(format(x, "%b")), prefix = prefix, space = space, max = max, ...)
 }
 
 
@@ -102,7 +102,7 @@ f_quarter.POSIXt <- function(x, prefix = 'Q', space = '', max = 12, ...) {
 #' @rdname f_quarter
 #' @method f_quarter hms
 f_quarter.hms <- function(x, prefix = 'Q', space = '', max = 12, ...) {
-    f_quarter.POSIXt(as.POSIXct(x), prefix = prefix)
+    f_quarter.POSIXt(as.POSIXct(x), prefix = prefix, space = space, max = max, ...)
 }
 
 
@@ -110,7 +110,7 @@ f_quarter.hms <- function(x, prefix = 'Q', space = '', max = 12, ...) {
 #' @export
 #' @rdname f_quarter
 ff_quarter <- function(prefix = 'Q', space = '', max = 12, ...) {
-    function(x) {f_quarter(x, prefix = prefix, space = space, max = max)}
+    function(x) {f_quarter(x, prefix = prefix, max = max, space = space, ...)}
 }
 
 
