@@ -5,6 +5,8 @@
 \alias{ff_percent}
 \alias{f_prop2percent}
 \alias{ff_prop2percent}
+\alias{f_pp}
+\alias{ff_pp}
 \title{Format Percentages}
 \usage{
 f_percent(x, digits = getOption("numformdigits"), less.than.replace = FALSE,
@@ -16,6 +18,10 @@ f_prop2percent(x, digits = getOption("numformdigits"),
   less.than.replace = FALSE, ...)
 
 ff_prop2percent(...)
+
+f_pp(x, digits = 0, less.than.replace = FALSE, ...)
+
+ff_pp(...)
 }
 \arguments{
 \item{x}{A vector of proportions.}
@@ -48,6 +54,7 @@ f_percent(c(30, 33.45, .1))
 f_percent(c(30, 33.45, .1), 1)
 f_percent(c(0.0, 0, .2, -00.02, 1.122222, pi))
 f_prop2percent(c(.30, 1, 1.01, .33, .222, .01))
+f_pp(c(.30, 1, 1.01, .33, .222, .01))
 
 f_percent(c(30, 33.45, .1), digits = 0, less.than.replace = TRUE)
 f_prop2percent(c(.30, 1, 1.01, .33, .222, .01, .0001, NA), digits = 0,

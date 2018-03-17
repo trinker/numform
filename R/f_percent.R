@@ -23,6 +23,7 @@
 #' f_percent(c(30, 33.45, .1), 1)
 #' f_percent(c(0.0, 0, .2, -00.02, 1.122222, pi))
 #' f_prop2percent(c(.30, 1, 1.01, .33, .222, .01))
+#' f_pp(c(.30, 1, 1.01, .33, .222, .01))
 #'
 #' f_percent(c(30, 33.45, .1), digits = 0, less.than.replace = TRUE)
 #' f_prop2percent(c(.30, 1, 1.01, .33, .222, .01, .0001, NA), digits = 0,
@@ -88,6 +89,20 @@ f_prop2percent <- function(x, digits = getOption("numformdigits"), less.than.rep
 #' @include utils.R
 #' @rdname f_percent
 ff_prop2percent <- functionize(f_prop2percent)
+
+
+#' @export
+#' @include utils.R
+#' @rdname f_percent
+f_pp <- hijack(f_prop2percent, digits = 0)
+
+
+#' @export
+#' @include utils.R
+#' @rdname f_percent
+ff_pp <- functionize(f_pp)
+
+
 
 
 replace_less_than <- function(digits = 0, prefix = c("<", ">-"), percent = FALSE, ...){

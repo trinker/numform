@@ -35,19 +35,22 @@ numform 0.4.1 -
 * The `collapse` and `glue` functions from the **glue** package are reexported
   for easy string manipulation.
 
-* `f_bin` (aka `f_interval`) added for truning `"[3,5)"` form ffrom `cut` into
+* `f_bin` (a.k.a. `f_interval`) added for turning `"[3,5)"` form ffrom `cut` into
   a more human readable for.  There are several different forms of `f_bin` so
   use `?f_bin` to see them all.
 
 **MINOR FEATURES**
 
 * `f_denom` family of functions picks up a `less.than.replace` argument to
-  replace values that say zero with a less than signg folowed by a one and then
+  replace values that say zero with a less than sing followed by a one and then
   the denomination.  For example, in `c(2, 1234)` the digit 2 becomes "&lt;1K".
 
 * `f_denom` picks up a `mix.denom` argument to allow for the mixing of
   denominations.  This is useful for tables with a total row that is a
   denomination higher than the rest of the column.
+
+* `f_pp` added to lower typing on a commonly used function and to also change
+  the default digits value to 0 as is typically used in plotting.
 
 
 IMPROVEMENTS

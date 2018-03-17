@@ -6,7 +6,7 @@ numform
 Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
 [![Coverage
 Status](https://coveralls.io/repos/trinker/numform/badge.svg?branch=master)](https://coveralls.io/r/trinker/numform?branch=master)
-[![](http://cranlogs.r-pkg.org/badges/numform)](https://cran.r-project.org/package=numform)
+[![](https://cranlogs.r-pkg.org/badges/numform)](https://cran.r-project.org/package=numform)
 
 **numform** contains tools to assist in the formatting of numbers and
 plots for publication. Tools include the removal of leading zeros,
@@ -75,7 +75,7 @@ usage).
 
 <!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
 
-<!-- Sat Mar 17 16:50:52 2018 -->
+<!-- Sat Mar 17 19:30:48 2018 -->
 
 <table>
 
@@ -103,7 +103,7 @@ f_pad_zero
 
 <td>
 
-f_thous
+f_suffix
 </td>
 
 </tr>
@@ -132,7 +132,7 @@ f_parenthesis
 
 <td>
 
-f_title
+f_thous
 </td>
 
 </tr>
@@ -161,7 +161,7 @@ f_percent
 
 <td>
 
-f_weekday
+f_title
 </td>
 
 </tr>
@@ -185,12 +185,12 @@ f_latitude
 
 <td>
 
-f_prefix
+f_pp
 </td>
 
 <td>
 
-f_wrap
+f_weekday
 </td>
 
 </tr>
@@ -214,12 +214,12 @@ f_logical
 
 <td>
 
-f_prop2percent
+f_prefix
 </td>
 
 <td>
 
-f_year
+f_wrap
 </td>
 
 </tr>
@@ -243,12 +243,12 @@ f_longitude
 
 <td>
 
-f_pval
+f_prop2percent
 </td>
 
 <td>
 
-fv_num_percent
+f_year
 </td>
 
 </tr>
@@ -272,12 +272,12 @@ f_mean_sd
 
 <td>
 
-f_quarter
+f_pval
 </td>
 
 <td>
 
-fv_percent
+fv_num_percent
 </td>
 
 </tr>
@@ -301,12 +301,12 @@ f_mills
 
 <td>
 
-f_replace
+f_quarter
 </td>
 
 <td>
 
-fv_percent_diff
+fv_percent
 </td>
 
 </tr>
@@ -330,12 +330,12 @@ f_month
 
 <td>
 
-f_response
+f_replace
 </td>
 
 <td>
 
-fv_runs
+fv_percent_diff
 </td>
 
 </tr>
@@ -359,12 +359,12 @@ f_num
 
 <td>
 
-f_sign
+f_response
 </td>
 
 <td>
 
-glue
+fv_runs
 </td>
 
 </tr>
@@ -388,12 +388,12 @@ f_num_percent
 
 <td>
 
-f_state
+f_sign
 </td>
 
 <td>
 
-highlight_cells
+glue
 </td>
 
 </tr>
@@ -417,11 +417,12 @@ f_ordinal
 
 <td>
 
-f_suffix
+f_state
 </td>
 
 <td>
 
+highlight_cells
 </td>
 
 </tr>
