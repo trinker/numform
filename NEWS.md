@@ -53,7 +53,7 @@ numform 0.4.1 -
   the default digits value to 0 as is typically used in plotting.
 
 
-IMPROVEMENTS
+**IMPROVEMENTS**
 
 **CHANGES**
 

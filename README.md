@@ -2,6 +2,28 @@ numform
 ============
 
 
+    ## Warning: unable to access index for repository http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/3.6:
+    ##   cannot open URL 'http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/3.6/PACKAGES'
+
+    ## package 'xtable' successfully unpacked and MD5 sums checked
+    ## 
+    ## The downloaded binary packages are in
+    ##  C:\Users\trinker\AppData\Local\Temp\RtmpUNVP4j\downloaded_packages
+
+    ## 
+    ## xtable installed
+
+    ## Warning: unable to access index for repository http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/3.6:
+    ##   cannot open URL 'http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/3.6/PACKAGES'
+
+    ## package 'maps' successfully unpacked and MD5 sums checked
+    ## 
+    ## The downloaded binary packages are in
+    ##  C:\Users\trinker\AppData\Local\Temp\RtmpUNVP4j\downloaded_packages
+
+    ## 
+    ## maps installed
+
 [![Build
 Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
 [![Coverage
@@ -15,6 +37,21 @@ formatter. These tools combine the functionality of several 'base'
 functions such as `paste()`, `format()`, and `sprintf()` into specific
 use case functions that are named in a way that is consistent with
 usage, making their names easy to remember and easy to deploy.
+
+Installation
+============
+
+To download the development version of **numform**:
+
+Download the [zip
+ball](https://github.com/trinker/numform/zipball/master) or [tar
+ball](https://github.com/trinker/numform/tarball/master), decompress and
+run `R CMD INSTALL` on it, or use the **pacman** package to install the
+development version:
+
+    if (!require("pacman")) install.packages("pacman")
+    pacman::p_load_current_gh("trinker/numform")
+    pacman::p_load(tidyverse, gridExtra)
 
 
 Table of Contents
@@ -34,24 +71,9 @@ Table of Contents
     -   [Plotting](#plotting)
     -   [Modeling](#modeling)
 
-Installation
+Contact
 ============
 
-
-To download the development version of **numform**:
-
-Download the [zip
-ball](https://github.com/trinker/numform/zipball/master) or [tar
-ball](https://github.com/trinker/numform/tarball/master), decompress and
-run `R CMD INSTALL` on it, or use the **pacman** package to install the
-development version:
-
-    if (!require("pacman")) install.packages("pacman")
-    pacman::p_load_current_gh("trinker/numform")
-    pacman::p_load(tidyverse, gridExtra)
-
-Contact
-=======
 
 You are welcome to:    
 - submit suggestions and bug-reports at: <https://github.com/trinker/numform/issues>    
@@ -73,364 +95,229 @@ arguments but returns a function instead. This is useful for passing in
 to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
 usage).
 
-<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
-
-<!-- Sat Mar 17 19:30:48 2018 -->
-
+<!-- html table generated in R 3.6.0 by xtable 1.8-2 package -->
+<!-- Sat Jun 23 07:49:25 2018 -->
 <table>
-
 <tr>
-
 <td>
-
 alignment
 </td>
-
 <td>
-
-f_bin
-</td>
-
-<td>
-
-f_interval_right
-</td>
-
-<td>
-
-f_pad_zero
-</td>
-
-<td>
-
-f_suffix
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-as_factor
-</td>
-
-<td>
-
 f_bin_right
 </td>
-
 <td>
-
-f_interval_text
-</td>
-
-<td>
-
-f_parenthesis
-</td>
-
-<td>
-
-f_thous
-</td>
-
-</tr>
-
-<tr>
-
-<td>
-
-collapse
-</td>
-
-<td>
-
-f_bin_text
-</td>
-
-<td>
-
 f_interval_text_right
 </td>
-
 <td>
-
-f_percent
+f_parenthesis
 </td>
-
 <td>
-
 f_title
 </td>
-
 </tr>
-
 <tr>
-
 <td>
-
-constant_months
+as_factor
 </td>
-
 <td>
-
-f_bin_text_right
+f_bin_text
 </td>
-
 <td>
-
 f_latitude
 </td>
-
 <td>
-
-f_pp
+f_percent
 </td>
-
 <td>
-
 f_weekday
 </td>
-
 </tr>
-
 <tr>
-
 <td>
-
-constant_months_abbreviation
+collapse
 </td>
-
 <td>
-
-f_celcius
+f_bin_text_right
 </td>
-
 <td>
-
-f_logical
+f_list
 </td>
-
 <td>
-
-f_prefix
+f_pp
 </td>
-
 <td>
-
 f_wrap
 </td>
-
 </tr>
-
 <tr>
-
 <td>
-
-constant_quarters
+constant_months
 </td>
-
 <td>
-
-f_comma
+f_celcius
 </td>
-
 <td>
-
-f_longitude
+f_list_amp
 </td>
-
 <td>
-
-f_prop2percent
+f_prefix
 </td>
-
 <td>
-
 f_year
 </td>
-
 </tr>
-
 <tr>
-
 <td>
-
-constant_weekdays
+constant_months_abbreviation
 </td>
-
 <td>
-
-f_date
+f_comma
 </td>
-
 <td>
-
-f_mean_sd
+f_logical
 </td>
-
 <td>
-
-f_pval
+f_prop2percent
 </td>
-
 <td>
-
 fv_num_percent
 </td>
-
 </tr>
-
 <tr>
-
 <td>
-
-f_12_hour
+constant_quarters
 </td>
-
 <td>
-
-f_degree
+f_date
 </td>
-
 <td>
-
-f_mills
+f_longitude
 </td>
-
 <td>
-
-f_quarter
+f_pval
 </td>
-
 <td>
-
 fv_percent
 </td>
-
 </tr>
-
 <tr>
-
 <td>
-
-f_abbreviation
+constant_weekdays
 </td>
-
 <td>
-
-f_denom
+f_degree
 </td>
-
 <td>
-
-f_month
+f_mean_sd
 </td>
-
 <td>
-
-f_replace
+f_quarter
 </td>
-
 <td>
-
 fv_percent_diff
 </td>
-
 </tr>
-
 <tr>
-
 <td>
-
-f_affirm
+f_12_hour
 </td>
-
 <td>
-
-f_dollar
+f_denom
 </td>
-
 <td>
-
-f_num
+f_mills
 </td>
-
 <td>
-
-f_response
+f_replace
 </td>
-
 <td>
-
 fv_runs
 </td>
-
 </tr>
-
 <tr>
-
 <td>
-
-f_affix
+f_abbreviation
 </td>
-
 <td>
-
-f_fahrenheit
+f_dollar
 </td>
-
 <td>
-
-f_num_percent
+f_month
 </td>
-
 <td>
-
-f_sign
+f_response
 </td>
-
 <td>
-
 glue
 </td>
-
 </tr>
-
 <tr>
-
 <td>
-
-f_bills
+f_affirm
 </td>
-
 <td>
-
-f_interval
+f_fahrenheit
 </td>
-
 <td>
-
-f_ordinal
+f_num
 </td>
-
 <td>
-
-f_state
+f_sign
 </td>
-
 <td>
-
 highlight_cells
 </td>
-
 </tr>
-
+<tr>
+<td>
+f_affix
+</td>
+<td>
+f_interval
+</td>
+<td>
+f_num_percent
+</td>
+<td>
+f_state
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+f_bills
+</td>
+<td>
+f_interval_right
+</td>
+<td>
+f_ordinal
+</td>
+<td>
+f_suffix
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+f_bin
+</td>
+<td>
+f_interval_text
+</td>
+<td>
+f_pad_zero
+</td>
+<td>
+f_thous
+</td>
+<td>
+</td>
+</tr>
 </table>
-
 <p class="caption">
-
 <b><em>Available Formatting Functions</em></b>
 </p>
 
@@ -617,35 +504,20 @@ alignment.
         pander::pander(split.tables = Inf, justify = alignment(.))
 
 <table>
-
 <colgroup>
-
 <col width="10%" />
-
 <col width="5%" />
-
 <col width="10%" />
-
 <col width="6%" />
-
 <col width="6%" />
-
 <col width="11%" />
-
 <col width="8%" />
-
 <col width="9%" />
-
 <col width="15%" />
-
 <col width="15%" />
-
 </colgroup>
-
 <thead>
-
 <tr class="header">
-
 <th align="left">Team</th>
 <th align="right">Year</th>
 <th align="right">YearStart</th>
@@ -657,13 +529,9 @@ alignment.
 <th align="right">%ΔWinLoss</th>
 <th align="right">ΔWinLoss</th>
 </tr>
-
 </thead>
-
 <tbody>
-
 <tr class="odd">
-
 <td align="left">West Coast</td>
 <td align="right">2012</td>
 <td align="right">$2.0M</td>
@@ -675,9 +543,7 @@ alignment.
 <td align="right">0%</td>
 <td align="right"><b>+</b></td>
 </tr>
-
 <tr class="even">
-
 <td align="left"></td>
 <td align="right">2013</td>
 <td align="right">$1.8M</td>
@@ -689,9 +555,7 @@ alignment.
 <td align="right">-13%</td>
 <td align="right"><b>+</b></td>
 </tr>
-
 <tr class="odd">
-
 <td align="left"></td>
 <td align="right">2014</td>
 <td align="right">$ .6M</td>
@@ -703,9 +567,7 @@ alignment.
 <td align="right">11%</td>
 <td align="right"><b>+</b></td>
 </tr>
-
 <tr class="even">
-
 <td align="left"></td>
 <td align="right">2015</td>
 <td align="right">$1.4M</td>
@@ -717,9 +579,7 @@ alignment.
 <td align="right">-13%</td>
 <td align="right"><b>+</b></td>
 </tr>
-
 <tr class="odd">
-
 <td align="left">East Coast</td>
 <td align="right">2012</td>
 <td align="right">$2.3M</td>
@@ -731,9 +591,7 @@ alignment.
 <td align="right">0%</td>
 <td align="right"><b>–</b></td>
 </tr>
-
 <tr class="even">
-
 <td align="left"></td>
 <td align="right">2013</td>
 <td align="right">$2.4M</td>
@@ -745,9 +603,7 @@ alignment.
 <td align="right">86%</td>
 <td align="right"><b>–</b></td>
 </tr>
-
 <tr class="odd">
-
 <td align="left"></td>
 <td align="right">2014</td>
 <td align="right">$ .8M</td>
@@ -759,9 +615,7 @@ alignment.
 <td align="right">811%</td>
 <td align="right"><b>+</b></td>
 </tr>
-
 <tr class="even">
-
 <td align="left"></td>
 <td align="right">2015</td>
 <td align="right">$1.6M</td>
@@ -773,11 +627,8 @@ alignment.
 <td align="right">-86%</td>
 <td align="right"><b>+</b></td>
 </tr>
-
 </tbody>
-
 </table>
-
 
     pacman::p_load(dplyr, pander)
 
@@ -797,90 +648,61 @@ alignment.
         pander::pander(split.tables = Inf, justify = alignment(.))
 
 <table style="width:71%;">
-
 <colgroup>
-
 <col width="26%" />
-
 <col width="22%" />
-
 <col width="22%" />
-
 </colgroup>
-
 <thead>
-
 <tr class="header">
-
 <th align="left">Event</th>
 <th align="right">F</th>
 <th align="right">C</th>
 </tr>
-
 </thead>
-
 <tbody>
-
 <tr class="odd">
-
 <td align="left">Freezing Water</td>
 <td align="right">32.0°F</td>
 <td align="right">0.0°C</td>
 </tr>
-
 <tr class="even">
-
 <td align="left">Room Temp</td>
 <td align="right">70.0°F</td>
 <td align="right">21.1°C</td>
 </tr>
-
 <tr class="odd">
-
 <td align="left">Body Temp</td>
 <td align="right">98.6°F</td>
 <td align="right">37.0°C</td>
 </tr>
-
 <tr class="even">
-
 <td align="left">Steak's Done</td>
 <td align="right">145.0°F</td>
 <td align="right">62.8°C</td>
 </tr>
-
 <tr class="odd">
-
 <td align="left">Hamburger's Done</td>
 <td align="right">160.0°F</td>
 <td align="right">71.1°C</td>
 </tr>
-
 <tr class="even">
-
 <td align="left">Boiling Water</td>
 <td align="right">212.0°F</td>
 <td align="right">100.0°C</td>
 </tr>
-
 <tr class="odd">
-
 <td align="left">Sun Surface</td>
 <td align="right">9941.0°F</td>
 <td align="right">5505.0°C</td>
 </tr>
-
 <tr class="even">
-
 <td align="left">Lighting</td>
 <td align="right">50000.0°F</td>
 <td align="right">27760.0°C</td>
 </tr>
-
 </tbody>
-
 </table>
-
 
 Plotting
 --------

@@ -11,7 +11,6 @@ Description: Format numbers and plots for publication; includes the removal of l
 Depends: R (>= 3.2.0)
 Suggests: testthat
 Imports: glue
-Date: 2018-03-17
 License: GPL-2
 LazyData: TRUE
 Roxygen: list(wrap = FALSE)
@@ -31,6 +30,7 @@ Collate:
     'f_degree.R'
     'f_denom.R'
     'f_dollar.R'
+    'f_list.R'
     'f_logical.R'
     'f_month.R'
     'f_num.R'
