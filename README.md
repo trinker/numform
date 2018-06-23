@@ -2,28 +2,6 @@ numform
 ============
 
 
-    ## Warning: unable to access index for repository http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/3.6:
-    ##   cannot open URL 'http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/3.6/PACKAGES'
-
-    ## package 'xtable' successfully unpacked and MD5 sums checked
-    ## 
-    ## The downloaded binary packages are in
-    ##  C:\Users\trinker\AppData\Local\Temp\RtmpUNVP4j\downloaded_packages
-
-    ## 
-    ## xtable installed
-
-    ## Warning: unable to access index for repository http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/3.6:
-    ##   cannot open URL 'http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/3.6/PACKAGES'
-
-    ## package 'maps' successfully unpacked and MD5 sums checked
-    ## 
-    ## The downloaded binary packages are in
-    ##  C:\Users\trinker\AppData\Local\Temp\RtmpUNVP4j\downloaded_packages
-
-    ## 
-    ## maps installed
-
 [![Build
 Status](https://travis-ci.org/trinker/numform.svg?branch=master)](https://travis-ci.org/trinker/numform)
 [![Coverage
@@ -96,7 +74,7 @@ to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
 usage).
 
 <!-- html table generated in R 3.6.0 by xtable 1.8-2 package -->
-<!-- Sat Jun 23 07:49:25 2018 -->
+<!-- Sat Jun 23 07:55:38 2018 -->
 <table>
 <tr>
 <td>

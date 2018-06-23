@@ -6,7 +6,7 @@ output:
     toc: true      
 ---
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 pacman::p_load(numform, xtable, wakefield, ggplot2, knitr, gridExtra, viridis, maps)
 rinline <- function(code) { 
     sprintf('<code class="r">``` `r %s` ```</code>', code) 
