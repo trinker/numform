@@ -3,7 +3,6 @@
 \name{fv_percent}
 \alias{fv_percent}
 \alias{ffv_percent}
-\alias{ffv_percent}
 \title{Convert a Numeric Vector to Percentages}
 \usage{
 fv_percent(x, digits = getOption("numformdigits"), ...)

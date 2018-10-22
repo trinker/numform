@@ -21,21 +21,22 @@
 \usage{
 f_bin(x, l = "<", le = "<=", parse = FALSE, ...)
 
-f_bin_text(x, greater = "Greater than", middle = "to", less = "less than",
-  equal = "or equal to", ...)
+f_bin_text(x, greater = "Greater than", middle = "to",
+  less = "less than", equal = "or equal to", ...)
 
-f_bin_text_right(x, l = "up to", le = "to", equal.digits = FALSE, ...)
-
-f_bin_right(x, l = "<", le = "<=", equal.digits = FALSE, parse = FALSE,
+f_bin_text_right(x, l = "up to", le = "to", equal.digits = FALSE,
   ...)
+
+f_bin_right(x, l = "<", le = "<=", equal.digits = FALSE,
+  parse = FALSE, ...)
 
 ff_bin(l = "<", le = "<=", parse = TRUE, ...)
 
-ff_bin_text(greater = "Greater than", middle = "to", less = "less than",
-  equal = "or equal to", ...)
+ff_bin_text(greater = "Greater than", middle = "to",
+  less = "less than", equal = "or equal to", ...)
 
-ff_bin_right(l = "<", le = "<=", equal.digits = FALSE, parse = TRUE,
-  ...)
+ff_bin_right(l = "<", le = "<=", equal.digits = FALSE,
+  parse = TRUE, ...)
 
 ff_bin_text_right(l = "up to", le = "to", equal.digits = FALSE, ...)
 
@@ -44,8 +45,8 @@ f_interval(x, l = "<", le = "<=", parse = FALSE, ...)
 f_interval_text(x, greater = "Greater than", middle = "to",
   less = "less than", equal = "or equal to", ...)
 
-f_interval_text_right(x, l = "up to", le = "to", equal.digits = FALSE,
-  ...)
+f_interval_text_right(x, l = "up to", le = "to",
+  equal.digits = FALSE, ...)
 
 f_interval_right(x, l = "<", le = "<=", equal.digits = FALSE,
   parse = FALSE, ...)
@@ -55,7 +56,8 @@ ff_interval(l = "<", le = "<=", parse = TRUE, ...)
 ff_interval_text(greater = "Greater than", middle = "to",
   less = "less than", equal = "or equal to", ...)
 
-ff_interval_text_right(l = "up to", le = "to", equal.digits = FALSE, ...)
+ff_interval_text_right(l = "up to", le = "to", equal.digits = FALSE,
+  ...)
 
 ff_interval_right(l = "<", le = "<=", equal.digits = FALSE,
   parse = TRUE, ...)

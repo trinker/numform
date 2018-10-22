@@ -73,8 +73,8 @@ arguments but returns a function instead. This is useful for passing in
 to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
 usage).
 
-<!-- html table generated in R 3.6.0 by xtable 1.8-2 package -->
-<!-- Sat Jun 23 07:55:38 2018 -->
+<!-- html table generated in R 3.5.1 by xtable 1.8-3 package -->
+<!-- Mon Oct 22 11:36:18 2018 -->
 <table>
 <tr>
 <td>
@@ -209,7 +209,7 @@ f_mills
 f_replace
 </td>
 <td>
-fv_runs
+fv_percent_diff_fixed_relative
 </td>
 </tr>
 <tr>
@@ -226,7 +226,7 @@ f_month
 f_response
 </td>
 <td>
-glue
+fv_percent_lead
 </td>
 </tr>
 <tr>
@@ -243,7 +243,7 @@ f_num
 f_sign
 </td>
 <td>
-highlight_cells
+fv_percent_lead_fixed_relative
 </td>
 </tr>
 <tr>
@@ -260,6 +260,7 @@ f_num_percent
 f_state
 </td>
 <td>
+fv_runs
 </td>
 </tr>
 <tr>
@@ -276,6 +277,7 @@ f_ordinal
 f_suffix
 </td>
 <td>
+glue
 </td>
 </tr>
 <tr>
@@ -292,6 +294,7 @@ f_pad_zero
 f_thous
 </td>
 <td>
+highlight_cells
 </td>
 </tr>
 </table>

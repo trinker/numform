@@ -39,6 +39,14 @@ numform 0.4.1 -
   a more human readable for.  There are several different forms of `f_bin` so
   use `?f_bin` to see them all.
 
+* `fv_percent_lead` added to work similar to `fv_percent_diff` but using the
+  formula T_n/T_n-1.
+
+* `fv_percent_lead_fixed_relative` & `fv_percent_diff_fixed_relative` added in
+  order to compute `fv_percent_lead` & `fv_percent_diff` but keeping the
+  comparison year as a constant rather than using the prior year in the vector
+  of elements.
+
 **MINOR FEATURES**
 
 * `f_denom` family of functions picks up a `less.than.replace` argument to

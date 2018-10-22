@@ -11,11 +11,14 @@
 \usage{
 f_12_hour(x = Sys.time(), format = "\%I:\%M \%p", pad.char = "", ...)
 
-\method{f_12_hour}{default}(x, format = "\%I:\%M \%p", pad.char = "", ...)
+\method{f_12_hour}{default}(x, format = "\%I:\%M \%p", pad.char = "",
+  ...)
 
-\method{f_12_hour}{integer}(x, format = "\%I:\%M \%p", pad.char = "", ...)
+\method{f_12_hour}{integer}(x, format = "\%I:\%M \%p", pad.char = "",
+  ...)
 
-\method{f_12_hour}{numeric}(x, format = "\%I:\%M \%p", pad.char = "", ...)
+\method{f_12_hour}{numeric}(x, format = "\%I:\%M \%p", pad.char = "",
+  ...)
 
 \method{f_12_hour}{hms}(x, format = "\%I:\%M \%p", pad.char = "", ...)
 

@@ -9,8 +9,8 @@
 \alias{ff_pp}
 \title{Format Percentages}
 \usage{
-f_percent(x, digits = getOption("numformdigits"), less.than.replace = FALSE,
-  ...)
+f_percent(x, digits = getOption("numformdigits"),
+  less.than.replace = FALSE, ...)
 
 ff_percent(...)
 

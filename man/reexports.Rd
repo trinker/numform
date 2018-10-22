@@ -4,7 +4,6 @@
 \name{reexports}
 \alias{reexports}
 \alias{glue}
-\alias{reexports}
 \alias{collapse}
 \title{Objects exported from other packages}
 \keyword{internal}

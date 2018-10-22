@@ -14,7 +14,7 @@ Imports: glue
 License: GPL-2
 LazyData: TRUE
 Roxygen: list(wrap = FALSE)
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0.9000
 Collate: 
     'alignment.R'
     'as_factor.R'
@@ -50,6 +50,7 @@ Collate:
     'fv_num_percent.R'
     'fv_percent.R'
     'fv_percent_diff.R'
+    'fv_percent_lead.R'
     'fv_runs.R'
     'glue-reexports.R'
     'highlight_cells.R'

@@ -31,8 +31,9 @@ f_latitude(x, digits = getOption("numformdigits"), prefix = NULL,
 
 f_degree(x, type = c("scale", "text", "scale", "title", "string"),
   digits = getOption("numformdigits"), prefix = NULL, suffix = TRUE,
-  absolute.value = suffix, symbol = "&deg;", measure = c("fahrenheit",
-  "celcius", "C", "F", "longitude", "latitude"), ...)
+  absolute.value = suffix, symbol = "&deg;",
+  measure = c("fahrenheit", "celcius", "C", "F", "longitude",
+  "latitude"), ...)
 
 ff_degree(...)
 

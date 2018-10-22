@@ -4,8 +4,9 @@
 \alias{highlight_cells}
 \title{Highlight Cells}
 \usage{
-highlight_cells(data, rows, columns = seq_len(ncol(data)), left = "<b>",
-  right = gsub("(<)([^> ]+)([^>]*>)", "\\\\1/\\\\2>", left), ...)
+highlight_cells(data, rows, columns = seq_len(ncol(data)),
+  left = "<b>", right = gsub("(<)([^> ]+)([^>]*>)", "\\\\1/\\\\2>",
+  left), ...)
 }
 \arguments{
 \item{data}{A data.frame.}
