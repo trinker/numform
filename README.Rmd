@@ -205,6 +205,33 @@ data_frame(
 ```
 
 
+```{r}
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(tidyverse)
+
+set.seed(11)
+data_frame(
+    date = sample(seq(as.Date("1990/1/1"), by = "day", length.out = 2e4), 12)
+) %>%
+    mutate(
+        year_4 = f_year(date, 2),
+        year_2 = f_year(date, 4),
+        quarter = f_quarter(date),
+        month_name = f_month_name(date) %>%
+            as_factor(),
+        month_abbreviation = f_month_abbreviation(date) %>%
+            as_factor(),
+        month_short = f_month(date),
+        weekday_name = f_weekday_name(date),
+        weekday_abbreviation = f_weekday_abbreviation(date),
+       weekday_short = f_weekday(date),
+        weekday_short_distinct = f_weekday(date, distinct = TRUE)
+    ) %>%
+    data.frame(stringsAsFactors = FALSE, check.names = FALSE) %>%
+    pander::pander(split.tables = Inf, justify = alignment(.))
+```
+
+
 
 ## Plotting
 
@@ -483,6 +510,23 @@ ggplot(world, aes(map_id = region, x = long, y = lat)) +
     scale_x_continuous(labels = f_longitude)
 ```
 
+
+```{r, fig.width = 7, fig.height = 5}
+mtcars %>%
+    mutate(mpg2 = cut(mpg, 10, right = FALSE)) %>%
+    ggplot(aes(mpg2)) +
+        geom_bar(fill = '#33A1DE') +
+        scale_x_discrete(labels = function(x) f_wrap(f_bin_text_right(x, l = 'up to'), width = 8)) +
+        scale_y_continuous(breaks = seq(0, 14, by = 2), limits = c(0, 7)) +
+        theme_minimal() +
+        theme(
+            panel.grid.major.x = element_blank(),
+            axis.text.x = element_text(size = 14, margin = margin(t = -12)),
+            axis.text.y = element_text(size = 14),
+            plot.title = element_text(hjust = .5)
+        ) +
+        labs(title = 'Histogram', x = NULL, y = NULL)
+```
 
 
 ## Modeling

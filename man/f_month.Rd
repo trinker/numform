@@ -8,6 +8,20 @@
 \alias{f_month.POSIXt}
 \alias{f_month.hms}
 \alias{ff_month}
+\alias{f_month_name}
+\alias{f_month_name.default}
+\alias{f_month_name.numeric}
+\alias{f_month_name.Date}
+\alias{f_month_name.POSIXt}
+\alias{f_month_name.hms}
+\alias{ff_month_name}
+\alias{f_month_abbreviation}
+\alias{f_month_abbreviation.default}
+\alias{f_month_abbreviation.numeric}
+\alias{f_month_abbreviation.Date}
+\alias{f_month_abbreviation.POSIXt}
+\alias{f_month_abbreviation.hms}
+\alias{ff_month_abbreviation}
 \title{Format Months to One Letter Abbreviation}
 \usage{
 f_month(x, ...)
@@ -23,6 +37,34 @@ f_month(x, ...)
 \method{f_month}{hms}(x, ...)
 
 ff_month(...)
+
+f_month_name(x, ...)
+
+\method{f_month_name}{default}(x, ...)
+
+\method{f_month_name}{numeric}(x, ...)
+
+\method{f_month_name}{Date}(x, ...)
+
+\method{f_month_name}{POSIXt}(x, ...)
+
+\method{f_month_name}{hms}(x, ...)
+
+ff_month_name(...)
+
+f_month_abbreviation(x, ...)
+
+\method{f_month_abbreviation}{default}(x, ...)
+
+\method{f_month_abbreviation}{numeric}(x, ...)
+
+\method{f_month_abbreviation}{Date}(x, ...)
+
+\method{f_month_abbreviation}{POSIXt}(x, ...)
+
+\method{f_month_abbreviation}{hms}(x, ...)
+
+ff_month_abbreviation(...)
 }
 \arguments{
 \item{x}{A vector of month names, integers 1-12, or dates.}
@@ -46,6 +88,26 @@ f_month(dates)
 \dontrun{
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse)
+
+set.seed(11)
+data_frame(
+    date = sample(seq(as.Date("1990/1/1"), by = "day", length.out = 2e4), 12)
+) \%>\%
+    mutate(
+        year_4 = f_year(date, 2),
+        year_2 = f_year(date, 4),
+        quarter = f_quarter(date),
+        month_name = f_month_name(date) \%>\%
+            as_factor(),
+        month_abbreviation = f_month_abbreviation(date) \%>\%
+            as_factor(),
+        month_short = f_month(date),
+        weekday_name = f_weekday_name(date),
+        weekday_abbreviation = f_weekday_abbreviation(date),
+       weekday_short = f_weekday(date),
+        weekday_short_distinct = f_weekday(date, distinct = TRUE)
+    )
+
 
 set.seed(10)
 dat <- data_frame(

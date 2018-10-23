@@ -25,6 +25,26 @@
 #' if (!require("pacman")) install.packages("pacman")
 #' pacman::p_load(tidyverse)
 #'
+#' set.seed(11)
+#' data_frame(
+#'     date = sample(seq(as.Date("1990/1/1"), by = "day", length.out = 2e4), 12)
+#' ) %>%
+#'     mutate(
+#'         year_4 = f_year(date, 2),
+#'         year_2 = f_year(date, 4),
+#'         quarter = f_quarter(date),
+#'         month_name = f_month_name(date) %>%
+#'             as_factor(),
+#'         month_abbreviation = f_month_abbreviation(date) %>%
+#'             as_factor(),
+#'         month_short = f_month(date),
+#'         weekday_name = f_weekday_name(date),
+#'         weekday_abbreviation = f_weekday_abbreviation(date),
+#'        weekday_short = f_weekday(date),
+#'         weekday_short_distinct = f_weekday(date, distinct = TRUE)
+#'     )
+#'
+#'
 #' set.seed(10)
 #' dat <- data_frame(
 #'     day = sample(weekdays(days), 10000, TRUE),
@@ -134,8 +154,130 @@ short_weekdays_key <- structure(c("Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"), .Na
 "M", "T", "W", "Th", "F", "S"))
 
 
+#' @export
+#' @rdname f_weekday
+f_weekday_name <- function(x, ...) {
+    UseMethod('f_weekday_name')
+}
 
 
 
+
+#' @export
+#' @rdname f_weekday
+#' @method f_weekday_name default
+f_weekday_name.default <- function(x, ...) {
+
+            gsub("(^.)(.+)", "\\U\\1\\L\\2", as.character(x), perl = TRUE)
+
+}
+
+#' @export
+#' @rdname f_weekday
+#' @method f_weekday_name numeric
+f_weekday_name.numeric <- function(x, ...) {
+
+    constant_weekdays[x]
+}
+
+
+
+
+#' @export
+#' @rdname f_weekday
+#' @method f_weekday_name Date
+f_weekday_name.Date <- function(x, ...) {
+
+    weekdays(x)
+
+}
+
+
+#' @export
+#' @rdname f_weekday
+#' @method f_weekday_name POSIXt
+f_weekday_name.POSIXt <- function(x, ...) {
+
+    weekdays(x)
+}
+
+#' @export
+#' @rdname f_weekday
+#' @method f_weekday_name hms
+f_weekday_name.hms <- function(x, ...) {
+    f_weekday_name.POSIXt(as.POSIXct(x))
+}
+
+
+#' @export
+#' @rdname f_weekday
+ff_weekday_name <- function(...) {
+    function(x) {f_weekday_name(x)}
+}
+
+
+
+
+#' @export
+#' @rdname f_weekday
+f_weekday_abbreviation <- function(x, ...) {
+    UseMethod('f_weekday_abbreviation')
+}
+
+
+
+
+#' @export
+#' @rdname f_weekday
+#' @method f_weekday_abbreviation default
+f_weekday_abbreviation.default <- function(x, ...) {
+
+            gsub("(^.)(.{2})", "\\U\\1\\L\\2", as.character(x), perl = TRUE)
+
+}
+
+#' @export
+#' @rdname f_weekday
+#' @method f_weekday_abbreviation numeric
+f_weekday_abbreviation.numeric <- function(x, ...) {
+
+    constant_weekdays_abbreviation[x]
+}
+
+
+
+
+#' @export
+#' @rdname f_weekday
+#' @method f_weekday_abbreviation Date
+f_weekday_abbreviation.Date <- function(x, ...) {
+
+    substring(weekdays(x), 1, 3)
+
+}
+
+
+#' @export
+#' @rdname f_weekday
+#' @method f_weekday_abbreviation POSIXt
+f_weekday_abbreviation.POSIXt <- function(x, ...) {
+
+    substring(weekdays(x), 1, 3)
+
+}
+
+#' @export
+#' @rdname f_weekday
+#' @method f_weekday_abbreviation hms
+f_weekday_abbreviation.hms <- function(x, ...) {
+    f_weekday_abbreviation.POSIXt(as.POSIXct(x))
+}
+
+
+#' @export
+#' @rdname f_weekday
+ff_weekday_abbreviation <- function(...) {
+    function(x) {f_weekday_abbreviation(x)}
+}
 
 

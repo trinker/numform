@@ -29,6 +29,16 @@ constant_months_abbreviation <- month.abb
 constant_weekdays <- c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
 
 
+#'
+#' \code{constant_weekdays_abbreviatio} - A constant for ordered weekday abbreviations.
+#'
+#' @keywords datasets
+#' @name constant_weekdays_abbreviatio
+#' @rdname constants
+#' @export
+constant_weekdays_abbreviation <- c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+
+
 #' Constants
 #'
 #' \code{constant_quarters} - A constant for ordered quarters.

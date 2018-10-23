@@ -5,6 +5,8 @@
 \alias{constant_months}
 \alias{constant_months_abbreviation}
 \alias{constant_weekdays}
+\alias{constant_weekdays_abbreviatio}
+\alias{constant_weekdays_abbreviation}
 \alias{constant_quarters}
 \title{Constants}
 \format{An object of class \code{character} of length 12.}
@@ -14,6 +16,8 @@ constant_months
 constant_months_abbreviation
 
 constant_weekdays
+
+constant_weekdays_abbreviation
 
 constant_quarters
 }

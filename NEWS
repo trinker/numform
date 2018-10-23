@@ -60,6 +60,14 @@ MINOR FEATURES
 * `f_pp` added to lower typing on a commonly used function and to also change
   the default digits value to 0 as is typically used in plotting.
 
+* `constant_weekdays_abbreviation` added to provide an abbreviated form of
+  weekdays.
+
+* `f_month_name` & `f_month_abbreviation` added to convert to full name and
+  3 letter abbreviated month formats.
+
+* `f_weekday_name` & `f_weekday_abbreviation` added to convert to full name and
+  3 letter abbreviated weekday formats.
 
 IMPROVEMENTS
 

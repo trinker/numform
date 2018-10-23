@@ -19,6 +19,26 @@
 #' if (!require("pacman")) install.packages("pacman")
 #' pacman::p_load(tidyverse)
 #'
+#' set.seed(11)
+#' data_frame(
+#'     date = sample(seq(as.Date("1990/1/1"), by = "day", length.out = 2e4), 12)
+#' ) %>%
+#'     mutate(
+#'         year_4 = f_year(date, 2),
+#'         year_2 = f_year(date, 4),
+#'         quarter = f_quarter(date),
+#'         month_name = f_month_name(date) %>%
+#'             as_factor(),
+#'         month_abbreviation = f_month_abbreviation(date) %>%
+#'             as_factor(),
+#'         month_short = f_month(date),
+#'         weekday_name = f_weekday_name(date),
+#'         weekday_abbreviation = f_weekday_abbreviation(date),
+#'        weekday_short = f_weekday(date),
+#'         weekday_short_distinct = f_weekday(date, distinct = TRUE)
+#'     )
+#'
+#'
 #' set.seed(10)
 #' dat <- data_frame(
 #'     month = sample(month.name, 1000, TRUE),
@@ -91,3 +111,143 @@ f_month.hms <- function(x, ...) {
 ff_month <- function(...) {
     function(x) {f_month(x)}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+#' @export
+#' @rdname f_month
+f_month_name <- function(x, ...) {
+    UseMethod('f_month_name')
+}
+
+
+
+#' @export
+#' @rdname f_month
+#' @method f_month_name default
+f_month_name.default <- function(x, ...) {
+    gsub("(^.)(.+)", "\\U\\1\\L\\2", as.character(x), perl = TRUE)
+}
+
+#' @export
+#' @rdname f_month
+#' @method f_month_name numeric
+f_month_name.numeric <- function(x, ...) {
+    month.name[x]
+}
+
+
+#' @export
+#' @rdname f_month
+#' @method f_month_name Date
+f_month_name.Date <- function(x, ...) {
+    format(x, "%B")
+}
+
+
+#' @export
+#' @rdname f_month
+#' @method f_month_name POSIXt
+f_month_name.POSIXt <- function(x, ...) {
+    format(x, "%B")
+}
+
+
+
+#' @export
+#' @rdname f_month
+#' @method f_month_name hms
+f_month_name.hms <- function(x, ...) {
+    f_month_name.POSIXt(as.POSIXct(x))
+}
+
+
+
+#' @export
+#' @rdname f_month
+ff_month_name <- function(...) {
+    function(x) {f_month_name(x)}
+}
+
+
+
+
+
+
+
+
+#' @export
+#' @rdname f_month
+f_month_abbreviation <- function(x, ...) {
+    UseMethod('f_month_abbreviation')
+}
+
+
+
+#' @export
+#' @rdname f_month
+#' @method f_month_abbreviation default
+f_month_abbreviation.default <- function(x, ...) {
+    gsub("(^.)(.{2})()", "\\U\\1\\L\\2", as.character(x), perl = TRUE)
+}
+
+#' @export
+#' @rdname f_month
+#' @method f_month_abbreviation numeric
+f_month_abbreviation.numeric <- function(x, ...) {
+    month.abb[x]
+}
+
+
+#' @export
+#' @rdname f_month
+#' @method f_month_abbreviation Date
+f_month_abbreviation.Date <- function(x, ...) {
+    format(x, "%b")
+}
+
+
+#' @export
+#' @rdname f_month
+#' @method f_month_abbreviation POSIXt
+f_month_abbreviation.POSIXt <- function(x, ...) {
+    format(x, "%b")
+}
+
+
+
+#' @export
+#' @rdname f_month
+#' @method f_month_abbreviation hms
+f_month_abbreviation.hms <- function(x, ...) {
+    f_month_abbreviation.POSIXt(as.POSIXct(x))
+}
+
+
+
+#' @export
+#' @rdname f_month
+ff_month_abbreviation <- function(...) {
+    function(x) {f_month_abbreviation(x)}
+}
+
+
+
+
+
+
+
+
+
+
+
+

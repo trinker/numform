@@ -8,6 +8,20 @@
 \alias{f_weekday.POSIXt}
 \alias{f_weekday.hms}
 \alias{ff_weekday}
+\alias{f_weekday_name}
+\alias{f_weekday_name.default}
+\alias{f_weekday_name.numeric}
+\alias{f_weekday_name.Date}
+\alias{f_weekday_name.POSIXt}
+\alias{f_weekday_name.hms}
+\alias{ff_weekday_name}
+\alias{f_weekday_abbreviation}
+\alias{f_weekday_abbreviation.default}
+\alias{f_weekday_abbreviation.numeric}
+\alias{f_weekday_abbreviation.Date}
+\alias{f_weekday_abbreviation.POSIXt}
+\alias{f_weekday_abbreviation.hms}
+\alias{ff_weekday_abbreviation}
 \title{Format Weekdays to One Letter Abbreviation}
 \usage{
 f_weekday(x, distinct = FALSE, ...)
@@ -23,6 +37,34 @@ f_weekday(x, distinct = FALSE, ...)
 \method{f_weekday}{hms}(x, distinct = FALSE, ...)
 
 ff_weekday(distinct = FALSE, ...)
+
+f_weekday_name(x, ...)
+
+\method{f_weekday_name}{default}(x, ...)
+
+\method{f_weekday_name}{numeric}(x, ...)
+
+\method{f_weekday_name}{Date}(x, ...)
+
+\method{f_weekday_name}{POSIXt}(x, ...)
+
+\method{f_weekday_name}{hms}(x, ...)
+
+ff_weekday_name(...)
+
+f_weekday_abbreviation(x, ...)
+
+\method{f_weekday_abbreviation}{default}(x, ...)
+
+\method{f_weekday_abbreviation}{numeric}(x, ...)
+
+\method{f_weekday_abbreviation}{Date}(x, ...)
+
+\method{f_weekday_abbreviation}{POSIXt}(x, ...)
+
+\method{f_weekday_abbreviation}{hms}(x, ...)
+
+ff_weekday_abbreviation(...)
 }
 \arguments{
 \item{x}{A vector of weekday names, integers 1-12, or dates.}
@@ -53,6 +95,26 @@ f_weekday(days, TRUE)
 \dontrun{
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse)
+
+set.seed(11)
+data_frame(
+    date = sample(seq(as.Date("1990/1/1"), by = "day", length.out = 2e4), 12)
+) \%>\%
+    mutate(
+        year_4 = f_year(date, 2),
+        year_2 = f_year(date, 4),
+        quarter = f_quarter(date),
+        month_name = f_month_name(date) \%>\%
+            as_factor(),
+        month_abbreviation = f_month_abbreviation(date) \%>\%
+            as_factor(),
+        month_short = f_month(date),
+        weekday_name = f_weekday_name(date),
+        weekday_abbreviation = f_weekday_abbreviation(date),
+       weekday_short = f_weekday(date),
+        weekday_short_distinct = f_weekday(date, distinct = TRUE)
+    )
+
 
 set.seed(10)
 dat <- data_frame(
