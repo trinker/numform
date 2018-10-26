@@ -74,7 +74,7 @@ to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
 usage).
 
 <!-- html table generated in R 3.5.1 by xtable 1.8-3 package -->
-<!-- Thu Oct 25 21:23:28 2018 -->
+<!-- Fri Oct 26 07:43:04 2018 -->
 <table>
 <tr>
 <td>
@@ -757,8 +757,8 @@ alignment.
         date = sample(seq(as.Date("1990/1/1"), by = "day", length.out = 2e4), 12)
     ) %>%
         mutate(
-            year_4 = f_year(date, 2),
-            year_2 = f_year(date, 4),
+            year_4 = f_year(date, 4),
+            year_2 = f_year(date, 2),
             quarter = f_quarter(date),
             month_name = f_month_name(date) %>%
                 as_factor(),
@@ -805,8 +805,8 @@ alignment.
 <tbody>
 <tr class="odd">
 <td align="right">2005-03-07</td>
-<td align="right">05</td>
 <td align="right">2005</td>
+<td align="right">05</td>
 <td align="left">Q1</td>
 <td align="left">March</td>
 <td align="left">Mar</td>
@@ -818,8 +818,8 @@ alignment.
 </tr>
 <tr class="even">
 <td align="right">1990-01-11</td>
-<td align="right">90</td>
 <td align="right">1990</td>
+<td align="right">90</td>
 <td align="left">Q1</td>
 <td align="left">January</td>
 <td align="left">Jan</td>
@@ -831,8 +831,8 @@ alignment.
 </tr>
 <tr class="odd">
 <td align="right">2017-12-16</td>
-<td align="right">17</td>
 <td align="right">2017</td>
+<td align="right">17</td>
 <td align="left">Q4</td>
 <td align="left">December</td>
 <td align="left">Dec</td>
@@ -844,8 +844,8 @@ alignment.
 </tr>
 <tr class="even">
 <td align="right">1990-10-08</td>
-<td align="right">90</td>
 <td align="right">1990</td>
+<td align="right">90</td>
 <td align="left">Q4</td>
 <td align="left">October</td>
 <td align="left">Oct</td>
@@ -857,8 +857,8 @@ alignment.
 </tr>
 <tr class="odd">
 <td align="right">1993-07-17</td>
-<td align="right">93</td>
 <td align="right">1993</td>
+<td align="right">93</td>
 <td align="left">Q3</td>
 <td align="left">July</td>
 <td align="left">Jul</td>
@@ -870,8 +870,8 @@ alignment.
 </tr>
 <tr class="even">
 <td align="right">2042-04-10</td>
-<td align="right">42</td>
 <td align="right">2042</td>
+<td align="right">42</td>
 <td align="left">Q2</td>
 <td align="left">April</td>
 <td align="left">Apr</td>
@@ -883,8 +883,8 @@ alignment.
 </tr>
 <tr class="odd">
 <td align="right">1994-09-26</td>
-<td align="right">94</td>
 <td align="right">1994</td>
+<td align="right">94</td>
 <td align="left">Q3</td>
 <td align="left">September</td>
 <td align="left">Sep</td>
@@ -896,8 +896,8 @@ alignment.
 </tr>
 <tr class="even">
 <td align="right">2005-11-15</td>
-<td align="right">05</td>
 <td align="right">2005</td>
+<td align="right">05</td>
 <td align="left">Q4</td>
 <td align="left">November</td>
 <td align="left">Nov</td>
@@ -909,8 +909,8 @@ alignment.
 </tr>
 <tr class="odd">
 <td align="right">2038-03-16</td>
-<td align="right">38</td>
 <td align="right">2038</td>
+<td align="right">38</td>
 <td align="left">Q1</td>
 <td align="left">March</td>
 <td align="left">Mar</td>
@@ -922,8 +922,8 @@ alignment.
 </tr>
 <tr class="even">
 <td align="right">1996-09-29</td>
-<td align="right">96</td>
 <td align="right">1996</td>
+<td align="right">96</td>
 <td align="left">Q3</td>
 <td align="left">September</td>
 <td align="left">Sep</td>
@@ -935,8 +935,8 @@ alignment.
 </tr>
 <tr class="odd">
 <td align="right">1999-08-02</td>
-<td align="right">99</td>
 <td align="right">1999</td>
+<td align="right">99</td>
 <td align="left">Q3</td>
 <td align="left">August</td>
 <td align="left">Aug</td>
@@ -948,8 +948,8 @@ alignment.
 </tr>
 <tr class="even">
 <td align="right">2014-02-14</td>
-<td align="right">14</td>
 <td align="right">2014</td>
+<td align="right">14</td>
 <td align="left">Q1</td>
 <td align="left">February</td>
 <td align="left">Feb</td>
@@ -1015,15 +1015,15 @@ Plotting
     ## # A tibble: 10,000 x 8
     ##    revenue date       site   dollar thous thous_dollars abb_month abb_week
     ##      <dbl> <date>     <chr>  <chr>  <chr> <chr>         <chr>     <fct>   
-    ##  1 591213. 1999-11-29 Site 1 $501,~ 501K  $501K         N         M       
-    ##  2 468126. 1999-07-07 Site 4 $491,~ 491K  $491K         J         W       
-    ##  3 376229. 1999-08-06 Site 2 $431,~ 431K  $431K         A         F       
-    ##  4 537861. 1999-05-04 Site 3 $470,~ 470K  $470K         M         T       
+    ##  1 449648. 1999-11-29 Site 1 $501,~ 501K  $501K         N         M       
+    ##  2 560514. 1999-07-07 Site 4 $491,~ 491K  $491K         J         W       
+    ##  3 438891. 1999-08-06 Site 2 $431,~ 431K  $431K         A         F       
+    ##  4 528543. 1999-05-04 Site 3 $470,~ 470K  $470K         M         T       
     ##  5 462758. 1999-07-08 Site 4 $515,~ 515K  $515K         J         Th      
     ##  6 553879. 1999-07-22 Site 2 $519,~ 519K  $519K         J         Th      
     ##  7 473985. 1999-05-20 Site 2 $440,~ 440K  $440K         M         Th      
-    ##  8 480609. 1999-05-28 Site 5 $482,~ 482K  $482K         M         F       
-    ##  9 363462. 1999-01-15 Site 2 $419,~ 419K  $419K         J         F       
+    ##  8 533825. 1999-05-28 Site 5 $482,~ 482K  $482K         M         F       
+    ##  9 426124. 1999-01-15 Site 2 $419,~ 419K  $419K         J         F       
     ## 10 406613. 1999-08-19 Site 3 $487,~ 487K  $487K         A         Th      
     ## # ... with 9,990 more rows
 
