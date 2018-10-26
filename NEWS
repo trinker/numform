@@ -47,6 +47,9 @@ NEW FEATURES
   comparison year as a constant rather than using the prior year in the vector
   of elements.
 
+* `f_data` and friends (see `?f_data`) added to convert between data units.  For
+  example, move from  10,000,000,000 (Bytes) to 10GB (Gigabytes) instead.
+
 MINOR FEATURES
 
 * `f_denom` family of functions picks up a `less.than.replace` argument to

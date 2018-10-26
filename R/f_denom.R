@@ -53,7 +53,7 @@
 #' f_bills(123456789123, +1) # round to tenths
 #' f_bills(123456789123, +2) # round to hundreths
 #'
-#' x <- c(3886902.8696, 4044584.0424, 6591893.2104, 591893.2104)
+#' x <- c(3886902.8696, 4044584.0424, 6591893.2104, 591893.2104, -3454678)
 #' f_mills(x)
 #' f_mills(x, 1)
 #' f_mills(x, 1, prefix = '$')
@@ -182,6 +182,9 @@ f_denom <- function(x, relative = 0, prefix = "", pad.char = ifelse(prefix == ""
 #' @include utils.R
 #' @rdname f_denom
 ff_denom <- functionize(f_denom)
+
+
+
 
 
 #' @description \code{f_bills} - Force the abbreviation to the billions

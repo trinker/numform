@@ -1,6 +1,6 @@
 Package: numform
 Title: Tools to Format Numbers for Publication
-Version: 0.4.3
+Version: 0.4.4
 Authors@R: c(person("Tyler", "Rinker", email = "tyler.rinker@gmail.com", role = c("aut", "cre")))
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: Format numbers and plots for publication; includes the removal of leading zeros,
@@ -26,6 +26,7 @@ Collate:
     'f_affix.R'
     'f_bin.R'
     'f_comma.R'
+    'f_data.R'
     'f_date.R'
     'f_degree.R'
     'f_denom.R'
