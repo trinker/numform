@@ -529,6 +529,21 @@ mtcars %>%
 ```
 
 
+```{r}
+dat <- data_frame(
+    Value = c(111, 2345, 34567, 456789, 1000001, 1000000001),
+    Time = 1:6
+)
+
+ggplot(dat, aes(Time, Value)) +
+    geom_line() +
+    scale_y_continuous(labels = ff_denom( prefix = '$'))
+
+ggplot(dat, aes(Time, Value)) +
+    geom_line() +
+    scale_y_continuous(labels = ff_denom(mix.denom = TRUE, prefix = '$', pad.char = ''))
+```
+    
 ## Modeling
 
 We can see its use in actual model reporting as well:

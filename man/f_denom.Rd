@@ -175,5 +175,24 @@ data_frame(
     )  \%>\%
     data.frame(stringsAsFactors = FALSE, check.names = FALSE) \%>\%
     pander::pander(split.tables = Inf, justify = alignment(.))
+
+## Scale with mixed units
+library(tidyverse)
+library(numform)
+
+dat <- data_frame(
+    Value = c(111, 2345, 34567, 456789, 1000001, 1000000001),
+    Time = 1:6
+)
+
+## Uniform units
+ggplot(dat, aes(Time, Value)) +
+    geom_line() +
+    scale_y_continuous(labels = ff_denom( prefix = '$'))
+
+## Mixed units
+ggplot(dat, aes(Time, Value)) +
+    geom_line() +
+    scale_y_continuous(labels = ff_denom(mix.denom = TRUE, prefix = '$', pad.char = ''))
 }
 }
