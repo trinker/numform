@@ -214,8 +214,8 @@ data_frame(
     date = sample(seq(as.Date("1990/1/1"), by = "day", length.out = 2e4), 12)
 ) %>%
     mutate(
-        year_4 = f_year(date, 2),
-        year_2 = f_year(date, 4),
+        year_4 = f_year(date, 4),
+        year_2 = f_year(date, 2),
         quarter = f_quarter(date),
         month_name = f_month_name(date) %>%
             as_factor(),
