@@ -35,7 +35,7 @@ NEW FEATURES
 * The `collapse` and `glue` functions from the **glue** package are reexported
   for easy string manipulation.
 
-* `f_bin` (a.k.a. `f_interval`) added for turning `"[3,5)"` form ffrom `cut` into
+* `f_bin` (a.k.a. `f_interval`) added for turning `"[3,5)"` form from `cut` into
   a more human readable for.  There are several different forms of `f_bin` so
   use `?f_bin` to see them all.
 
