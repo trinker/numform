@@ -60,7 +60,7 @@ MINOR FEATURES
   denominations.  This is useful for tables with a total row that is a
   denomination higher than the rest of the column.
 
-* `f_pp` added to lower typing on a commonly used function and to also change
+* `f_pp` added to lower typing on `f_prop2percent(digits = 0)` (a commonly used function and setting) and to also change
   the default digits value to 0 as is typically used in plotting.
 
 * `constant_weekdays_abbreviation` added to provide an abbreviated form of
