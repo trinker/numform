@@ -74,7 +74,7 @@ to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
 usage).
 
 <!-- html table generated in R 3.5.1 by xtable 1.8-3 package -->
-<!-- Fri Oct 26 07:43:04 2018 -->
+<!-- Fri Oct 26 08:42:44 2018 -->
 <table>
 <tr>
 <td>
@@ -1027,7 +1027,7 @@ Plotting
     ## 10 406613. 1999-08-19 Site 3 $487,~ 487K  $487K         A         Th      
     ## # ... with 9,990 more rows
 
-![](tools/figure/unnamed-chunk-15-1.png)
+![](tools/figure/unnamed-chunk-17-1.png)
 
     library(tidyverse); library(viridis)
 
@@ -1085,7 +1085,7 @@ Plotting
                 ), width = 85, collapse = TRUE)
             )
 
-![](tools/figure/unnamed-chunk-16-1.png)
+![](tools/figure/unnamed-chunk-18-1.png)
 
     library(tidyverse); library(gridExtra)
 
@@ -1159,7 +1159,7 @@ Plotting
 
     )
 
-![](tools/figure/unnamed-chunk-17-1.png)
+![](tools/figure/unnamed-chunk-19-1.png)
 
     set.seed(10)
     dat <- data_frame(
@@ -1188,7 +1188,7 @@ Plotting
                 subtitle = 'Subtitles: For that extra professional look.'
             )
 
-![](tools/figure/unnamed-chunk-18-1.png)
+![](tools/figure/unnamed-chunk-20-1.png)
 
     library(tidyverse); library(viridis)
 
@@ -1222,7 +1222,7 @@ Plotting
                 panel.grid.major.x = element_blank()
             )
 
-![](tools/figure/unnamed-chunk-19-1.png)
+![](tools/figure/unnamed-chunk-21-1.png)
 
     library(tidyverse); library(maps)
 
@@ -1233,7 +1233,7 @@ Plotting
         scale_y_continuous(labels = f_latitude) +
         scale_x_continuous(labels = f_longitude)
 
-![](tools/figure/unnamed-chunk-20-1.png)
+![](tools/figure/unnamed-chunk-22-1.png)
 
     mtcars %>%
         mutate(mpg2 = cut(mpg, 10, right = FALSE)) %>%
@@ -1250,24 +1250,31 @@ Plotting
             ) +
             labs(title = 'Histogram', x = NULL, y = NULL)
 
-![](tools/figure/unnamed-chunk-21-1.png)
+![](tools/figure/unnamed-chunk-23-1.png)
 
     dat <- data_frame(
         Value = c(111, 2345, 34567, 456789, 1000001, 1000000001),
         Time = 1:6
     )
 
-    ggplot(dat, aes(Time, Value)) +
-        geom_line() +
-        scale_y_continuous(labels = ff_denom( prefix = '$'))
+    gridExtra::grid.arrange(
+        
+        ggplot(dat, aes(Time, Value)) +
+            geom_line() +
+            scale_y_continuous(labels = ff_denom( prefix = '$')) +
+            labs(title = "Single Denominational Unit"),
+        
+        ggplot(dat, aes(Time, Value)) +
+            geom_line() +
+            scale_y_continuous(
+                labels = ff_denom(mix.denom = TRUE, prefix = '$', pad.char = '')
+            ) +
+            labs(title = "Mixed Denominational Unit"),
+        
+        ncol = 2
+    )
 
-![](tools/figure/unnamed-chunk-22-1.png)
-
-    ggplot(dat, aes(Time, Value)) +
-        geom_line() +
-        scale_y_continuous(labels = ff_denom(mix.denom = TRUE, prefix = '$', pad.char = ''))
-
-![](tools/figure/unnamed-chunk-22-2.png)
+![](tools/figure/unnamed-chunk-24-1.png)
 
 Modeling
 --------

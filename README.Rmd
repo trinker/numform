@@ -535,13 +535,22 @@ dat <- data_frame(
     Time = 1:6
 )
 
-ggplot(dat, aes(Time, Value)) +
-    geom_line() +
-    scale_y_continuous(labels = ff_denom( prefix = '$'))
-
-ggplot(dat, aes(Time, Value)) +
-    geom_line() +
-    scale_y_continuous(labels = ff_denom(mix.denom = TRUE, prefix = '$', pad.char = ''))
+gridExtra::grid.arrange(
+    
+    ggplot(dat, aes(Time, Value)) +
+        geom_line() +
+        scale_y_continuous(labels = ff_denom( prefix = '$')) +
+        labs(title = "Single Denominational Unit"),
+    
+    ggplot(dat, aes(Time, Value)) +
+        geom_line() +
+        scale_y_continuous(
+            labels = ff_denom(mix.denom = TRUE, prefix = '$', pad.char = '')
+        ) +
+        labs(title = "Mixed Denominational Unit"),
+    
+    ncol = 2
+)
 ```
     
 ## Modeling
