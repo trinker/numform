@@ -74,54 +74,20 @@ to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
 usage).
 
 <!-- html table generated in R 3.5.1 by xtable 1.8-3 package -->
-<!-- Fri Oct 26 08:42:44 2018 -->
+<!-- Mon Oct 29 08:32:06 2018 -->
 <table>
 <tr>
 <td>
 alignment
 </td>
 <td>
-f_byte
-</td>
-<td>
-f_latitude
-</td>
-<td>
-f_peta
-</td>
-<td>
-f_wrap
-</td>
-</tr>
-<tr>
-<td>
-as_factor
-</td>
-<td>
 f_celcius
 </td>
 <td>
-f_list
+f_month.hms
 </td>
 <td>
-f_pp
-</td>
-<td>
-f_year
-</td>
-</tr>
-<tr>
-<td>
-collapse
-</td>
-<td>
-f_comma
-</td>
-<td>
-f_list_amp
-</td>
-<td>
-f_prefix
+f_replace
 </td>
 <td>
 f_yotta
@@ -129,16 +95,16 @@ f_yotta
 </tr>
 <tr>
 <td>
-constant_months
+as_factor
 </td>
 <td>
-f_data
+f_comma
 </td>
 <td>
-f_logical
+f_month.numeric
 </td>
 <td>
-f_prop2percent
+f_response
 </td>
 <td>
 f_zetta
@@ -146,95 +112,27 @@ f_zetta
 </tr>
 <tr>
 <td>
-constant_months_abbreviation
+check_binned
 </td>
 <td>
-f_data_abbreviation
+f_data
 </td>
 <td>
-f_longitude
-</td>
-<td>
-f_pval
-</td>
-<td>
-fv_num_percent
-</td>
-</tr>
-<tr>
-<td>
-constant_quarters
-</td>
-<td>
-f_date
-</td>
-<td>
-f_mean_sd
-</td>
-<td>
-f_quarter
-</td>
-<td>
-fv_percent
-</td>
-</tr>
-<tr>
-<td>
-constant_weekdays
-</td>
-<td>
-f_degree
-</td>
-<td>
-f_mega
-</td>
-<td>
-f_replace
-</td>
-<td>
-fv_percent_diff
-</td>
-</tr>
-<tr>
-<td>
-constant_weekdays_abbreviation
-</td>
-<td>
-f_denom
-</td>
-<td>
-f_mills
-</td>
-<td>
-f_response
-</td>
-<td>
-fv_percent_diff_fixed_relative
-</td>
-</tr>
-<tr>
-<td>
-f_12_hour
-</td>
-<td>
-f_dollar
-</td>
-<td>
-f_month
+f_month.POSIXt
 </td>
 <td>
 f_sign
 </td>
 <td>
-fv_percent_lead
+fact_check
 </td>
 </tr>
 <tr>
 <td>
-f_abbreviation
+check_month_type
 </td>
 <td>
-f_exa
+f_data_abbreviation
 </td>
 <td>
 f_month_abbreviation
@@ -243,21 +141,123 @@ f_month_abbreviation
 f_state
 </td>
 <td>
-fv_percent_lead_fixed_relative
+functionize
 </td>
 </tr>
 <tr>
 <td>
-f_affirm
+check_type
 </td>
 <td>
-f_fahrenheit
+f_data_default
+</td>
+<td>
+f_month_abbreviation.Date
+</td>
+<td>
+f_suffix
+</td>
+<td>
+fv_num_percent
+</td>
+</tr>
+<tr>
+<td>
+collapse
+</td>
+<td>
+f_date
+</td>
+<td>
+f_month_abbreviation.default
+</td>
+<td>
+f_tera
+</td>
+<td>
+fv_percent
+</td>
+</tr>
+<tr>
+<td>
+constant_months
+</td>
+<td>
+f_degree
+</td>
+<td>
+f_month_abbreviation.hms
+</td>
+<td>
+f_thous
+</td>
+<td>
+fv_percent_diff
+</td>
+</tr>
+<tr>
+<td>
+constant_months_abbreviation
+</td>
+<td>
+f_degree.scale
+</td>
+<td>
+f_month_abbreviation.numeric
+</td>
+<td>
+f_title
+</td>
+<td>
+fv_percent_diff_fixed_relative
+</td>
+</tr>
+<tr>
+<td>
+constant_quarters
+</td>
+<td>
+f_degree.string
+</td>
+<td>
+f_month_abbreviation.POSIXt
+</td>
+<td>
+f_weekday
+</td>
+<td>
+fv_percent_lead
+</td>
+</tr>
+<tr>
+<td>
+constant_weekdays
+</td>
+<td>
+f_degree.text
 </td>
 <td>
 f_month_name
 </td>
 <td>
-f_suffix
+f_weekday.Date
+</td>
+<td>
+fv_percent_lead_fixed_relative
+</td>
+</tr>
+<tr>
+<td>
+constant_weekdays_abbreviation
+</td>
+<td>
+f_degree.title
+</td>
+<td>
+f_month_name.Date
+</td>
+<td>
+f_weekday.default
 </td>
 <td>
 fv_runs
@@ -265,7 +265,75 @@ fv_runs
 </tr>
 <tr>
 <td>
-f_affix
+data_conversion
+</td>
+<td>
+f_denom
+</td>
+<td>
+f_month_name.default
+</td>
+<td>
+f_weekday.hms
+</td>
+<td>
+glue
+</td>
+</tr>
+<tr>
+<td>
+digit_check
+</td>
+<td>
+f_dollar
+</td>
+<td>
+f_month_name.hms
+</td>
+<td>
+f_weekday.numeric
+</td>
+<td>
+highlight_cells
+</td>
+</tr>
+<tr>
+<td>
+digit_warn
+</td>
+<td>
+f_exa
+</td>
+<td>
+f_month_name.numeric
+</td>
+<td>
+f_weekday.POSIXt
+</td>
+<td>
+hijack
+</td>
+</tr>
+<tr>
+<td>
+drop_sci_not
+</td>
+<td>
+f_fahrenheit
+</td>
+<td>
+f_month_name.POSIXt
+</td>
+<td>
+f_weekday_abbreviation
+</td>
+<td>
+make_suffix
+</td>
+</tr>
+<tr>
+<td>
+error_data_conv
 </td>
 <td>
 f_giga
@@ -274,15 +342,15 @@ f_giga
 f_num
 </td>
 <td>
-f_tera
+f_weekday_abbreviation.Date
 </td>
 <td>
-glue
+mnthqrt
 </td>
 </tr>
 <tr>
 <td>
-f_bills
+f_12_hour
 </td>
 <td>
 f_interval
@@ -291,15 +359,15 @@ f_interval
 f_num_percent
 </td>
 <td>
-f_thous
+f_weekday_abbreviation.default
 </td>
 <td>
-highlight_cells
+mnthqrt2
 </td>
 </tr>
 <tr>
 <td>
-f_bin
+f_12_hour.default
 </td>
 <td>
 f_interval_right
@@ -308,14 +376,15 @@ f_interval_right
 f_ordinal
 </td>
 <td>
-f_title
+f_weekday_abbreviation.hms
 </td>
 <td>
+mnthqrt3
 </td>
 </tr>
 <tr>
 <td>
-f_bin_right
+f_12_hour.hms
 </td>
 <td>
 f_interval_text
@@ -324,14 +393,15 @@ f_interval_text
 f_pad_zero
 </td>
 <td>
-f_weekday
+f_weekday_abbreviation.numeric
 </td>
 <td>
+na_omit
 </td>
 </tr>
 <tr>
 <td>
-f_bin_text
+f_12_hour.integer
 </td>
 <td>
 f_interval_text_right
@@ -340,14 +410,15 @@ f_interval_text_right
 f_parenthesis
 </td>
 <td>
-f_weekday_abbreviation
+f_weekday_abbreviation.POSIXt
 </td>
 <td>
+nms
 </td>
 </tr>
 <tr>
 <td>
-f_bin_text_right
+f_12_hour.numeric
 </td>
 <td>
 f_kilo
@@ -357,6 +428,190 @@ f_percent
 </td>
 <td>
 f_weekday_name
+</td>
+<td>
+numregex
+</td>
+</tr>
+<tr>
+<td>
+f_abbreviation
+</td>
+<td>
+f_latitude
+</td>
+<td>
+f_peta
+</td>
+<td>
+f_weekday_name.Date
+</td>
+<td>
+parse_bin
+</td>
+</tr>
+<tr>
+<td>
+f_affirm
+</td>
+<td>
+f_list
+</td>
+<td>
+f_pp
+</td>
+<td>
+f_weekday_name.default
+</td>
+<td>
+parse_bin2
+</td>
+</tr>
+<tr>
+<td>
+f_affix
+</td>
+<td>
+f_list_amp
+</td>
+<td>
+f_prefix
+</td>
+<td>
+f_weekday_name.hms
+</td>
+<td>
+replace_less_than
+</td>
+</tr>
+<tr>
+<td>
+f_bills
+</td>
+<td>
+f_logical
+</td>
+<td>
+f_prop2percent
+</td>
+<td>
+f_weekday_name.numeric
+</td>
+<td>
+right_align
+</td>
+</tr>
+<tr>
+<td>
+f_bin
+</td>
+<td>
+f_longitude
+</td>
+<td>
+f_pval
+</td>
+<td>
+f_weekday_name.POSIXt
+</td>
+<td>
+rm_na
+</td>
+</tr>
+<tr>
+<td>
+f_bin_right
+</td>
+<td>
+f_mean_sd
+</td>
+<td>
+f_quarter
+</td>
+<td>
+f_wrap
+</td>
+<td>
+shiftit
+</td>
+</tr>
+<tr>
+<td>
+f_bin_text
+</td>
+<td>
+f_mega
+</td>
+<td>
+f_quarter.Date
+</td>
+<td>
+f_year
+</td>
+<td>
+short_weekdays_key
+</td>
+</tr>
+<tr>
+<td>
+f_bin_text_right
+</td>
+<td>
+f_mills
+</td>
+<td>
+f_quarter.default
+</td>
+<td>
+f_year.Date
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+f_bins_level_replace
+</td>
+<td>
+f_month
+</td>
+<td>
+f_quarter.hms
+</td>
+<td>
+f_year.hms
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+f_byte
+</td>
+<td>
+f_month.Date
+</td>
+<td>
+f_quarter.numeric
+</td>
+<td>
+f_year.numeric
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+f_byte_conversion
+</td>
+<td>
+f_month.default
+</td>
+<td>
+f_quarter.POSIXt
+</td>
+<td>
+f_year.POSIXt
 </td>
 <td>
 </td>
@@ -1015,19 +1270,19 @@ Plotting
     ## # A tibble: 10,000 x 8
     ##    revenue date       site   dollar thous thous_dollars abb_month abb_week
     ##      <dbl> <date>     <chr>  <chr>  <chr> <chr>         <chr>     <fct>   
-    ##  1 449648. 1999-11-29 Site 1 $501,~ 501K  $501K         N         M       
-    ##  2 560514. 1999-07-07 Site 4 $491,~ 491K  $491K         J         W       
-    ##  3 438891. 1999-08-06 Site 2 $431,~ 431K  $431K         A         F       
-    ##  4 528543. 1999-05-04 Site 3 $470,~ 470K  $470K         M         T       
+    ##  1 591213. 1999-11-29 Site 1 $501,~ 501K  $501K         N         M       
+    ##  2 468126. 1999-07-07 Site 4 $491,~ 491K  $491K         J         W       
+    ##  3 376229. 1999-08-06 Site 2 $431,~ 431K  $431K         A         F       
+    ##  4 537861. 1999-05-04 Site 3 $470,~ 470K  $470K         M         T       
     ##  5 462758. 1999-07-08 Site 4 $515,~ 515K  $515K         J         Th      
     ##  6 553879. 1999-07-22 Site 2 $519,~ 519K  $519K         J         Th      
     ##  7 473985. 1999-05-20 Site 2 $440,~ 440K  $440K         M         Th      
-    ##  8 533825. 1999-05-28 Site 5 $482,~ 482K  $482K         M         F       
-    ##  9 426124. 1999-01-15 Site 2 $419,~ 419K  $419K         J         F       
+    ##  8 480609. 1999-05-28 Site 5 $482,~ 482K  $482K         M         F       
+    ##  9 363462. 1999-01-15 Site 2 $419,~ 419K  $419K         J         F       
     ## 10 406613. 1999-08-19 Site 3 $487,~ 487K  $487K         A         Th      
     ## # ... with 9,990 more rows
 
-![](tools/figure/unnamed-chunk-17-1.png)
+![](tools/figure/unnamed-chunk-15-1.png)
 
     library(tidyverse); library(viridis)
 
@@ -1085,7 +1340,7 @@ Plotting
                 ), width = 85, collapse = TRUE)
             )
 
-![](tools/figure/unnamed-chunk-18-1.png)
+![](tools/figure/unnamed-chunk-16-1.png)
 
     library(tidyverse); library(gridExtra)
 
@@ -1159,7 +1414,7 @@ Plotting
 
     )
 
-![](tools/figure/unnamed-chunk-19-1.png)
+![](tools/figure/unnamed-chunk-17-1.png)
 
     set.seed(10)
     dat <- data_frame(
@@ -1188,7 +1443,7 @@ Plotting
                 subtitle = 'Subtitles: For that extra professional look.'
             )
 
-![](tools/figure/unnamed-chunk-20-1.png)
+![](tools/figure/unnamed-chunk-18-1.png)
 
     library(tidyverse); library(viridis)
 
@@ -1222,7 +1477,7 @@ Plotting
                 panel.grid.major.x = element_blank()
             )
 
-![](tools/figure/unnamed-chunk-21-1.png)
+![](tools/figure/unnamed-chunk-19-1.png)
 
     library(tidyverse); library(maps)
 
@@ -1233,7 +1488,7 @@ Plotting
         scale_y_continuous(labels = f_latitude) +
         scale_x_continuous(labels = f_longitude)
 
-![](tools/figure/unnamed-chunk-22-1.png)
+![](tools/figure/unnamed-chunk-20-1.png)
 
     mtcars %>%
         mutate(mpg2 = cut(mpg, 10, right = FALSE)) %>%
@@ -1250,7 +1505,7 @@ Plotting
             ) +
             labs(title = 'Histogram', x = NULL, y = NULL)
 
-![](tools/figure/unnamed-chunk-23-1.png)
+![](tools/figure/unnamed-chunk-21-1.png)
 
     dat <- data_frame(
         Value = c(111, 2345, 34567, 456789, 1000001, 1000000001),
@@ -1274,7 +1529,7 @@ Plotting
         ncol = 2
     )
 
-![](tools/figure/unnamed-chunk-24-1.png)
+![](tools/figure/unnamed-chunk-22-1.png)
 
 Modeling
 --------

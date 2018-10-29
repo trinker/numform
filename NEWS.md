@@ -28,6 +28,8 @@ numform 0.4.1 -
 
 * `f_quarter` didn't respect the `space` or `max` arguments for some methods.
 
+* `allignment` failed to allign correctly if there were leading spaces.
+
 **NEW FEATURES**
 
 * `highlight_cells` added as a quick and dirty way to add cell font highlighting.

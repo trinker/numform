@@ -91,7 +91,7 @@ right_align <- function(df, additional.numeric = NULL){
         x <- as.character(x)
         if (!is.null(additional.numeric)) numregex <- paste(paste0('(', unlist(c(numregex, additional.numeric, additional.numeric)), ')'), collapse = "|")
 
-        grepl(numregex, rm_na(x)[1])
+        grepl(numregex, trimws(rm_na(x)[1]))
     })))
 }
 
