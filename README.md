@@ -74,7 +74,7 @@ to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
 usage).
 
 <!-- html table generated in R 3.5.1 by xtable 1.8-3 package -->
-<!-- Fri Nov 02 22:05:20 2018 -->
+<!-- Fri Nov 02 22:08:39 2018 -->
 <table>
 <tr>
 <td>

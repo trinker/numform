@@ -28,7 +28,7 @@ numform 0.4.1 - 0.5.0
 
 * `f_quarter` didn't respect the `space` or `max` arguments for some methods.
 
-* `allignment` failed to allign correctly if there were leading spaces.
+* `alignment` failed to align correctly if there were leading spaces.
 
 **NEW FEATURES**
 
