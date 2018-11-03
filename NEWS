@@ -18,7 +18,7 @@ And constructed with the following guidelines:
 
 
 
-numform 0.4.1 -
+numform 0.4.1 - 0.5.0
 ----------------------------------------------------------------
 
 BUG FIXES
@@ -74,7 +74,6 @@ MINOR FEATURES
 * `f_weekday_name` & `f_weekday_abbreviation` added to convert to full name and
   3 letter abbreviated weekday formats.
 
-IMPROVEMENTS
 
 CHANGES
 
