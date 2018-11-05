@@ -74,7 +74,7 @@ to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
 usage).
 
 <!-- html table generated in R 3.5.1 by xtable 1.8-3 package -->
-<!-- Fri Nov 02 22:08:39 2018 -->
+<!-- Mon Nov 05 18:08:11 2018 -->
 <table>
 <tr>
 <td>
@@ -472,7 +472,7 @@ Commas
 Percents
 --------
 
-    f_percent(c(30, 33.45, .1), 1)
+    f_percent(c(30, 33.45, .1), digits = 1)
 
     ## [1] "30.0%" "33.5%" ".1%"
 
@@ -483,6 +483,14 @@ Percents
     f_prop2percent(c(.30, 1, 1.01, .33, .222, .01))
 
     ## [1] "30.0%"  "100.0%" "101.0%" "33.0%"  "22.2%"  "1.0%"
+
+    f_prop2percent(c(.30, 1, 1.01, .33, .222, .01), digits = 0)
+
+    ## [1] "30%"  "100%" "101%" "33%"  "22%"  "1%"
+
+    f_pp(c(.30, 1, 1.01, .33, .222, .01)) # same as f_prop2percent(digits = 0)
+
+    ## [1] "30%"  "100%" "101%" "33%"  "22%"  "1%"
 
 Dollars
 -------
@@ -546,21 +554,9 @@ alignment.
             WinLossRate = f_num(WinLossRate, 1)
         ) %>%
         data.frame(stringsAsFactors = FALSE, check.names = FALSE) %>%
-        pander::pander(split.tables = Inf, justify = alignment(.))
+        pander::pander(split.tables = Inf, justify = alignment(.), style = 'simple')
 
 <table>
-<colgroup>
-<col width="10%" />
-<col width="5%" />
-<col width="10%" />
-<col width="6%" />
-<col width="6%" />
-<col width="11%" />
-<col width="8%" />
-<col width="9%" />
-<col width="15%" />
-<col width="15%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Team</th>
@@ -690,14 +686,9 @@ alignment.
             C = f_degree(C, measure = 'C', type = 'string', zero = '0.0')
         )  %>%
         data.frame(stringsAsFactors = FALSE, check.names = FALSE) %>%
-        pander::pander(split.tables = Inf, justify = alignment(.))
+        pander::pander(split.tables = Inf, justify = alignment(.), style = 'simple')
 
-<table style="width:71%;">
-<colgroup>
-<col width="26%" />
-<col width="22%" />
-<col width="22%" />
-</colgroup>
+<table>
 <thead>
 <tr class="header">
 <th align="left">Event</th>
@@ -761,9 +752,9 @@ alignment.
             year_2 = f_year(date, 2),
             quarter = f_quarter(date),
             month_name = f_month_name(date) %>%
-                as_factor(),
+                numform::as_factor(),
             month_abbreviation = f_month_abbreviation(date) %>%
-                as_factor(),
+                numform::as_factor(),
             month_short = f_month(date),
             weekday_name = f_weekday_name(date),
             weekday_abbreviation = f_weekday_abbreviation(date),
@@ -771,22 +762,9 @@ alignment.
             weekday_short_distinct = f_weekday(date, distinct = TRUE)
         ) %>%
         data.frame(stringsAsFactors = FALSE, check.names = FALSE) %>%
-        pander::pander(split.tables = Inf, justify = alignment(.))
+        pander::pander(split.tables = Inf, justify = alignment(.), style = 'simple')
 
 <table>
-<colgroup>
-<col width="7%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="7%" />
-<col width="12%" />
-<col width="8%" />
-<col width="8%" />
-<col width="13%" />
-<col width="9%" />
-<col width="14%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="right">date</th>
@@ -978,7 +956,7 @@ Plotting
             thous = f_denom(revenue),
             thous_dollars = f_denom(revenue, prefix = '$'),
             abb_month = f_month(date),
-            abb_week = as_factor(f_weekday(date, distinct = TRUE))
+            abb_week = numform::as_factor(f_weekday(date, distinct = TRUE))
         ) %>%
         group_by(site, abb_week) %>%
         mutate(revenue = {if(sample(0:1, 1) == 0) `-` else `+`}(revenue, sample(1e2:1e5, 1))) %>%
@@ -1015,19 +993,19 @@ Plotting
     ## # A tibble: 10,000 x 8
     ##    revenue date       site   dollar thous thous_dollars abb_month abb_week
     ##      <dbl> <date>     <chr>  <chr>  <chr> <chr>         <chr>     <fct>   
-    ##  1 591213. 1999-11-29 Site 1 $501,~ 501K  $501K         N         M       
-    ##  2 468126. 1999-07-07 Site 4 $491,~ 491K  $491K         J         W       
-    ##  3 376229. 1999-08-06 Site 2 $431,~ 431K  $431K         A         F       
-    ##  4 537861. 1999-05-04 Site 3 $470,~ 470K  $470K         M         T       
+    ##  1 449648. 1999-11-29 Site 1 $501,~ 501K  $501K         N         M       
+    ##  2 560514. 1999-07-07 Site 4 $491,~ 491K  $491K         J         W       
+    ##  3 438891. 1999-08-06 Site 2 $431,~ 431K  $431K         A         F       
+    ##  4 528543. 1999-05-04 Site 3 $470,~ 470K  $470K         M         T       
     ##  5 462758. 1999-07-08 Site 4 $515,~ 515K  $515K         J         Th      
     ##  6 553879. 1999-07-22 Site 2 $519,~ 519K  $519K         J         Th      
     ##  7 473985. 1999-05-20 Site 2 $440,~ 440K  $440K         M         Th      
-    ##  8 480609. 1999-05-28 Site 5 $482,~ 482K  $482K         M         F       
-    ##  9 363462. 1999-01-15 Site 2 $419,~ 419K  $419K         J         F       
+    ##  8 533825. 1999-05-28 Site 5 $482,~ 482K  $482K         M         F       
+    ##  9 426124. 1999-01-15 Site 2 $419,~ 419K  $419K         J         F       
     ## 10 406613. 1999-08-19 Site 3 $487,~ 487K  $487K         A         Th      
     ## # ... with 9,990 more rows
 
-![](tools/figure/unnamed-chunk-15-1.png)
+![](tools/figure/unnamed-chunk-27-1.png)
 
     library(tidyverse); library(viridis)
 
@@ -1085,7 +1063,7 @@ Plotting
                 ), width = 85, collapse = TRUE)
             )
 
-![](tools/figure/unnamed-chunk-16-1.png)
+![](tools/figure/unnamed-chunk-28-1.png)
 
     library(tidyverse); library(gridExtra)
 
@@ -1159,7 +1137,7 @@ Plotting
 
     )
 
-![](tools/figure/unnamed-chunk-17-1.png)
+![](tools/figure/unnamed-chunk-29-1.png)
 
     set.seed(10)
     dat <- data_frame(
@@ -1188,7 +1166,7 @@ Plotting
                 subtitle = 'Subtitles: For that extra professional look.'
             )
 
-![](tools/figure/unnamed-chunk-18-1.png)
+![](tools/figure/unnamed-chunk-30-1.png)
 
     library(tidyverse); library(viridis)
 
@@ -1222,7 +1200,7 @@ Plotting
                 panel.grid.major.x = element_blank()
             )
 
-![](tools/figure/unnamed-chunk-19-1.png)
+![](tools/figure/unnamed-chunk-31-1.png)
 
     library(tidyverse); library(maps)
 
@@ -1233,7 +1211,7 @@ Plotting
         scale_y_continuous(labels = f_latitude) +
         scale_x_continuous(labels = f_longitude)
 
-![](tools/figure/unnamed-chunk-20-1.png)
+![](tools/figure/unnamed-chunk-32-1.png)
 
     mtcars %>%
         mutate(mpg2 = cut(mpg, 10, right = FALSE)) %>%
@@ -1250,7 +1228,7 @@ Plotting
             ) +
             labs(title = 'Histogram', x = NULL, y = NULL)
 
-![](tools/figure/unnamed-chunk-21-1.png)
+![](tools/figure/unnamed-chunk-33-1.png)
 
     dat <- data_frame(
         Value = c(111, 2345, 34567, 456789, 1000001, 1000000001),
@@ -1274,7 +1252,7 @@ Plotting
         ncol = 2
     )
 
-![](tools/figure/unnamed-chunk-22-1.png)
+![](tools/figure/unnamed-chunk-34-1.png)
 
 Modeling
 --------

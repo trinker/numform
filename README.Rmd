@@ -126,9 +126,11 @@ f_comma(c(1234.12345, 1234567890, .000034034, 123000000000, -1234567))
 ## Percents
 
 ```{r, warn=FALSE}
-f_percent(c(30, 33.45, .1), 1)
+f_percent(c(30, 33.45, .1), digits = 1)
 f_percent(c(0.0, 0, .2, -00.02, 1.122222, pi))
 f_prop2percent(c(.30, 1, 1.01, .33, .222, .01))
+f_prop2percent(c(.30, 1, 1.01, .33, .222, .01), digits = 0)
+f_pp(c(.30, 1, 1.01, .33, .222, .01)) # same as f_prop2percent(digits = 0)
 ```
 
 ## Dollars
@@ -182,7 +184,7 @@ dat %>%
         WinLossRate = f_num(WinLossRate, 1)
     ) %>%
     data.frame(stringsAsFactors = FALSE, check.names = FALSE) %>%
-    pander::pander(split.tables = Inf, justify = alignment(.))
+    pander::pander(split.tables = Inf, justify = alignment(.), style = 'simple')
 ```
 
 ```{r}
@@ -201,7 +203,7 @@ data_frame(
         C = f_degree(C, measure = 'C', type = 'string', zero = '0.0')
     )  %>%
     data.frame(stringsAsFactors = FALSE, check.names = FALSE) %>%
-    pander::pander(split.tables = Inf, justify = alignment(.))
+    pander::pander(split.tables = Inf, justify = alignment(.), style = 'simple')
 ```
 
 
@@ -218,9 +220,9 @@ data_frame(
         year_2 = f_year(date, 2),
         quarter = f_quarter(date),
         month_name = f_month_name(date) %>%
-            as_factor(),
+            numform::as_factor(),
         month_abbreviation = f_month_abbreviation(date) %>%
-            as_factor(),
+            numform::as_factor(),
         month_short = f_month(date),
         weekday_name = f_weekday_name(date),
         weekday_abbreviation = f_weekday_abbreviation(date),
@@ -228,7 +230,7 @@ data_frame(
         weekday_short_distinct = f_weekday(date, distinct = TRUE)
     ) %>%
     data.frame(stringsAsFactors = FALSE, check.names = FALSE) %>%
-    pander::pander(split.tables = Inf, justify = alignment(.))
+    pander::pander(split.tables = Inf, justify = alignment(.), style = 'simple')
 ```
 
 
@@ -251,7 +253,7 @@ data_frame(
         thous = f_denom(revenue),
         thous_dollars = f_denom(revenue, prefix = '$'),
         abb_month = f_month(date),
-        abb_week = as_factor(f_weekday(date, distinct = TRUE))
+        abb_week = numform::as_factor(f_weekday(date, distinct = TRUE))
     ) %>%
     group_by(site, abb_week) %>%
     mutate(revenue = {if(sample(0:1, 1) == 0) `-` else `+`}(revenue, sample(1e2:1e5, 1))) %>%
