@@ -18,8 +18,7 @@ week beginning to something besides Sunday.  Use -1 to set to Monday instead.}
 Returns a factor vector with levels set.
 }
 \description{
-Convert month and weekday and weekday types to factor with correctly ordered
-levels.
+Convert Select \pkg{numform} Outputs to Factor
 }
 \examples{
 dat <- structure(list(month1 = c("Jan", "Nov", "Mar", "Jul", "Aug",
@@ -33,6 +32,9 @@ dat <- structure(list(month1 = c("Jan", "Nov", "Mar", "Jul", "Aug",
 "Thursday", "Sunday", "Saturday")), .Names = c("month1", "month2",
 "weekday1", "weekday2", "weekday3", "weekday4"))
 
+## Note that the 'forcats' package imported by the 'tidyverse' package, has an
+## `as_factor` function that can compete with numform's version.  If in doubt
+## prefix with `numform::as_factor`
 as_factor(dat$month1)
 as_factor(dat$month2)
 as_factor(dat$weekday1)
@@ -59,7 +61,7 @@ data_frame(
         thous = f_thous(revenue),
         thous_dollars = f_thous(revenue, prefix = '$'),
         abb_month = f_month(date),
-        abb_week = as_factor(f_weekday(date, distinct = TRUE))
+        abb_week = numform::as_factor(f_weekday(date, distinct = TRUE))
     ) \%T>\%
     print() \%>\%
     ggplot(aes(abb_week, revenue)) +

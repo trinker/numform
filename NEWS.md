@@ -17,6 +17,20 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
+numform 0.5.1 -
+----------------------------------------------------------------
+
+**BUG FIXES**
+
+**NEW FEATURES**
+
+**MINOR FEATURES**
+
+**IMPROVEMENTS**
+
+**CHANGES**
+
+
 
 numform 0.4.1 - 0.5.0
 ----------------------------------------------------------------
