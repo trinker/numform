@@ -2,8 +2,8 @@
 #'
 #' Convert month and weekday and weekday types to factor with correctly ordered
 #' levels.  Note that the 'forcats' package imported by the 'tidyverse' package,
-#' has an \code{as_factor function that can compete with numform's version.
-#' If in doubt prefix with \code{numform::as_factor}.
+#' has an \code{as_factor} function that can compete with numform's version.
+#' If in doubt, prefix with \code{numform::as_factor}.
 #'
 #' @param x A vector of weekdays or months.
 #' @param shift Shift the levels to the right or left.  Useful for setting the

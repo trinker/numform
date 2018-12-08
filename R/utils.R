@@ -51,3 +51,26 @@ names(mnthqrt3) <- rep(1:4, each = 3)
 na_omit <- function(x, ...){
     x[!is.na(x)]
 }
+
+
+
+drop_sci_note <- function(x, ...){
+
+    if (!is.numeric(x)) return(x)
+
+    x <- as.character(as.numeric(x))
+
+    locs <- grepl('e\\+', x)
+
+    x[locs] <- unlist(Map(function(b, e) {
+
+            subs <- nchar(gsub('^.*\\.', '', b))
+
+            paste0(gsub('[.]', '', b), paste(rep('0', e - subs), collapse = ''))
+
+        }, gsub('e\\+.+', '', x[locs]), as.integer(gsub('^.+?e\\+', '', x[locs]))
+    ))
+
+
+    x
+}

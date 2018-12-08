@@ -22,9 +22,14 @@ numform 0.5.1 -
 
 **BUG FIXES**
 
+* `f_denom` functions did not properly handle scientific notation.  Spotted by
+  Wilfried N'Guessan (see #23).
+
 **NEW FEATURES**
 
 **MINOR FEATURES**
+
+* `f_denom` picks up a functionality to the 100 trillions.
 
 **IMPROVEMENTS**
 

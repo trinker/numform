@@ -174,23 +174,25 @@ f_denom <- function(x, relative = 0, prefix = "", pad.char = ifelse(prefix == ""
 
             out <- gsub('(^[^0-9]*\\s*)(\\d+)($)', '\\1<1K', out)
 
-            out[neglocs] <- gsub('(^[^0-9]*\\s*)(<)(-\\d+[KBM])', '\\1>\\3', out[neglocs])
+            out[neglocs] <- gsub('(^[^0-9]*\\s*)(<)(-\\d+[TKBM])', '\\1>\\3', out[neglocs])
         }
         return(out)
     }
 
     if (length(x) == 1 && is.na(x)) return(NA)
 
-    md <- max(nchar(round(x, 0)), na.rm = TRUE)
-    digs <- ifelse(md <= 6, 'thous', ifelse(md <= 9, 'mills', ifelse(md <= 12, 'bills', NA)))
-    if (is.na(digs)) stop("Element(s) in `x` are greater than 12 digits.")
+    md <- max(nchar(drop_sci_note(round(x, 0))), na.rm = TRUE)
+    digs <- ifelse(md <= 6, 'thous', ifelse(md <= 9, 'mills', ifelse(md <= 12, 'bills', ifelse(md <= 15, 'trills', NA))))
+    if (is.na(digs)) stop("Element(s) in `x` are greater than 14 digits.")
 
     if (max(abs(x), na.rm = TRUE) < 1e3) return(x)
 
     fun <- switch(digs,
         thous = {ff_thous(relative = relative, prefix = prefix, pad.char = pad.char, less.than.replace = less.than.replace)},
         mills = {ff_mills(relative = relative, prefix = prefix, pad.char = pad.char, less.than.replace = less.than.replace)},
-        bills = {ff_bills(relative = relative, prefix = prefix, pad.char = pad.char, less.than.replace = less.than.replace)}
+        bills = {ff_bills(relative = relative, prefix = prefix, pad.char = pad.char, less.than.replace = less.than.replace)},
+        trills = {ff_trills(relative = relative, prefix = prefix, pad.char = pad.char, less.than.replace = less.than.replace)}
+
     )
 
     fun(x)
@@ -203,7 +205,63 @@ f_denom <- function(x, relative = 0, prefix = "", pad.char = ifelse(prefix == ""
 ff_denom <- functionize(f_denom)
 
 
+#' @description \code{f_trills} - Force the abbreviation to the trillions
+#' denomination (B).
+#' @export
+#' @include utils.R
+#' @rdname f_denom
+f_trills <- function(x, relative = 0, digits = -12, prefix = "",
+    pad.char = ifelse(prefix == '', NA, ' '), less.than.replace = FALSE, ...) {
 
+    #if (missing(pad.char)) pad.char <- ifelse(prefix == '', NA, ' ')
+    neglocs <- x < 0
+    digits <- digits + relative
+    nas <- is.na(x)
+
+    if (relative > 0) {
+        x <- sprintf(paste0("%.", 12 + digits, "f"), drop_sci_note(round(x, digits)/1e+012))
+        x <- gsub("^0.", ".", paste0(x, "T"))
+    } else {
+        x <- gsub("^0.", ".", paste0(drop_sci_note(round(x, digits)/1e+012), "T"))
+    }
+
+    x <- ifelse(x == '.', '0B', x)
+    if (!is.na(pad.char)) x <- f_pad_zero(x, width = max(nchar(x)), pad.char = pad.char)
+    out <- paste0(prefix, x)
+
+    if (isTRUE(less.than.replace)){
+        neglocs <- neglocs & grepl('(^[^0-9]*\\s*)(0.?0*)([TKBM])', out)
+
+        out <- gsub('(^[^0-9]*\\s*)(0.?0*)([TKBM])', '\\1<1\\3', out)
+        out[neglocs] <- gsub('(^[^0-9]*\\s*)(<)(\\d+[TKBM])', '\\1>-\\3', out[neglocs])
+
+        mc <- max(nchar(out[!grepl('(>|<)', out)]))
+        repls <- out[grepl('(>|<)', out) & nchar(out) > mc]
+
+        if (length(repls) > 0) {
+            repls <- strsplit(sub('\\s+', 'splitherenumform', repls), 'splitherenumform')
+            out[grepl('(>|<)', out) & nchar(out) > mc] <- unlist(lapply(repls, function(x){
+                tms <- mc - nchar(paste(x, collapse =''))
+                if (tms > 0){
+                    spc <- paste(rep(' ', ), collapse = '')
+                } else {
+                    spc <- ''
+                }
+                paste0(x[1], spc, x[2])
+            }))
+        }
+
+    }
+
+    out[nas] <- NA
+    out
+}
+
+
+#' @export
+#' @include utils.R
+#' @rdname f_denom
+ff_trills <- functionize(f_trills)
 
 
 #' @description \code{f_bills} - Force the abbreviation to the billions
@@ -220,21 +278,23 @@ f_bills <- function(x, relative = 0, digits = -9, prefix = "",
     nas <- is.na(x)
 
     if (relative > 0) {
-        x <- sprintf(paste0("%.", 9 + digits, "f"), round(x, digits)/1e+09)
+        x <- sprintf(paste0("%.", 9 + digits, "f"), drop_sci_note(round(x, digits)/1e+09))
         x <- gsub("^0.", ".", paste0(x, "B"))
     } else {
-        x <- gsub("^0.", ".", paste0(round(x, digits)/1e+09, "B"))
+        x <- gsub("^0.", ".", paste0(drop_sci_note(round(x, digits)/1e+09), "B"))
     }
+
+    digit_warn(x, 'f_tills', 9)
 
     x <- ifelse(x == '.', '0B', x)
     if (!is.na(pad.char)) x <- f_pad_zero(x, width = max(nchar(x)), pad.char = pad.char)
     out <- paste0(prefix, x)
 
     if (isTRUE(less.than.replace)){
-        neglocs <- neglocs & grepl('(^[^0-9]*\\s*)(0.?0*)([KBM])', out)
+        neglocs <- neglocs & grepl('(^[^0-9]*\\s*)(0.?0*)([TKBM])', out)
 
-        out <- gsub('(^[^0-9]*\\s*)(0.?0*)([KBM])', '\\1<1\\3', out)
-        out[neglocs] <- gsub('(^[^0-9]*\\s*)(<)(\\d+[KBM])', '\\1>-\\3', out[neglocs])
+        out <- gsub('(^[^0-9]*\\s*)(0.?0*)([TKBM])', '\\1<1\\3', out)
+        out[neglocs] <- gsub('(^[^0-9]*\\s*)(<)(\\d+[TKBM])', '\\1>-\\3', out[neglocs])
 
         mc <- max(nchar(out[!grepl('(>|<)', out)]))
         repls <- out[grepl('(>|<)', out) & nchar(out) > mc]
@@ -277,10 +337,10 @@ f_mills <- function(x, relative = 0, digits = -6, prefix = "",
     nas <- is.na(x)
 
     if (relative > 0) {
-        x <- sprintf(paste0("%.", 6 + digits, "f"), round(x, digits)/1e+06)
+        x <- sprintf(paste0("%.", 6 + digits, "f"), drop_sci_note(round(x, digits)/1e+06))
         x <- gsub("^0.", ".", paste0(x, "M"))
     } else {
-        x <- gsub("^0.", ".", paste0(round(x, digits)/1e+06, "M"))
+        x <- gsub("^0.", ".", paste0(drop_sci_note(round(x, digits)/1e+06), "M"))
     }
 
     digit_warn(x, 'f_bills', 6)
@@ -290,10 +350,10 @@ f_mills <- function(x, relative = 0, digits = -6, prefix = "",
     out <- paste0(prefix, x)
 
     if (isTRUE(less.than.replace)){
-        neglocs <- neglocs & grepl('(^[^0-9]*\\s*)(0.?0*)([KBM])', out)
+        neglocs <- neglocs & grepl('(^[^0-9]*\\s*)(0.?0*)([TKBM])', out)
 
-        out <- gsub('(^[^0-9]*\\s*)(0.?0*)([KBM])', '\\1<1\\3', out)
-        out[neglocs] <- gsub('(^[^0-9]*\\s*)(<)(\\d+[KBM])', '\\1>-\\3', out[neglocs])
+        out <- gsub('(^[^0-9]*\\s*)(0.?0*)([TKBM])', '\\1<1\\3', out)
+        out[neglocs] <- gsub('(^[^0-9]*\\s*)(<)(\\d+[TKBM])', '\\1>-\\3', out[neglocs])
 
         mc <- max(nchar(out[!grepl('(>|<)', out)]))
         repls <- out[grepl('(>|<)', out) & nchar(out) > mc]
@@ -337,10 +397,10 @@ f_thous <- function(x, relative = 0, digits = -3, prefix = "",
     nas <- is.na(x)
 
     if (relative > 0) {
-        x <- sprintf(paste0("%.", 3 + digits, "f"), round(x, digits)/1e+03)
+        x <- sprintf(paste0("%.", 3 + digits, "f"), drop_sci_note(round(x, digits)/1e+03))
         x <- gsub("^0.", ".", paste0(x, "K"))
     } else {
-        x <- gsub("^0.", ".", paste0(round(x, digits)/1e+03, "K"))
+        x <- gsub("^0.", ".", paste0(drop_sci_note(round(x, digits)/1e+03), "K"))
     }
 
     digit_warn(x, 'f_mills', 3)
@@ -351,10 +411,10 @@ f_thous <- function(x, relative = 0, digits = -3, prefix = "",
     out <- paste0(prefix, x)
 
     if (isTRUE(less.than.replace)){
-        neglocs <- neglocs & grepl('(^[^0-9]*\\s*)(0.?0*)([KBM])', out)
+        neglocs <- neglocs & grepl('(^[^0-9]*\\s*)(0.?0*)([TKBM])', out)
 
-        out <- gsub('(^[^0-9]*\\s*)(0.?0*)([KBM])', '\\1<1\\3', out)
-        out[neglocs] <- gsub('(^[^0-9]*\\s*)(<)(\\d+[KBM])', '\\1>-\\3', out[neglocs])
+        out <- gsub('(^[^0-9]*\\s*)(0.?0*)([TKBM])', '\\1<1\\3', out)
+        out[neglocs] <- gsub('(^[^0-9]*\\s*)(<)(\\d+[TKBM])', '\\1>-\\3', out[neglocs])
 
         mc <- max(nchar(out[!grepl('(>|<)', out)]))
         repls <- out[grepl('(>|<)', out) & nchar(out) > mc]
@@ -389,7 +449,7 @@ ff_thous <- functionize(f_thous)
 
 
 digit_check <- function(x, digits = 3){
-    any(nchar(gsub("(^\\d+)(\\.|[KBM])(.*$)", "\\1", x)) > digits)
+    any(nchar(gsub("(^\\d+)(\\.|[TKBM])(.*$)", "\\1", x)) > digits)
 }
 
 digit_warn <- function(x, next_ver = "f_mills", digits = 3){

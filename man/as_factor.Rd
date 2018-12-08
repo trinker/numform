@@ -18,7 +18,10 @@ week beginning to something besides Sunday.  Use -1 to set to Monday instead.}
 Returns a factor vector with levels set.
 }
 \description{
-Convert Select \pkg{numform} Outputs to Factor
+Convert month and weekday and weekday types to factor with correctly ordered
+levels.  Note that the 'forcats' package imported by the 'tidyverse' package,
+has an \code{as_factor} function that can compete with numform's version.
+If in doubt, prefix with \code{numform::as_factor}.
 }
 \examples{
 dat <- structure(list(month1 = c("Jan", "Nov", "Mar", "Jul", "Aug",

@@ -3,6 +3,8 @@
 \name{f_denom}
 \alias{f_denom}
 \alias{ff_denom}
+\alias{f_trills}
+\alias{ff_trills}
 \alias{f_bills}
 \alias{ff_bills}
 \alias{f_mills}
@@ -15,6 +17,12 @@ f_denom(x, relative = 0, prefix = "", pad.char = ifelse(prefix == "",
   NA, " "), less.than.replace = FALSE, mix.denom = FALSE, ...)
 
 ff_denom(...)
+
+f_trills(x, relative = 0, digits = -12, prefix = "",
+  pad.char = ifelse(prefix == "", NA, " "), less.than.replace = FALSE,
+  ...)
+
+ff_trills(...)
 
 f_bills(x, relative = 0, digits = -9, prefix = "",
   pad.char = ifelse(prefix == "", NA, " "), less.than.replace = FALSE,
@@ -69,6 +77,9 @@ Use the denomination abbreviations K (thousands), M (millions), and
 B (billions) with abbreviated numbers.\cr\code{f_denom} - Auto-detect the
 maximum denomination and attempt to use it (if max(x) is < 1K then x is
 returned).
+
+\code{f_trills} - Force the abbreviation to the trillions
+denomination (B).
 
 \code{f_bills} - Force the abbreviation to the billions
 denomination (B).
