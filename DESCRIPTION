@@ -44,6 +44,7 @@ Collate:
     'f_replace.R'
     'f_sign.R'
     'f_state.R'
+    'f_text_bar.R'
     'f_title.R'
     'f_weekday.R'
     'f_wrap.R'

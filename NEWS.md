@@ -27,6 +27,9 @@ numform 0.5.1 -
 
 **NEW FEATURES**
 
+* `f_text_bar` added to convert numeric vectors into an ASCII horizontal bar
+  plot representation.
+
 **MINOR FEATURES**
 
 * `f_denom` picks up a functionality to the 100 trillions.
