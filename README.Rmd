@@ -233,7 +233,7 @@ data_frame(
     pander::pander(split.tables = Inf, justify = alignment(.), style = 'simple')
 ```
 
-```{r}
+```{r, comment=NA}
 mtcars %>%
     count(cyl, gear) %>%
     group_by(cyl) %>%

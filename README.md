@@ -74,7 +74,7 @@ to **ggplot2** `scale_x/y_type` functions (see [Plotting](#plotting) for
 usage).
 
 <!-- html table generated in R 3.5.1 by xtable 1.8-3 package -->
-<!-- Thu Jan 17 08:09:21 2019 -->
+<!-- Thu Jan 17 08:14:34 2019 -->
 <table>
 <tr>
 <td>
@@ -955,15 +955,15 @@ alignment.
         ) %>%
         as.data.frame()
 
-    ##   cyl gear  n   p          
-    ## 1   4    3  1  9% _        
-    ## 2        4  8 73% ______   
-    ## 3        5  2 18% __       
-    ## 4   6    3  2 29% __       
-    ## 5        4  4 57% ___      
-    ## 6        5  1 14% _        
-    ## 7   8    3 12 86% _________
-    ## 8        5  2 14% __
+      cyl gear  n   p          
+    1   4    3  1  9% _        
+    2        4  8 73% ______   
+    3        5  2 18% __       
+    4   6    3  2 29% __       
+    5        4  4 57% ___      
+    6        5  1 14% _        
+    7   8    3 12 86% _________
+    8        5  2 14% __       
 
 Plotting
 --------
