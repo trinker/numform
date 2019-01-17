@@ -219,7 +219,7 @@ f_trills <- function(x, relative = 0, digits = -12, prefix = "",
     nas <- is.na(x)
 
     if (relative > 0) {
-        x <- sprintf(paste0("%.", 12 + digits, "f"), drop_sci_note(round(x, digits)/1e+012))
+        x <- sprintf(paste0("%.", 12 + digits, "f"), round(x, digits)/1e+012)
         x <- gsub("^0.", ".", paste0(x, "T"))
     } else {
         x <- gsub("^0.", ".", paste0(drop_sci_note(round(x, digits)/1e+012), "T"))
@@ -278,7 +278,7 @@ f_bills <- function(x, relative = 0, digits = -9, prefix = "",
     nas <- is.na(x)
 
     if (relative > 0) {
-        x <- sprintf(paste0("%.", 9 + digits, "f"), drop_sci_note(round(x, digits)/1e+09))
+        x <- sprintf(paste0("%.", 9 + digits, "f"), round(x, digits)/1e+09)
         x <- gsub("^0.", ".", paste0(x, "B"))
     } else {
         x <- gsub("^0.", ".", paste0(drop_sci_note(round(x, digits)/1e+09), "B"))
@@ -337,7 +337,7 @@ f_mills <- function(x, relative = 0, digits = -6, prefix = "",
     nas <- is.na(x)
 
     if (relative > 0) {
-        x <- sprintf(paste0("%.", 6 + digits, "f"), drop_sci_note(round(x, digits)/1e+06))
+        x <- sprintf(paste0("%.", 6 + digits, "f"), round(x, digits)/1e+06)
         x <- gsub("^0.", ".", paste0(x, "M"))
     } else {
         x <- gsub("^0.", ".", paste0(drop_sci_note(round(x, digits)/1e+06), "M"))
@@ -397,7 +397,7 @@ f_thous <- function(x, relative = 0, digits = -3, prefix = "",
     nas <- is.na(x)
 
     if (relative > 0) {
-        x <- sprintf(paste0("%.", 3 + digits, "f"), drop_sci_note(round(x, digits)/1e+03))
+        x <- sprintf(paste0("%.", 3 + digits, "f"), round(x, digits)/1e+03)
         x <- gsub("^0.", ".", paste0(x, "K"))
     } else {
         x <- gsub("^0.", ".", paste0(drop_sci_note(round(x, digits)/1e+03), "K"))

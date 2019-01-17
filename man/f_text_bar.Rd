@@ -5,7 +5,7 @@
 \alias{ff_text_bar}
 \title{Format Text Based Bar Plots}
 \usage{
-f_text_bar(x, symbol = "_", width = 20, ...)
+f_text_bar(x, symbol = "_", width = 9, ...)
 
 ff_text_bar(...)
 }
@@ -23,6 +23,8 @@ Returns a vector of concatenated symbols as a string that represent x% of the ba
 }
 \description{
 Use a text symbol to create scaled horizontal bar plots of numeric vectors.
+Note that you will have to coerce the table to a \code{data.frame} in order
+for the output to look pretty.
 }
 \examples{
 library(dplyr)
@@ -36,7 +38,7 @@ mtcars \%>\%
     ungroup() \%>\%
     mutate(
         cyl = numform::fv_runs(cyl),
-        ` ` = text_bar(n)  ## Overall
+        ` ` = f_text_bar(n)  ## Overall
     ) \%>\%
     as.data.frame()
 
@@ -45,42 +47,44 @@ mtcars \%>\%
     group_by(cyl) \%>\%
     mutate(
         p = numform::f_pp(n/sum(n)),
-        ` ` = text_bar(n) ## within groups
+        ` ` = f_text_bar(n) ## within groups
     ) \%>\%
     ungroup() \%>\%
     mutate(
         cyl = numform::fv_runs(cyl),
-        ` ` = text_bar(n)
+        ` ` = f_text_bar(n)
     ) \%>\%
     as.data.frame()
 
-
+\dontrun{
 mtcars \%>\%
     count(cyl, gear) \%>\%
     group_by(cyl) \%>\%
     mutate(
         p = numform::f_pp(n/sum(n)),
-        `within groups` = text_bar(n, width = 8, symbol = '#')
+        `within` = f_text_bar(n, width = 3, symbol = '#')
     ) \%>\%
     ungroup() \%>\%
     mutate(
         cyl = numform::fv_runs(cyl),
-        `overall` = text_bar(n, width = 30, symbol = '-')
+        `overall` = f_text_bar(n, width = 30, symbol = '*')
     ) \%>\%
-    as.data.frame()
+    as.data.frame() \%>\%
+    pander::pander(split.tables = Inf, justify = alignment(.), style = 'simple')
+}
 
-## Drop the ehaders
+## Drop the headers
 mtcars \%>\%
     count(cyl, gear) \%>\%
     group_by(cyl) \%>\%
     mutate(
         p = numform::f_pp(n/sum(n)),
-        `   ` = text_bar(n, symbol = '#')
+        `   ` = f_text_bar(n, symbol = '=')
     ) \%>\%
     ungroup() \%>\%
     mutate(
         cyl = numform::fv_runs(cyl),
-        ` ` = text_bar(n, symbol = '-')
+        ` ` = f_text_bar(n, symbol = '#')
     ) \%>\%
     as.data.frame()
 }

@@ -207,7 +207,7 @@ data_frame(
 ```
 
 
-```{r}
+```{r, comment = NA}
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(tidyverse)
 
@@ -233,7 +233,20 @@ data_frame(
     pander::pander(split.tables = Inf, justify = alignment(.), style = 'simple')
 ```
 
-
+```{r}
+mtcars %>%
+    count(cyl, gear) %>%
+    group_by(cyl) %>%
+    mutate(
+        p = numform::f_pp(n/sum(n))
+    ) %>%
+    ungroup() %>%
+    mutate(
+        cyl = numform::fv_runs(cyl),
+        ` ` = f_text_bar(n)  ## Overall
+    ) %>%
+    as.data.frame()
+```
 
 ## Plotting
 

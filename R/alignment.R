@@ -91,11 +91,11 @@ right_align <- function(df, additional.numeric = NULL){
         x <- as.character(x)
         if (!is.null(additional.numeric)) numregex <- paste(paste0('(', unlist(c(numregex, additional.numeric, additional.numeric)), ')'), collapse = "|")
 
-        grepl(numregex, trimws(rm_na(x)[1]))
+        grepl(numregex, trimws(rm_na(x)[1]), perl = TRUE) & !grepl('^-*\\s*$', trimws(rm_na(x)[1]), perl = TRUE)
     })))
 }
 
 
 numregex <- '^((((\\$)?[0-9.,+-]+( ?%|[KMB])?)|([0-9/:.-T ]{5,}))|(-?[0-9.]+(&deg;)?[WESNFC]?))$'
-
+# numregex <- "^(?!.*((^-*\\s*$)))(?=.*(^((((\\$)?[0-9.,+-]+( ?%|[KMB])?)|([0-9/:.-T ]{5,}))|(-?[0-9.]+(&deg;)?[WESNFC]?))$))"
 
