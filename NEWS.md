@@ -36,6 +36,9 @@ numform 0.5.1 -
 
 **IMPROVEMENTS**
 
+* The sub-expression '(NaN|NA|Inf)' added to additional numeric
+  (`additional.numeric` argument) of the `allignment()` function.
+
 **CHANGES**
 
 

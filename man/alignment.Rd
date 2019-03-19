@@ -5,7 +5,7 @@
 \title{Detect Column Alignment}
 \usage{
 alignment(x, left = "left", right = ifelse(left == "l", "r", "right"),
-  additional.numeric = "^((<b>(&ndash;|\\\\+)</b>)|(<?([0-9.\%-]+)|(\\\\$?\\\\s*\\\\d+[KBM])))$",
+  additional.numeric = "^((<b>(&ndash;|\\\\+)</b>)|(<?([0-9.\%-]+)|(\\\\$?\\\\s*\\\\d+[KBM])))|(NaN|NA|Inf)$",
   sep = NULL, ...)
 }
 \arguments{

@@ -74,7 +74,8 @@
 #'     print(include.rownames = FALSE)
 #' }
 alignment <- function(x, left = 'left', right = ifelse(left == 'l', 'r', 'right'),
-    additional.numeric = "^((<b>(&ndash;|\\+)</b>)|(<?([0-9.%-]+)|(\\$?\\s*\\d+[KBM])))$", sep = NULL, ...){
+    additional.numeric = "^((<b>(&ndash;|\\+)</b>)|(<?([0-9.%-]+)|(\\$?\\s*\\d+[KBM])))|(NaN|NA|Inf)$",
+    sep = NULL, ...){
 
     stopifnot(is.data.frame(x))
 
