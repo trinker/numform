@@ -9,7 +9,17 @@
 \alias{constant_weekdays_abbreviation}
 \alias{constant_quarters}
 \title{Constants}
-\format{An object of class \code{character} of length 12.}
+\format{
+An object of class \code{character} of length 12.
+
+An object of class \code{character} of length 12.
+
+An object of class \code{character} of length 7.
+
+An object of class \code{character} of length 7.
+
+An object of class \code{character} of length 4.
+}
 \usage{
 constant_months
 

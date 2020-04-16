@@ -25,8 +25,9 @@
 #'
 #'
 #' \dontrun{
-#' ## pander
-#' pacman::p_load(dplyr, pander)
+#' library(dplyr)
+#' library(pander)
+#' library(xtable)
 #'
 #' set.seed(10)
 #' dat <- data_frame(
@@ -59,8 +60,6 @@
 #'     as.data.frame() %>%
 #'     pander::pander(split.tables = Inf, justify = alignment(.))
 #'
-#' ## xtable
-#' pacman::p_load(xtable)
 #'
 #' alignment(CO, 'l', 'r')
 #'
@@ -74,7 +73,10 @@
 #'     print(include.rownames = FALSE)
 #' }
 alignment <- function(x, left = 'left', right = ifelse(left == 'l', 'r', 'right'),
-    additional.numeric = "^((<b>(&ndash;|\\+)</b>)|(<?([0-9.%-]+)|(\\$?\\s*\\d+[KBM])))|(NaN|NA|Inf)$",
+    additional.numeric = paste0(
+        '^((<b>(&ndash;|\\+)</b>)|(<?([0-9.%-]+)',
+        '|(\\$?\\s*\\d+[KBM])))|(NaN|NA|Inf)$'
+    ),
     sep = NULL, ...){
 
     stopifnot(is.data.frame(x))

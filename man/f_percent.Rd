@@ -9,13 +9,21 @@
 \alias{ff_pp}
 \title{Format Percentages}
 \usage{
-f_percent(x, digits = getOption("numformdigits"),
-  less.than.replace = FALSE, ...)
+f_percent(
+  x,
+  digits = getOption("numformdigits"),
+  less.than.replace = FALSE,
+  ...
+)
 
 ff_percent(...)
 
-f_prop2percent(x, digits = getOption("numformdigits"),
-  less.than.replace = FALSE, ...)
+f_prop2percent(
+  x,
+  digits = getOption("numformdigits"),
+  less.than.replace = FALSE,
+  ...
+)
 
 ff_prop2percent(...)
 
@@ -64,8 +72,7 @@ f_prop2percent(c(.30, 1, 1.01, .33, .222, .01, .0001, NA), digits = 0,
     less.than.replace = TRUE)
 
 \dontrun{
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(ggplot2, dplyr)
+library(tidyverse)
 
 mtcars \%>\%
     count(cyl, gear) \%>\%

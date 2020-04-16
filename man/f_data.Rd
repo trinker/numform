@@ -23,63 +23,152 @@
 \alias{ff_yotta}
 \title{Convert and Abbreviate Units of Data.}
 \usage{
-f_data(x, binary = FALSE, digits = 0, pad.char = " ",
-  less.than.replace = FALSE, sep = "", mix.units = FALSE,
-  from = "B", ...)
+f_data(
+  x,
+  binary = FALSE,
+  digits = 0,
+  pad.char = " ",
+  less.than.replace = FALSE,
+  sep = "",
+  mix.units = FALSE,
+  from = "B",
+  ...
+)
 
 ff_data(...)
 
-f_byte(x, to = "B", binary = FALSE, digits = 0,
-  suffix = f_data_abbreviation(to), pad.char = " ",
-  less.than.replace = FALSE, from = "B", sep = "", ...)
+f_byte(
+  x,
+  to = "B",
+  binary = FALSE,
+  digits = 0,
+  suffix = f_data_abbreviation(to),
+  pad.char = " ",
+  less.than.replace = FALSE,
+  from = "B",
+  sep = "",
+  ...
+)
 
 ff_byte(...)
 
-f_kilo(x, to = "KB", binary = FALSE, digits = 0,
-  suffix = f_data_abbreviation(to), pad.char = " ",
-  less.than.replace = FALSE, from = "B", sep = "", ...)
+f_kilo(
+  x,
+  to = "KB",
+  binary = FALSE,
+  digits = 0,
+  suffix = f_data_abbreviation(to),
+  pad.char = " ",
+  less.than.replace = FALSE,
+  from = "B",
+  sep = "",
+  ...
+)
 
 ff_kilo(...)
 
-f_mega(x, to = "MB", binary = FALSE, digits = 0,
-  suffix = f_data_abbreviation(to), pad.char = " ",
-  less.than.replace = FALSE, from = "B", sep = "", ...)
+f_mega(
+  x,
+  to = "MB",
+  binary = FALSE,
+  digits = 0,
+  suffix = f_data_abbreviation(to),
+  pad.char = " ",
+  less.than.replace = FALSE,
+  from = "B",
+  sep = "",
+  ...
+)
 
 ff_mega(...)
 
-f_giga(x, to = "GB", binary = FALSE, digits = 0,
-  suffix = f_data_abbreviation(to), pad.char = " ",
-  less.than.replace = FALSE, from = "B", sep = "", ...)
+f_giga(
+  x,
+  to = "GB",
+  binary = FALSE,
+  digits = 0,
+  suffix = f_data_abbreviation(to),
+  pad.char = " ",
+  less.than.replace = FALSE,
+  from = "B",
+  sep = "",
+  ...
+)
 
 ff_giga(...)
 
-f_tera(x, to = "TB", binary = FALSE, digits = 0,
-  suffix = f_data_abbreviation(to), pad.char = " ",
-  less.than.replace = FALSE, from = "B", sep = "", ...)
+f_tera(
+  x,
+  to = "TB",
+  binary = FALSE,
+  digits = 0,
+  suffix = f_data_abbreviation(to),
+  pad.char = " ",
+  less.than.replace = FALSE,
+  from = "B",
+  sep = "",
+  ...
+)
 
 ff_tera(...)
 
-f_peta(x, to = "PB", binary = FALSE, digits = 0,
-  suffix = f_data_abbreviation(to), pad.char = " ",
-  less.than.replace = FALSE, from = "B", sep = "", ...)
+f_peta(
+  x,
+  to = "PB",
+  binary = FALSE,
+  digits = 0,
+  suffix = f_data_abbreviation(to),
+  pad.char = " ",
+  less.than.replace = FALSE,
+  from = "B",
+  sep = "",
+  ...
+)
 
 ff_peta(...)
 
-f_exa(x, to = "EB", binary = FALSE, digits = 0,
-  suffix = f_data_abbreviation(to), pad.char = " ",
-  less.than.replace = FALSE, from = "B", sep = "", ...)
+f_exa(
+  x,
+  to = "EB",
+  binary = FALSE,
+  digits = 0,
+  suffix = f_data_abbreviation(to),
+  pad.char = " ",
+  less.than.replace = FALSE,
+  from = "B",
+  sep = "",
+  ...
+)
 
 ff_exa(...)
 
-f_zetta(x, to = "ZB", binary = FALSE, digits = 0,
-  suffix = f_data_abbreviation(to), pad.char = " ",
-  less.than.replace = FALSE, from = "B", sep = "", ...)
+f_zetta(
+  x,
+  to = "ZB",
+  binary = FALSE,
+  digits = 0,
+  suffix = f_data_abbreviation(to),
+  pad.char = " ",
+  less.than.replace = FALSE,
+  from = "B",
+  sep = "",
+  ...
+)
 
 ff_zetta(...)
 
-f_yotta(x, to = "YB", binary = FALSE, digits = 0,
-  suffix = f_data_abbreviation(to), pad.char = " ",
-  less.than.replace = FALSE, from = "B", sep = "", ...)
+f_yotta(
+  x,
+  to = "YB",
+  binary = FALSE,
+  digits = 0,
+  suffix = f_data_abbreviation(to),
+  pad.char = " ",
+  less.than.replace = FALSE,
+  from = "B",
+  sep = "",
+  ...
+)
 
 ff_yotta(...)
 }

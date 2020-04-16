@@ -5,8 +5,15 @@
 \alias{ff_num}
 \title{Format Digits}
 \usage{
-f_num(x, digits = getOption("numformdigits"), p, s, pad.char = NA,
-  zero = NULL, ...)
+f_num(
+  x,
+  digits = getOption("numformdigits"),
+  p,
+  s,
+  pad.char = NA,
+  zero = NULL,
+  ...
+)
 
 ff_num(...)
 }
@@ -53,6 +60,7 @@ f_num(c(30, 33.45, .1), 2, p="&Chi;<sup>2</sup>=")
 
 \dontrun{
 library(dplyr)
+
 is.int <- function(x) !all(x \%\% 1 == 0)
 
 mtcars \%>\%

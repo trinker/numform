@@ -5,8 +5,12 @@
 \alias{ff_pval}
 \title{Format P-Values}
 \usage{
-f_pval(x, alpha = getOption("numformalpha"),
-  digits = getOption("numformdigits"), ...)
+f_pval(
+  x,
+  alpha = getOption("numformalpha"),
+  digits = getOption("numformdigits"),
+  ...
+)
 
 ff_pval(...)
 }

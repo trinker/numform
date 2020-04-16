@@ -5,8 +5,14 @@
 \alias{ffv_num_percent}
 \title{Convert a Numeric Vector to Number and Parenthetical Percentages}
 \usage{
-fv_num_percent(x, x_digits = getOption("numformdigits"),
-  y_digits = x_digits, sep = "", comma = TRUE, ...)
+fv_num_percent(
+  x,
+  x_digits = getOption("numformdigits"),
+  y_digits = x_digits,
+  sep = "",
+  comma = TRUE,
+  ...
+)
 
 ffv_num_percent(...)
 }

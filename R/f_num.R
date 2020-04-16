@@ -34,6 +34,7 @@
 #'
 #' \dontrun{
 #' library(dplyr)
+#'
 #' is.int <- function(x) !all(x %% 1 == 0)
 #'
 #' mtcars %>%

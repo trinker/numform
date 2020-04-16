@@ -12,16 +12,19 @@
 \usage{
 f_quarter(x, prefix = "Q", space = "", max = 12, ...)
 
-\method{f_quarter}{default}(x, prefix = "Q", space = "", max = 12,
-  ...)
+\method{f_quarter}{default}(x, prefix = "Q", space = "", max = 12, ...)
 
-\method{f_quarter}{numeric}(x, prefix = "Q", space = "",
-  max = ifelse(all(x \%in\% c(1:4, NA)), 4, 12), ...)
+\method{f_quarter}{numeric}(
+  x,
+  prefix = "Q",
+  space = "",
+  max = ifelse(all(x \%in\% c(1:4, NA)), 4, 12),
+  ...
+)
 
 \method{f_quarter}{Date}(x, prefix = "Q", space = "", max = 12, ...)
 
-\method{f_quarter}{POSIXt}(x, prefix = "Q", space = "", max = 12,
-  ...)
+\method{f_quarter}{POSIXt}(x, prefix = "Q", space = "", max = 12, ...)
 
 \method{f_quarter}{hms}(x, prefix = "Q", space = "", max = 12, ...)
 

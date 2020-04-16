@@ -12,6 +12,7 @@
 #' @export
 #' @rdname f_text_bar
 #' @examples
+#' \dontrun{
 #' library(dplyr)
 #'
 #' mtcars %>%
@@ -41,7 +42,6 @@
 #'     ) %>%
 #'     as.data.frame()
 #'
-#' \dontrun{
 #' mtcars %>%
 #'     count(cyl, gear) %>%
 #'     group_by(cyl) %>%
@@ -56,7 +56,6 @@
 #'     ) %>%
 #'     as.data.frame() %>%
 #'     pander::pander(split.tables = Inf, justify = alignment(.), style = 'simple')
-#' }
 #'
 #' ## Drop the headers
 #' mtcars %>%
@@ -72,10 +71,11 @@
 #'         ` ` = f_text_bar(n, symbol = '#')
 #'     ) %>%
 #'     as.data.frame()
+#' }
 f_text_bar <- function(x, symbol = '_', width = 9, ...){
 
     stopifnot(is.numeric(x))
-    stringi::stri_pad_right(strrep(symbol, round(width * x/max(x), 0)), width = width)
+    stri_pad_right(strrep(symbol, round(width * x/max(x), 0)), width = width)
 
 }
 
@@ -85,3 +85,17 @@ f_text_bar <- function(x, symbol = '_', width = 9, ...){
 #' @include utils.R
 #' @rdname f_text_bar
 ff_text_bar <- functionize(f_text_bar)
+
+
+
+
+
+stri_pad_right <- function(x, width = floor(0.9 * getOption("width")), pad = " "){
+
+    r <- width - nchar(x)
+    r[r < 0] <- 0
+    paste0(x, strrep(pad, r))
+}
+
+
+

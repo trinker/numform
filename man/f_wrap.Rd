@@ -5,8 +5,16 @@
 \alias{ff_wrap}
 \title{Wrap Strings}
 \usage{
-f_wrap(x, width = 15, sep = "\\n", exdent = 0, indent = 0,
-  equal.lines = FALSE, collapse = FALSE, ...)
+f_wrap(
+  x,
+  width = 15,
+  sep = "\\n",
+  exdent = 0,
+  indent = 0,
+  equal.lines = FALSE,
+  collapse = FALSE,
+  ...
+)
 
 ff_wrap(...)
 }

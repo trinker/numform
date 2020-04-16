@@ -9,8 +9,12 @@
 \usage{
 fv_percent_lead(x, digits = getOption("numformdigits"), ...)
 
-fv_percent_lead_fixed_relative(x, fixed.relative = 1,
-  digits = getOption("numformdigits"), ...)
+fv_percent_lead_fixed_relative(
+  x,
+  fixed.relative = 1,
+  digits = getOption("numformdigits"),
+  ...
+)
 
 ffv_percent_lead(...)
 

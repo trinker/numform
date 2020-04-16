@@ -30,8 +30,7 @@
 #'     less.than.replace = TRUE)
 #'
 #' \dontrun{
-#' if (!require("pacman")) install.packages("pacman")
-#' pacman::p_load(ggplot2, dplyr)
+#' library(tidyverse)
 #'
 #' mtcars %>%
 #'     count(cyl, gear) %>%

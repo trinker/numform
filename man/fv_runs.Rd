@@ -29,6 +29,7 @@ fv_runs(x, fill = '-', missing = 'X')
 
 \dontrun{
 library(dplyr)
+
 set.seed(10)
 data.frame(
     state = sort(sample(state.name[c(1, 5, 9, 12)], 12, TRUE)),

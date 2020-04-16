@@ -17,8 +17,15 @@ f_mean_sd(x, y, x_digits = 1, y_digits = x_digits, sep = "", ...)
 
 ff_mean_sd(...)
 
-f_num_percent(x, y, x_digits = 1, y_digits = x_digits, sep = "",
-  prop_fun = numform::f_prop2percent, ...)
+f_num_percent(
+  x,
+  y,
+  x_digits = 1,
+  y_digits = x_digits,
+  sep = "",
+  prop_fun = numform::f_prop2percent,
+  ...
+)
 
 ff_num_percent(...)
 }

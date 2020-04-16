@@ -14,8 +14,7 @@
 #' fv_percent(1:4)
 #' fv_percent(sample(1:100, 20))
 #' \dontrun{
-#' if (!require("pacman")) install.packages("pacman")
-#' pacman::p_load(tidyverse)
+#' library(tidyverse)
 #'
 #' mtcars %>%
 #'     count(cyl, gear) %>%

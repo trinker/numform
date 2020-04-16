@@ -68,7 +68,7 @@ gridExtra::grid.arrange(
        dat \%>\%
             ggplot(aes(level, `\%`)) +
                 geom_col() +
-                scale_x_discrete(labels = function(x) f_replace(x, '_', '\\n')) +
+                scale_x_discrete(labels = function(x) f_replace(x, '_', '\n')) +
                 scale_y_continuous(labels = ff_prop2percent(digits = 0))  +
                 labs(title = 'Underscore Split (Readable)', y = NULL) +
                 theme(

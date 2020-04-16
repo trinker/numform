@@ -13,32 +13,63 @@
 \alias{ff_thous}
 \title{Abbreviate Numbers}
 \usage{
-f_denom(x, relative = 0, prefix = "", pad.char = ifelse(prefix == "",
-  NA, " "), less.than.replace = FALSE, mix.denom = FALSE, ...)
+f_denom(
+  x,
+  relative = 0,
+  prefix = "",
+  pad.char = ifelse(prefix == "", NA, " "),
+  less.than.replace = FALSE,
+  mix.denom = FALSE,
+  ...
+)
 
 ff_denom(...)
 
-f_trills(x, relative = 0, digits = -12, prefix = "",
-  pad.char = ifelse(prefix == "", NA, " "), less.than.replace = FALSE,
-  ...)
+f_trills(
+  x,
+  relative = 0,
+  digits = -12,
+  prefix = "",
+  pad.char = ifelse(prefix == "", NA, " "),
+  less.than.replace = FALSE,
+  ...
+)
 
 ff_trills(...)
 
-f_bills(x, relative = 0, digits = -9, prefix = "",
-  pad.char = ifelse(prefix == "", NA, " "), less.than.replace = FALSE,
-  ...)
+f_bills(
+  x,
+  relative = 0,
+  digits = -9,
+  prefix = "",
+  pad.char = ifelse(prefix == "", NA, " "),
+  less.than.replace = FALSE,
+  ...
+)
 
 ff_bills(...)
 
-f_mills(x, relative = 0, digits = -6, prefix = "",
-  pad.char = ifelse(prefix == "", NA, " "), less.than.replace = FALSE,
-  ...)
+f_mills(
+  x,
+  relative = 0,
+  digits = -6,
+  prefix = "",
+  pad.char = ifelse(prefix == "", NA, " "),
+  less.than.replace = FALSE,
+  ...
+)
 
 ff_mills(...)
 
-f_thous(x, relative = 0, digits = -3, prefix = "",
-  pad.char = ifelse(prefix == "", NA, " "), less.than.replace = FALSE,
-  ...)
+f_thous(
+  x,
+  relative = 0,
+  digits = -3,
+  prefix = "",
+  pad.char = ifelse(prefix == "", NA, " "),
+  less.than.replace = FALSE,
+  ...
+)
 
 ff_thous(...)
 }

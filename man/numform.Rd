@@ -4,7 +4,6 @@
 \name{numform}
 \alias{numform}
 \alias{package-numform}
-\alias{numform-package}
 \title{Tools to Format Numbers for Publication}
 \description{
 Format numbers and plots for publication; includes the removal of leading zeros,

@@ -32,6 +32,7 @@ dollar values as labeled dollars.
 f_dollar(c(30, 33.45, .1))
 \dontrun{
 library(dplyr)
+
 f_dollar(c(0.0, 0, .2, -00.02, 1122222, pi)) \%>\% f_comma()
 }
 }

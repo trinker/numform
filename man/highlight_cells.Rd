@@ -4,9 +4,14 @@
 \alias{highlight_cells}
 \title{Highlight Cells}
 \usage{
-highlight_cells(data, rows, columns = seq_len(ncol(data)),
-  left = "<b>", right = gsub("(<)([^> ]+)([^>]*>)", "\\\\1/\\\\2>",
-  left), ...)
+highlight_cells(
+  data,
+  rows,
+  columns = seq_len(ncol(data)),
+  left = "<b>",
+  right = gsub("(<)([^> ]+)([^>]*>)", "\\\\1/\\\\2>", left),
+  ...
+)
 }
 \arguments{
 \item{data}{A data.frame.}
@@ -41,6 +46,7 @@ highlight_cells(mtcars, rows = hp > 230, columns = 'hp')
 
 \dontrun{
 library(dplyr); library(tibble); library(pander)
+
 mtcars \%>\%
     highlight_cells(rows = hp > 230, columns = 'hp') \%>\%
     highlight_cells(rows = qsec > 20, columns = 'qsec', left = '<b style="color:blue;">')  \%>\%

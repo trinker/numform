@@ -27,6 +27,7 @@ Note that you will have to coerce the table to a \code{data.frame} in order
 for the output to look pretty.
 }
 \examples{
+\dontrun{
 library(dplyr)
 
 mtcars \%>\%
@@ -56,7 +57,6 @@ mtcars \%>\%
     ) \%>\%
     as.data.frame()
 
-\dontrun{
 mtcars \%>\%
     count(cyl, gear) \%>\%
     group_by(cyl) \%>\%
@@ -71,7 +71,6 @@ mtcars \%>\%
     ) \%>\%
     as.data.frame() \%>\%
     pander::pander(split.tables = Inf, justify = alignment(.), style = 'simple')
-}
 
 ## Drop the headers
 mtcars \%>\%
@@ -87,4 +86,5 @@ mtcars \%>\%
         ` ` = f_text_bar(n, symbol = '#')
     ) \%>\%
     as.data.frame()
+}
 }

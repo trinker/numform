@@ -4,9 +4,15 @@
 \alias{alignment}
 \title{Detect Column Alignment}
 \usage{
-alignment(x, left = "left", right = ifelse(left == "l", "r", "right"),
-  additional.numeric = "^((<b>(&ndash;|\\\\+)</b>)|(<?([0-9.\%-]+)|(\\\\$?\\\\s*\\\\d+[KBM])))|(NaN|NA|Inf)$",
-  sep = NULL, ...)
+alignment(
+  x,
+  left = "left",
+  right = ifelse(left == "l", "r", "right"),
+  additional.numeric = paste0("^((<b>(&ndash;|\\\\+)</b>)|(<?([0-9.\%-]+)",
+    "|(\\\\$?\\\\s*\\\\d+[KBM])))|(NaN|NA|Inf)$"),
+  sep = NULL,
+  ...
+)
 }
 \arguments{
 \item{x}{A \code{data.frame}.}
@@ -42,8 +48,9 @@ head(CO2)
 
 
 \dontrun{
-## pander
-pacman::p_load(dplyr, pander)
+library(dplyr)
+library(pander)
+library(xtable)
 
 set.seed(10)
 dat <- data_frame(
@@ -76,8 +83,6 @@ dat \%>\%
     as.data.frame() \%>\%
     pander::pander(split.tables = Inf, justify = alignment(.))
 
-## xtable
-pacman::p_load(xtable)
 
 alignment(CO, 'l', 'r')
 

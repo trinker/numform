@@ -1,6 +1,6 @@
 Package: numform
 Title: Tools to Format Numbers for Publication
-Version: 0.5.1
+Version: 0.6.1
 Authors@R: c(person("Tyler", "Rinker", email = "tyler.rinker@gmail.com", role = c("aut", "cre")))
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: Format numbers and plots for publication; includes the removal of leading zeros,
@@ -13,8 +13,7 @@ Suggests: testthat
 Imports: glue
 License: GPL-2
 LazyData: TRUE
-Roxygen: list(wrap = FALSE)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 Collate: 
     'alignment.R'
     'as_factor.R'

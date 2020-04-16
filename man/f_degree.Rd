@@ -13,27 +13,61 @@
 \alias{ff_latitude}
 \title{Format Degrees (e.g., Temperature, Coordinates)}
 \usage{
-f_fahrenheit(x, digits = getOption("numformdigits"), prefix = NULL,
-  suffix = TRUE, absolute.value = suffix, type = "scale",
-  symbol = "&deg;", ...)
+f_fahrenheit(
+  x,
+  digits = getOption("numformdigits"),
+  prefix = NULL,
+  suffix = TRUE,
+  absolute.value = suffix,
+  type = "scale",
+  symbol = "&deg;",
+  ...
+)
 
-f_celcius(x, digits = getOption("numformdigits"), prefix = NULL,
-  suffix = TRUE, absolute.value = suffix, type = "scale",
-  symbol = "&deg;", ...)
+f_celcius(
+  x,
+  digits = getOption("numformdigits"),
+  prefix = NULL,
+  suffix = TRUE,
+  absolute.value = suffix,
+  type = "scale",
+  symbol = "&deg;",
+  ...
+)
 
-f_longitude(x, digits = getOption("numformdigits"), prefix = NULL,
-  suffix = TRUE, absolute.value = suffix, type = "scale",
-  symbol = "&deg;", ...)
+f_longitude(
+  x,
+  digits = getOption("numformdigits"),
+  prefix = NULL,
+  suffix = TRUE,
+  absolute.value = suffix,
+  type = "scale",
+  symbol = "&deg;",
+  ...
+)
 
-f_latitude(x, digits = getOption("numformdigits"), prefix = NULL,
-  suffix = TRUE, absolute.value = suffix, type = "scale",
-  symbol = "&deg;", ...)
+f_latitude(
+  x,
+  digits = getOption("numformdigits"),
+  prefix = NULL,
+  suffix = TRUE,
+  absolute.value = suffix,
+  type = "scale",
+  symbol = "&deg;",
+  ...
+)
 
-f_degree(x, type = c("scale", "text", "scale", "title", "string"),
-  digits = getOption("numformdigits"), prefix = NULL, suffix = TRUE,
-  absolute.value = suffix, symbol = "&deg;",
-  measure = c("fahrenheit", "celcius", "C", "F", "longitude",
-  "latitude"), ...)
+f_degree(
+  x,
+  type = c("scale", "text", "scale", "title", "string"),
+  digits = getOption("numformdigits"),
+  prefix = NULL,
+  suffix = TRUE,
+  absolute.value = suffix,
+  symbol = "&deg;",
+  measure = c("fahrenheit", "celcius", "C", "F", "longitude", "latitude"),
+  ...
+)
 
 ff_degree(...)
 
@@ -145,8 +179,8 @@ ggplot(world, aes(map_id = region, x = long, y = lat)) +
 
 
 data_frame(
-    Event = c('freezing water', 'room temp', 'body temp', 'steak\\'s done',
-        'hamburger\\'s done', 'boiling water'),
+    Event = c('freezing water', 'room temp', 'body temp', 'steak\'s done',
+        'hamburger\'s done', 'boiling water'),
     F = c(32, 70, 98.6, 145, 160, 212)
 ) \%>\%
     mutate(
@@ -163,7 +197,7 @@ data_frame(
             sec.axis = sec_axis(trans = ~(. - 32) * (5/9), labels = f_celcius,
             name = f_celcius(prefix = 'Temperature ', type = 'title'))
         ) +
-        scale_x_discrete(labels = ff_replace(pattern = ' ', replacement = '\\n')) +
+        scale_x_discrete(labels = ff_replace(pattern = ' ', replacement = '\n')) +
         scale_fill_viridis(option =  "magma", labels = f_fahrenheit, name = NULL) +
         theme_bw() +
         labs(
@@ -179,8 +213,8 @@ data_frame(
 
 
 data_frame(
-    Event = c('freezing water', 'room temp', 'body temp', 'steak\\'s done',
-        'hamburger\\'s done', 'boiling water', 'sun surface', 'lighting'),
+    Event = c('freezing water', 'room temp', 'body temp', 'steak\'s done',
+        'hamburger\'s done', 'boiling water', 'sun surface', 'lighting'),
     F = c(32, 70, 98.6, 145, 160, 212, 9941, 50000)
 ) \%>\%
     mutate(
