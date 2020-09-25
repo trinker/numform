@@ -17,7 +17,7 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-numform 0.6.1 -
+numform 0.6.1 - 0.6.3
 ----------------------------------------------------------------
 
 BUG FIXES
@@ -33,6 +33,22 @@ IMPROVEMENTS
 
 
 CHANGES
+
+
+
+numform 0.6.1 - 0.6.3
+----------------------------------------------------------------
+
+NEW FEATURES
+
+* `f_pad_left` and `f_pad_right` added to make padding a vector easy by computing
+  the width fom the data.
+
+* `round2` added as an alternative to the default `round`'s design to round 1/2
+  to the nearest even number.  THis version rounds 1/2 up.
+
+* `round_any` added to allow rounding to non-whole number values.
+
 
 
 numform 0.5.1 - 0.6.0
