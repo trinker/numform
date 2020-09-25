@@ -2,12 +2,24 @@
 % Please edit documentation in R/f_pad_zero.R
 \name{f_pad_zero}
 \alias{f_pad_zero}
+\alias{f_pad_left}
+\alias{f_pad_right}
 \alias{ff_pad_zero}
+\alias{ff_pad_left}
+\alias{ff_pad_right}
 \title{Pad Numbers with Leading Zeros}
 \usage{
 f_pad_zero(x, width = NULL, pad.char = "0", ...)
 
+f_pad_left(x, pad.char = " ", width = NULL, ...)
+
+f_pad_right(x, pad.char = " ", width = NULL, ...)
+
 ff_pad_zero(...)
+
+ff_pad_left(...)
+
+ff_pad_right(...)
 }
 \arguments{
 \item{x}{A vector of numbers (or string equivalents).}
@@ -20,14 +32,21 @@ characters for all elements in \code{x}.}
 \item{\ldots}{ignored.}
 }
 \value{
-Returns a string of zero padded digits.
+Returns a padded string.
 }
 \description{
-Add leading zeros to numbers.
+\code{f_pad_zero} - Add leading zeros to numbers.
+
+\code{f_pad_left} - Add leading character to strings.
+
+\code{f_pad_right} - Add trailing character to strings.
 }
 \examples{
 f_pad_zero(c(NA, 1, 12))
 f_pad_zero(c(NA, 1, 100, 10, 1000))
 f_pad_zero(as.character(c(NA, 1, 100, 10, 1000)))
 f_pad_zero(c(NA, 1, 100, 10, 1000, "B", "BB"))
+f_pad_left(c(NA, 1, 100, 10, 1000, "B", "BB"), '-')
+f_pad_right(c(NA, 1, 100, 10, 1000, "B", "BB"), '-')
+f_pad_left(c(NA, 1, 12))
 }
