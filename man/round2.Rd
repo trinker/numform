@@ -14,7 +14,7 @@ round_any(x, accuracy, f = round2, ...)
 
 \item{digits}{The number of decimal places to round to.}
 
-\item{accuracy}{- Number to round to.}
+\item{accuracy}{Number to round to.}
 
 \item{f}{A function to round (e.g., \code{round}, \code{ceiling}, \code{floor}).
 efaults to \code{round2}.}

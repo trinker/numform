@@ -36,7 +36,7 @@ round2 <- function(x, digits = 0, ...) {
 #' \code{round_any} - This tooling lets you round to fractional values, not
 #' just whole numbers.  Code adapted from https://stackoverflow.com/a/8665247/1000343.
 #'
-#' @param accuracy - Number to round to.
+#' @param accuracy Number to round to.
 #' @param f A function to round (e.g., \code{round}, \code{ceiling}, \code{floor}).
 #' efaults to \code{round2}.
 #' @param \ldots ignored.
