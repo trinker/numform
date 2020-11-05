@@ -12,6 +12,7 @@ f_num(
   s,
   pad.char = NA,
   zero = NULL,
+  retain.leading.zero = FALSE,
   ...
 )
 
@@ -32,6 +33,9 @@ digits beyond the decimal point to include.}
 are unequal.}
 
 \item{zero}{A value to insert in for zero values.}
+
+\item{retain.leading.zero}{logical.  If \code{TRUE} then leading zeros before
+a decimal place are retained.}
 
 \item{\ldots}{ignored.}
 }

@@ -12,6 +12,8 @@
 #' @param pad.char A character to use for leading padding if lengths of output
 #' are unequal.
 #' @param zero A value to insert in for zero values.
+#' @param retain.leading.zero logical.  If \code{TRUE} then leading zeros before
+#' a decimal place are retained.
 #' @param \ldots ignored.
 #' @return Returns a string of publication ready digits.
 #' @export
@@ -46,7 +48,7 @@
 #'     geom_point() +
 #'     scale_y_continuous(labels = ff_num(zero = 0))
 #' }
-f_num <- function(x, digits = getOption("numformdigits"), p, s, pad.char = NA, zero = NULL, ...) {
+f_num <- function(x, digits = getOption("numformdigits"), p, s, pad.char = NA, zero = NULL, retain.leading.zero = FALSE, ...) {
 
     ldots <- list(...)
     if (length(ldots) > 0) {
@@ -66,8 +68,8 @@ f_num <- function(x, digits = getOption("numformdigits"), p, s, pad.char = NA, z
     na_locs <- which(is.na(x))
 
     if (digits > 0) x <- sprintf(paste0("%.", digits, "f"), x)
-    out <- gsub("^0(?=\\.)|(?<=-)0", "", x, perl=TRUE)
-    if (!is.null(zero)) out <- gsub('^\\.?0+$', zero, out)
+    if (!retain.leading.zero) out <- gsub("^0(?=\\.)|(?<=-)0", "", x, perl=TRUE) else out <- x
+    if (!is.null(zero)) out <- gsub('^-?0?\\.?0+$', zero, out)
 
     if (!is.na(pad.char)) out <- f_pad_zero(out, width = max(nchar(out)), pad.char = pad.char)
 

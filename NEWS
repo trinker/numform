@@ -28,6 +28,10 @@ NEW FEATURES
 
 MINOR FEATURES
 
+* `f_num` picks up the argument `retain.leading.zero` to enable users to keep a
+  leading zero before the decimal point if the value contains no whole number.
+  Suggested by Dan Li.
+
 
 IMPROVEMENTS
 
