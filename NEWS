@@ -17,10 +17,13 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-numform 0.6.1 - 0.6.3
+numform 0.6.4 - 0.6.7
 ----------------------------------------------------------------
 
 BUG FIXES
+
+* `f_ordinal` incorrectly converted the numbers 11-13 to '11st', '12nd' & '13rd'.
+  Spotted by Jonathan Zadra (see #27).
 
 
 NEW FEATURES

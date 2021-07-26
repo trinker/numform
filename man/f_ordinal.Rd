@@ -21,5 +21,5 @@ Returns a string vector with ordinal suffixes.
 Add ordinal suffixes (-st, -nd, -rd, -th) to numbers.
 }
 \examples{
-f_ordinal(1:10)
+f_ordinal(1:25)
 }

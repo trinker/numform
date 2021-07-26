@@ -8,17 +8,17 @@
 #' @rdname f_ordinal
 #' @export
 #' @examples
-#' f_ordinal(1:10)
+#' f_ordinal(1:25)
 f_ordinal <- function(x, ...){
 
     if (is.numeric(x) & any(x < 1)) warning("Values below 1 found.\nMay yield incorrect results")
 
     x <- as.character(x)
 
-    regs <- c(th = '[0456789]$', st = '1$', nd = '2$', rd = '3$')
+    regs <- c(th = '^1[1:2]$|[0456789]$', st = '(?<!^1)1$', nd = '(?<!^1)2$', rd = '(?<!^1)3$')
 
     for (i in seq_along(regs)){
-        locs <- grepl(regs[i], x)
+        locs <- grepl(regs[i], x, perl = TRUE)
         x[locs] <- paste0(x[locs] , names(regs)[i])
     }
 
@@ -30,5 +30,4 @@ f_ordinal <- function(x, ...){
 #' @include utils.R
 #' @rdname f_ordinal
 ff_ordinal <- functionize(f_ordinal)
-
 
