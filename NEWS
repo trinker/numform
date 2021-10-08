@@ -17,7 +17,7 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-numform 0.6.4 - 0.6.7
+numform 0.6.4 - 0.7.0
 ----------------------------------------------------------------
 
 BUG FIXES
@@ -25,8 +25,8 @@ BUG FIXES
 * `f_ordinal` incorrectly converted the numbers 11-13 to '11st', '12nd' & '13rd'.
   Spotted by Jonathan Zadra (see #27).
 
-
-NEW FEATURES
+* `f_dollar` had a `leading_zero` argument that was always TRUE.  This can be set
+  to `FALSE` now.
 
 
 MINOR FEATURES
@@ -35,11 +35,15 @@ MINOR FEATURES
   leading zero before the decimal point if the value contains no whole number.
   Suggested by Dan Li.
 
-
-IMPROVEMENTS
+* `f_percent` picks up an explicit `s` argument.  `f_dollar` picks up and
+  explicit `p` argument.  This allows the percent and dollar sign to be set
+  explicitly.  This can be useful if you need to escape such characters, for
+  example, for use in LaTeX.  Suggested by Chris Snyder (see issue #26).
 
 
 CHANGES
+
+* `glue::collapse` was exported but has bee changed to `glue::glue_collapse`.
 
 
 

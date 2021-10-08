@@ -5,7 +5,7 @@
 \alias{ff_dollar}
 \title{Format Dollars}
 \usage{
-f_dollar(x, leading_zero = TRUE, digits = 2, ...)
+f_dollar(x, leading_zero = TRUE, digits = 2, p = "$", ...)
 
 ff_dollar(...)
 }
@@ -18,6 +18,10 @@ values from 0 up to 1.}
 \item{digits}{The number of digits to use.  Defaults to 2.  Can be set
 globally via: \code{options(numformdigits = n)} where n is the number of
 digits beyond the decimal point to include.}
+
+\item{p}{A string to paste at the beginning of the output from \code{f_num}.
+Defaults to dollar sign.  This could be useful, for example, to turn a
+single dolar sign into an escaped version for LaTeX output.}
 
 \item{\ldots}{Other values passed to \code{\link[numform]{f_num}}.}
 }

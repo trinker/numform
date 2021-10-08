@@ -13,6 +13,7 @@ f_percent(
   x,
   digits = getOption("numformdigits"),
   less.than.replace = FALSE,
+  s = "\%",
   ...
 )
 
@@ -22,12 +23,13 @@ f_prop2percent(
   x,
   digits = getOption("numformdigits"),
   less.than.replace = FALSE,
+  s = "\%",
   ...
 )
 
 ff_prop2percent(...)
 
-f_pp(x, digits = 0, less.than.replace = FALSE, ...)
+f_pp(x, digits = 0, less.than.replace = FALSE, s = "\%", ...)
 
 ff_pp(...)
 }
@@ -44,6 +46,10 @@ sign followed by the \code{double} representation of the place value
 specified by \code{digits}.  For example, if \code{digits = 0} then
 replacement will be \code{"<1\%"} or if \code{digits = 2} then replacement will
 be \code{"<.01\%"}.}
+
+\item{s}{A string to paste at the end of the output from \code{f_num}.
+Defaults to percent sign.  This could be useful, for example, to turn a
+single percent sign into an escaped version for LaTeX output.}
 
 \item{\ldots}{Other values passed to \code{\link[numform]{f_num}}.}
 }
@@ -68,6 +74,8 @@ f_prop2percent(c(.30, 1, 1.01, .33, .222, .01))
 f_pp(c(.30, 1, 1.01, .33, .222, .01))
 
 f_percent(c(30, 33.45, .1), digits = 0, less.than.replace = TRUE)
+## Escaped for LaTeX:
+f_percent(c(30, 33.45, .1), digits = 0, less.than.replace = TRUE, s = '\\\\\%')
 f_prop2percent(c(.30, 1, 1.01, .33, .222, .01, .0001, NA), digits = 0,
     less.than.replace = TRUE)
 

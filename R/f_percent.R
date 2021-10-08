@@ -13,6 +13,9 @@
 #' specified by \code{digits}.  For example, if \code{digits = 0} then
 #' replacement will be \code{"<1\%"} or if \code{digits = 2} then replacement will
 #' be \code{"<.01\%"}.
+#' @param s A string to paste at the end of the output from \code{f_num}.
+#' Defaults to percent sign.  This could be useful, for example, to turn a
+#' single percent sign into an escaped version for LaTeX output.
 #' @param \ldots Other values passed to \code{\link[numform]{f_num}}.
 #' @return Returns a string of publication ready digits.
 #' @export
@@ -26,6 +29,8 @@
 #' f_pp(c(.30, 1, 1.01, .33, .222, .01))
 #'
 #' f_percent(c(30, 33.45, .1), digits = 0, less.than.replace = TRUE)
+#' ## Escaped for LaTeX:
+#' f_percent(c(30, 33.45, .1), digits = 0, less.than.replace = TRUE, s = '\\%')
 #' f_prop2percent(c(.30, 1, 1.01, .33, .222, .01, .0001, NA), digits = 0,
 #'     less.than.replace = TRUE)
 #'
@@ -41,13 +46,14 @@
 #'         facet_wrap(~cyl, ncol = 1) +
 #'         scale_y_continuous(labels = ff_prop2percent(digits = 0))
 #' }
-f_percent <- function(x, digits = getOption("numformdigits"), less.than.replace = FALSE, ...) {
+f_percent <- function(x, digits = getOption("numformdigits"), less.than.replace = FALSE, s = '%', ...) {
 
-    out <- f_num(x, digits = digits, s="%", ...)
+    out <- f_num(x, digits = digits, s=s, ...)
 
     if (isTRUE(less.than.replace)){
         if (is.null(digits)) digits <- 1
-        repl <- replace_less_than(digits, percent = TRUE)
+    #browser()
+        repl <- replace_less_than(digits, percent = TRUE, s=s)
         out[x < repl[['prop_cut']][1] & x >= 0] <- repl[['replacement']][1]
         out[x > repl[['prop_cut']][2] & x < 0] <- repl[['replacement']][2]
     }
@@ -68,13 +74,13 @@ ff_percent <- functionize(f_percent)
 #'
 #' @rdname f_percent
 #' @export
-f_prop2percent <- function(x, digits = getOption("numformdigits"), less.than.replace = FALSE, ...) {
+f_prop2percent <- function(x, digits = getOption("numformdigits"), less.than.replace = FALSE, s = '%', ...) {
 
-    out <- f_num(100*x, digits = digits, s="%", ...)
+    out <- f_num(100*x, digits = digits, s=s, ...)
 
     if (isTRUE(less.than.replace)){
         if (is.null(digits)) digits <- 1
-        repl <- replace_less_than(digits, percent = FALSE)
+        repl <- replace_less_than(digits, percent = FALSE, s=s)
         out[x < repl[['prop_cut']][1] & x >= 0] <- repl[['replacement']][1]
         out[x > repl[['prop_cut']][2] & x < 0] <- repl[['replacement']][2]
     }
@@ -112,7 +118,7 @@ replace_less_than <- function(digits = 0, prefix = c("<", ">-"), percent = FALSE
 
     if(percent) div <- 1 else div <- 1e2
     cut <- 1/(10^digits)
-    list(prop_cut = c((cut)/div, -(cut)/div), replacement = f_percent(cut, digits = digits, prefix = prefix))
+    list(prop_cut = c((cut)/div, -(cut)/div), replacement = f_percent(cut, digits = digits, prefix = prefix, ...))
 
 }
 
