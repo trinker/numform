@@ -4,7 +4,7 @@
 \name{reexports}
 \alias{reexports}
 \alias{glue}
-\alias{collapse}
+\alias{glue_collapse}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -12,6 +12,6 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{glue}{\code{\link[glue:glue-deprecated]{collapse}}, \code{\link[glue]{glue}}}
+  \item{glue}{\code{\link[glue]{glue}}, \code{\link[glue]{glue_collapse}}}
 }}
 
