@@ -53,7 +53,7 @@ numform 0.6.1 - 0.6.3
 NEW FEATURES
 
 * `f_pad_left` and `f_pad_right` added to make padding a vector easy by computing
-  the width fom the data.
+  the width from the data.
 
 * `round2` added as an alternative to the default `round`'s design to round 1/2
   to the nearest even number.  THis version rounds 1/2 up.
@@ -82,7 +82,7 @@ MINOR FEATURES
 IMPROVEMENTS
 
 * The sub-expression '(NaN|NA|Inf)' added to additional numeric
-  (`additional.numeric` argument) of the `allignment()` function.
+  (`additional.numeric` argument) of the `alignment()` function.
 
 
 
@@ -130,8 +130,9 @@ MINOR FEATURES
   denominations.  This is useful for tables with a total row that is a
   denomination higher than the rest of the column.
 
-* `f_pp` added to lower typing on `f_prop2percent(digits = 0)` (a commonly used function and setting) and to also change
-  the default digits value to 0 as is typically used in plotting.
+* `f_pp` added to lower typing on `f_prop2percent(digits = 0)` (a commonly used
+  function and setting) and to also change the default digits value to 0 as is
+  typically used in plotting.
 
 * `constant_weekdays_abbreviation` added to provide an abbreviated form of
   weekdays.
